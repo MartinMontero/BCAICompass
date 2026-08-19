@@ -1218,6 +1218,20 @@
                   ]
     },
     {
+        "id":  "allied-properties-reit",
+        "name":  "Allied Properties REIT",
+        "name_raw":  "Allied Properties REIT",
+        "url":  "https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "unverified",
+        "reason":  "Named as a co-developer of the TELUS 150 West Georgia AI factory site. No location or AI-activity page for the company itself was read, so no record was created; the partnership is recorded in that facility\u0027s sourced description instead.",
+        "flags":  [
+
+                  ]
+    },
+    {
         "id":  "altaml-vancouver",
         "name":  "AltaML (Vancouver)",
         "name_raw":  "AltaML (Vancouver)",
@@ -2498,6 +2512,20 @@
                   ]
     },
     {
+        "id":  "bc-government-ai-portfolio",
+        "name":  "BC government AI portfolio",
+        "name_raw":  "BC government AI portfolio",
+        "url":  "https://news.gov.bc.ca/releases/2026ECS0005-000095",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "unverified",
+        "reason":  "British Columbia now has a Minister of State for Artificial Intelligence and New Technologies, a post reported created 2025-07-17, and a cabinet shuffle on 2026-08-14 moved several relevant portfolios. Deliberately NOT published as records: minister names change faster than a re-verification cycle, and this project does not publish individuals at all. A dated government-layer page is the right home for this, so one edit updates everything -- recommended for the next pass.",
+        "flags":  [
+
+                  ]
+    },
+    {
         "id":  "bc-hydro-clean-power-action-plan",
         "name":  "BC Hydro Clean Power Action Plan",
         "name_raw":  "BC Hydro Clean Power Action Plan",
@@ -2677,20 +2705,6 @@
         "reason":  "No usable http(s) URL in the source, so there was nothing to resolve. Not checked in this pass.",
         "flags":  [
                       "no-url"
-                  ]
-    },
-    {
-        "id":  "bc-tech-association",
-        "name":  "BC Tech Association",
-        "name_raw":  "BC Tech Association",
-        "url":  "https://wearebctech.com",
-        "url_kind":  "website",
-        "category_raw":  "Industry Association",
-        "source":  "bc-ai--ecosystem-map@database-backup-2025-08-04",
-        "status":  "unverified",
-        "reason":  "Structurally intact candidate with a website URL, not reached in this verification pass. Note that AUDIT.md section 2.3 found the source URL for 176 of 403 such rows to be derivable character-for-character from the organization name, so the URL is a hint and must be re-resolved independently, not trusted.",
-        "flags":  [
-
                   ]
     },
     {
@@ -4449,6 +4463,20 @@
                   ]
     },
     {
+        "id":  "cohere",
+        "name":  "Cohere",
+        "name_raw":  "Cohere",
+        "url":  "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "rejected",
+        "reason":  "Runs foundation models on BUZZ HPC infrastructure at Merritt, but Cohere is a Toronto company, not a British Columbia organization. Its BC compute footprint is captured on the BUZZ HPC and Bell Merritt records. Same principle that keeps Bell Canada, Groq and NVIDIA out of a BC directory.",
+        "flags":  [
+
+                  ]
+    },
+    {
         "id":  "cohere-health-vancouver",
         "name":  "Cohere Health Vancouver",
         "name_raw":  "Cohere Health Vancouver",
@@ -5737,6 +5765,20 @@
         "source":  "bc-ai--ecosystem-map@database-backup-2025-08-04",
         "status":  "unverified",
         "reason":  "Structurally intact candidate with a website URL, not reached in this verification pass. Note that AUDIT.md section 2.3 found the source URL for 176 of 403 such rows to be derivable character-for-character from the organization name, so the URL is a hint and must be re-resolved independently, not trusted.",
+        "flags":  [
+
+                  ]
+    },
+    {
+        "id":  "digibc",
+        "name":  "DigiBC",
+        "name_raw":  "DigiBC",
+        "url":  "https://digibc.org",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "unverified",
+        "reason":  "Tier-A verified by hand: registered non-profit industry association for BC creative technology, 160-577 Great Northern Way, Vancouver. Not published because no AI or machine-learning statement was sourced -- its remit is video games, animation, VFX, XR and virtual production. Held to the same bar as AbCellera and Innovate BC. NOTE FOR ANY FUTURE PASS: DigiBC was founded in 1997 as New Media BC and renamed in January 2009, so \"New Media BC\" must be treated as a name variant of DigiBC and never listed as a live separate organization.",
         "flags":  [
 
                   ]
@@ -8836,6 +8878,20 @@
                   ]
     },
     {
+        "id":  "hive-digital-technologies",
+        "name":  "HIVE Digital Technologies",
+        "name_raw":  "HIVE Digital Technologies",
+        "url":  "https://www.hivedigitaltechnologies.com/",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "unverified",
+        "reason":  "Parent of BUZZ HPC, which IS published as an operator of BC AI infrastructure at Merritt. AI/HPC materiality confirmed verbatim on HIVE\u0027s own site (\"GPU-based accelerated AI computing\", \"thousands of next-generation GPUs ... to support the fast-growing AI and HPC markets\"). But the page read 2026-08-19 states NO headquarters city, province or address, so BC presence for the parent company is not established. Its BC activity is captured on the BUZZ HPC record instead.",
+        "flags":  [
+
+                  ]
+    },
+    {
         "id":  "homecourt-nex-team",
         "name":  "HomeCourt/NEX Team",
         "name_raw":  "HomeCourt/NEX Team",
@@ -9004,6 +9060,20 @@
         "reason":  "No usable http(s) URL in the source, so there was nothing to resolve. Not checked in this pass.",
         "flags":  [
                       "no-url"
+                  ]
+    },
+    {
+        "id":  "hypertec",
+        "name":  "Hypertec",
+        "name_raw":  "Hypertec",
+        "url":  "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "unverified",
+        "reason":  "Named in a June 2026 agreement bringing it into the Bell AI Fabric Merritt deployment alongside Cohere. No first-party page establishing a British Columbia presence was read. Captured in the Merritt facility\u0027s sourced description rather than as its own record.",
+        "flags":  [
+
                   ]
     },
     {
@@ -12540,10 +12610,10 @@
         "name_raw":  "New Media BC",
         "url":  "https://newmediabc.com",
         "url_kind":  "website",
-        "category_raw":  "Industry Association",
-        "source":  "bc-ai--ecosystem-map@database-backup-2025-08-04",
-        "status":  "unverified",
-        "reason":  "Structurally intact candidate with a website URL, not reached in this verification pass. Note that AUDIT.md section 2.3 found the source URL for 176 of 403 such rows to be derivable character-for-character from the organization name, so the URL is a hint and must be re-resolved independently, not trusted.",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "rejected",
+        "reason":  "DEFUNCT PREDECESSOR NAME, not a live organization. DigiBC\u0027s own history states it was founded in 1997 as New Media BC, with a merger and renaming in January 2009. The predecessor dataset carries it as a live organization with a named Executive Director who is not DigiBC\u0027s. Merge as a name variant of DigiBC; never list separately.",
         "flags":  [
 
                   ]
@@ -14379,15 +14449,15 @@
                   ]
     },
     {
-        "id":  "quantum-algorithms-institute-own-site",
-        "name":  "Quantum Algorithms Institute (own site)",
-        "name_raw":  "Quantum Algorithms Institute (own site)",
+        "id":  "quantum-algorithms-institute-legacy-domain",
+        "name":  "Quantum Algorithms Institute (legacy domain)",
+        "name_raw":  "Quantum Algorithms Institute (legacy domain)",
         "url":  "https://www.quantumalgorithms.ca",
         "url_kind":  "website",
         "category_raw":  null,
         "source":  "checked-2026-08-19",
-        "status":  "unverified",
-        "reason":  "The institute IS published, but sourced to SFU rather than to itself: quantumalgorithms.ca presented an EXPIRED TLS CERTIFICATE when fetched on 2026-08-19. Recorded here so the next pass re-checks the certificate rather than assuming the earlier source still stands.",
+        "status":  "rejected",
+        "reason":  "RESOLVED IN THE RECONCILE PASS. quantumalgorithms.ca is the LEGACY domain and served an expired TLS certificate on 2026-08-19. The live domain is qai.ca, confirmed by fetch. The institute IS published, now sourced to https://www.qai.ca/who-we-are. A further variant, quantumalgorithms.org, appears in the predecessor dataset and is also wrong. Recorded so the dead domains are not re-adopted.",
         "flags":  [
 
                   ]
@@ -16255,13 +16325,13 @@
         "name":  "Site C Hydroelectric AI Integration",
         "name_raw":  "Site C Hydroelectric AI Integration",
         "url":  null,
-        "url_kind":  null,
-        "category_raw":  "Company",
-        "source":  "bc-ai--ecosystem-map@database-backup-2025-08-04",
-        "status":  "unverified",
-        "reason":  "No usable http(s) URL in the source, so there was nothing to resolve. Not checked in this pass.",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "rejected",
+        "reason":  "SPECULATIVE ENTITY in the predecessor dataset: a plausible-sounding institutional construct with no URL and no evidence that it exists. Quarantined rather than deleted so the next pass can check it individually. Sibling constructs in the same family: \"Site C Hydroelectric Project AI Division\", \"BC Data Centre AI Initiative\", \"Upper Nicola Band AI Data Centre\", and \"BC Hydro Clean Power Action Plan\" (filed by the predecessor under category \"Company\").",
         "flags":  [
-                      "no-url"
+
                   ]
     },
     {

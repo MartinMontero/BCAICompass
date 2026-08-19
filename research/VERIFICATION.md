@@ -427,7 +427,79 @@ provenance note. It is now scoped to quoted strings — the tag as a *value*.
 
 ---
 
-## 10. What the next person should do first
+## 10. Reconcile pass against Martin's hand-verified records
+
+After the first full pass, `research\verified\` arrived in the repository from
+Martin Montero (commit `4465501`) — `verified-records.json` (8 Tier-A records, each
+with a fetched `evidenceQuote`) and `corrections-to-apply.md` (149 lines of graded
+corrections). **These found real defects in my dataset.** Everything below was
+applied; nothing was quietly dropped.
+
+### 10.1 Corrections applied to published records
+
+| Record | Defect | Fix |
+|---|---|---|
+| **Quantum Algorithms Institute** | **I asserted Surrey with a municipal pin.** The Surrey address appears only on the legacy domain's footer and on Facebook; the live site publishes no address anywhere and has no contact page. **This was exactly the inference this project forbids, committed by me.** Also: wrong domain. | URL corrected to `qai.ca` (verified by fetch: the quoted sentence is on the page, and no address is). **Pin removed.** Region changed to `Province-wide` — mandate, not a guessed address. |
+| **CAIDA** | Description asserted "more than 100 professors ... across 27 departments". CAIDA's own pages give three different figures (83/24, 100+/27, 100+/30). | Membership figure **removed**. Full ICICS address added. A `COLLISION HAZARD` comment added on the record: `caida.org` is an unrelated San Diego institute with the same acronym and is the first result a naive search returns. |
+| **TELUS M3** | Stated a 2026 opening with no mention that it is **not approved**. | Address corrected to 111 East 5th Avenue (the former Hootsuite building). Added: Vancouver City Council reversed its own 14 July 2026 decision on 21 July 2026, deferring the rezoning past the municipal election. Record now says **proposed, not approved**. |
+| **TELUS 150 West Georgia** | Same — implied approval. Co-developer missing. | Allied Properties REIT added; permitting subject to compliance confirmation under BC's new data-centre framework; **proposed, not approved**. |
+| **TELUS** (operator) | Headline figures read as facts. | All now explicitly labelled **company projections**, and the cluster described as proposed. |
+| **Bell AI Fabric Merritt** | Said only "7 MW". | Three reported figures are three different things: 7 MW announced design, 6.5 MW secured by BUZZ HPC, 5 MW as-built phase. Design and secured are both now named and attributed. Site detail (five acres by Merritt Municipal Airport), spring 2026 opening, and the Cohere/Hypertec agreement added. Source upgraded to Bell's own release. |
+| **Bell AI Fabric Kamloops** | No site detail. | Mission Flats Road added; 7 MW labelled as design capacity. |
+| **First Nations Technology Council** | Filed under `Metro Vancouver`. Its mandate covers **all 204 First Nations in BC**; filing it by head-office region misrepresents it. | Region → `Province-wide`. Office address and pin retained, since both are published and sourced. |
+| **DIGITAL** | Recorded under the retired name. | Renamed to `DIGITAL`, former name kept in the description because the organization's own naming is genuinely mixed. |
+| **Regions section** | The `Province-wide` note claimed such records never have a pin — no longer true. | Note rewritten: region records mandate, not address. |
+
+### 10.2 Records added, after verifying the additive claims myself
+
+The corrections file grades its own evidence and says Tier B items should be
+re-verified against a primary page before shipping. I applied that split: **Tier B
+corrections that make a record more conservative** (withdraw a claim, add a caveat,
+null a contested field) were applied immediately, since a conservative correction
+cannot fabricate. **Tier B corrections that add new claims** were verified first.
+
+- **BUZZ HPC** — verified by fetching Bell's own release (2026-03-25): *"secured an
+  immediate 6.5 MW of gross capacity"*, *"a wholly owned subsidiary of HIVE Digital
+  Technologies LTD."*, liquid-cooled GPU infrastructure for inference and training
+  at Merritt. **Published.** It is a BC AI infrastructure operator and was absent
+  from every version of this dataset.
+- **BC Tech Association** — published on the strength of its stated AI vertical
+  accelerator. Its address is recorded as a **mailing address for a fully virtual
+  team**, in the location string, because implying a place people visit would be
+  wrong.
+
+### 10.3 Where I did not adopt Martin's records, and why
+
+Stated rather than glossed, because these are deliberate divergences from a
+hand-verified source.
+
+| Record | Martin's file | My decision |
+|---|---|---|
+| **Innovate BC** | Tier-A verified as a provincial Crown agency, `status: verified` | **Still not published.** His evidence establishes what it *is*; neither his source nor mine establishes that AI is material to it. Same bar as AbCellera. It is one sourced sentence away from being listed. |
+| **DigiBC** | Tier-A verified with a fetched address | **Not published** — no AI statement sourced. Its remit is games, animation, VFX, XR and virtual production. Recorded in `unverified.json` **with** the New Media BC merge instruction, so the merge is not lost. |
+| **`keyPeople` on four records** | Martin's records carry named directors and CEOs | **Not published, by design.** [PLAN.md](PLAN.md) §1.1 puts individuals out of scope on privacy grounds, not accuracy grounds. His own corrections file reaches the same conclusion for ministers in §5 — "they change faster than a re-verification cycle" — and the 2026-08-14 cabinet shuffle proves it. |
+| **`category` values** | Uses the predecessor taxonomy (`Innovation Centres & Hubs`, `Industry Association`, `Academic & Research Labs`) | Mapped to this project's seven-category union per [PLAN.md](PLAN.md) §2.3. The raw labels are the taxonomy [AUDIT.md](AUDIT.md) §5 found unusable. |
+| **BC government AI portfolio** | Tier B, recommends adding a government layer | **Not published as records.** Agreed with his own caution: minister names do not belong on organization records. Recorded in `unverified.json` as a recommendation for a dated government-layer page. |
+| **Speculative entities** (`Site C Hydroelectric AI Integration` and four siblings) | Quarantine, do not delete | Recorded as `rejected` in `unverified.json` with the full sibling list, so they are quarantined and individually re-checkable rather than deleted. |
+
+### 10.4 What this pass says about the method
+
+**A second pair of eyes found a fabrication I had committed** — the Surrey pin on
+the Quantum Algorithms Institute, assigned from a stale footer on a domain that was
+itself wrong. Every machine gate passed with that record in place, because the gates
+check that a coordinate *has* a source, not that the source *says what the record
+claims*. That is a real limit of automated verification and it is worth stating
+plainly: **the gates catch missing provenance; only a human reading the source
+catches wrong provenance.**
+
+Counts after the reconcile: **104 verified records** (was 102), **98 with sourced
+coordinates** (was 97 — two added, one correctly removed), 1,464 candidates
+unpublished with a reason each, 51 of them individually checked. All 17 exit
+conditions still pass.
+
+---
+
+## 11. What the next person should do first
 
 1. **Fix the composition skew.** Verify 30–40 BC companies. The bottleneck is
    location, not AI materiality — most company sites state AI and hide their

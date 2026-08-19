@@ -30,7 +30,7 @@ const NOTES: Partial<Record<Region, string>> = {
   'Fraser Valley':
     'One record: a regional AI community covering Langley to Chilliwack. Thin coverage here is a gap in this dataset, not a finding about the Fraser Valley.',
   'Province-wide':
-    'Organizations with a genuinely provincial mandate and no single seat. They appear in the directory without a map pin, because giving them one would put a real pin on a place they are not.',
+    'Organizations whose mandate is the whole province. Region here records mandate, not address — some have a head office and keep its pin, while others publish no address at all and correctly have none.',
   Cariboo: 'Records verified in the Cariboo region.',
   'North Coast & Nechako': 'Records verified in the North Coast and Nechako region.',
   Northeast: 'Records verified in the Northeast region.',

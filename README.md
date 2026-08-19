@@ -14,8 +14,8 @@ produced for any organization listed in it. No listing is paid for or sponsored.
 
 ## What is here
 
-- **102 verified organizations**, each with a `sourceUrl`, a `sourceDate` and a
-  `verified` stamp. 97 have sourced coordinates and appear on the map; the rest
+- **104 verified organizations**, each with a `sourceUrl`, a `sourceDate` and a
+  `verified` stamp. 98 have sourced coordinates and appear on the map; the rest
   have a province-wide mandate and no single seat, and appear in the directory
   without a pin.
 - **The map** — province-wide, fitted to the data rather than centred on
@@ -84,7 +84,7 @@ any BC AI dataset, including this one.
 | [`research/DESIGN.md`](research/DESIGN.md) | The design system and its per-project binding |
 | [`research/SHIP.md`](research/SHIP.md) | Deployment, rollback, and the re-verification cadence |
 | [`research/seed-summary.md`](research/seed-summary.md) | The source data normalized into leads, with attrition per filter stage |
-| [`research/unverified.json`](research/unverified.json) | 1,459 candidates that did **not** reach verified, with a reason each. Never built into the site. |
+| [`research/unverified.json`](research/unverified.json) | 1,464 candidates that did **not** reach verified, with a reason each. Never built into the site. |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to add or correct an organization, and what evidence a submission needs |
 
 ## Stack

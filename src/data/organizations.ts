@@ -261,9 +261,13 @@ export const ORGANIZATIONS: Organization[] = [
     category: 'Compute & Infrastructure',
     orgType: 'infrastructure-operator',
     url: 'https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory',
-    location: 'Vancouver — Mount Pleasant',
+    location: 'Vancouver — 111 East 5th Avenue, Mount Pleasant',
+    // PROPOSED, NOT APPROVED. Added in the 2026-08-19 reconcile pass: on 2026-07-21
+    // Vancouver City Council unanimously reversed its 2026-07-14 decision to send the
+    // 111 East 5th rezoning to a public hearing, deferring it past the municipal
+    // election. Any record implying this site is approved is wrong.
     description:
-      'AI factory in Vancouver’s Mount Pleasant neighbourhood, developed with Westbank. Stated to open at the end of 2026 and scale through 2028.',
+      'Proposed AI factory at the former Hootsuite building in Vancouver’s Mount Pleasant, developed with Westbank. TELUS states an end-of-2026 opening scaling through 2028 — but the rezoning remains unresolved: on 21 July 2026 Vancouver City Council reversed its own 14 July decision to send it to a public hearing, deferring the matter past the municipal election. This site is proposed, not approved.',
     size: null,
     sourceUrl: S_TELUS,
     ...V,
@@ -276,7 +280,8 @@ export const ORGANIZATIONS: Organization[] = [
     orgType: 'infrastructure-operator',
     url: 'https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory',
     location: 'Vancouver — 150 West Georgia',
-    description: 'Third facility in the TELUS sovereign AI factory cluster, stated to come online in 2029.',
+    description:
+      'Third and largest-dated facility in the TELUS sovereign AI factory cluster, developed with Westbank and Allied Properties REIT. TELUS states a 2029 start. Permitting is also subject to confirmation of compliance with British Columbia’s new data-centre regulatory framework, so this site is proposed, not approved.',
     size: null,
     sourceUrl: S_TELUS,
     ...V,
@@ -289,8 +294,10 @@ export const ORGANIZATIONS: Organization[] = [
     orgType: 'infrastructure-operator',
     url: 'https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory',
     location: 'Vancouver',
+    // Every headline number below is a TELUS projection, labelled as one. None is a
+    // delivered fact, and the two Vancouver sites are not yet approved.
     description:
-      'Operator of the sovereign AI factory cluster in British Columbia — Kamloops plus two Vancouver facilities — built on an initial 85 MW of clean power secured from BC Hydro and stated to scale to over 60,000 GPUs and 150 MW by 2032.',
+      'Operator of the proposed sovereign AI factory cluster in British Columbia — Kamloops plus two Vancouver sites — built on an initial 85 MW of clean power secured from BC Hydro. TELUS projects the cluster scaling to over 60,000 GPUs and 150 MW by 2032, roughly $9B in economic value to BC and 1,000+ construction jobs. Those are company projections, not delivered results.',
     size: null,
     sourceUrl: S_TELUS,
     ...V,
@@ -330,9 +337,9 @@ export const ORGANIZATIONS: Organization[] = [
     category: 'Compute & Infrastructure',
     orgType: 'infrastructure-operator',
     url: 'https://www.bell.ca/Business/AI-Fabric',
-    location: 'Kamloops',
+    location: 'Kamloops — Mission Flats Road',
     description:
-      'First Bell AI Fabric facility, 7 MW, built with Groq language processing units for AI inference. Reported online June 2025.',
+      'First Bell AI Fabric facility, 7 MW design capacity, built with Groq language processing units for AI inference. Reported online June 2025.',
     size: null,
     sourceUrl: S_BELL,
     ...V,
@@ -343,11 +350,31 @@ export const ORGANIZATIONS: Organization[] = [
     name: 'Bell AI Fabric Merritt',
     category: 'Compute & Infrastructure',
     orgType: 'infrastructure-operator',
-    url: 'https://www.bell.ca/Business/AI-Fabric',
-    location: 'Merritt',
-    description: 'Bell AI Fabric facility in Merritt, 7 MW.',
+    url: 'https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc',
+    location: 'Merritt — five-acre site adjacent to Merritt Municipal Airport',
+    // Design capacity and secured capacity are DIFFERENT NUMBERS and both are
+    // correct. Reported figures for this site were 7 MW (announced design), 6.5 MW
+    // (secured by BUZZ HPC) and 5 MW (as-built phase, per Bell's engineering
+    // contractor). Collapsing them into one "capacity" would force a false choice,
+    // so both published figures are named and attributed.
+    description:
+      'Bell AI Fabric facility in Merritt, opened spring 2026, with high-density liquid-cooled infrastructure for AI inference and training. Announced design capacity 7 MW; BUZZ HPC has secured an immediate 6.5 MW of gross capacity with an option on more. A June 2026 agreement brings Cohere and Hypertec into the deployment.',
     size: null,
-    sourceUrl: S_BELL,
+    sourceUrl: 'https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc',
+    ...V,
+  },
+  {
+    ...CITY.merritt,
+    id: 'buzz-hpc',
+    name: 'BUZZ HPC',
+    category: 'Compute & Infrastructure',
+    orgType: 'infrastructure-operator',
+    url: 'https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc',
+    location: 'Merritt — at the Bell AI Fabric facility',
+    description:
+      'BUZZ High Performance Computing, a wholly owned subsidiary of HIVE Digital Technologies Ltd. Operates sovereign AI cloud and GPU cluster infrastructure at Bell’s Merritt facility, having secured an immediate 6.5 MW of gross capacity there. Reported to be deploying NVIDIA Grace Blackwell GPU systems on which Cohere runs foundation models for Canadian government and enterprise customers.',
+    size: null,
+    sourceUrl: 'https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc',
     ...V,
   },
   {
@@ -493,9 +520,15 @@ export const ORGANIZATIONS: Organization[] = [
     category: 'Research & Academia',
     orgType: 'university-or-lab',
     url: 'https://caida.ubc.ca/',
-    location: 'Vancouver — UBC Vancouver campus',
+    location: 'Vancouver — 289-2366 Main Mall, ICICS Building, UBC Vancouver',
+    // No membership figure is published here on purpose: CAIDA's own pages give
+    // three different counts (83 professors / 24 units, 100+ / 27, 100+ / 30).
+    // Picking one would be choosing a number, which is not the same as sourcing it.
+    // COLLISION HAZARD for anyone re-verifying: caida.org is the Center for Applied
+    // Internet Data Analysis in San Diego -- unrelated, same acronym, and the first
+    // result a naive search returns. The correct domain is caida.ubc.ca.
     description:
-      'Described by UBC as the university’s research hub for artificial intelligence, comprising more than 100 professors and their research associates across 27 departments, working on theoretical and applied AI for decision-making.',
+      'Described by UBC as the university’s research hub for artificial intelligence, spanning many departments and working on theoretical and applied AI for decision-making and action. Sits within UBC’s Institute for Computing, Information and Cognitive Systems.',
     size: null,
     sourceUrl: S_UBC_AI,
     ...V,
@@ -986,17 +1019,25 @@ export const ORGANIZATIONS: Organization[] = [
     ...V,
   },
   {
-    ...CITY.surrey,
+    // CORRECTED 2026-08-19 during the reconcile pass. Three things were wrong here:
+    // the live domain is qai.ca (not quantumalgorithms.ca, which is the legacy
+    // domain and served an expired certificate), and this record previously
+    // asserted Surrey with a municipal pin. The Surrey address appears only on the
+    // legacy domain's footer and on Facebook; the current site publishes NO address
+    // on any page and has no contact page in its navigation. Assigning a region and
+    // a pin from a stale footer is precisely the inference this project refuses, so
+    // the pin is gone and the region records the mandate, not a guessed address.
     id: 'quantum-algorithms-institute',
     name: 'Quantum Algorithms Institute',
     category: 'Research & Academia',
     orgType: 'nonprofit-or-association',
-    url: 'https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html',
-    location: 'Surrey',
+    region: 'Province-wide',
+    url: 'https://www.qai.ca',
+    location: 'British Columbia — no address published',
     description:
-      'Institute listed by SFU as developing quantum computing algorithms and AI applications. Its own domain, quantumalgorithms.ca, presented an expired TLS certificate when checked on 2026-08-19, so this record is sourced to SFU rather than to the institute’s own site.',
+      'Non-profit described on its own site as "dedicated to advancing the growth, adoption, and strategic development of quantum technologies in British Columbia", through quantum literacy in business, training, and pilot projects applying quantum methods. Listed by SFU as developing quantum computing algorithms and AI applications. No physical address is published on its site, so this record carries no coordinates.',
     size: null,
-    sourceUrl: S_SFU_AI,
+    sourceUrl: 'https://www.qai.ca/who-we-are',
     ...V,
   },
   {
@@ -1543,13 +1584,17 @@ export const ORGANIZATIONS: Organization[] = [
   {
     ...CITY.vancouver,
     id: 'digital-technology-supercluster',
-    name: 'Digital Technology Supercluster (DIGITAL)',
+    // Renamed 2026-08-19: the organization now trades as DIGITAL. Its own naming is
+    // genuinely mixed -- footer and copyright read DIGITAL, navigation and page
+    // titles still read Digital Technology Supercluster -- so the former name is
+    // kept in the description rather than dropped.
+    name: 'DIGITAL',
     category: 'Capital & Accelerators',
     orgType: 'investor-or-program',
     url: 'https://www.digitalsupercluster.ca',
     location: 'Vancouver — 2127-1055 W Georgia Street',
     description:
-      'Helps companies deploy breakthrough technologies by unlocking access to capital, talent and markets, connecting technology companies, government, academia and investors. Artificial intelligence is a named focus area of its innovation programs.',
+      'One of Canada’s Global Innovation Clusters, formerly and still widely known as the Digital Technology Supercluster. Co-invests federal and industry money in applied technology projects, and runs a dedicated artificial intelligence programme stream.',
     size: null,
     sourceUrl: 'https://www.digitalsupercluster.ca',
     ...V,
@@ -1566,6 +1611,24 @@ export const ORGANIZATIONS: Organization[] = [
       'The Victoria Innovation, Advanced Technology and Entrepreneurship Council. Supports Greater Victoria’s technology sector with community resources, workspace and professional development, and convenes the PROMPT Victoria AI Conference.',
     size: null,
     sourceUrl: 'https://www.viatec.ca',
+    ...V,
+  },
+  {
+    ...CITY.vancouver,
+    id: 'bc-tech-association',
+    name: 'BC Tech Association',
+    category: 'Capital & Accelerators',
+    orgType: 'nonprofit-or-association',
+    url: 'https://wearebctech.com',
+    // The address is a MAILING address: the organization states it operates as a
+    // fully virtual team. The pin is retained because the address is published and
+    // sourced, but the location string says what it is rather than implying a place
+    // people visit.
+    location: 'Vancouver — 210-1401 West 8th Avenue (mailing address; fully virtual team)',
+    description:
+      'British Columbia’s cross-sector technology industry association, running member programmes, accelerators, talent and immigration initiatives and advocacy. Its AI-specific programming includes a vertical accelerator aimed at AI companies.',
+    size: null,
+    sourceUrl: 'https://wearebctech.com/members/member-directory/name/digibc-1/',
     ...V,
   },
   {
@@ -1592,10 +1655,16 @@ export const ORGANIZATIONS: Organization[] = [
     name: 'First Nations Technology Council',
     category: 'Talent & Education',
     orgType: 'nonprofit-or-association',
+    // Region corrected 2026-08-19 from 'Metro Vancouver' to 'Province-wide'. Its
+    // mandate covers all 204 First Nations in British Columbia; filing it under the
+    // region its head office happens to sit in misrepresents the organization. The
+    // office address is real and sourced, so the pin stays -- region here records
+    // mandate, not address.
+    region: 'Province-wide',
     url: 'https://firstnationstech.ca/',
-    location: 'Vancouver — 1707-1370 Senakw Lane',
+    location: 'Vancouver — 1707-1370 Senakw Lane (province-wide mandate)',
     description:
-      'Delivers digital skills training and conducts research on connectivity and technology strategy for First Nations across British Columbia. Its AI work includes the course "Pathways to AI: An Introduction for Indigenous People and Organizations" and the report "First Nations Perspectives on Artificial Intelligence".',
+      'Indigenous-led non-profit mandated by the First Nations Leadership Council to advance digital literacy, connectivity and technology strategy for all 204 First Nations in British Columbia. Its AI work includes the course "Pathways to AI: An Introduction for Indigenous People and Organizations" and the report "First Nations Perspectives on Artificial Intelligence".',
     size: null,
     sourceUrl: 'https://firstnationstech.ca/',
     ...V,

@@ -60,7 +60,7 @@ says what to look for.
    nowhere useful.
 7. **Save and Deploy.** Watch the log. You are looking for two lines, in order:
    ```
-   export-data: OK — 102 verified organizations, 97 with sourced coordinates.
+   export-data: OK — 104 verified organizations, 98 with sourced coordinates.
    ✓ built in ...
    ```
    If the first line is missing, `prebuild` did not run — go back to step 5 and
@@ -236,7 +236,7 @@ dataset can carry.
 
 ### 4.4 The concentration risk to watch
 
-59 of 102 records rest on 16 institutional pages. **If UBC restructures its research
+59 of 104 records rest on 16 institutional pages. **If UBC restructures its research
 site, a fifth of the dataset loses its source at once** — and the records will still
 render, still stamped, still linking a dead URL.
 

@@ -42,7 +42,7 @@
         "orgType": "infrastructure-operator",
         "region": "Metro Vancouver",
         "url": "https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory",
-        "location": "Vancouver — Mount Pleasant",
+        "location": "Vancouver — 111 East 5th Avenue, Mount Pleasant",
         "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
@@ -157,7 +157,7 @@
         "orgType": "infrastructure-operator",
         "region": "Thompson-Okanagan",
         "url": "https://www.bell.ca/Business/AI-Fabric",
-        "location": "Kamloops",
+        "location": "Kamloops — Mission Flats Road",
         "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
@@ -179,9 +179,32 @@
         "category": "Compute & Infrastructure",
         "orgType": "infrastructure-operator",
         "region": "Thompson-Okanagan",
-        "url": "https://www.bell.ca/Business/AI-Fabric",
-        "location": "Merritt",
-        "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
+        "url": "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
+        "location": "Merritt — five-acre site adjacent to Merritt Municipal Airport",
+        "sourceUrl": "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/merritt-bc-canada-268.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.789719,
+          50.112778
+        ]
+      },
+      "properties": {
+        "id": "buzz-hpc",
+        "name": "BUZZ HPC",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Thompson-Okanagan",
+        "url": "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
+        "location": "Merritt — at the Bell AI Fabric facility",
+        "sourceUrl": "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://www.latlong.net/place/merritt-bc-canada-268.html"
@@ -341,7 +364,7 @@
         "orgType": "university-or-lab",
         "region": "Metro Vancouver",
         "url": "https://caida.ubc.ca/",
-        "location": "Vancouver — UBC Vancouver campus",
+        "location": "Vancouver — 289-2366 Main Mall, ICICS Building, UBC Vancouver",
         "sourceUrl": "https://research.ubc.ca/ai",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
@@ -1151,29 +1174,6 @@
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.82509,
-          49.10635
-        ]
-      },
-      "properties": {
-        "id": "quantum-algorithms-institute",
-        "name": "Quantum Algorithms Institute",
-        "category": "Research & Academia",
-        "orgType": "nonprofit-or-association",
-        "region": "Metro Vancouver",
-        "url": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
-        "location": "Surrey",
-        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
-        "sourceDate": "2026-08-19",
-        "verified": "2026-08",
-        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
       }
     },
     {
@@ -2061,7 +2061,7 @@
       },
       "properties": {
         "id": "digital-technology-supercluster",
-        "name": "Digital Technology Supercluster (DIGITAL)",
+        "name": "DIGITAL",
         "category": "Capital & Accelerators",
         "orgType": "investor-or-program",
         "region": "Metro Vancouver",
@@ -2106,6 +2106,29 @@
         ]
       },
       "properties": {
+        "id": "bc-tech-association",
+        "name": "BC Tech Association",
+        "category": "Capital & Accelerators",
+        "orgType": "nonprofit-or-association",
+        "region": "Metro Vancouver",
+        "url": "https://wearebctech.com",
+        "location": "Vancouver — 210-1401 West 8th Avenue (mailing address; fully virtual team)",
+        "sourceUrl": "https://wearebctech.com/members/member-directory/name/digibc-1/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
         "id": "new-ventures-bc",
         "name": "New Ventures BC",
         "category": "Capital & Accelerators",
@@ -2133,9 +2156,9 @@
         "name": "First Nations Technology Council",
         "category": "Talent & Education",
         "orgType": "nonprofit-or-association",
-        "region": "Metro Vancouver",
+        "region": "Province-wide",
         "url": "https://firstnationstech.ca/",
-        "location": "Vancouver — 1707-1370 Senakw Lane",
+        "location": "Vancouver — 1707-1370 Senakw Lane (province-wide mandate)",
         "sourceUrl": "https://firstnationstech.ca/",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
