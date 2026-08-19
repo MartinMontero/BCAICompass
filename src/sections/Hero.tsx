@@ -25,7 +25,11 @@ export default function Hero() {
       />
 
       <div className="relative px-5 md:px-10 max-w-[1400px] mx-auto">
-        <div className="eyebrow mb-6 reveal">BRITISH COLUMBIA · INDEPENDENT · SOURCE-STAMPED</div>
+        {/* "INDEPENDENT" was here until 2026-08-19 and was false: this is a BC + AI
+            Ecosystem Association project. Removed rather than reworded — the eyebrow
+            is not the place to explain a commissioning relationship, and the Method
+            section and footer both now state it in full. */}
+        <div className="eyebrow mb-6 reveal">BRITISH COLUMBIA · SOURCE-STAMPED · OPEN DATA</div>
 
         <h1 className="font-display uppercase leading-[0.9] text-[13vw] md:text-[8.5vw] lg:text-[7.5vw] max-w-[15ch] reveal">
           Who is actually

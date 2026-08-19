@@ -231,6 +231,14 @@ export default function EcosystemMap() {
     return c;
   }, []);
 
+  // Counts across the WHOLE dataset, not just mapped records. Used to tell
+  // "has records but none with coordinates" apart from "nobody has looked here".
+  const allRegionCounts = useMemo(() => {
+    const c: Record<string, number> = {};
+    for (const k of REGIONS) c[k] = ORGANIZATIONS.filter((o) => o.region === k).length;
+    return c;
+  }, []);
+
   const unmapped = ORGANIZATIONS.length - MAPPED.length;
   const listRef = useRef<HTMLDivElement>(null);
 
@@ -257,32 +265,43 @@ export default function EcosystemMap() {
 
         {/* category filters */}
         <div className="flex flex-wrap gap-2 mb-3 reveal">
-          {(['All', ...CATEGORIES] as CatFilter[])
-            .filter((c) => c === 'All' || (catCounts[c] ?? 0) > 0)
-            .map((c) => {
-              const active = cat === c;
-              const color = c === 'All' ? 'var(--ink)' : CATEGORY_COLORS[c as Category];
-              return (
-                <button
-                  key={c}
-                  onClick={() => {
-                    setCat(c);
-                    setSelected(null);
-                  }}
-                  className={`font-mono2 text-[10.5px] tracking-[0.12em] uppercase px-3.5 py-2 border transition-all duration-300 ${
-                    active
+          {/*
+            Zero-count categories are rendered, disabled, reading "not yet surveyed"
+            rather than hidden. Hiding them would quietly assert the category is empty
+            when in fact nobody has searched it.
+          */}
+          {(['All', ...CATEGORIES] as CatFilter[]).map((c) => {
+            const active = cat === c;
+            const n = catCounts[c] ?? 0;
+            const empty = c !== 'All' && n === 0;
+            const color = c === 'All' ? 'var(--ink)' : CATEGORY_COLORS[c as Category];
+            return (
+              <button
+                key={c}
+                onClick={() => {
+                  if (empty) return;
+                  setCat(c);
+                  setSelected(null);
+                }}
+                disabled={empty}
+                title={empty ? 'Not yet surveyed — nobody has searched this category to a conclusion' : undefined}
+                className={`font-mono2 text-[10.5px] tracking-[0.12em] uppercase px-3.5 py-2 border transition-all duration-300 ${
+                  empty
+                    ? 'border-dashed border-[var(--line)] text-[var(--ink-faint)] cursor-not-allowed'
+                    : active
                       ? 'bg-[var(--ink)] text-[var(--bg)] border-[var(--ink)]'
                       : 'border-[var(--line)] text-[var(--ink-soft)] hover:border-[var(--line-strong)] hover:text-[var(--ink)]'
-                  }`}
-                >
-                  <span
-                    className="inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle"
-                    style={{ background: active ? 'var(--bg)' : color }}
-                  />
-                  {c} <span className="opacity-50">({catCounts[c] ?? 0})</span>
-                </button>
-              );
-            })}
+                }`}
+              >
+                <span
+                  className="inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle"
+                  style={{ background: active && !empty ? 'var(--bg)' : color, opacity: empty ? 0.4 : 1 }}
+                />
+                {c}{' '}
+                <span className="opacity-60">{empty ? '(not yet surveyed)' : `(${n})`}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* region filters — the row that replaced the reference's equipment filters */}
@@ -290,27 +309,40 @@ export default function EcosystemMap() {
           <span className="font-mono2 text-[9.5px] tracking-[0.2em] text-[var(--ink-faint)] uppercase mr-1">
             Region:
           </span>
-          {(['All', ...REGIONS] as RegFilter[])
-            .filter((r) => (regCounts[r] ?? 0) > 0)
-            .map((r) => {
-              const active = reg === r;
-              return (
-                <button
-                  key={r}
-                  onClick={() => {
-                    setReg(r);
-                    setSelected(null);
-                  }}
-                  className={`font-mono2 text-[9.5px] tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-300 ${
-                    active
+          {/*
+            Every region is rendered. A region with no record ANYWHERE in the dataset
+            is disabled and reads "not yet surveyed"; a region that has records but
+            none with coordinates shows (0) and stays clickable, because those records
+            exist and are in the directory. Hiding either would let the map assert
+            emptiness nobody has established.
+          */}
+          {(['All', ...REGIONS] as RegFilter[]).map((r) => {
+            const active = reg === r;
+            const mapped = regCounts[r] ?? 0;
+            const surveyed = r === 'All' || (allRegionCounts[r] ?? 0) > 0;
+            return (
+              <button
+                key={r}
+                onClick={() => {
+                  if (!surveyed) return;
+                  setReg(r);
+                  setSelected(null);
+                }}
+                disabled={!surveyed}
+                title={!surveyed ? 'Not yet surveyed — nobody has searched this region to a conclusion' : undefined}
+                className={`font-mono2 text-[9.5px] tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-300 ${
+                  !surveyed
+                    ? 'border-dashed border-[var(--line)] text-[var(--ink-faint)] cursor-not-allowed'
+                    : active
                       ? 'bg-[var(--brand)] text-[var(--brand-ink)] border-[var(--brand)]'
                       : 'border-[var(--line)] text-[var(--ink-faint)] hover:border-[var(--brand)] hover:text-[var(--accent)]'
-                  }`}
-                >
-                  {r} <span className="opacity-60">({regCounts[r] ?? 0})</span>
-                </button>
-              );
-            })}
+                }`}
+              >
+                {r}{' '}
+                <span className="opacity-60">{surveyed ? `(${mapped})` : '(not yet surveyed)'}</span>
+              </button>
+            );
+          })}
         </div>
 
         <div className="grid lg:grid-cols-12 gap-4 reveal">

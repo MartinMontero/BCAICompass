@@ -365,7 +365,7 @@
         "region": "Metro Vancouver",
         "url": "https://caida.ubc.ca/",
         "location": "Vancouver — 289-2366 Main Mall, ICICS Building, UBC Vancouver",
-        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceUrl": "https://caida.ubc.ca/contact-us",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
@@ -2067,7 +2067,7 @@
         "region": "Metro Vancouver",
         "url": "https://www.digitalsupercluster.ca",
         "location": "Vancouver — 2127-1055 W Georgia Street",
-        "sourceUrl": "https://www.digitalsupercluster.ca",
+        "sourceUrl": "https://digitalsupercluster.ca/canadas-digital-technology-supercluster-receives-funding/",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
@@ -2159,7 +2159,7 @@
         "region": "Province-wide",
         "url": "https://firstnationstech.ca/",
         "location": "Vancouver — 1707-1370 Senakw Lane (province-wide mandate)",
-        "sourceUrl": "https://firstnationstech.ca/",
+        "sourceUrl": "https://firstnationstech.ca/about/",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
@@ -2255,6 +2255,305 @@
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://places.canadamaps.com/british-columbia/courtenay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "abcellera",
+        "name": "AbCellera Biologics",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.abcellera.com",
+        "location": "Vancouver — 150 W 4th Ave",
+        "sourceUrl": "https://www.abcellera.com/contact",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.133568,
+          49.166592
+        ]
+      },
+      "properties": {
+        "id": "general-fusion",
+        "name": "General Fusion",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.generalfusion.com",
+        "location": "Richmond — 6020 Russ Baker Way",
+        "sourceUrl": "https://www.generalfusion.com/contact/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/richmond-bc-canada-17787.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "aspect-biosystems",
+        "name": "Aspect Biosystems",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.aspectbiosystems.com",
+        "location": "Vancouver — 2131 Manitoba Street",
+        "sourceUrl": "https://www.aspectbiosystems.com/contact",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "visier",
+        "name": "Visier",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.visier.com",
+        "location": "Vancouver — Beatty Street",
+        "sourceUrl": "https://www.visier.com/company/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "innovate-bc",
+        "name": "Innovate BC",
+        "category": "Capital & Accelerators",
+        "orgType": "government-or-crown",
+        "region": "Metro Vancouver",
+        "url": "https://www.innovatebc.ca",
+        "location": "Vancouver — Four Bentall Centre, 1055 Dunsmuir Street, Suite 810",
+        "sourceUrl": "https://www2.gov.bc.ca/gov/content/governments/technology-innovation/partner-organizations",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "digibc",
+        "name": "DigiBC",
+        "category": "Community & Convening",
+        "orgType": "nonprofit-or-association",
+        "region": "Metro Vancouver",
+        "url": "https://digibc.org",
+        "location": "Vancouver — 160-577 Great Northern Way",
+        "sourceUrl": "https://digibc.org/about/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.477829,
+          49.882114
+        ]
+      },
+      "properties": {
+        "id": "accelerate-okanagan",
+        "name": "Accelerate Okanagan",
+        "category": "Capital & Accelerators",
+        "orgType": "nonprofit-or-association",
+        "region": "Thompson-Okanagan",
+        "url": "https://accelerateokanagan.com",
+        "location": "Kelowna — serving Osoyoos to Salmon Arm",
+        "sourceUrl": "https://accelerateokanagan.com/about/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/kelowna-bc-canada-1354.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.283333,
+          49.5
+        ]
+      },
+      "properties": {
+        "id": "kast",
+        "name": "Kootenay Association for Science & Technology (KAST)",
+        "category": "Capital & Accelerators",
+        "orgType": "nonprofit-or-association",
+        "region": "Kootenay",
+        "url": "https://kast.com/",
+        "location": "Nelson — 91-D Baker Street",
+        "sourceUrl": "https://kast.com/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/nelson-bc-canada-9343.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.749443,
+          53.916943
+        ]
+      },
+      "properties": {
+        "id": "innovation-central-society",
+        "name": "Innovation Central Society",
+        "category": "Capital & Accelerators",
+        "orgType": "nonprofit-or-association",
+        "region": "Cariboo",
+        "url": "https://innovationcentral.ca/",
+        "location": "Prince George — 1299 3rd Avenue, inside the Hubspace",
+        "sourceUrl": "https://innovationcentral.ca/contact",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/prince-george-bc-canada-29186.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.847633,
+          56.246464
+        ]
+      },
+      "properties": {
+        "id": "prophet-river-first-nation-data-centre",
+        "name": "Prophet River First Nation data centre project",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Northeast",
+        "url": "https://www.newswire.ca/news-releases/prophet-river-first-nation-and-abct-pacific-vcc-ltd-sign-loi-to-jointly-develop-major-data-centre-in-fort-st-john-area-819620927.html",
+        "location": "Fort St. John area",
+        "sourceUrl": "https://www.newswire.ca/news-releases/prophet-river-first-nation-and-abct-pacific-vcc-ltd-sign-loi-to-jointly-develop-major-data-centre-in-fort-st-john-area-819620927.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/fort-st-john-bc-canada-29150.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.789719,
+          50.112778
+        ]
+      },
+      "properties": {
+        "id": "upper-nicola-band-data-centre",
+        "name": "Upper Nicola Band AI data centre",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Thompson-Okanagan",
+        "url": "https://www.merrittherald.com/upper-nicola-indian-band-vote-yes-on-welcoming-one-of-the-countrys-largest-ai-data-centres/",
+        "location": "Nicola Lake, near Merritt — Upper Nicola Band reserve land",
+        "sourceUrl": "https://www.merrittherald.com/upper-nicola-indian-band-vote-yes-on-welcoming-one-of-the-countrys-largest-ai-data-centres/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/merritt-bc-canada-268.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "animikii",
+        "name": "Animikii Indigenous Technology",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.animikii.com",
+        "location": "Victoria — 100-722 Cormorant St, on lək̓ʷəŋən Traditional Territory",
+        "sourceUrl": "https://www.animikii.com/about",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ethos-lab",
+        "name": "Ethọ́s Lab",
+        "category": "Talent & Education",
+        "orgType": "nonprofit-or-association",
+        "region": "Metro Vancouver",
+        "url": "https://www.ethoslab.ca/",
+        "location": "Vancouver — 177 East 3rd Ave",
+        "sourceUrl": "https://www.ethoslab.ca/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
       }
     }
   ]

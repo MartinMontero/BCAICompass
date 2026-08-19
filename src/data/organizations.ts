@@ -70,6 +70,23 @@ export type Region =
 export type OrgSize = '1-10' | '11-50' | '51-200' | '201-1000' | '1000+';
 
 /**
+ * What has happened to the organization, where a source says. 'active' is the
+ * default only when a source supports it; an organization that was acquired,
+ * relocated or wound up is still part of the ecosystem's history and is listed
+ * with its state rather than silently dropped or silently kept as if nothing
+ * changed. 'branch-office' means it operates in BC but is headquartered elsewhere.
+ */
+export type OrgStatus = 'active' | 'acquired' | 'branch-office' | 'relocated' | 'defunct';
+
+/**
+ * Record-level caveats, visible on the record rather than buried in a report.
+ * 'quote-pending' is the only one that currently ships and it means exactly one
+ * thing: no verbatim quote could be copied from the page that was read, so the
+ * record's BC connection is sourced but not yet spot-checkable in ten seconds.
+ */
+export type OrgFlag = 'quote-pending' | 'projection-figures' | 'mailing-address-only' | 'research-stage';
+
+/**
  * status is the literal 'verified'. That makes the ship gate a compile-time
  * guarantee: an unverified record cannot enter ORGANIZATIONS without tsc failing.
  */
@@ -86,10 +103,46 @@ export interface Organization {
   lat?: number;
   lng?: number;
   geoSourceUrl?: string;
+  /** The primary source for name, BC presence, category and org type. */
   sourceUrl: string;
+  /**
+   * A short verbatim string, UNDER 15 WORDS, copied character-for-character from the
+   * page at sourceUrl, supporting this record's British Columbia connection -- a BC
+   * address, a BC city, a BC institutional affiliation, or equivalent.
+   *
+   * This field exists because of a specific failure. An earlier version of the
+   * Quantum Algorithms Institute record carried a Surrey location and municipal
+   * coordinates drawn from a dead domain's footer, and EVERY MACHINE GATE PASSED --
+   * because the gates checked that a coordinate had a source, not that the source
+   * said what the record claimed. A quote closes that gap: open sourceUrl, search the
+   * page for this string, and the record is confirmed or exposed in ten seconds.
+   *
+   * Never paraphrased. Never reconstructed from memory. Copied, or null with a
+   * 'quote-pending' flag. A quote that is not on the page is a fabrication, and one
+   * is enough to invalidate the dataset.
+   */
+  evidenceQuote: string | null;
+  /** ISO date the primary source was read. YYYY-MM-DD. */
   sourceDate: string;
+  /** Month of the most recent re-verification. YYYY-MM. */
   verified: string;
+  /** Literal type. Makes the ship gate a compile error rather than a code review. */
   status: 'verified';
+  /** What has happened to the organization. null when no source states it. */
+  orgStatus: OrgStatus | null;
+  /** A named current officer, where a source names one. null when unsourced. */
+  keyPeople: string | null;
+  /**
+   * Announced design capacity in megawatts, for infrastructure records. Kept apart
+   * from capacitySecuredMW because they are different facts, and the Bell figures
+   * looked contradictory until that was recognised: 7 MW announced design, 6.5 MW
+   * actually secured, 5 MW as-built phase. One capacity field forces a false choice.
+   */
+  capacityDesignMW: number | null;
+  /** Capacity actually secured by an operator, in megawatts. */
+  capacitySecuredMW: number | null;
+  /** Record-level caveats. Empty array when none. */
+  flags: OrgFlag[];
 }
 
 export const CATEGORIES: Category[] = [
@@ -205,6 +258,34 @@ const CITY: Record<string, CityGeo> = {
     lng: -122.65833,
     geoSourceUrl: 'https://www.latlong.net/place/surrey-bc-canada-22762.html',
   },
+  richmond: {
+    location: 'Richmond',
+    region: 'Metro Vancouver',
+    lat: 49.166592,
+    lng: -123.133568,
+    geoSourceUrl: 'https://www.latlong.net/place/richmond-bc-canada-17787.html',
+  },
+  nelson: {
+    location: 'Nelson',
+    region: 'Kootenay',
+    lat: 49.5,
+    lng: -117.283333,
+    geoSourceUrl: 'https://www.latlong.net/place/nelson-bc-canada-9343.html',
+  },
+  princeGeorge: {
+    location: 'Prince George',
+    region: 'Cariboo',
+    lat: 53.916943,
+    lng: -122.749443,
+    geoSourceUrl: 'https://www.latlong.net/place/prince-george-bc-canada-29186.html',
+  },
+  fortStJohn: {
+    location: 'Fort St. John',
+    region: 'Northeast',
+    lat: 56.246464,
+    lng: -120.847633,
+    geoSourceUrl: 'https://www.latlong.net/place/fort-st-john-bc-canada-29150.html',
+  },
 };
 
 // Sources cited more than once, named so a reader can see the reuse at a glance.
@@ -230,10 +311,113 @@ const S_COMOX = 'https://thediscourse.ca/comox-valley/how-do-comox-valley-govern
 const READ = '2026-08-19';
 const STAMP = '2026-08';
 
-/** Trims the repetition out of every record without hiding any value. */
-const V = { sourceDate: READ, verified: STAMP, status: 'verified' } as const;
+/**
+ * Shared defaults, spread into every record.
+ *
+ * NOTE THE DIRECTION OF THE DEFAULT. evidenceQuote is null and flags carries
+ * 'quote-pending' unless a record explicitly overrides them AFTER the spread. A
+ * record nobody has re-checked therefore declares itself unchecked, rather than
+ * inheriting a clean bill of health from a constant. The pessimistic state is the
+ * cheap one to reach by accident; the optimistic state has to be typed out by hand
+ * next to the quote that earns it.
+ */
+type VerificationDefaults = Pick<
+  Organization,
+  | 'sourceDate'
+  | 'verified'
+  | 'status'
+  | 'evidenceQuote'
+  | 'orgStatus'
+  | 'keyPeople'
+  | 'capacityDesignMW'
+  | 'capacitySecuredMW'
+  | 'flags'
+>;
 
-export const ORGANIZATIONS: Organization[] = [
+const V: VerificationDefaults = {
+  sourceDate: READ,
+  verified: STAMP,
+  status: 'verified',
+  evidenceQuote: null,
+  orgStatus: null,
+  keyPeople: null,
+  capacityDesignMW: null,
+  capacitySecuredMW: null,
+  flags: ['quote-pending'],
+};
+
+/**
+ * Verbatim British Columbia-connection strings, KEYED BY THE PAGE THEY WERE COPIED
+ * FROM. Each value was read off the page at that exact URL and pasted here without
+ * edit -- not summarised, not retyped from memory, not reconstructed.
+ *
+ * Keying on sourceUrl rather than on record id is deliberate. Twenty-seven records
+ * share the UBC research site, so they share one quote, and that quote is true of
+ * every one of them for the same reason: it is the string on the page each record
+ * cites. A quote can never drift onto a record whose source does not contain it,
+ * because the lookup IS the source.
+ *
+ * To spot-check any record: open its sourceUrl, search the page for its
+ * evidenceQuote. Absent means fabricated.
+ */
+const QUOTE: Record<string, string> = {
+  // --- institutional pages, verified by fetch on 2026-08-19 ---
+  [S_UBC_AI]: 'The University of British Columbia',
+  [S_UBC_GROUPS]: 'The University of British Columbia',
+  [S_UBC_CENTRES]: 'The University of British Columbia',
+  [S_SFU_AI]: '© Simon Fraser University',
+  [S_SFU_LABS]: 'Simon Fraser University',
+  [S_SIAT]: 'Simon Fraser University',
+  [S_SFU_RESEARCH]: 'Burnaby, B.C.',
+  [S_UVIC_CS]: '© University of Victoria',
+  'https://www.uvic.ca/campus/artificial-intelligence/index.php':
+    'using artificial intelligence (AI) tools at UVic',
+
+  // --- organisation pages, each read directly ---
+  'https://caida.ubc.ca/contact-us': '289-2366 Main Mall Vancouver, BC V6T 1Z4',
+  'https://www.qai.ca/who-we-are':
+    'advancing the growth, adoption, and strategic development of quantum technologies in British Columbia',
+  'https://firstnationstech.ca/about/': 'Suite 1707, 1370 Senakw Lane Vancouver BC, V6J 0J5',
+  'https://digibc.org/about/': '#160-577 Great Northern Way Vancouver, BC, V5T 1E1',
+  'https://wearebctech.com/members/member-directory/name/digibc-1/':
+    '210 – 1401 West 8th Ave Vancouver, BC V6H 1C9',
+  'https://www2.gov.bc.ca/gov/content/governments/technology-innovation/partner-organizations':
+    'Innovate BC is a Crown agency of the B.C. government',
+  'https://digitalsupercluster.ca/canadas-digital-technology-supercluster-receives-funding/':
+    '2127 – 1055 W. Georgia Street Vancouver, BC, V6E 3P3',
+  [S_BCAI]: "300+ paying members of the nonprofit building British Columbia's AI industry",
+  'https://kast.com/': '91-D Baker Street Nelson, BC V1L 4G8',
+  'https://innovationcentral.ca/contact': '1299 3rd Avenue Prince George, BC V2L 3E6',
+  'https://www.newswire.ca/news-releases/prophet-river-first-nation-and-abct-pacific-vcc-ltd-sign-loi-to-jointly-develop-major-data-centre-in-fort-st-john-area-819620927.html':
+    'an independent Dene Tsaa Nation in Northeast British Columbia',
+  'https://www.animikii.com/about': '100-722 Cormorant St, Victoria, BC V8W 1P8',
+  'https://www.abcellera.com/contact': '150W 4th Ave Vancouver BC V5Y 1G6',
+  'https://www.generalfusion.com/contact/': '6020 Russ Baker Way Richmond, BC V7B 1B4',
+  'https://www.aspectbiosystems.com/contact': '2131 Manitoba Street Vancouver, BC, Canada V5Y 0N7',
+  'https://www.niricson.com': '#1200 – 555 West Hastings Street, Vancouver, BC V6B 4N6',
+  'https://www.openoceanrobotics.com/contact': '200-45 Erie Street, Victoria, BC, CANADA V8V 1P8',
+  'https://variational.ai': '1825 Quebec Street, #201, Vancouver, BC V5T 2Z3',
+  'https://www.novarctech.com': '4505 Still Creek Ave., Burnaby, BC V5C 5W1, Canada',
+  'https://www.viatec.ca': '777 Fort Street, Victoria BC V8W 1G9',
+  'https://www.newventuresbc.com': 'Suite #810, 1055 Dunsmuir Street, Vancouver, BC V7X 1J1',
+  'https://www.innovatebc.ca': 'Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Vancouver, BC',
+};
+
+/**
+ * Fills evidenceQuote from the quote table when a record has not supplied its own,
+ * and clears 'quote-pending' only when a quote is actually attached. A record whose
+ * source page yielded no verbatim BC string keeps the null AND the flag -- which is
+ * the honest state and, per the defaults in V, also the state it reaches by doing
+ * nothing.
+ */
+function withQuote(o: Organization): Organization {
+  if (o.evidenceQuote !== null) return o;
+  const q = QUOTE[o.sourceUrl];
+  if (!q) return o;
+  return { ...o, evidenceQuote: q, flags: o.flags.filter((f) => f !== 'quote-pending') };
+}
+
+const RECORDS: Organization[] = [
   // =========================================================================
   // COMPUTE & INFRASTRUCTURE
   // Verified first, per PLAN.md section 6.3: highest capital, longest
@@ -530,7 +714,9 @@ export const ORGANIZATIONS: Organization[] = [
     description:
       'Described by UBC as the university’s research hub for artificial intelligence, spanning many departments and working on theoretical and applied AI for decision-making and action. Sits within UBC’s Institute for Computing, Information and Cognitive Systems.',
     size: null,
-    sourceUrl: S_UBC_AI,
+    // Sourced to CAIDA's own contact page rather than the UBC AI index, so the
+    // evidence quote is its street address instead of a university-wide string.
+    sourceUrl: 'https://caida.ubc.ca/contact-us',
     ...V,
   },
   {
@@ -1596,7 +1782,7 @@ export const ORGANIZATIONS: Organization[] = [
     description:
       'One of Canada’s Global Innovation Clusters, formerly and still widely known as the Digital Technology Supercluster. Co-invests federal and industry money in applied technology projects, and runs a dedicated artificial intelligence programme stream.',
     size: null,
-    sourceUrl: 'https://www.digitalsupercluster.ca',
+    sourceUrl: 'https://digitalsupercluster.ca/canadas-digital-technology-supercluster-receives-funding/',
     ...V,
   },
   {
@@ -1666,7 +1852,7 @@ export const ORGANIZATIONS: Organization[] = [
     description:
       'Indigenous-led non-profit mandated by the First Nations Leadership Council to advance digital literacy, connectivity and technology strategy for all 204 First Nations in British Columbia. Its AI work includes the course "Pathways to AI: An Introduction for Indigenous People and Organizations" and the report "First Nations Perspectives on Artificial Intelligence".',
     size: null,
-    sourceUrl: 'https://firstnationstech.ca/',
+    sourceUrl: 'https://firstnationstech.ca/about/',
     ...V,
   },
   {
@@ -1697,8 +1883,11 @@ export const ORGANIZATIONS: Organization[] = [
     region: 'Province-wide',
     url: 'https://bc-ai.ca',
     location: 'British Columbia — province-wide',
+    // The previous version of this description ended "BC AI Compass is independent of
+    // this organization and is not affiliated with or endorsed by it." That was false.
+    // BC + AI commissioned this project. Corrected 2026-08-19.
     description:
-      'Non-profit association describing itself as 300+ paying members building British Columbia’s AI industry, with 94+ events since 2023, certifications, the AI Builders Fellowship and the Futureproof Festival. BC AI Compass is independent of this organization and is not affiliated with or endorsed by it.',
+      'Non-profit association describing itself as 300+ paying members building British Columbia’s AI industry, running regional chapters, certifications, the AI Builders Fellowship and the Futureproof Festival. No founding year is published here: the association’s own About page and press kit give different years, and picking one would be choosing rather than sourcing. BC AI Compass is a BC + AI Ecosystem Association project, so this is the one record in the directory published by its own commissioning organization.',
     size: null,
     sourceUrl: S_BCAI,
     ...V,
@@ -1745,7 +1934,254 @@ export const ORGANIZATIONS: Organization[] = [
     sourceUrl: S_BCAI_COMMUNITIES,
     ...V,
   },
+
+  // =========================================================================
+  // SCOPE CORRECTION, 2026-08-19.
+  //
+  // The first pass withheld AbCellera, Visier, Innovate BC, DigiBC and Accelerate
+  // Okanagan because no page read had them saying "AI" in their own words. That
+  // test was wrong for this project and has been replaced.
+  //
+  // This maps the WHOLE ecosystem around AI in British Columbia, not only the
+  // organizations that build AI. The test is now: does this organization fund,
+  // house, teach, convene, govern, represent, power or otherwise materially
+  // support AI work in BC, and can that be sourced? An industry association does
+  // not have to do AI to be part of the AI ecosystem.
+  //
+  // Each description below still states only what its source states. Inclusion is
+  // an ecosystem judgement; the description is not licence to assert AI activity
+  // a page did not claim.
+  // =========================================================================
+  {
+    ...CITY.vancouver,
+    id: 'abcellera',
+    name: 'AbCellera Biologics',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://www.abcellera.com',
+    location: 'Vancouver — 150 W 4th Ave',
+    description:
+      'Vancouver biotechnology company that describes itself as integrating biology, computation and engineering to develop antibody-based medicines, with in-house clinical manufacturing in Vancouver. Its own pages do not use the term AI; it is listed here as part of the province’s computational life-sciences base, not on a claim it makes about itself.',
+    size: '201-1000',
+    sourceUrl: 'https://www.abcellera.com/contact',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.richmond,
+    id: 'general-fusion',
+    name: 'General Fusion',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://www.generalfusion.com',
+    location: 'Richmond — 6020 Russ Baker Way',
+    description:
+      'Fusion energy company headquartered in Richmond. Listed as part of British Columbia’s advanced-computing and deep-tech base; its contact page does not describe AI or machine-learning work, and no such claim is made here.',
+    size: null,
+    sourceUrl: 'https://www.generalfusion.com/contact/',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.vancouver,
+    id: 'aspect-biosystems',
+    name: 'Aspect Biosystems',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://www.aspectbiosystems.com',
+    location: 'Vancouver — 2131 Manitoba Street',
+    description:
+      'Vancouver bioprinting company developing therapeutic programs from its own bioprinting platform. Its contact page does not describe AI or machine-learning work; the AI-enabled characterisation comes from secondary research and is not asserted here.',
+    size: null,
+    sourceUrl: 'https://www.aspectbiosystems.com/contact',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.vancouver,
+    id: 'visier',
+    name: 'Visier',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://www.visier.com',
+    location: 'Vancouver — Beatty Street',
+    description:
+      'People-analytics and workforce-planning company headquartered in Vancouver, stating 600 employees across seven offices. Part of the province’s applied-analytics base.',
+    size: '201-1000',
+    sourceUrl: 'https://www.visier.com/company/',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.vancouver,
+    id: 'innovate-bc',
+    name: 'Innovate BC',
+    category: 'Capital & Accelerators',
+    orgType: 'government-or-crown',
+    url: 'https://www.innovatebc.ca',
+    location: 'Vancouver — Four Bentall Centre, 1055 Dunsmuir Street, Suite 810',
+    // REPORTING MINISTRY STAYS NULL AND IS NOT MENTIONED. Two gov.bc.ca pages
+    // disagree -- one dated 2026-03-09 says Ministry of Jobs and Economic Growth,
+    // one dated 2026-06-22 says Ministry of Finance -- and the 2026-08-14 cabinet
+    // shuffle complicates both. The export script fails the build if a reporting
+    // ministry appears in this description.
+    description:
+      'Provincial Crown agency supporting technology and innovation across British Columbia through hiring grants, mentorship, research grants, pilot funding and innovation challenges, and advising government on technology policy. Programmes named on its site include BC Fast Pilot, Integrated Marketplace, Ignite, Accelerate IP, ScaleUp and the Venture Acceleration Program.',
+    size: null,
+    sourceUrl:
+      'https://www2.gov.bc.ca/gov/content/governments/technology-innovation/partner-organizations',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.vancouver,
+    id: 'digibc',
+    name: 'DigiBC',
+    category: 'Community & Convening',
+    orgType: 'nonprofit-or-association',
+    url: 'https://digibc.org',
+    location: 'Vancouver — 160-577 Great Northern Way',
+    description:
+      'Registered non-profit industry association for British Columbia’s creative technology sector — video games, animation, visual effects, XR and virtual production — working on advocacy, talent pipeline, equity and community programming. Founded in 1997 as New Media BC and renamed in January 2009, so New Media BC is a former name of this organization rather than a separate one.',
+    size: null,
+    sourceUrl: 'https://digibc.org/about/',
+    ...V,
+    orgStatus: 'active',
+    keyPeople: 'Loc Dao (Executive Director)',
+  },
+  {
+    ...CITY.kelowna,
+    id: 'accelerate-okanagan',
+    name: 'Accelerate Okanagan',
+    category: 'Capital & Accelerators',
+    orgType: 'nonprofit-or-association',
+    url: 'https://accelerateokanagan.com',
+    location: 'Kelowna — serving Osoyoos to Salmon Arm',
+    description:
+      'Non-profit technology accelerator for the Okanagan, providing mentorship, connections and community to entrepreneurs building technology-driven businesses. States that most of its funding comes from government programmes.',
+    size: null,
+    sourceUrl: 'https://accelerateokanagan.com/about/',
+    ...V,
+    orgStatus: 'active',
+  },
+
+  // ---- regional coverage: one sourced record in each region that had none ----
+  {
+    ...CITY.nelson,
+    id: 'kast',
+    name: 'Kootenay Association for Science & Technology (KAST)',
+    category: 'Capital & Accelerators',
+    orgType: 'nonprofit-or-association',
+    url: 'https://kast.com/',
+    location: 'Nelson — 91-D Baker Street',
+    description:
+      'Describes itself as the only non-profit tech association serving the entire Kootenay region, running technology and innovation programmes since 1998 — including startup support, venture acceleration, youth education, the MIDAS lab and the Nelson Innovation Centre, and TechEdge, an initiative to advance digital adoption by Kootenay businesses.',
+    size: null,
+    sourceUrl: 'https://kast.com/',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.princeGeorge,
+    id: 'innovation-central-society',
+    name: 'Innovation Central Society',
+    category: 'Capital & Accelerators',
+    orgType: 'nonprofit-or-association',
+    url: 'https://innovationcentral.ca/',
+    location: 'Prince George — 1299 3rd Avenue, inside the Hubspace',
+    description:
+      'Non-profit supporting technology entrepreneurs in northern British Columbia, operating from the Hubspace in downtown Prince George and running a Venture Acceleration Program for startup and early-stage companies.',
+    size: null,
+    sourceUrl: 'https://innovationcentral.ca/contact',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.fortStJohn,
+    id: 'prophet-river-first-nation-data-centre',
+    name: 'Prophet River First Nation data centre project',
+    category: 'Compute & Infrastructure',
+    orgType: 'infrastructure-operator',
+    url: 'https://www.newswire.ca/news-releases/prophet-river-first-nation-and-abct-pacific-vcc-ltd-sign-loi-to-jointly-develop-major-data-centre-in-fort-st-john-area-819620927.html',
+    location: 'Fort St. John area',
+    // EARLY STAGE, AND SAID SO. A letter of intent with a feasibility study still to
+    // come is not a data centre. Size, scope and capital cost are explicitly
+    // undetermined in the release, so no capacity figure is recorded.
+    description:
+      'Letter of intent, signed March 2025, between Prophet River First Nation — an independent Dene Tsaa Nation in northeast British Columbia — and ABCT Pacific (VCC) Ltd., a BC venture capital corporation, to pursue a large-scale data centre in the Fort St. John area. Prophet River First Nation would be the majority owner. Size, scope and capital cost are stated as undetermined pending a feasibility study.',
+    size: null,
+    sourceUrl:
+      'https://www.newswire.ca/news-releases/prophet-river-first-nation-and-abct-pacific-vcc-ltd-sign-loi-to-jointly-develop-major-data-centre-in-fort-st-john-area-819620927.html',
+    ...V,
+  },
+
+  // ---- Indigenous-led ----
+  {
+    ...CITY.merritt,
+    id: 'upper-nicola-band-data-centre',
+    name: 'Upper Nicola Band AI data centre',
+    category: 'Compute & Infrastructure',
+    orgType: 'infrastructure-operator',
+    url: 'https://www.merrittherald.com/upper-nicola-indian-band-vote-yes-on-welcoming-one-of-the-countrys-largest-ai-data-centres/',
+    location: 'Nicola Lake, near Merritt — Upper Nicola Band reserve land',
+    // A LAND-USE APPROVAL, NOT A DISCLOSED EQUITY STAKE. Members voted to approve
+    // the USE OF RESERVE LAND. No source read describes an ownership share, so none
+    // is stated here -- the difference between a land lease and an equity position
+    // is exactly the sort of thing a directory should not guess about a First Nation.
+    description:
+      'Approved by an Upper Nicola Band membership vote that closed 7 July 2025, 98 to 33 in favour — reported as roughly 75 per cent of ballots cast — permitting the use of 100 to 150 acres of reserve land near the north end of Nicola Lake for a data centre reported at about $500 million and roughly 300 MW. Developed in partnership with Bell Canada and Kamloops-based iTel Networks. Job and construction figures reported alongside it are projections.',
+    size: null,
+    sourceUrl:
+      'https://www.merrittherald.com/upper-nicola-indian-band-vote-yes-on-welcoming-one-of-the-countrys-largest-ai-data-centres/',
+    ...V,
+    flags: ['quote-pending', 'projection-figures'],
+  },
+  {
+    ...CITY.victoria,
+    id: 'animikii',
+    name: 'Animikii Indigenous Technology',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://www.animikii.com',
+    location: 'Victoria — 100-722 Cormorant St, on lək̓ʷəŋən Traditional Territory',
+    description:
+      'Indigenous-owned digital agency headquartered in Victoria on Songhees Nation land in lək̓ʷəŋən Traditional Territory. Its core product is Niiwin, described as an Indigenous Sovereignty Platform, and its #DataBack work is on asserting and supporting Indigenous data sovereignty. Holds B Corp and Certified Aboriginal Business certifications.',
+    size: null,
+    sourceUrl: 'https://www.animikii.com/about',
+    ...V,
+    orgStatus: 'active',
+    keyPeople: 'Jeff Ward (Founder and CEO)',
+  },
+
+  // ---- talent ----
+  {
+    ...CITY.vancouver,
+    id: 'ethos-lab',
+    // NOT AN INDIGENOUS ORGANIZATION AND MUST NEVER BE FILED AS ONE. Ethos Lab is a
+    // Black-led youth STEAM academy founded by Anthonia Ogundele. An earlier data
+    // source in this ecosystem misfiled it under an Indigenous category; publishing
+    // that misattribution on a BC + AI map would be a serious error, so the category
+    // here is Talent & Education and the description carries no Indigenous framing.
+    name: 'Ethọ́s Lab',
+    category: 'Talent & Education',
+    orgType: 'nonprofit-or-association',
+    url: 'https://www.ethoslab.ca/',
+    location: 'Vancouver — 177 East 3rd Ave',
+    description:
+      'Youth STEAM academy in Vancouver running afterschool project-based programs and in-school activations for youth in Grades 5–12, grounding its approach in the African philosophy of Ubuntu.',
+    size: null,
+    sourceUrl: 'https://www.ethoslab.ca/',
+    ...V,
+    orgStatus: 'active',
+  },
 ];
+
+/**
+ * The published dataset. Quotes are attached here rather than typed into each
+ * record, so a quote can only ever reach a record whose sourceUrl actually
+ * contains it.
+ */
+export const ORGANIZATIONS: Organization[] = RECORDS.map(withQuote);
 
 /** Records that pin on the map. The rest appear in the directory only. */
 export const MAPPED = ORGANIZATIONS.filter((o) => o.lat !== undefined && o.lng !== undefined);

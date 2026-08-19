@@ -98,7 +98,28 @@ $CHECKED = @(
   @{ name='Hypertec'; url='https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc'; status='unverified'; reason='Named in a June 2026 agreement bringing it into the Bell AI Fabric Merritt deployment alongside Cohere. No first-party page establishing a British Columbia presence was read. Captured in the Merritt facility''s sourced description rather than as its own record.' },
   @{ name='Cohere'; url='https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc'; status='rejected'; reason='Runs foundation models on BUZZ HPC infrastructure at Merritt, but Cohere is a Toronto company, not a British Columbia organization. Its BC compute footprint is captured on the BUZZ HPC and Bell Merritt records. Same principle that keeps Bell Canada, Groq and NVIDIA out of a BC directory.' },
   @{ name='BC government AI portfolio'; url='https://news.gov.bc.ca/releases/2026ECS0005-000095'; status='unverified'; reason='British Columbia now has a Minister of State for Artificial Intelligence and New Technologies, a post reported created 2025-07-17, and a cabinet shuffle on 2026-08-14 moved several relevant portfolios. Deliberately NOT published as records: minister names change faster than a re-verification cycle, and this project does not publish individuals at all. A dated government-layer page is the right home for this, so one edit updates everything -- recommended for the next pass.' },
-  @{ name='Site C Hydroelectric AI Integration'; url=$null; status='rejected'; reason='SPECULATIVE ENTITY in the predecessor dataset: a plausible-sounding institutional construct with no URL and no evidence that it exists. Quarantined rather than deleted so the next pass can check it individually. Sibling constructs in the same family: "Site C Hydroelectric Project AI Division", "BC Data Centre AI Initiative", "Upper Nicola Band AI Data Centre", and "BC Hydro Clean Power Action Plan" (filed by the predecessor under category "Company").' }
+  @{ name='Site C Hydroelectric AI Integration'; url=$null; status='rejected'; reason='SPECULATIVE ENTITY in the predecessor dataset: a plausible-sounding institutional construct with no URL and no evidence that it exists. Quarantined rather than deleted so the next pass can check it individually. Sibling constructs in the same family: "Site C Hydroelectric Project AI Division", "BC Data Centre AI Initiative" and "BC Hydro Clean Power Action Plan" (filed by the predecessor under category "Company"). NOTE: the fourth sibling, "Upper Nicola Band AI Data Centre", turned out to be REAL and is now a sourced published record -- a reminder that a speculative-looking placeholder is a prompt to check, not a licence to delete.' },
+  @{ name='Photonic Inc'; url='https://www.photonic.com'; status='unverified'; reason='Quantum computing company. Its own /contact page, read 2026-08-19, is a form with no address and names no city, so no BC location could be sourced. Not yet searched to conclusion.' },
+  @{ name='Nexera Robotics'; url='https://www.nexerarobotics.com'; status='rejected'; reason='SECOND CONFIRMED PARKED DOMAIN. nexerarobotics.com resolved on 2026-08-19 to a domain-marketplace sale page operated from 4600 East Washington Street, Phoenix, Arizona -- the same landing page as 4agrobotics.com. Both carried the synthesized-url shape. The company may well exist; this domain is not it, and finding the real one is a task for the next pass.' },
+  @{ name='4AG Robotics'; url=$null; status='unverified'; reason='Salmon Arm autonomous mushroom-harvesting company, reported active by the human research pass. Its legacy domain 4agrobotics.com is a parked domain-sale page (see the separate record). The current domain was not found in this pass. Worth the effort: it would be one of very few Thompson-Okanagan company records.' },
+  @{ name='HIVE Digital Technologies'; url='https://www.hivedigitaltechnologies.com/'; status='unverified'; reason='Parent of BUZZ HPC, which IS published as an operator of BC AI infrastructure at Merritt. AI/HPC materiality confirmed verbatim on HIVE''s own site. But the page read 2026-08-19 states no headquarters city, province or address, so BC presence for the parent company is not established. Its BC activity is captured on the BUZZ HPC record.' },
+  @{ name='iTel Networks'; url=$null; status='unverified'; reason='Named in coverage of the Upper Nicola Band data centre as a Kamloops-based partner alongside Bell Canada. No first-party page was read, so no record was created; the partnership is recorded in the Upper Nicola record''s sourced description instead. A Kamloops company would be a useful Thompson-Okanagan record.' },
+  @{ name='D-Wave Quantum'; url='https://www.dwavequantum.com'; status='branch-office-suspected'; reason='Its own /company/contact/ page, read 2026-08-19, lists headquarters as Palo Alto, California and Boca Raton, Florida. A Canadian R&D location appears with a BC 604 phone number but NO city. The human research pass reports a retained Burnaby engineering centre; that is plausible and unsourced from any page read here, so no record is published. The honest state is a BC engineering presence with the head office relocated -- which needs one first-party page naming Burnaby.' }
+)
+
+# ---------------------------------------------------------------------------
+# Named, real, and simply NOT REACHED. The human research sweep ran out of budget
+# before checking these. "Unverified" here means nobody looked, NOT "no activity
+# found" -- the distinction the whole project exists to preserve.
+# ---------------------------------------------------------------------------
+$NOT_SEARCHED = @(
+  'Coho Data','Canalyst','BuildDirect','BBTV Holdings','MetaOptima/DermEngine','Rewind AI',
+  'Eventbase','Tangam Systems','Ayogo Health','Lucent BioSciences','Enterra Feed','Bit Literate',
+  'Phoenix Labs','SkyBox Labs','Kabam','Hyper Hippo Entertainment','Terramera Inc','Semios',
+  'Saltworks Technologies','Precision NanoSystems','Clir Renewables','Awesense','Kindred Systems',
+  'MarineLabs','Open Ocean Robotics Ltd','MineSense','GroundedAI','Miraterra',
+  'Human in Motion Robotics','Downtown.AI','usediscovery.ai','VirtualReception.ai','Helios-Helmet',
+  'Skylab Technologies','Defang Software Labs','Big Whale Labs','Intellabridge','IntLabs'
 )
 
 # Artifact-C-only names (GAPS.md section 7). Leads, none checked in this pass.
@@ -155,6 +176,14 @@ function Get-Slug {
 foreach ($c in $CHECKED) {
   Add-Record -Id (Get-Slug $c.name) -Name $c.name -NameRaw $c.name -Url $c.url -UrlKind 'website' `
     -CategoryRaw $null -Source 'checked-2026-08-19' -Status $c.status -Reason $c.reason -Flags @()
+}
+
+# 1b. named but never reached -- "nobody looked", not "nothing found"
+foreach ($n in $NOT_SEARCHED) {
+  Add-Record -Id (Get-Slug $n) -Name $n -NameRaw $n -Url $null -UrlKind $null -CategoryRaw $null `
+    -Source 'named-not-reached-2026-08-19' -Status 'unverified' `
+    -Reason 'Not yet searched to conclusion. A named British Columbia organization the research sweep ran out of budget before checking. This is an absence of searching, NOT a finding that the organization is inactive, out of scope or non-existent.' `
+    -Flags @()
 }
 
 # 2. artifact-C-only leads

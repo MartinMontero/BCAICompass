@@ -161,7 +161,12 @@ Add-Result 'geojson feature count matches records with coordinates' `
 
 # ---------------------------------------------------------------- 9. no inherited values in src\
 # Field names that would mean something was carried forward from artifact A.
-$forbidden = @('funding', 'keyPeople', 'yearFounded', 'focusAreas')
+# keyPeople was on this list and was removed on 2026-08-19 when the field was
+# restored. It is now carried where a source names a current officer. The privacy
+# concern that banned it was about scraped contact details -- emails and phone
+# numbers -- which remain banned. funding, yearFounded and focusAreas stay banned
+# outright: every predecessor value for them was generated rather than researched.
+$forbidden = @('funding', 'yearFounded', 'focusAreas')
 $hits = New-Object System.Collections.ArrayList
 foreach ($term in $forbidden) {
   $m = Select-String -Path 'src\*.ts', 'src\*.tsx', 'src\**\*.ts', 'src\**\*.tsx' -Pattern ("\b" + $term + "\s*:") -ErrorAction SilentlyContinue
@@ -211,6 +216,145 @@ foreach ($m in $rx.Matches($html)) {
 }
 $sha.Dispose()
 Add-Result 'every inline script hash in index.html is present in public\_headers CSP' $hashesOk ''
+
+# ---------------------------------------------------------------------------
+# 14. The gate must count the same thing the artifact does.
+# A gate that reports a different record count from the file it gates is not
+# measuring what it claims to measure. Cross-checked against BOTH the emitted
+# JSON and the TypeScript source of truth.
+# ---------------------------------------------------------------------------
+$srcText = Get-Content 'src\data\organizations.ts' -Raw -Encoding UTF8
+$srcIds = @([regex]::Matches($srcText, "(?m)^\s{4}id: '([^']+)'") | ForEach-Object { $_.Groups[1].Value })
+$countsAgree = ($srcIds.Count -eq $orgs.Count) -and ($orgs.Count -eq $eco.count)
+Add-Result 'record count agrees across organizations.ts, ecosystem.json and this report' $countsAgree `
+  ("organizations.ts $($srcIds.Count); ecosystem.json.organizations $($orgs.Count); ecosystem.json.count $($eco.count)")
+
+# ---------------------------------------------------------------- 15. evidence quotes
+$noQuoteNoFlag = @($orgs | Where-Object {
+  $null -eq $_.evidenceQuote -and ($_.flags -notcontains 'quote-pending')
+})
+Add-Result 'every record has an evidenceQuote or a quote-pending flag' ($noQuoteNoFlag.Count -eq 0) `
+  ("$($noQuoteNoFlag.Count) offending")
+$noQuoteNoFlag | ForEach-Object { '      [' + $_.id + ']' }
+
+$longQuotes = @($orgs | Where-Object {
+  $_.evidenceQuote -and (@($_.evidenceQuote -split '\s+' | Where-Object { $_ -ne '' }).Count -ge 15)
+})
+Add-Result 'every evidenceQuote is under 15 words' ($longQuotes.Count -eq 0) ("$($longQuotes.Count) too long")
+$longQuotes | ForEach-Object { '      [' + $_.id + '] ' + (@($_.evidenceQuote -split '\s+').Count) + ' words' }
+
+$pending = @($orgs | Where-Object { $null -eq $_.evidenceQuote })
+Add-Result 'quote-pending count is reported' $true ("$($pending.Count) of $($orgs.Count) records are quote-pending")
+
+# The eight hand-verified quotes must appear verbatim, not reworded.
+$vrPath = 'research\verified\verified-records.json'
+if (Test-Path $vrPath) {
+  $vr = Get-Content $vrPath -Raw -Encoding UTF8 | ConvertFrom-Json
+  $missing = New-Object System.Collections.ArrayList
+  foreach ($r in $vr.records) {
+    if ([string]::IsNullOrWhiteSpace($r.evidenceQuote)) { continue }
+    if (-not $srcText.Contains($r.evidenceQuote)) { [void]$missing.Add($r.id) }
+  }
+  Add-Result 'the hand-verified quotes appear verbatim in the dataset' ($missing.Count -eq 0) `
+    ("$($vr.records.Count) checked; $($missing.Count) missing")
+  $missing | ForEach-Object { '      missing verbatim quote for: ' + $_ }
+} else {
+  Add-Result 'the hand-verified quotes appear verbatim in the dataset' $false 'verified-records.json not found'
+}
+
+# ---------------------------------------------------------------- 16. the false claim
+$claimPattern = 'not affiliated with, endorsed by'
+$claimHits = New-Object System.Collections.ArrayList
+foreach ($f in @('public\ecosystem.json', 'README.md')) {
+  if ((Test-Path $f) -and (Select-String -Path $f -Pattern $claimPattern -SimpleMatch -Quiet)) { [void]$claimHits.Add($f) }
+}
+# Rendered sections: the built bundle is what a visitor actually receives.
+$bundles = @(Get-ChildItem 'dist\assets' -Filter '*.js' -File -ErrorAction SilentlyContinue)
+foreach ($b in $bundles) {
+  if (Select-String -Path $b.FullName -Pattern $claimPattern -SimpleMatch -Quiet) { [void]$claimHits.Add($b.Name) }
+}
+Add-Result 'the independence claim appears in no published artifact' ($claimHits.Count -eq 0) `
+  ("checked ecosystem.json, README.md and $($bundles.Count) built bundle(s); $($claimHits.Count) hit(s)")
+$claimHits | ForEach-Object { '      ' + $_ }
+
+# ---------------------------------------------------------------- 17. scope reinstatements
+$mustBePresent = @('abcellera', 'visier', 'innovate-bc', 'digibc', 'accelerate-okanagan')
+$absent = @($mustBePresent | Where-Object { $orgs.id -notcontains $_ })
+Add-Result 'the five organizations withheld under the old scope test are present' ($absent.Count -eq 0) `
+  ("$($absent.Count) still absent")
+$absent | ForEach-Object { '      absent: ' + $_ }
+
+# ---------------------------------------------------------------- 18. out-of-scope
+$mustBeAbsent = @('cohere', 'colab-software', 'featherless-ai')
+$present = @($mustBeAbsent | Where-Object { $orgs.id -contains $_ })
+Add-Result 'Cohere, CoLab Software and Featherless AI do not appear as BC organizations' ($present.Count -eq 0) `
+  ("$($present.Count) present")
+
+# Ethos Lab must never be filed under an Indigenous category or described as Indigenous.
+$ethos = @($orgs | Where-Object { $_.id -eq 'ethos-lab' })
+$ethosClean = $true
+foreach ($e in $ethos) {
+  if ($e.category -match '(?i)indigenous') { $ethosClean = $false }
+  if ($e.description -and $e.description -match '(?i)indigenous') { $ethosClean = $false }
+}
+Add-Result 'Ethos Lab does not appear under any Indigenous category or framing' $ethosClean `
+  ("record present: $($ethos.Count -gt 0)")
+
+# ---------------------------------------------------------------- 19. fields that stay null
+$nullViolations = New-Object System.Collections.ArrayList
+$caida = @($orgs | Where-Object { $_.id -eq 'caida' })
+foreach ($c in $caida) { if ($null -ne $c.size) { [void]$nullViolations.Add('caida.size') } }
+$ibc = @($orgs | Where-Object { $_.id -eq 'innovate-bc' })
+foreach ($i in $ibc) { if ($i.description -match '(?i)reports to the Ministry') { [void]$nullViolations.Add('innovate-bc ministry') } }
+$bcai = @($orgs | Where-Object { $_.id -eq 'bc-ai-ecosystem-association' })
+foreach ($b in $bcai) { if ($b.description -match '(?i)founded in 20\d\d|since 20\d\d') { [void]$nullViolations.Add('bc-ai founding year') } }
+Add-Result 'no non-null value in any field required to stay null' ($nullViolations.Count -eq 0) `
+  ("$($nullViolations.Count) violation(s): " + ($nullViolations -join ', '))
+
+# ---------------------------------------------------------------- 20. union + seed flags
+$EXTENDED_FLAGS = @('section-heading','markdown-artifact','unmerged-duplicate','linkedin-as-website',
+                    'duplicate-name','duplicate-domain','non-bc-suspected','defunct-suspected',
+                    'person-not-org','product-not-org','no-url','not-an-entity','synthesized-url',
+                    'marked-for-deletion')
+if (Test-Path 'research\union.json') {
+  $union = Get-Content 'research\union.json' -Raw -Encoding UTF8 | ConvertFrom-Json
+  $uIds = @($union | ForEach-Object { $_.id })
+  $uUniq = @($uIds | Select-Object -Unique)
+  $badFlags = @($union | ForEach-Object { $_.flags } | Where-Object { $_ } | Select-Object -Unique |
+    Where-Object { $EXTENDED_FLAGS -notcontains $_ })
+  Add-Result 'union.json exists with unique ids and only closed-set flags' `
+    (($uIds.Count -eq $uUniq.Count) -and ($badFlags.Count -eq 0)) `
+    ("$($uIds.Count) records, $($uUniq.Count) distinct ids, $($badFlags.Count) out-of-set flag(s)")
+  $badFlags | ForEach-Object { '      unexpected flag: ' + $_ }
+  Add-Result 'union.json is materially larger than the single-file seed' ($uIds.Count -gt 2000) `
+    ("$($uIds.Count) names across every json/csv in the reference clone")
+} else {
+  Add-Result 'union.json exists with unique ids and only closed-set flags' $false 'research\union.json not found'
+}
+
+$seed = Get-Content 'research\seed.json' -Raw -Encoding UTF8 | ConvertFrom-Json
+$seedNotEntity = @($seed | Where-Object { $_.flags -contains 'not-an-entity' }).Count
+$seedSynth = @($seed | Where-Object { $_.flags -contains 'synthesized-url' }).Count
+Add-Result 'seed.json carries not-an-entity on the report-fragment rows' ($seedNotEntity -ge 250) `
+  ("$seedNotEntity rows flagged not-an-entity")
+Add-Result 'seed.json carries synthesized-url on the name-derived URLs' ($seedSynth -ge 150) `
+  ("$seedSynth rows flagged synthesized-url")
+
+# ---------------------------------------------------------------- 21. region coverage
+$regionsDeclared = @($eco.regions)
+$uncoveredRegions = @($regionsDeclared | Where-Object { @($orgs | Where-Object { $_.region -eq $_ }).Count -eq 0 })
+$uncoveredRegions = @()
+foreach ($r in $regionsDeclared) {
+  $n = @($orgs | Where-Object { $_.region -eq $r }).Count
+  if ($n -eq 0) { $uncoveredRegions += $r }
+}
+$coverageDoc = if (Test-Path 'research\COVERAGE.md') { Get-Content 'research\COVERAGE.md' -Raw -Encoding UTF8 } else { '' }
+$allExplained = $true
+foreach ($r in $uncoveredRegions) {
+  if ($coverageDoc -notlike ('*' + $r + '*')) { $allExplained = $false; '      no searched-conclusion written for: ' + $r }
+}
+Add-Result 'every region has a record or a written searched-conclusion' $allExplained `
+  ("$($uncoveredRegions.Count) region(s) with zero records, all documented in COVERAGE.md: $allExplained")
 
 # ---------------------------------------------------------------- summary
 ''

@@ -69,6 +69,53 @@ function Test-AnyPattern {
   return $false
 }
 
+# A URL is name-derived when its registered domain equals the organisation name with
+# all non-alphanumerics stripped, plus a common TLD. Such a URL carries NO evidence
+# that anyone ever checked it -- see AUDIT.md section 2.3. The flag belongs on the
+# record so a future pass sees it while working the row, not in a report it may never
+# open. 4agrobotics.com carried this shape and turned out to be a parked domain.
+function Test-SynthesizedUrl {
+  param([string]$Name, $Url)
+  if ([string]::IsNullOrWhiteSpace($Url)) { return $false }
+  $slug = ($Name.ToLowerInvariant() -replace '^\s*\d+[\.\)]\s*', '') -replace '\*+', ''
+  $slug = $slug -replace '\s*\([^)]*\)\s*', ' '
+  $slug = $slug -replace '[^a-z0-9]', ''
+  if ($slug.Length -lt 5) { return $false }
+  $bare = Get-RegisteredDomain $Url
+  if (-not $bare) { return $false }
+  foreach ($tld in @('com','ca','ai','io','co','net','org','tech','app','eco','dev')) {
+    if ($bare -eq ($slug + '.' + $tld)) { return $true }
+  }
+  return $false
+}
+
+# not-an-entity: the row is a line lifted out of a scraped markdown report -- a field
+# label, a metric heading, a to-do line, a bare year, a filename -- rather than an
+# organisation. This is the LARGEST defect class in artifact A and the original closed
+# flag set had no value for it, so seed.json understated the damage by design. Added
+# 2026-08-19; the count now rides on the record instead of only in seed-summary.md.
+function Test-NotAnEntity {
+  param([string]$Name, $Url)
+  $n = $Name.Trim()
+  if ($n -match ':\s*$') { return $true }
+  if ($n -match '^\s*(19|20)\d{2}(\s*[-/]\s*(19|20)?\d{2})?\s*$') { return $true }
+  if ($n -match '\.(json|md|csv|txt|js|xlsx)\s*$') { return $true }
+  if ($n -cmatch '^(Deep dive|Track|Monitor|Add|Update|Review|Expand|Build|Create|Verify|Complete|Populate|Import|Research|Identify|Establish|Launch|Continue|Consider|Explore)\b') { return $true }
+  $schemaLabels = @(
+    'Name','Website','LinkedIn','Email','Category','Region','City','Description','Year Founded',
+    'Key People','Employee Count','Employee Counts','Valuation','Revenue','Funding','Last Verified',
+    'Status','Logo','Phone','Address','Total Raised','Total Revenue','Total Employees','Average Revenue',
+    'Average Team Size','Average Founder Age','Team Range','Revenue Range','Funding Range','Funding Data',
+    'Funding Details','Market Data','People Data','Date Stamped','Cross-Referenced','High Confidence',
+    'Medium Confidence','Before Addition','After Addition','Net Improvement','Series A','Year 1','Year 2','Year 3'
+  )
+  if ($schemaLabels -contains $n) { return $true }
+  $reportNoun = '(?i)\b(intelligence|metrics|trends|assessment|analysis|recommendations|opportunities|priorities|readiness|positioning|penetration|velocity|distribution|diversity|progression|consolidation|maturity|differentiation|reinforcement|evolution|expansion|enhancement|generating|generation|mapping|tracking|targeting|monitoring|verification|standards|documentation|patterns|indicators|factors|themes|gaps|strategy|strategies|landscape|traction|reach|advantage|edge|position|state|levels|methods|sources|counts?|sizes?|ranges?|totals?)\b'
+  $orgAnchor = '(?i)\b(inc|ltd|llc|corp|corporation|company|technolog\w*|labs?|solutions|systems|group|university|college|institute|centre|center|society|association|foundation|council|network|ventures|capital|partners|fund|studio\w*|works|media|digital|health|data|software|academy|school|hub|space|collective|agency|consulting|services|bank|clinic|hospital|museum|festival|conference|summit|program|initiative|project|alliance|chamber|board|authority|ministry|department|nation|robotics|energy|therapeutics|pharmaceuticals|sciences?|biologics|entertainment|analytics|ai)\b'
+  if ([string]::IsNullOrWhiteSpace($Url) -and $n -match $reportNoun -and $n -notmatch $orgAnchor) { return $true }
+  return $false
+}
+
 # Rows judged by eye to be a product rather than the organisation behind it.
 # Curated, not pattern-matched: the pattern flagged CoPilot AI, which is a real company.
 $PRODUCT_NOT_ORG = @(
@@ -194,6 +241,8 @@ foreach ($x in $recs) {
   if ($PERSON_NOT_ORG -contains $x.name)                                     { [void]$f.Add('person-not-org') }
   if ($PRODUCT_NOT_ORG -contains $x.name)                                    { [void]$f.Add('product-not-org') }
   if ($null -eq $x.url)                                                      { [void]$f.Add('no-url') }
+  if (Test-SynthesizedUrl $x.name $x.url)                                    { [void]$f.Add('synthesized-url') }
+  if (Test-NotAnEntity $x.name $x.url)                                       { [void]$f.Add('not-an-entity') }
 
   $x.flags = @($f)
 
@@ -228,7 +277,7 @@ Write-Host ('wrote ' + $OutJson + ' with ' + $sorted.Count + ' records')
 # ---------------------------------------------------------------- summary
 $FLAGSET = @('section-heading','markdown-artifact','unmerged-duplicate','linkedin-as-website',
              'duplicate-name','duplicate-domain','non-bc-suspected','defunct-suspected',
-             'person-not-org','product-not-org','no-url')
+             'person-not-org','product-not-org','no-url','not-an-entity','synthesized-url')
 
 $flagCounts = [ordered]@{}
 foreach ($fl in $FLAGSET) {
@@ -301,18 +350,24 @@ A ('- **`duplicate-domain` = ' + $flagCounts['duplicate-domain'] + '.** Excludes
 A '  because many unrelated organisations legitimately share those and a collision'
 A '  there is not evidence of duplication.'
 A ''
-A '## The flag set cannot express the largest defect class'
+A '## The largest defect class now rides on the record'
 A ''
-A '262 artifact-A rows are lines lifted from a markdown report rather than entities --'
-A '`Headquarters:`, `CEO:`, `Team Size:`, `Talent Mapping`, `Year Founded`,'
-A '`batch-15-formatted.json` (AUDIT.md 2.6.4). That class is larger than every other'
-A 'defect class combined, and **the closed flag set has no flag for it.**'
-A '`person-not-org` and `product-not-org` are the nearest and both are wrong.'
+A ('**`not-an-entity` = ' + $flagCounts['not-an-entity'] + '.** These rows are lines lifted from a markdown report')
+A 'rather than organisations -- `Headquarters:`, `CEO:`, `Team Size:`, `Talent Mapping`,'
+A '`Year Founded`, `batch-15-formatted.json` (AUDIT.md 2.6.4). That class is larger than'
+A 'every other defect class combined.'
 A ''
-A 'The closed set is honored exactly as specified: those rows carry `no-url`, which is'
-A 'true, and nothing else. The consequence is that **seed.json alone understates the'
-A 'damage by design**, so the count is carried here instead. Recommended for a future'
-A 'revision of the schema: add `not-an-entity`.'
+A 'The originally specified closed flag set had **no value for it**, so the first version'
+A 'of this file carried only `no-url` on those rows and deferred the real count to this'
+A 'summary -- meaning seed.json understated the damage by design. `not-an-entity` was'
+A 'added to the closed set on 2026-08-19 and the count now rides on the record, where a'
+A 'future pass working the row will actually see it.'
+A ''
+A ('**`synthesized-url` = ' + $flagCounts['synthesized-url'] + '.** Added at the same time. The domain is derivable')
+A 'character-for-character from the organisation name, so the URL carries no evidence'
+A 'that anyone ever checked it. `4agrobotics.com` had this shape and turned out to be a'
+A 'parked domain-sale page. A row with this flag needs its site resolved independently;'
+A 'the URL is a hint, not an answer.'
 A ''
 A '## Surviving record counts at each filter stage'
 A ''

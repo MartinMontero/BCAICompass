@@ -52,11 +52,13 @@ export default function Footer() {
 
           <div className="md:col-span-4">
             <div className="font-mono2 text-[9.5px] tracking-[0.2em] uppercase text-[var(--ink-faint)] mb-3">
-              Independence
+              Who makes this
             </div>
             <p className="text-[12.5px] leading-relaxed text-[var(--ink-soft)]">
-              BC AI Compass is an independent project. It is not affiliated with, endorsed by, or
-              produced for any organization listed in it. No listing is paid for or sponsored.
+              A <strong className="text-[var(--ink)]">BC + AI Ecosystem Association</strong> project,
+              built by Martin Montero. BC + AI is listed in this directory. No other organization
+              listed here is a partner, funder or endorser of it, and no listing is paid for or
+              sponsored.
             </p>
             <p className="mt-4 text-[12.5px] leading-relaxed text-[var(--ink-faint)]">
               Map tiles ©{' '}

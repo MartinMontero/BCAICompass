@@ -7,15 +7,20 @@ was checked.** That is the entire premise. A directory that tells you *when* it 
 checked but not *against what* cannot be audited or corrected — it can only be
 believed, and this one does not ask to be believed.
 
-**BC AI Compass is independent.** It is not affiliated with, endorsed by, or
-produced for any organization listed in it. No listing is paid for or sponsored.
+**BC AI Compass is a [BC + AI Ecosystem Association](https://bc-ai.ca) project,
+built by Martin Montero** as his contribution to it. BC + AI is itself listed in this
+directory, and that is stated on the site rather than left for you to discover.
+
+**No other organization listed here is a partner, funder or endorser of this
+project** — not the universities, not the telecoms, not the Crown agencies, not any
+company. No listing is paid for or sponsored.
 
 ---
 
 ## What is here
 
-- **104 verified organizations**, each with a `sourceUrl`, a `sourceDate` and a
-  `verified` stamp. 98 have sourced coordinates and appear on the map; the rest
+- **117 verified organizations**, each with a `sourceUrl`, a `sourceDate` and a
+  `verified` stamp, and 80 of them carry a verbatim evidence quote copied off the source page. 111 have sourced coordinates and appear on the map; the rest
   have a province-wide mandate and no single seat, and appear in the directory
   without a pin.
 - **The map** — province-wide, fitted to the data rather than centred on
@@ -34,6 +39,20 @@ produced for any organization listed in it. No listing is paid for or sponsored.
   [`public/ecosystem.geojson`](public/ecosystem.geojson), regenerated and
   re-validated on every build.
 
+## Scope — the whole ecosystem, not only the AI builders
+
+**An organization is in scope when it funds, houses, teaches, convenes, governs,
+represents, powers or otherwise materially supports AI work in British Columbia, and
+that can be sourced.** An industry association does not have to do AI to be part of
+the AI ecosystem. A Crown agency that funds AI companies is in. An accelerator whose
+portfolio includes AI companies is in. So are investors, universities, community
+groups, Indigenous-led organizations, media, and the physical infrastructure the whole
+thing runs on.
+
+Where a source did not claim AI work, the record's description does not claim it
+either. Inclusion is an ecosystem judgement; it is not licence to put words in an
+organization's mouth.
+
 ## Categories
 
 Seven, derived from what the verified data contains rather than from the 85
@@ -50,7 +69,8 @@ Columbia since that database was last dumped.
 | | Why |
 |---|---|
 | **Funding figures** | Permanently out of scope. Most likely field to be wrong, most likely to be quoted, hardest to confirm from a primary source in one reading. |
-| **Names, emails or phone numbers of individuals** | Republishing scraped contact details is a privacy problem before it is an accuracy problem. This is a directory of organizations. |
+| **Emails and phone numbers of individuals** | Republishing scraped contact details is a privacy problem before it is an accuracy problem. A named officer an organization publishes about itself is a different case and *is* carried, in `keyPeople`, sourced or null. |
+| **Ministers, on organization records** | They change faster than any re-verification cycle — a BC cabinet shuffle invalidated one while this was being built. They live on one dated page, [`research/GOVERNMENT-LAYER.md`](research/GOVERNMENT-LAYER.md), so a single edit updates everything. |
 | **Generated descriptions** | No blurb is produced from a name, a domain or a category. Where the source did not support a description, the field is `null` and the site says so. |
 | **Invented coordinates** | Pins are municipal centroids from a named gazetteer, never a guessed street address. No confirmed location means no pin, and that is a correct outcome. |
 | **Anything inherited** | Candidate *names* came from an older dataset. Not one published *value* did. |
@@ -83,8 +103,11 @@ any BC AI dataset, including this one.
 | [`research/VERIFICATION.md`](research/VERIFICATION.md) | What was actually done, including everything that could not be confirmed |
 | [`research/DESIGN.md`](research/DESIGN.md) | The design system and its per-project binding |
 | [`research/SHIP.md`](research/SHIP.md) | Deployment, rollback, and the re-verification cadence |
+| [`research/COVERAGE.md`](research/COVERAGE.md) | **What has been searched and what has not** — including why one region is still empty. Read this before drawing conclusions from a zero. |
+| [`research/GOVERNMENT-LAYER.md`](research/GOVERNMENT-LAYER.md) | BC's AI portfolio and the municipal layer, on one dated page rather than scattered across records |
 | [`research/seed-summary.md`](research/seed-summary.md) | The source data normalized into leads, with attrition per filter stage |
-| [`research/unverified.json`](research/unverified.json) | 1,464 candidates that did **not** reach verified, with a reason each. Never built into the site. |
+| [`research/union.json`](research/union.json) | 2,467 distinct names from **every** JSON and CSV in the source repository, not just the one backup dump |
+| [`research/unverified.json`](research/unverified.json) | 1,475 candidates that did **not** reach verified, with a reason each. Never built into the site. |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to add or correct an organization, and what evidence a submission needs |
 
 ## Stack
@@ -134,7 +157,7 @@ compile error, not a code review.
 powershell -NoProfile -File .\research\audit\Test-ExitConditions.ps1 -CleanInstall
 ```
 
-17 machine-checked conditions: clean install, build, `tsc`, `eslint`, both JSON
+32 machine-checked conditions: clean install, build, `tsc`, `eslint`, both JSON
 outputs parse, ids unique, every record sourced and stamped, at least 100 records,
 category union closed in both directions, no coordinate without a source, GeoJSON
 feature count matches, no inherited field anywhere in `src/`, `src/` never imports

@@ -80,6 +80,36 @@ for (const o of ORGANIZATIONS) {
   if (o.description === undefined) problems.push(`${where}: description must be a string or null, not undefined`);
   if (o.size === undefined) problems.push(`${where}: size must be a band or null, not undefined`);
 
+  // evidenceQuote: either a real quote under 15 words, or null WITH the flag that
+  // says so. A null quote and no flag is a record quietly pretending to be checked.
+  if (o.evidenceQuote === undefined) problems.push(`${where}: evidenceQuote must be a string or null`);
+  if (o.evidenceQuote === null && !(o.flags ?? []).includes('quote-pending')) {
+    problems.push(`${where}: evidenceQuote is null but the record does not carry the 'quote-pending' flag`);
+  }
+  if (typeof o.evidenceQuote === 'string') {
+    const words = o.evidenceQuote.trim().split(/\s+/).filter(Boolean).length;
+    if (words === 0) problems.push(`${where}: evidenceQuote is empty; use null plus 'quote-pending'`);
+    if (words >= 15) problems.push(`${where}: evidenceQuote is ${words} words; must be under 15`);
+    if ((o.flags ?? []).includes('quote-pending')) {
+      problems.push(`${where}: has an evidenceQuote but still carries 'quote-pending'`);
+    }
+  }
+  if (!Array.isArray(o.flags)) problems.push(`${where}: flags must be an array`);
+  if (o.orgStatus === undefined) problems.push(`${where}: orgStatus must be a value or null`);
+  if (o.keyPeople === undefined) problems.push(`${where}: keyPeople must be a string or null`);
+
+  // Fields that stay null by decision, not by omission. Each traces to sources that
+  // disagree with each other, and picking one would be choosing rather than sourcing.
+  if (o.id === 'innovate-bc' && o.description && /reports to the Ministry/i.test(o.description)) {
+    problems.push(`${where}: Innovate BC's reporting ministry must stay null -- two gov.bc.ca pages disagree`);
+  }
+  if (o.id === 'caida' && o.size !== null) {
+    problems.push(`${where}: CAIDA membership size must stay null -- its own pages give three different figures`);
+  }
+  if (o.id === 'bc-ai-ecosystem-association' && o.description && /founded in 20\d\d|since 20\d\d/i.test(o.description)) {
+    problems.push(`${where}: BC + AI founding year must stay null -- its About page and press kit disagree`);
+  }
+
   // A coordinate without a source is the exact failure mode this project exists
   // to correct. It is a build error, not a warning.
   const hasLat = o.lat !== undefined;
@@ -100,7 +130,15 @@ for (const c of CATEGORIES) {
 
 // Values that must never appear anywhere in the published data, because they
 // would mean something from the predecessor dataset was carried forward.
-const FORBIDDEN_FIELDS = ['funding', 'keyPeople', 'yearFounded', 'focusAreas', 'email'];
+// keyPeople was on this list until 2026-08-19 and has been restored as a first-class
+// field: it is carried where a source names a CURRENT officer, and null otherwise.
+// The privacy concern that removed it was about republishing scraped contact details
+// -- emails and phone numbers -- not about naming an executive director whose own
+// organization publishes the name. Those stay banned.
+//
+// funding, yearFounded and focusAreas stay banned outright: every value the
+// predecessor dataset held for them was generated rather than researched.
+const FORBIDDEN_FIELDS = ['funding', 'yearFounded', 'focusAreas', 'email', 'phone'];
 for (const o of ORGANIZATIONS) {
   for (const f of FORBIDDEN_FIELDS) {
     if (f in o) problems.push(`[${o.id}]: carries forbidden field "${f}" (see PLAN.md section 1.1)`);
@@ -127,20 +165,28 @@ const organizations = ORGANIZATIONS.map((o) => ({
   location: o.location,
   description: o.description,
   size: o.size,
+  orgStatus: o.orgStatus,
+  keyPeople: o.keyPeople,
+  ...(o.capacityDesignMW !== null ? { capacityDesignMW: o.capacityDesignMW } : {}),
+  ...(o.capacitySecuredMW !== null ? { capacitySecuredMW: o.capacitySecuredMW } : {}),
   ...(o.lat !== undefined ? { lat: o.lat, lng: o.lng, geoSourceUrl: o.geoSourceUrl } : {}),
   sourceUrl: o.sourceUrl,
+  evidenceQuote: o.evidenceQuote,
   sourceDate: o.sourceDate,
   verified: o.verified,
   status: o.status,
+  flags: o.flags,
 }));
 
 const byCategory = {};
 for (const c of CATEGORIES) byCategory[c] = organizations.filter((o) => o.category === c).length;
+// Every region is emitted, INCLUDING the zero ones. A region silently missing from
+// this object reads as "nothing there"; a region present with 0 reads as "nobody has
+// looked yet", which is what is actually true. The site renders the difference.
 const byRegion = {};
-for (const r of REGIONS) {
-  const n = organizations.filter((o) => o.region === r).length;
-  if (n > 0) byRegion[r] = n;
-}
+for (const r of REGIONS) byRegion[r] = organizations.filter((o) => o.region === r).length;
+
+const quotePending = organizations.filter((o) => o.evidenceQuote === null).length;
 
 const dataset = {
   name: 'BC AI Compass — verified directory of British Columbia’s AI ecosystem',
@@ -148,9 +194,21 @@ const dataset = {
   generated,
   license: 'CC BY 4.0 — credit bcaicompass.ca',
   method:
-    'Every record was independently verified: its website resolved and was live, its British Columbia presence was confirmed from its own site or a primary source, and its category was assigned from content actually read. sourceUrl names the page read; sourceDate is the day it was read. Nothing here was carried forward from a prior dataset. Coordinates are municipal centroids, sourced in geoSourceUrl, not street addresses.',
-  independence:
-    'BC AI Compass is independent. It is not affiliated with, endorsed by, or produced for any organization listed in it.',
+    'Every record was independently verified: its website resolved and was live, its British Columbia presence was confirmed from its own site or a primary source, and its category was assigned from content actually read. sourceUrl names the page read; sourceDate is the day it was read. evidenceQuote is a short verbatim string copied from that page — open sourceUrl, search for the quote, and the record is confirmed or exposed. Records with evidenceQuote null carry a quote-pending flag: sourced, but not yet spot-checkable. Nothing here was carried forward from a prior dataset. Coordinates are municipal centroids, sourced in geoSourceUrl, not street addresses.',
+  scope:
+    'This maps the whole ecosystem around AI in British Columbia, not only organizations that build AI. An organization is in scope when it funds, houses, teaches, convenes, governs, represents, powers or otherwise materially supports AI work in BC, and that can be sourced. An industry association does not have to do AI to be part of the AI ecosystem.',
+  coverage:
+    'A region or category showing zero here has NOT been surveyed to a conclusion. It is not a finding that nothing exists there. research/unverified.json records what remains unsearched.',
+  quotePending,
+  // Key renamed from "independence" in the 2026-08-19 correction pass. The old value
+  // read "BC AI Compass is independent. It is not affiliated with, endorsed by, or
+  // produced for any organization listed in it." That was FALSE and it was published:
+  // Kris Krug, Executive Director of the BC + AI Ecosystem Association, asked Martin
+  // Montero to build this for BC + AI in partnership with them, and supplied the
+  // predecessor repository for that purpose. BC + AI is listed in this directory.
+  // The old line came from an instruction written before that was known.
+  affiliation:
+    'BC AI Compass is a BC + AI Ecosystem Association project, built by Martin Montero as his contribution to it. The BC + AI Ecosystem Association is listed in this directory. No other organization listed here is a partner, funder or endorser of this project, and no listing is paid for or sponsored.',
   count: organizations.length,
   categories: CATEGORIES,
   categoryColors: CATEGORY_COLORS,

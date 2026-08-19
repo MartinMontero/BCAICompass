@@ -223,7 +223,44 @@ $eco.organizations | ForEach-Object {
 | **Public Sector & Policy** | Annually, and after any provincial election or ministry reorganisation | Ministry names change with governments. |
 | **Talent & Education** | Annually | |
 
-### 4.3 The event trigger that matters most
+### 4.3 The event trigger that matters most — a dated, mandatory revision
+
+**Re-verify after 2026-09-15.** BC Hydro notifies successful applicants for the
+400 MW AI and data-centre allocation in mid-September 2026. 15 applications
+representing close to 800 MW were received against 400 MW available, so **roughly half
+will be refused** — and applicants are not publicly named, so the winners are
+genuinely new information rather than a confirmation of what is already listed.
+
+When that lands, three things must happen before the next deploy:
+
+1. **Every TELUS and Bell record must distinguish awarded megawatts from applied-for
+   megawatts.** Today every capacity figure in the dataset is design capacity
+   (`capacityDesignMW`) or secured capacity (`capacitySecuredMW`). Neither is awarded
+   capacity, and conflating them after September would be the single most misleading
+   thing this dataset could do.
+2. **Any newly named winner becomes a new record**, sourced to the announcement.
+3. **Any applicant that is refused** must have its record's description corrected —
+   a proposed facility that did not get power is not a facility.
+
+Find the affected records:
+
+```powershell
+Set-Location C:\Users\User\dev\BCAICompass
+$eco = Get-Content .\public\ecosystem.json -Raw -Encoding UTF8 | ConvertFrom-Json
+$eco.organizations |
+  Where-Object { $_.category -eq 'Compute & Infrastructure' } |
+  Select-Object id, name, location, capacityDesignMW, capacitySecuredMW, verified |
+  Format-Table -AutoSize
+```
+
+Also re-read [GOVERNMENT-LAYER.md](GOVERNMENT-LAYER.md) at the same time: it records
+the 400 MW figure against an earlier Province framework page describing 300 MW AI plus
+100 MW data centre plus 200 MW hydrogen, and that conflict should be resolvable once
+awards are public.
+
+### 4.3.1 The other scheduled trigger
+
+
 
 **BC Hydro notifies successful applicants for the 400 MW AI and data-centre
 allocation in September 2026.** 15 applications totalling roughly 800 MW were

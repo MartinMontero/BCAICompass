@@ -945,9 +945,21 @@ Stated as **UNKNOWN**, not guessed:
   (§1.3). C names 285 of the 839 it counts. **UNKNOWN.**
 - **Whether any relationship exists between this project and BC + AI, Kris Krüg, the
   Internet Archive, TELUS, Bell, BC Hydro or any organization named in these repos.**
-  Nothing in any file read during this audit states one. **For the purposes of this
-  project, none exists.** BC AI Compass is independent, unaffiliated and unendorsed.
-  See [PLAN.md](PLAN.md), "Open questions for Martin".
+  Nothing in any file read *during this audit* stated one, and this section originally
+  concluded that none existed.
+
+  > **CORRECTED 2026-08-19.** That conclusion was wrong, and it was wrong because the
+  > audit could only see files. **Kris Krüg, Executive Director of the BC + AI
+  > Ecosystem Association, asked Martin Montero to build BC AI Compass for BC + AI in
+  > partnership with them, and supplied the `bc-ai--ecosystem-map` repository for that
+  > purpose.** BC AI Compass is a BC + AI Ecosystem Association project, built by
+  > Martin Montero. The absence of a fact from a repository is not evidence that the
+  > fact is false — which is the same error, in the other direction, as the fabrications
+  > this audit was written to catch.
+  >
+  > No other partnership, endorsement or affiliation is asserted. The Internet Archive,
+  > TELUS, Bell, BC Hydro, the universities and every listed company are **not**
+  > partners of this project. See [PLAN.md](PLAN.md) §8.2.
 
 ---
 

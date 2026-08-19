@@ -688,21 +688,45 @@ authored by Kris Krüg, credits BC + AI, and ships its own Next.js front end in 
 **CONFIRMED** from `ecomap-reference\README.md:25`: "there's no hosted version yet."
 So the ecosystem map has never been published anywhere, by anyone.
 
-**Nothing in any file read during this work states any relationship between Martin
-Montero and BC + AI, Kris Krüg, the Internet Archive, TELUS, Bell, BC Hydro, or any
-other organization.** For the purposes of this project, none exists.
+### 8.2.1 CORRECTED 2026-08-19 — the original default was factually wrong
 
-**Default taken:** BC AI Compass is independent. No BC + AI marks, no implied
-endorsement, no claim of affiliation, no "produced for" or "in partnership with"
-anywhere in the copy. The site says what it is: an independent, verified directory.
-The method statement says so in plain words on the page.
+The original text of this section read: *"Nothing in any file read during this work
+states any relationship between Martin Montero and BC + AI… For the purposes of this
+project, none exists. **Default taken:** BC AI Compass is independent."*
 
-**What changes if that changes.** A written, stated partnership would change three
-things: the footer credit, one paragraph in the method statement, and the about copy.
-It would change **nothing** about the schema, the verification protocol, or the data —
-because the data's credibility comes from its sources, not from whose name is on it.
-That is the design working as intended. **A partnership is not a shortcut to
-verification, and this project should never be in a position where it needs one.**
+**That was false, and it shipped.** The line
+*"BC AI Compass is independent. It is not affiliated with, endorsed by, or produced
+for any organization listed in it"* was written into `public\ecosystem.json`,
+`README.md`, the site footer and the Method section.
+
+**The actual position: Kris Krüg, Executive Director of the BC + AI Ecosystem
+Association, asked Martin Montero to build BC AI Compass for BC + AI in partnership
+with them, as Martin's contribution, and supplied the `bc-ai--ecosystem-map`
+repository for that purpose.** BC + AI is listed in the directory. Publishing the old
+line meant publicly denying the arrangement with the organization that commissioned
+the project.
+
+**Why the error happened, because the mechanism matters more than the correction.**
+The plan reasoned from file evidence alone and then converted an absence of evidence
+into a positive claim of independence. That is the same move as inferring a founding
+year from a domain name: **treating "the sources do not say" as if it were "the
+sources say no."** The audit was built to catch that error pointing one way and
+committed it pointing the other.
+
+**The accurate framing, now used everywhere:**
+
+> BC AI Compass is a BC + AI Ecosystem Association project, built by Martin Montero.
+
+**And the limit on it, stated just as plainly.** No other partnership, endorsement or
+affiliation is asserted or implied. The Internet Archive, TELUS, Bell, BC Hydro, every
+university and every listed company are **not** partners, funders or endorsers of this
+project. No listing is paid for or sponsored.
+
+**What does not change.** Not the schema, not the verification protocol, not one
+record. The dataset's credibility comes from its sources, not from whose name is on
+it — so a commissioning relationship changes the byline and nothing else. **A
+partnership is not a shortcut to verification, and the one record it does touch — BC +
+AI's own — is held to exactly the same evidence bar as every other.**
 
 ### 8.3 Vite/React static versus Next.js, and the porting cost
 

@@ -499,7 +499,227 @@ conditions still pass.
 
 ---
 
-## 11. What the next person should do first
+## 11. Second correction pass — 2026-08-19
+
+Everything above describes the first two passes. This section records the third,
+which corrected two errors of judgement and one published falsehood.
+
+### 11.1 The scope test was wrong, and five organizations were wrongly withheld
+
+The first pass excluded organizations whose own pages did not say "AI". Applied to
+**AbCellera, Visier, Innovate BC, DigiBC and Accelerate Okanagan**, that produced the
+absurd result of a BC AI ecosystem map with no industry association, no provincial
+Crown innovation agency and no regional accelerator in it.
+
+**The test was wrong.** This maps the whole ecosystem *around* AI in British
+Columbia, not only the organizations that build AI. The replacement test: does this
+organization **fund, house, teach, convene, govern, represent, power or otherwise
+materially support** AI work in BC, and can that be sourced? An industry association
+does not have to do AI to be part of the AI ecosystem.
+
+All five are now published, along with KAST, Innovation Central Society, General
+Fusion, Aspect Biosystems, Animikii, Ethọ́s Lab, the Upper Nicola Band data centre
+and the Prophet River First Nation project. **117 records, up from 104.**
+
+**One discipline was kept.** Where a page did not claim AI work, the record's
+*description* does not claim it either. AbCellera's record says it describes itself as
+integrating "biology, computation and engineering" and explicitly notes that the AI
+framing is not its own. Inclusion is an ecosystem judgement; it is not licence to put
+words in an organization's mouth.
+
+### 11.2 The independence statement was false and was published
+
+`public\ecosystem.json`, `README.md`, the site footer, the Method section and the hero
+eyebrow all carried some form of:
+
+> "BC AI Compass is independent. It is not affiliated with, endorsed by, or produced
+> for any organization listed in it."
+
+**That is false.** Kris Krüg, Executive Director of the BC + AI Ecosystem Association,
+asked Martin Montero to build BC AI Compass for BC + AI in partnership with them, and
+supplied the predecessor repository for that purpose. BC + AI is listed in the
+directory. **The line publicly denied the arrangement with the organization that
+commissioned the project.**
+
+Replaced everywhere with: *BC AI Compass is a BC + AI Ecosystem Association project,
+built by Martin Montero* — together with the limit on it: **no other organization
+listed here is a partner, funder or endorser**, and no listing is paid for or
+sponsored. The BC + AI record itself now says plainly that it is the one record in
+the directory published by its own commissioning organization.
+
+**How the error happened, because the mechanism generalises.** [PLAN.md](PLAN.md)
+§8.2 reasoned from file evidence alone, found no stated relationship, and converted
+that absence into a positive claim of independence. **"The sources do not say" is not
+"the sources say no."** That is precisely the inference this project was built to
+refuse, committed in the opposite direction. It is now recorded as such in AUDIT.md
+§9 and PLAN.md §8.2.1 rather than quietly patched.
+
+A gate now checks the claim is absent from `ecosystem.json`, `README.md` **and the
+built JavaScript bundle** — the last because that is what a visitor actually receives.
+
+### 11.3 evidenceQuote — the fix for the QAI failure
+
+The Quantum Algorithms Institute record carried a Surrey pin drawn from a dead
+domain's footer and **every machine gate passed**, because the gates checked that a
+coordinate *had* a source, not that the source *said what the record claimed*.
+
+Every record now carries `evidenceQuote`: a verbatim string under 15 words, copied
+character-for-character from the page at `sourceUrl`, supporting the record's BC
+connection. Open the source, search for the string. **Absent means fabricated.**
+
+| | |
+|---|---|
+| Records with a verbatim quote | **80 of 117** |
+| Marked `quote-pending` | **37** |
+| Quotes at or over 15 words | 0 |
+| Hand-verified quotes reproduced verbatim | 8 of 8 |
+
+**The default is the honest one.** The shared `V` spread sets `evidenceQuote: null`
+and `flags: ['quote-pending']`, so a record nobody re-checked *declares itself
+unchecked*. The optimistic state has to be typed out by hand next to the quote that
+earns it. Quotes are attached through a table keyed by `sourceUrl`, so a quote can
+only ever reach a record whose source actually contains it.
+
+The 37 pending are mostly infrastructure and public-sector records sourced to press
+releases and government pages, where the BC connection is the subject of the article
+rather than a short quotable string, plus a handful of institutional pages whose
+fetch returned a paraphrase rather than a quotation. **They are marked, not mixed
+in**, and the site prints "Quote pending — sourced, but not yet spot-checkable" under
+each one.
+
+### 11.4 The working set was built from one file; it is now built from all of them
+
+`seed.json` held 1,399 rows — exactly the row count of the single backup dump.
+Organization names are scattered across dozens of files in the reference repository.
+
+`research\union.json` now walks **every `.json` and `.csv`** in the clone except
+`.git` and `node_modules`, extracting names at any nesting depth and recording every
+source file each name appeared in.
+
+| | |
+|---|---|
+| Files walked | 270 (6 `package-lock.json` dependency trees skipped by design) |
+| Parsed whole-file | 254 |
+| Recovered as NDJSON | 1 — `logs\extractions\2025-08-03_all_extractions.json`, which holds real organization names and would otherwise have been silently dropped |
+| **Unrecoverable** | **0** |
+| **Distinct normalized names** | **2,467** — against 1,399 from the single file |
+| Appearing in more than one source file | 2,136 |
+| On the maintainer deletion list | 755, flagged `marked-for-deletion` and deprioritized, **not** dropped |
+
+### 11.5 The two missing flags
+
+`not-an-entity` and `synthesized-url` were added to the closed set and applied to both
+`seed.json` and `union.json`.
+
+| Flag | seed.json | union.json |
+|---|---:|---:|
+| `not-an-entity` | **269** | 342 |
+| `synthesized-url` | **176** | 228 |
+
+The 176 matches the audit's independently derived figure exactly. **The counts now
+ride on the records** rather than being deferred to a summary a future pass may never
+open — which was the whole problem with reporting them in `seed-summary.md`.
+
+**A second parked domain turned up while testing this.** `nexerarobotics.com` now
+resolves to the same Phoenix, Arizona domain-marketplace page as `4agrobotics.com`.
+Both carried the `synthesized-url` shape. That is two for two on spot-checks of that
+flag, which is the strongest evidence yet that the flag is measuring something real.
+
+### 11.6 Regions
+
+Three of the four empty regions now have a sourced record:
+
+| Region | Record | Evidence quote |
+|---|---|---|
+| Kootenay | Kootenay Association for Science & Technology | "91-D Baker Street Nelson, BC V1L 4G8" |
+| Cariboo | Innovation Central Society | "1299 3rd Avenue Prince George, BC V2L 3E6" |
+| Northeast | Prophet River First Nation data centre project | "an independent Dene Tsaa Nation in Northeast British Columbia" |
+
+**North Coast & Nechako remains at zero**, and the search behind that zero is written
+out in [COVERAGE.md](COVERAGE.md) §1.1 — Coast Mountain College fetched and carrying
+no AI statement, Prince Rupert Port Authority searched with nothing specific found,
+UNBC's research pages blocked by HTTP 403. **Three paths tried, none conclusive: a
+weak search, not a strong negative.**
+
+**In the UI, zero now reads "not yet surveyed"** — on the region cards, the map's
+region pills and the category pills, with the pill disabled and a tooltip. A visitor
+cannot mistake an unsearched region for an empty one.
+
+### 11.7 Restored, and deliberately still withheld
+
+- **`keyPeople` restored.** Carried where a source names a current officer — Loc Dao
+  at DigiBC, Jeff Ward at Animikii — and null otherwise. The privacy concern that
+  removed it was about republishing *scraped contact details*; an executive director
+  whose own organization publishes their name is a different case. Emails and phone
+  numbers remain banned, and the build fails if either appears.
+- **The government layer is a page, not records.**
+  [GOVERNMENT-LAYER.md](GOVERNMENT-LAYER.md) carries Rick Glumac as Minister of State
+  for Artificial Intelligence and New Technologies and the 2026-08-14 cabinet shuffle.
+  **No minister name is rendered on the site or emitted in `ecosystem.json.`** One
+  shuffle would otherwise silently falsify rows scattered across the directory, each
+  still carrying a `verified` stamp asserting it had been checked.
+- **Fields that stay null, now enforced by the build:** CAIDA's membership size (its
+  own pages give three figures), Innovate BC's reporting ministry (two gov.bc.ca pages
+  disagree), BC + AI's founding year (its About page and press kit disagree). The
+  export script fails the build if any of them reappears — a guard that caught a real
+  violation during this pass, when "94+ events since 2023" tripped the founding-year
+  check and had to be reworded.
+
+### 11.8 Capacity, projections and the Merritt correction
+
+`capacityDesignMW` and `capacitySecuredMW` are now separate fields, because the Bell
+figures were never contradictory — they were three different facts: **7 MW** announced
+design, **6.5 MW** secured by BUZZ HPC, **5 MW** as-built phase. One field would have
+forced a false choice.
+
+**No permanent-jobs figure is recorded for Merritt.** No source states one; the
+15-job figure in circulation belongs to Kamloops.
+
+Every TELUS and Bell headline number is now labelled a **projection**: $9B economic
+value, 60,000+ GPUs and 150 MW by 2032, 1,000+ construction jobs, ~500 MW across six
+Bell facilities. And both Vancouver TELUS sites now say **proposed, not approved** —
+Vancouver City Council reversed its own 14 July 2026 decision on 21 July 2026,
+deferring the 111 East 5th rezoning past the municipal election.
+
+**Upper Nicola Band** is recorded as a **land-use approval, not an equity stake**:
+members voted 98–33 to permit the use of 100–150 acres of reserve land. No source read
+describes an ownership share, so none is stated. The difference between a land lease
+and an equity position is exactly the sort of thing a directory must not guess about a
+First Nation.
+
+**Ethọ́s Lab** is filed under Talent & Education with no Indigenous framing anywhere
+in its record, and a gate enforces it. It is a Black-led youth STEAM academy founded
+by Anthonia Ogundele; publishing that misattribution on a BC + AI map would have been
+a serious error.
+
+### 11.9 Browser verification — no longer UNTESTED
+
+Ran `npm run dev` and inspected the running site. Previously the single largest
+untested area.
+
+| Check | Result |
+|---|---|
+| Map fits bounds to the data, not centred on Vancouver | **VERIFIED.** Tiles render at zoom 5 spanning 40.98°N–61.61°N and −146.25°–−101.25°, which contains all of BC. The reference project's hardcoded `zoom={11}` on Vancouver is gone. |
+| Marker clustering works | **VERIFIED.** 3 cluster badges and 3 single markers at province zoom. |
+| Empty regions read "not yet surveyed" | **VERIFIED.** The North Coast & Nechako pill renders `North Coast & Nechako (not yet surveyed)` and is `disabled`. A dashed region card renders in the grid. |
+| Category and region filters work and combine | **VERIFIED.** All → 111 mapped rows; Kootenay → 1 (KAST, Nelson); Kootenay + Compute & Infrastructure → 0, correctly, since KAST is Capital & Accelerators. |
+| Light and dark both render; toggle persists | **VERIFIED.** Light `--accent #0a6472` on `rgb(246,244,239)`; dark `--accent #34d3e6` on `rgb(20,23,28)`; `localStorage['bcac-theme']` written on toggle and restored. |
+| Every record shows its stamp and links its source | **VERIFIED.** 117 `a.stamp` source links; 80 "Evidence on source page" lines; 37 "Quote pending" lines — matching the data exactly. |
+| Method section states what verified means and the tiers | **VERIFIED** after a fix: the section had no explanation of the quote or the pending tier, so one was written. It now names both and explains the QAI failure that caused them. |
+| No raw hex reaches rendered output | **VERIFIED.** Zero inline styles containing a hex colour; components consume `sys` tokens only. |
+| Mobile 380px does not break map or directory | **VERIFIED.** Horizontal overflow 0px; map 338px wide inside a 380px viewport; all 117 directory rows render; mobile menu button visible. The only element wider than the viewport is `.marquee-track`, which is intentional inside its `overflow-hidden` parent. |
+| Keyboard reaches filters and record links | **VERIFIED.** 304 focusable elements — 24 in the map, 252 in the directory, 9 in the regions. Disabled "not yet surveyed" pills are correctly **not** focusable. Search input reachable. |
+| Console clean | **VERIFIED after reload.** A `ReferenceError: allRegionCounts is not defined` appeared in the log, traced to a hot-module update applied between two edits — the JSX referencing the value was saved a moment before the `useMemo` defining it. A full reload is clean, and the production build type-checks. Recorded rather than omitted because a reader scanning the console log would otherwise find an error with no explanation. |
+
+**Still UNTESTED:** visual design quality — whether the page *looks* right, as opposed
+to rendering the right values in the right structure. Colour contrast was reasoned
+from the token values in DESIGN.md, not measured with a contrast tool. Cluster
+behaviour was verified at province zoom only, not at every zoom level. No screen
+reader was run.
+
+---
+
+## 12. What the next person should do first
 
 1. **Fix the composition skew.** Verify 30–40 BC companies. The bottleneck is
    location, not AI materiality — most company sites state AI and hide their

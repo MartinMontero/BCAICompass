@@ -78,8 +78,15 @@ export default function Regions() {
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-[var(--ink-soft)]">
             British Columbia's AI activity is distributed, and the usual maps flatten it into
-            "Vancouver tech". These are the {covered} regions where something is verified. Click a
-            region to filter the map to it.
+            "Vancouver tech". {covered} of {REGIONS.length} regions have at least one verified
+            record. Click a region to filter the map to it.{' '}
+            {uncovered.length > 0 && (
+              <>
+                The {uncovered.length === 1 ? 'other one is' : `other ${uncovered.length} are`} marked{' '}
+                <strong className="text-[var(--ink)]">not yet surveyed</strong> — which means nobody
+                has looked, not that nothing is there.
+              </>
+            )}
           </p>
         </div>
 
@@ -128,22 +135,47 @@ export default function Regions() {
           ))}
         </div>
 
+        {/*
+          A region with no records is rendered as an explicit NOT YET SURVEYED card,
+          sitting in the same grid as the others. Leaving it out — or drawing it with
+          a zero — would let a reader conclude the region has no AI activity, which is
+          a claim nobody has checked. The absence of a search is not a finding.
+        */}
         {uncovered.length > 0 && (
-          <div className="mt-10 reveal border-l-2 border-[var(--line-strong)] pl-5 max-w-2xl">
-            <div className="font-mono2 text-[10px] tracking-[0.18em] uppercase text-[var(--ink-faint)] mb-2">
-              Not yet covered
-            </div>
-            <p className="text-sm leading-relaxed text-[var(--ink-soft)]">
-              {uncovered.join(' · ')} — no organization in {uncovered.length === 1 ? 'this' : 'these'}{' '}
-              {uncovered.length === 1 ? 'region' : 'regions'} has been verified yet.{' '}
-              <strong className="text-[var(--ink)]">That is a gap in this dataset, not a statement
-              about the region.</strong>{' '}
-              If you work in AI there, the fastest way to fix it is to{' '}
-              <a href="#contribute" className="text-[var(--accent)] hover:text-[var(--ink)] underline">
-                send us a source
-              </a>
-              .
-            </p>
+          <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {uncovered.map((r) => (
+              <div
+                key={r}
+                className="reveal border border-dashed border-[var(--line-strong)] flex flex-col opacity-90"
+              >
+                <div className="flex items-baseline justify-between px-5 pt-4 pb-3 border-b border-dashed border-[var(--line)]">
+                  <span className="font-mono2 text-[10px] tracking-[0.18em] text-[var(--accent)] uppercase">
+                    Not yet surveyed
+                  </span>
+                  <span className="font-mono2 text-[10px] tracking-[0.18em] text-[var(--ink-faint)]">
+                    —
+                  </span>
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-display uppercase text-2xl tracking-wide leading-tight text-[var(--ink-soft)]">
+                    {r}
+                  </h3>
+                  <p className="mt-2.5 text-[13px] leading-relaxed text-[var(--ink-soft)] flex-1">
+                    Nobody has searched this region to a conclusion yet.{' '}
+                    <strong className="text-[var(--ink)]">
+                      That is a gap in this dataset, not a finding about the region.
+                    </strong>{' '}
+                    Zero records here means zero searching, not zero AI.
+                  </p>
+                  <a
+                    href="#contribute"
+                    className="mt-4 pt-3 border-t border-[var(--line)] font-mono2 text-[10px] tracking-[0.14em] uppercase text-[var(--accent)] hover:text-[var(--ink)] transition-colors"
+                  >
+                    Send us a source ↓
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>

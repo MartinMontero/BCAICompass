@@ -10,6 +10,7 @@ export default function Mission() {
   const newest = dates[dates.length - 1];
   const withCoords = ORGANIZATIONS.filter((o) => o.lat !== undefined).length;
   const withDescription = ORGANIZATIONS.filter((o) => o.description !== null).length;
+  const withQuote = ORGANIZATIONS.filter((o) => o.evidenceQuote !== null).length;
 
   return (
     <section
@@ -36,6 +37,30 @@ export default function Mission() {
               That last part is the whole idea. A directory that tells you <em>when</em> it was
               checked but not <em>against what</em> cannot be audited, corrected, or trusted — it can
               only be believed. Every stamp on this site is a link. Follow it and judge for yourself.
+            </p>
+
+            <h3 className="font-display uppercase text-2xl md:text-3xl mt-12 mb-4">
+              The two tiers, and why there are two
+            </h3>
+            <p className="text-base leading-relaxed text-[var(--ink-soft)]">
+              Most records carry an <strong className="text-[var(--ink)]">evidence quote</strong> — a
+              short string copied character-for-character off the source page, printed under the
+              record. Open the source, search the page for that string. If it is there, the record is
+              confirmed in about ten seconds. If it is not, the record is fabricated and you should
+              distrust the whole dataset. That is the intended trade.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-[var(--ink-soft)]">
+              The rest read{' '}
+              <strong className="text-[var(--ink)]">quote pending</strong>: sourced and checked by a
+              person, but no verbatim string was captured, so you cannot spot-check them that fast.
+              They are marked rather than quietly mixed in.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-[var(--ink-soft)]">
+              This distinction exists because of a mistake made building this site. One record
+              carried a city and a map pin taken from a footer on a domain the organization no longer
+              uses — and every automated check passed, because the checks confirmed a source
+              <em> existed</em>, not that it <em>said what the record claimed</em>. A quote closes
+              that gap. Nothing else did.
             </p>
 
             <h3 className="font-display uppercase text-2xl md:text-3xl mt-12 mb-4">
@@ -94,6 +119,8 @@ export default function Mission() {
                 {[
                   ['Verified organizations', String(ORGANIZATIONS.length)],
                   ['Records with a source URL', `${ORGANIZATIONS.length} of ${ORGANIZATIONS.length}`],
+                  ['Spot-checkable by quote', `${withQuote} of ${ORGANIZATIONS.length}`],
+                  ['Marked quote pending', String(ORGANIZATIONS.length - withQuote)],
                   ['Records with sourced coordinates', `${withCoords} of ${ORGANIZATIONS.length}`],
                   ['Records with a description', `${withDescription} of ${ORGANIZATIONS.length}`],
                   ['Sources read between', `${oldest} and ${newest}`],
@@ -109,14 +136,19 @@ export default function Mission() {
 
             <div className="border border-[var(--line)] p-6 mt-4">
               <div className="font-mono2 text-[10px] tracking-[0.18em] uppercase text-[var(--accent)] mb-3">
-                Independence
+                Who makes this
               </div>
               <p className="text-[13.5px] leading-relaxed text-[var(--ink-soft)]">
-                BC AI Compass is independent. It is{' '}
-                <strong className="text-[var(--ink)]">not affiliated with, endorsed by, or produced
-                for</strong>{' '}
-                any organization listed in it, including the BC + AI Ecosystem Association, and
-                including any company or public body named in the compute and infrastructure records.
+                BC AI Compass is a{' '}
+                <strong className="text-[var(--ink)]">BC + AI Ecosystem Association project</strong>,
+                built by Martin Montero as his contribution to it. The BC + AI Ecosystem Association
+                is itself listed in this directory, and that is worth saying plainly rather than
+                leaving you to find out.
+              </p>
+              <p className="mt-3 text-[13.5px] leading-relaxed text-[var(--ink-soft)]">
+                <strong className="text-[var(--ink)]">No other organization listed here is a partner,
+                funder or endorser of this project.</strong>{' '}
+                Not the universities, not the telecoms, not the Crown agencies, not any company.
                 Nobody paid for a listing. Nobody can.
               </p>
             </div>

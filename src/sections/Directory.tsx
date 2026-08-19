@@ -80,22 +80,30 @@ export default function Directory() {
           <div className="flex flex-wrap gap-2 mb-2">
             {(['All', ...CATEGORIES] as CatFilter[]).map((c) => {
               const active = cat === c;
+              const n = catCounts[c] ?? 0;
+              const empty = c !== 'All' && n === 0;
               const color = c === 'All' ? 'var(--ink)' : CATEGORY_COLORS[c as Category];
               return (
                 <button
                   key={c}
-                  onClick={() => setCat(c)}
+                  onClick={() => {
+                    if (!empty) setCat(c);
+                  }}
+                  disabled={empty}
+                  title={empty ? 'Not yet surveyed — nobody has searched this category to a conclusion' : undefined}
                   className={`font-mono2 text-[10px] tracking-[0.12em] uppercase px-3 py-1.5 border transition-all duration-300 ${
-                    active
-                      ? 'bg-[var(--ink)] text-[var(--bg)] border-[var(--ink)]'
-                      : 'border-[var(--line)] text-[var(--ink-soft)] hover:border-[var(--line-strong)] hover:text-[var(--ink)]'
+                    empty
+                      ? 'border-dashed border-[var(--line)] text-[var(--ink-faint)] cursor-not-allowed'
+                      : active
+                        ? 'bg-[var(--ink)] text-[var(--bg)] border-[var(--ink)]'
+                        : 'border-[var(--line)] text-[var(--ink-soft)] hover:border-[var(--line-strong)] hover:text-[var(--ink)]'
                   }`}
                 >
                   <span
                     className="inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle"
-                    style={{ background: active ? 'var(--bg)' : color }}
+                    style={{ background: active && !empty ? 'var(--bg)' : color, opacity: empty ? 0.4 : 1 }}
                   />
-                  {c} <span className="opacity-50">({catCounts[c] ?? 0})</span>
+                  {c} <span className="opacity-60">{empty ? '(not yet surveyed)' : `(${n})`}</span>
                 </button>
               );
             })}
@@ -176,6 +184,25 @@ export default function Directory() {
                     No description — the source did not support one.
                   </span>
                 )}
+                {o.orgStatus && o.orgStatus !== 'active' && (
+                  <span className="block mt-1.5 font-mono2 text-[9.5px] tracking-[0.12em] uppercase text-[var(--cat-company)]">
+                    {o.orgStatus.replace('-', ' ')}
+                  </span>
+                )}
+                {/*
+                  The quote is the whole point: it makes the record checkable in ten
+                  seconds. Shown inline rather than hidden behind a tooltip.
+                */}
+                {o.evidenceQuote ? (
+                  <span className="block mt-2 font-mono2 text-[10.5px] leading-relaxed text-[var(--ink-faint)]">
+                    Evidence on source page:{' '}
+                    <span className="text-[var(--ink-soft)]">“{o.evidenceQuote}”</span>
+                  </span>
+                ) : (
+                  <span className="block mt-2 font-mono2 text-[10px] leading-relaxed text-[var(--ink-faint)] italic">
+                    Quote pending — sourced, but not yet spot-checkable.
+                  </span>
+                )}
               </div>
 
               <div className="md:col-span-1 md:text-right pt-1">
@@ -183,8 +210,14 @@ export default function Directory() {
                   href={o.sourceUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="stamp hover:bg-[var(--accent)] hover:text-[var(--bg)] transition-colors"
-                  title={`Verified against ${o.sourceUrl}, read ${o.sourceDate}`}
+                  className={`stamp hover:bg-[var(--accent)] hover:text-[var(--bg)] transition-colors ${
+                    o.evidenceQuote ? '' : 'opacity-70 border-dashed'
+                  }`}
+                  title={
+                    o.evidenceQuote
+                      ? `Verified against ${o.sourceUrl}, read ${o.sourceDate}. Search that page for: ${o.evidenceQuote}`
+                      : `Sourced to ${o.sourceUrl}, read ${o.sourceDate}. No verbatim quote captured yet.`
+                  }
                 >
                   {o.verified} ↗
                 </a>

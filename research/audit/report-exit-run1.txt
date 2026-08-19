@@ -1,6 +1,6 @@
 ﻿==============================================================================
 BC AI COMPASS -- EXIT CONDITIONS
-run at (local): 2026-08-19 02:43:34
+run at (local): 2026-08-19 10:28:13
 ==============================================================================
 
 Removing node_modules and dist for a clean install...
@@ -9,21 +9,36 @@ PASS  npm run build succeeds  --  exit 0
 PASS  tsc reports no errors  --  exit 0
 PASS  eslint reports no errors  --  exit 0
 PASS  ecosystem.json and ecosystem.geojson parse as valid JSON
-PASS  every id is unique  --  104 records, 104 distinct
+PASS  every id is unique  --  117 records, 117 distinct
 PASS  every record: status verified, non-null sourceUrl, sourceDate, verified stamp  --  0 offending
-PASS  at least 100 verified records  --  104 records
+PASS  at least 100 verified records  --  117 records
 PASS  every category in the data appears in the union, and vice versa  --  declared-but-unused: 0; used-but-undeclared: 0
 PASS  no record carries coordinates without a geoSourceUrl  --  0 offending
-PASS  geojson feature count matches records with coordinates  --  geojson 98 vs data 98
+PASS  geojson feature count matches records with coordinates  --  geojson 111 vs data 111
 PASS  no funding / keyPeople / yearFounded / focus-area field appears anywhere in src\  --  0 hits
 PASS  the predecessor dump tag never appears as a value in src\  --  0 hits
 PASS  nothing in src\ imports from research\  --  0 hits
 PASS  unverified.json is not present in dist\  --  0 found
 PASS  dist\ contains index.html, CNAME (bcaicompass.ca), _headers and both data files  --  index=True cname=True headers=True data=True
 PASS  every inline script hash in index.html is present in public\_headers CSP
+PASS  record count agrees across organizations.ts, ecosystem.json and this report  --  organizations.ts 117; ecosystem.json.organizations 117; ecosystem.json.count 117
+PASS  every record has an evidenceQuote or a quote-pending flag  --  0 offending
+PASS  every evidenceQuote is under 15 words  --  0 too long
+PASS  quote-pending count is reported  --  37 of 117 records are quote-pending
+PASS  the hand-verified quotes appear verbatim in the dataset  --  8 checked; 0 missing
+PASS  the independence claim appears in no published artifact  --  checked ecosystem.json, README.md and 1 built bundle(s); 0 hit(s)
+PASS  the five organizations withheld under the old scope test are present  --  0 still absent
+PASS  Cohere, CoLab Software and Featherless AI do not appear as BC organizations  --  0 present
+PASS  Ethos Lab does not appear under any Indigenous category or framing  --  record present: True
+PASS  no non-null value in any field required to stay null  --  0 violation(s): 
+PASS  union.json exists with unique ids and only closed-set flags  --  2467 records, 2467 distinct ids, 0 out-of-set flag(s)
+PASS  union.json is materially larger than the single-file seed  --  2467 names across every json/csv in the reference clone
+PASS  seed.json carries not-an-entity on the report-fragment rows  --  269 rows flagged not-an-entity
+PASS  seed.json carries synthesized-url on the name-derived URLs  --  176 rows flagged synthesized-url
+PASS  every region has a record or a written searched-conclusion  --  1 region(s) with zero records, all documented in COVERAGE.md: True
 
 ==============================================================================
-CONDITIONS: 17 total, 17 passed, 0 failed
+CONDITIONS: 32 total, 32 passed, 0 failed
 ==============================================================================
 
 ALL EXIT CONDITIONS PASS.

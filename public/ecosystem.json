@@ -3,9 +3,12 @@
   "url": "https://bcaicompass.ca",
   "generated": "2026-08-19",
   "license": "CC BY 4.0 — credit bcaicompass.ca",
-  "method": "Every record was independently verified: its website resolved and was live, its British Columbia presence was confirmed from its own site or a primary source, and its category was assigned from content actually read. sourceUrl names the page read; sourceDate is the day it was read. Nothing here was carried forward from a prior dataset. Coordinates are municipal centroids, sourced in geoSourceUrl, not street addresses.",
-  "independence": "BC AI Compass is independent. It is not affiliated with, endorsed by, or produced for any organization listed in it.",
-  "count": 104,
+  "method": "Every record was independently verified: its website resolved and was live, its British Columbia presence was confirmed from its own site or a primary source, and its category was assigned from content actually read. sourceUrl names the page read; sourceDate is the day it was read. evidenceQuote is a short verbatim string copied from that page — open sourceUrl, search for the quote, and the record is confirmed or exposed. Records with evidenceQuote null carry a quote-pending flag: sourced, but not yet spot-checkable. Nothing here was carried forward from a prior dataset. Coordinates are municipal centroids, sourced in geoSourceUrl, not street addresses.",
+  "scope": "This maps the whole ecosystem around AI in British Columbia, not only organizations that build AI. An organization is in scope when it funds, houses, teaches, convenes, governs, represents, powers or otherwise materially supports AI work in BC, and that can be sourced. An industry association does not have to do AI to be part of the AI ecosystem.",
+  "coverage": "A region or category showing zero here has NOT been surveyed to a conclusion. It is not a finding that nothing exists there. research/unverified.json records what remains unsearched.",
+  "quotePending": 37,
+  "affiliation": "BC AI Compass is a BC + AI Ecosystem Association project, built by Martin Montero as his contribution to it. The BC + AI Ecosystem Association is listed in this directory. No other organization listed here is a partner, funder or endorser of this project, and no listing is paid for or sponsored.",
+  "count": 117,
   "categories": [
     "Compute & Infrastructure",
     "Research & Academia",
@@ -36,19 +39,23 @@
     "Province-wide"
   ],
   "countsByCategory": {
-    "Compute & Infrastructure": 11,
+    "Compute & Infrastructure": 13,
     "Research & Academia": 72,
-    "Companies & Applied AI": 6,
+    "Companies & Applied AI": 11,
     "Public Sector & Policy": 5,
-    "Capital & Accelerators": 4,
-    "Talent & Education": 2,
-    "Community & Convening": 4
+    "Capital & Accelerators": 8,
+    "Talent & Education": 3,
+    "Community & Convening": 5
   },
   "countsByRegion": {
-    "Metro Vancouver": 74,
+    "Metro Vancouver": 81,
     "Fraser Valley": 1,
-    "Vancouver Island & Coast": 14,
-    "Thompson-Okanagan": 8,
+    "Vancouver Island & Coast": 15,
+    "Thompson-Okanagan": 10,
+    "Kootenay": 1,
+    "Cariboo": 1,
+    "North Coast & Nechako": 0,
+    "Northeast": 1,
     "Province-wide": 7
   },
   "organizations": [
@@ -62,13 +69,19 @@
       "location": "Kamloops",
       "description": "Expansion of TELUS’s existing Kamloops data centre into an AI factory, advanced with the Government of Canada under the federal Enabling Large-Scale Sovereign AI Data Centres initiative. Stated to come online later in 2026.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 50.676109,
       "lng": -120.340836,
       "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html",
       "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "telus-m3-ai-factory",
@@ -80,13 +93,19 @@
       "location": "Vancouver — 111 East 5th Avenue, Mount Pleasant",
       "description": "Proposed AI factory at the former Hootsuite building in Vancouver’s Mount Pleasant, developed with Westbank. TELUS states an end-of-2026 opening scaling through 2028 — but the rezoning remains unresolved: on 21 July 2026 Vancouver City Council reversed its own 14 July decision to send it to a public hearing, deferring the matter past the municipal election. This site is proposed, not approved.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "telus-150-west-georgia-ai-factory",
@@ -98,13 +117,19 @@
       "location": "Vancouver — 150 West Georgia",
       "description": "Third and largest-dated facility in the TELUS sovereign AI factory cluster, developed with Westbank and Allied Properties REIT. TELUS states a 2029 start. Permitting is also subject to confirmation of compliance with British Columbia’s new data-centre regulatory framework, so this site is proposed, not approved.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "telus",
@@ -116,13 +141,19 @@
       "location": "Vancouver",
       "description": "Operator of the proposed sovereign AI factory cluster in British Columbia — Kamloops plus two Vancouver sites — built on an initial 85 MW of clean power secured from BC Hydro. TELUS projects the cluster scaling to over 60,000 GPUs and 150 MW by 2032, roughly $9B in economic value to BC and 1,000+ construction jobs. Those are company projections, not delivered results.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "westbank",
@@ -134,13 +165,19 @@
       "location": "Vancouver",
       "description": "Named in the TELUS release as the development partner for the two new Vancouver AI factory facilities. Listed here for that stated role; no separate AI activity was verified.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "creative-energy",
@@ -152,13 +189,19 @@
       "location": "Vancouver",
       "description": "Named in the TELUS release as a partner in the Vancouver sovereign AI factory cluster, whose design is described as using every electron twice.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "bell-ai-fabric-kamloops",
@@ -170,13 +213,19 @@
       "location": "Kamloops — Mission Flats Road",
       "description": "First Bell AI Fabric facility, 7 MW design capacity, built with Groq language processing units for AI inference. Reported online June 2025.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 50.676109,
       "lng": -120.340836,
       "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html",
       "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "bell-ai-fabric-merritt",
@@ -188,13 +237,19 @@
       "location": "Merritt — five-acre site adjacent to Merritt Municipal Airport",
       "description": "Bell AI Fabric facility in Merritt, opened spring 2026, with high-density liquid-cooled infrastructure for AI inference and training. Announced design capacity 7 MW; BUZZ HPC has secured an immediate 6.5 MW of gross capacity with an option on more. A June 2026 agreement brings Cohere and Hypertec into the deployment.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 50.112778,
       "lng": -120.789719,
       "geoSourceUrl": "https://www.latlong.net/place/merritt-bc-canada-268.html",
       "sourceUrl": "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "buzz-hpc",
@@ -206,13 +261,19 @@
       "location": "Merritt — at the Bell AI Fabric facility",
       "description": "BUZZ High Performance Computing, a wholly owned subsidiary of HIVE Digital Technologies Ltd. Operates sovereign AI cloud and GPU cluster infrastructure at Bell’s Merritt facility, having secured an immediate 6.5 MW of gross capacity there. Reported to be deploying NVIDIA Grace Blackwell GPU systems on which Cohere runs foundation models for Canadian government and enterprise customers.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 50.112778,
       "lng": -120.789719,
       "geoSourceUrl": "https://www.latlong.net/place/merritt-bc-canada-268.html",
       "sourceUrl": "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "bell-ai-fabric-kamloops-tru",
@@ -224,13 +285,19 @@
       "location": "Kamloops — Thompson Rivers University",
       "description": "26 MW AI facility hosted at Thompson Rivers University. Reported to serve AI training and inference for students and faculty through integration with the BCNET network, with waste heat routed into the university’s district energy system.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 50.676109,
       "lng": -120.340836,
       "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html",
       "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "bell-ai-fabric-kamloops-2",
@@ -242,13 +309,19 @@
       "location": "Kamloops — 1452 McGill Road",
       "description": "Second 26 MW Kamloops facility at 1452 McGill Road. Reported to have broken ground in April 2026 with completion anticipated in late 2027, developed with TrueNorth Sustainable Infrastructure and using a closed-loop cooling system feeding a planned district heating system.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 50.676109,
       "lng": -120.340836,
       "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html",
       "sourceUrl": "https://bebeez.eu/2026/04/14/bell-canada-breaks-ground-on-data-center-in-kamloops-british-columbia/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "bc-hydro",
@@ -260,10 +333,16 @@
       "location": "British Columbia — province-wide",
       "description": "Provincial Crown utility. Runs the competitive selection process, opened 30 January 2026 under Bill 31, that allocates electricity to AI and data-centre projects — up to 400 MW over the first two years, evaluated on price and on economic, community, data sovereignty and environmental benefits.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "sourceUrl": "https://news.gov.bc.ca/releases/2026ECS0005-000095",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "bc-ministry-of-energy-and-climate-solutions",
@@ -275,10 +354,16 @@
       "location": "British Columbia — province-wide",
       "description": "Provincial ministry that, with BC Hydro, established the competitive clean-power process for AI and data centres under Bill 31, the Energy Statutes Amendment Act.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "sourceUrl": "https://news.gov.bc.ca/releases/2026ECS0005-000095",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "pacifican",
@@ -290,10 +375,16 @@
       "location": "British Columbia — province-wide",
       "description": "Pacific Economic Development Canada, the federal development agency for British Columbia. Administers the Regional Artificial Intelligence Initiative, which funds organizations commercializing or adopting AI in BC — up to $3M per project for businesses and $5M for not-for-profits.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "sourceUrl": "https://www2.gov.bc.ca/gov/content/employment-business/economic-development/funding-and-grants/regional-artificial-intelligence-initiative",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "city-of-vancouver",
@@ -305,13 +396,19 @@
       "location": "Vancouver",
       "description": "Named in the TELUS release as a partner in the sovereign AI factory cluster being developed in Vancouver. Listed here for that stated role.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "comox-valley-regional-district",
@@ -323,13 +420,19 @@
       "location": "Comox Valley",
       "description": "Regional district that adopted an Artificial Intelligence Governance Policy on 1 May 2026 and has used AI-based traffic analytics since January 2026.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.6878,
       "lng": -124.994,
       "geoSourceUrl": "https://places.canadamaps.com/british-columbia/courtenay",
       "sourceUrl": "https://thediscourse.ca/comox-valley/how-do-comox-valley-governments-and-public-organizations-use-ai",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "ubc",
@@ -341,13 +444,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Publishes a university-wide AI research portfolio spanning institutes, networks and research-excellence clusters across 27 departments.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-cs",
@@ -359,13 +466,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Publishes twenty named research groups, including dedicated groups for artificial intelligence, machine learning, computer vision, natural language processing and data mining.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "caida",
@@ -377,13 +488,17 @@
       "location": "Vancouver — 289-2366 Main Mall, ICICS Building, UBC Vancouver",
       "description": "Described by UBC as the university’s research hub for artificial intelligence, spanning many departments and working on theoretical and applied AI for decision-making and action. Sits within UBC’s Institute for Computing, Information and Cognitive Systems.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
-      "sourceUrl": "https://research.ubc.ca/ai",
+      "sourceUrl": "https://caida.ubc.ca/contact-us",
+      "evidenceQuote": "289-2366 Main Mall Vancouver, BC V6T 1Z4",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-aim-si",
@@ -395,13 +510,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Interdisciplinary cluster within CAIDA, established to expand UBC’s teaching and research capacity in artificial intelligence.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-ai-and-health-network",
@@ -413,13 +532,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Initiative combining UBC’s strengths in AI, health-systems research and biomedical innovation, aimed at transforming patient care and accelerating health-system innovation in BC.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-project-ada",
@@ -431,13 +554,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Autonomous discovery platform for thin-film materials, using self-driving laboratories and machine learning to accelerate discovery of clean-energy materials.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-aiteccc",
@@ -449,13 +576,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Cluster bringing health leaders and AI experts together to co-design AI-powered healthcare solutions.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-data-science-institute",
@@ -467,13 +598,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Faculty-wide institute that incubates research, innovation and training in data-intensive science and supplies approaches, tools and expertise for working with large data.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-trustml",
@@ -485,13 +620,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Cluster working on trustworthy machine-learning systems that are reliable, secure, explainable and ethical.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-nlp-group",
@@ -503,13 +642,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Research on core natural language processing problems, computational linguistics, text mining, machine learning and visual text analytics.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-dash",
@@ -521,13 +664,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Cluster building systems to link health research data in British Columbia, to improve diagnosis, treatment and disease prevention.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-graphical-ai",
@@ -539,13 +686,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Cluster bridging mathematics and computer science to uncover cause-and-effect relationships in public health research.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-hai",
@@ -557,13 +708,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Works at the intersection of AI, human-computer interaction and cognitive science on ethical AI systems people can trust, with an emphasis on visualization and decision-support interfaces.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubco-digital-transparency-cluster",
@@ -575,13 +730,17 @@
       "location": "Kelowna — UBC Okanagan",
       "description": "UBC Okanagan cluster providing public education on AI and data literacy while developing computational tools for AI and data safety.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.882114,
       "lng": -119.477829,
       "geoSourceUrl": "https://www.latlong.net/place/kelowna-bc-canada-1354.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-music-create",
@@ -593,13 +752,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "NSERC CREATE training programme integrating AI and machine-learning skills with imaging and omics biological data.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-smart-retention",
@@ -611,13 +774,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Interdisciplinary cluster addressing nursing workforce retention in Canada using AI and human-centred design.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://research.ubc.ca/ai",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-cs-ai-group",
@@ -629,13 +796,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Computer Science research group focused on decision-making systems designed to cooperate with human decision-makers, including in areas such as privacy.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-cvl",
@@ -647,13 +818,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Develops algorithms for image understanding, video analysis, 3D vision, and applications of generative models in computer vision.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-dmm",
@@ -665,13 +840,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Focuses on how to manage or mine data, relational or otherwise.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-ml-group",
@@ -683,13 +862,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Machine learning research spanning computer science, statistics, mathematics and applied sciences.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-plai",
@@ -701,13 +884,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Develops production-quality open-source software for neuroscience, image recognition and robotics.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-infovis",
@@ -719,13 +906,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Creates visual representations that let people explore and understand large information datasets.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-security-privacy",
@@ -737,13 +928,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Works on systems security, cloud security, privacy, machine learning and software engineering.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-ssl",
@@ -755,13 +950,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Researches human movement through computer graphics, scientific computing, robotics and biomechanics.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-mild",
@@ -773,13 +972,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Cross-departmental group focused on the rigorous mathematics underlying machine learning and data science, including privacy, algorithm design and learning theory.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-centres",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-amltn",
@@ -791,13 +994,17 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Builds a research training programme in machine learning with opportunities beyond traditional computer science education, connecting students to researchers globally.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.cs.ubc.ca/research-centres",
+      "evidenceQuote": "The University of British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ubc-ece-optimization-learning-control",
@@ -809,13 +1016,19 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "One of six ECE research areas, formulating and solving fundamental problems in learning systems with applications including robotics and transportation.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://ece.ubc.ca/research/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "ubc-aim-lab",
@@ -827,13 +1040,19 @@
       "location": "Vancouver — UBC",
       "description": "Develops AI and machine-learning methods for cancer diagnosis and healthcare delivery, including image analysis that helps clinicians examine tissue and identify cancerous cells.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://aimlab.ca",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "ovcare",
@@ -845,13 +1064,19 @@
       "location": "Vancouver",
       "description": "British Columbia ovarian cancer research programme with a director of AI research, using state-of-the-art AI to help predict survival and guide treatment selection.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "bc-cancer",
@@ -863,13 +1088,19 @@
       "location": "Vancouver",
       "description": "Named as a participating investigator organization in a British Columbia ovarian cancer project using AI to identify factors tied to long-term survival.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "ubc-biomedical-engineering",
@@ -881,13 +1112,19 @@
       "location": "Vancouver — UBC Vancouver campus",
       "description": "Home of faculty leading AI research in cancer pathology, including the director of AI research for British Columbia’s ovarian cancer research programme.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "vchri",
@@ -899,13 +1136,19 @@
       "location": "Vancouver",
       "description": "Health research institute of Vancouver Coastal Health and a UBC health partner, with Digital Health and Artificial Intelligence as a named research focus area.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.vchri.ca/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "vch-vchri-ai-hub",
@@ -917,13 +1160,19 @@
       "location": "Vancouver",
       "description": "Support service listed by Vancouver Coastal Health Research Institute for AI work across the health authority and institute.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.vchri.ca/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "sfu",
@@ -935,13 +1184,17 @@
       "location": "Burnaby — SFU Burnaby campus",
       "description": "Publishes an AI research portfolio spanning six institutes and, separately, more than twenty named labs and groups in Computing Science and Interactive Arts & Technology.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+      "evidenceQuote": "© Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-computing-science",
@@ -953,13 +1206,17 @@
       "location": "Burnaby — 8888 University Drive",
       "description": "Publishes six research areas including artificial intelligence, whose stated scope is machine learning, computer vision, natural language processing, knowledge representation and reasoning, constraint optimization, and robotics.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/computing/research.html",
+      "evidenceQuote": "Burnaby, B.C.",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-digital-democracies-institute",
@@ -971,13 +1228,17 @@
       "location": "Burnaby — SFU",
       "description": "SFU institute listed as using AI to create innovations in digital democracy and related fields.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+      "evidenceQuote": "© Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-inn",
@@ -989,13 +1250,17 @@
       "location": "Burnaby — SFU",
       "description": "SFU institute applying AI to neuroscience research and neurotechnology development.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+      "evidenceQuote": "© Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-icrc",
@@ -1007,13 +1272,17 @@
       "location": "Burnaby — SFU",
       "description": "SFU centre listed as leveraging AI for cybercrime investigation and analysis.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+      "evidenceQuote": "© Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "quantum-algorithms-institute",
@@ -1025,10 +1294,14 @@
       "location": "British Columbia — no address published",
       "description": "Non-profit described on its own site as \"dedicated to advancing the growth, adoption, and strategic development of quantum technologies in British Columbia\", through quantum literacy in business, training, and pilot projects applying quantum methods. Listed by SFU as developing quantum computing algorithms and AI applications. No physical address is published on its site, so this record carries no coordinates.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "sourceUrl": "https://www.qai.ca/who-we-are",
+      "evidenceQuote": "advancing the growth, adoption, and strategic development of quantum technologies in British Columbia",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-star-institute",
@@ -1040,13 +1313,17 @@
       "location": "Burnaby — SFU",
       "description": "SFU institute using AI to address challenges in aging populations and senior care.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+      "evidenceQuote": "© Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "viva",
@@ -1058,13 +1335,17 @@
       "location": "Vancouver",
       "description": "Institute focused on visual analytics, using AI for data visualization and interpretation.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+      "evidenceQuote": "© Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-big-data-hub",
@@ -1076,13 +1357,17 @@
       "location": "Burnaby — SFU",
       "description": "SFU hub that publishes and coordinates the university’s data-intensive and artificial intelligence research activity.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+      "evidenceQuote": "© Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-ml-group",
@@ -1094,13 +1379,17 @@
       "location": "Burnaby — SFU",
       "description": null,
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-data-science-research-group",
@@ -1112,13 +1401,17 @@
       "location": "Burnaby — SFU",
       "description": null,
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-3d-language-and-generation-group",
@@ -1130,13 +1423,17 @@
       "location": "Burnaby — SFU",
       "description": null,
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-airob-lab",
@@ -1148,13 +1445,17 @@
       "location": "Burnaby — SFU",
       "description": null,
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-database-data-mining-lab",
@@ -1166,13 +1467,17 @@
       "location": "Burnaby — SFU",
       "description": null,
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-medical-image-analysis-lab",
@@ -1184,13 +1489,17 @@
       "location": "Burnaby — SFU",
       "description": null,
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-mars-lab",
@@ -1202,13 +1511,17 @@
       "location": "Burnaby — SFU",
       "description": null,
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-rosie-lab",
@@ -1220,13 +1533,17 @@
       "location": "Burnaby — SFU",
       "description": "Focuses on developing robots with social and empathetic capabilities.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/computing/research.html",
+      "evidenceQuote": "Burnaby, B.C.",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-natural-language-laboratory",
@@ -1238,13 +1555,17 @@
       "location": "Burnaby — SFU",
       "description": null,
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-tai-lab",
@@ -1256,13 +1577,17 @@
       "location": "Burnaby — SFU",
       "description": null,
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-gruvi",
@@ -1274,13 +1599,17 @@
       "location": "Burnaby — SFU",
       "description": "Addresses computer graphics, user experience design and data visualization.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/computing/research.html",
+      "evidenceQuote": "Burnaby, B.C.",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "vinci",
@@ -1292,13 +1621,19 @@
       "location": "Burnaby — SFU",
       "description": "Established at SFU in 2023, combining Computing Science and the School of Interactive Arts & Technology to lead innovation in visual computing, artificial intelligence and human-computer interaction.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.sfu.ca/fas/computing/research/centres-and-institutes.html",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "sfu-metacreation-lab",
@@ -1310,13 +1645,19 @@
       "location": "Surrey — SFU",
       "description": "Develops generative systems and algorithms for creative tasks, from human-driven co-creation tools to autonomous creative agents.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.10635,
       "lng": -122.82509,
       "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html",
       "sourceUrl": "https://www.metacreation.net",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "sfu-iviz-lab",
@@ -1328,13 +1669,17 @@
       "location": "Surrey — SFU SIAT",
       "description": "Focused on AI-based computational models of human characteristics such as expression, emotion, behaviour, empathy and creativity.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.10635,
       "lng": -122.82509,
       "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html",
       "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-learning-analytics-lab",
@@ -1346,13 +1691,17 @@
       "location": "Surrey — SFU SIAT",
       "description": "Uses data science and machine learning to develop theories supporting educational technologies.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.10635,
       "lng": -122.82509,
       "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html",
       "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-data-dialogue-lab",
@@ -1364,13 +1713,17 @@
       "location": "Surrey — SFU SIAT",
       "description": "Research at the intersection of information visualization, human-computer interaction and social psychology.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.10635,
       "lng": -122.82509,
       "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html",
       "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-integrated-science-lab",
@@ -1382,13 +1735,17 @@
       "location": "Surrey — SFU SIAT",
       "description": "Bridges science and technology across decision intelligence, visual analytics, design and behavioural science.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.10635,
       "lng": -122.82509,
       "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html",
       "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-computational-neuroscience-lab",
@@ -1400,13 +1757,17 @@
       "location": "Surrey — SFU SIAT",
       "description": "Investigates brain plasticity and neuro-training to develop digital health solutions.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.10635,
       "lng": -122.82509,
       "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html",
       "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "sfu-computational-design-lab",
@@ -1418,13 +1779,17 @@
       "location": "Surrey — SFU SIAT",
       "description": "Explores how design transforms through computation, creating ideas, interfaces, algorithms and systems for change.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.10635,
       "lng": -122.82509,
       "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html",
       "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+      "evidenceQuote": "Simon Fraser University",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "uvic",
@@ -1436,13 +1801,17 @@
       "location": "Victoria — UVic campus",
       "description": "Publishes a campus AI hub and, in Computer Science and Engineering, named labs covering machine learning, data mining, computer vision, robotics and applied AI.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
+      "evidenceQuote": "using artificial intelligence (AI) tools at UVic",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "uvic-computer-science",
@@ -1454,13 +1823,17 @@
       "location": "Victoria — UVic campus",
       "description": "Publishes fifteen named research labs and groups, tagged by the department for AI, machine learning, vision, data and robotics.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+      "evidenceQuote": "© University of Victoria",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "acis-laboratories",
@@ -1472,13 +1845,19 @@
       "location": "Victoria — UVic campus",
       "description": "Works on control, robotics, artificial intelligence and automation for physical systems under uncertainty, including embodied AI for robot learning and autonomous aerial, ground and marine platforms.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://acislabs.ca/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "uvic-gaidg-lab",
@@ -1490,13 +1869,17 @@
       "location": "Victoria — UVic campus",
       "description": "Covers graphics, agent-based modelling, crowd simulation, multi-agent reinforcement learning, deep learning, digital games, human-computer interaction and augmented intelligence.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+      "evidenceQuote": "© University of Victoria",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "uvic-machine-learning",
@@ -1508,13 +1891,17 @@
       "location": "Victoria — UVic campus",
       "description": "Statistical learning, online learning and sequential prediction, and learning theory.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+      "evidenceQuote": "© University of Victoria",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "uvic-deia",
@@ -1526,13 +1913,17 @@
       "location": "Victoria — UVic campus",
       "description": "Data mining, bioinformatics, search and ranking, algorithms for large social and web graphs, mining software repositories, and big data.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+      "evidenceQuote": "© University of Victoria",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "uvic-mistic",
@@ -1544,13 +1935,17 @@
       "location": "Victoria — UVic campus",
       "description": "New methods for controlling instruments, interactive context-aware music browsing, musical robots, and music information retrieval.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+      "evidenceQuote": "© University of Victoria",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "uvic-computational-biology",
@@ -1562,13 +1957,17 @@
       "location": "Victoria — UVic campus",
       "description": "Genomics, programming languages, bioinformatics and data science.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+      "evidenceQuote": "© University of Victoria",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "uvic-theory-lab",
@@ -1580,13 +1979,17 @@
       "location": "Victoria — UVic campus",
       "description": "Algorithms and data structures, computational complexity, cryptography and data privacy, and the theory of machine learning.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+      "evidenceQuote": "© University of Victoria",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "thompson-rivers-university",
@@ -1598,13 +2001,19 @@
       "location": "Kamloops",
       "description": "Kamloops university hosting a 26 MW Bell AI Fabric facility, reported to provide AI training and inference compute to students and faculty via BCNET, with waste heat routed into the university’s district energy system.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 50.676109,
       "lng": -120.340836,
       "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html",
       "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "bcnet",
@@ -1616,10 +2025,16 @@
       "location": "British Columbia — province-wide",
       "description": "Not-for-profit shared-services organization for British Columbia’s higher-education and research institutions. Reported as the network through which the Thompson Rivers University AI facility provides training and inference compute to students and faculty.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "sanctuary-ai",
@@ -1631,13 +2046,19 @@
       "location": "Vancouver",
       "description": "Legally Sanctuary Cognitive Systems Corporation. Deploys what it calls Physical AI on robotic hardware to automate complex industrial tasks, with work spanning AI-driven dexterous manipulation, reinforcement learning for robotics and sim-to-real transfer.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.sanctuary.ai/about",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "terramera",
@@ -1649,13 +2070,19 @@
       "location": "Vancouver",
       "description": "Agricultural technology company combining its Actigate technology with data science and AI. Its site states that machine learning engines and monitoring tools continuously generate insights to improve formulation efficacy and plant health.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.terramera.com",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "novarc-technologies",
@@ -1667,13 +2094,17 @@
       "location": "Burnaby — 4505 Still Creek Ave",
       "description": "Builds autonomous welding robots and an AI-powered robotic vision system, NovAI, that adds vision and cognition to articulated robotic and mechanized welders.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.267,
       "lng": -122.967,
       "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby",
       "sourceUrl": "https://www.novarctech.com",
+      "evidenceQuote": "4505 Still Creek Ave., Burnaby, BC V5C 5W1, Canada",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "niricson",
@@ -1685,13 +2116,17 @@
       "location": "Vancouver — 1200-555 West Hastings St",
       "description": "Infrastructure condition assessment for dams, bridges and airfields. Its AUTOSPEX product uses AI and machine learning to establish a digital asset baseline and to detect cracks, delamination, thermal anomalies and spalling.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.niricson.com",
+      "evidenceQuote": "#1200 – 555 West Hastings Street, Vancouver, BC V6B 4N6",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "open-ocean-robotics",
@@ -1703,13 +2138,17 @@
       "location": "Victoria — 200-45 Erie Street",
       "description": "Designs and operates solar-powered autonomous surface vessels for maritime security and environmental monitoring, with edge AI delivering real-time vision and acoustic intelligence and AI-driven detection of vessels, hazards and underwater activity.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.openoceanrobotics.com/contact",
+      "evidenceQuote": "200-45 Erie Street, Victoria, BC, CANADA V8V 1P8",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "variational-ai",
@@ -1721,13 +2160,17 @@
       "location": "Vancouver — 201-1825 Quebec Street",
       "description": "Uses generative AI to design novel, synthesizable small molecules optimized across potency, selectivity, ADMET and synthetic feasibility for early-stage drug discovery.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://variational.ai",
+      "evidenceQuote": "1825 Quebec Street, #201, Vancouver, BC V5T 2Z3",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "digital-technology-supercluster",
@@ -1739,13 +2182,17 @@
       "location": "Vancouver — 2127-1055 W Georgia Street",
       "description": "One of Canada’s Global Innovation Clusters, formerly and still widely known as the Digital Technology Supercluster. Co-invests federal and industry money in applied technology projects, and runs a dedicated artificial intelligence programme stream.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
-      "sourceUrl": "https://www.digitalsupercluster.ca",
+      "sourceUrl": "https://digitalsupercluster.ca/canadas-digital-technology-supercluster-receives-funding/",
+      "evidenceQuote": "2127 – 1055 W. Georgia Street Vancouver, BC, V6E 3P3",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "viatec",
@@ -1757,13 +2204,17 @@
       "location": "Victoria — 777 Fort Street",
       "description": "The Victoria Innovation, Advanced Technology and Entrepreneurship Council. Supports Greater Victoria’s technology sector with community resources, workspace and professional development, and convenes the PROMPT Victoria AI Conference.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.viatec.ca",
+      "evidenceQuote": "777 Fort Street, Victoria BC V8W 1G9",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "bc-tech-association",
@@ -1775,13 +2226,17 @@
       "location": "Vancouver — 210-1401 West 8th Avenue (mailing address; fully virtual team)",
       "description": "British Columbia’s cross-sector technology industry association, running member programmes, accelerators, talent and immigration initiatives and advocacy. Its AI-specific programming includes a vertical accelerator aimed at AI companies.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://wearebctech.com/members/member-directory/name/digibc-1/",
+      "evidenceQuote": "210 – 1401 West 8th Ave Vancouver, BC V6H 1C9",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "new-ventures-bc",
@@ -1793,13 +2248,17 @@
       "location": "Vancouver — 810-1055 Dunsmuir Street",
       "description": "Supports BC technology startups with mentorship, funding and an annual competition, and runs the Discovery Foundation AI Business Accelerator, which helps BC companies move beyond experimentation with workshops, mentorship and an AI implementation plan.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://www.newventuresbc.com",
+      "evidenceQuote": "Suite #810, 1055 Dunsmuir Street, Vancouver, BC V7X 1J1",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "first-nations-technology-council",
@@ -1811,13 +2270,17 @@
       "location": "Vancouver — 1707-1370 Senakw Lane (province-wide mandate)",
       "description": "Indigenous-led non-profit mandated by the First Nations Leadership Council to advance digital literacy, connectivity and technology strategy for all 204 First Nations in British Columbia. Its AI work includes the course \"Pathways to AI: An Introduction for Indigenous People and Organizations\" and the report \"First Nations Perspectives on Artificial Intelligence\".",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
-      "sourceUrl": "https://firstnationstech.ca/",
+      "sourceUrl": "https://firstnationstech.ca/about/",
+      "evidenceQuote": "Suite 1707, 1370 Senakw Lane Vancouver BC, V6J 0J5",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "ai-at-uvic",
@@ -1829,13 +2292,17 @@
       "location": "Victoria — UVic campus",
       "description": "University of Victoria hub for guidance, resources and communities of practice exploring, developing and using artificial intelligence tools on campus.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 48.407326,
       "lng": -123.329773,
       "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
       "sourceUrl": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
+      "evidenceQuote": "using artificial intelligence (AI) tools at UVic",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "bc-ai-ecosystem-association",
@@ -1845,12 +2312,16 @@
       "region": "Province-wide",
       "url": "https://bc-ai.ca",
       "location": "British Columbia — province-wide",
-      "description": "Non-profit association describing itself as 300+ paying members building British Columbia’s AI industry, with 94+ events since 2023, certifications, the AI Builders Fellowship and the Futureproof Festival. BC AI Compass is independent of this organization and is not affiliated with or endorsed by it.",
+      "description": "Non-profit association describing itself as 300+ paying members building British Columbia’s AI industry, running regional chapters, certifications, the AI Builders Fellowship and the Futureproof Festival. No founding year is published here: the association’s own About page and press kit give different years, and picking one would be choosing rather than sourcing. BC AI Compass is a BC + AI Ecosystem Association project, so this is the one record in the directory published by its own commissioning organization.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "sourceUrl": "https://bc-ai.ca",
+      "evidenceQuote": "300+ paying members of the nonprofit building British Columbia's AI industry",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": []
     },
     {
       "id": "vancouver-ai",
@@ -1862,13 +2333,19 @@
       "location": "Vancouver",
       "description": "Described on its own listing as the original room where the BC + AI ecosystem gathers in person before the work fans out across the province.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.24966,
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "sourceUrl": "https://bc-ai.ca/communities",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "fv-ai-fraser-valley-ai",
@@ -1880,13 +2357,19 @@
       "location": "Fraser Valley — Langley to Chilliwack",
       "description": "A Fraser Valley home base for practical talks, local demos and people to build with, covering Langley to Chilliwack.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.10416,
       "lng": -122.65833,
       "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html",
       "sourceUrl": "https://bc-ai.ca/communities",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "cv-ai-comox-valley-ai",
@@ -1898,13 +2381,314 @@
       "location": "Comox Valley",
       "description": "A Vancouver Island community meetup, described on its own listing as a neighbourly Island room asking what it means to be human in the age of AI.",
       "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
       "lat": 49.6878,
       "lng": -124.994,
       "geoSourceUrl": "https://places.canadamaps.com/british-columbia/courtenay",
       "sourceUrl": "https://bc-ai.ca/communities",
+      "evidenceQuote": null,
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
-      "status": "verified"
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
+    },
+    {
+      "id": "abcellera",
+      "name": "AbCellera Biologics",
+      "category": "Companies & Applied AI",
+      "orgType": "company",
+      "region": "Metro Vancouver",
+      "url": "https://www.abcellera.com",
+      "location": "Vancouver — 150 W 4th Ave",
+      "description": "Vancouver biotechnology company that describes itself as integrating biology, computation and engineering to develop antibody-based medicines, with in-house clinical manufacturing in Vancouver. Its own pages do not use the term AI; it is listed here as part of the province’s computational life-sciences base, not on a claim it makes about itself.",
+      "size": "201-1000",
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 49.24966,
+      "lng": -123.11934,
+      "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
+      "sourceUrl": "https://www.abcellera.com/contact",
+      "evidenceQuote": "150W 4th Ave Vancouver BC V5Y 1G6",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
+    },
+    {
+      "id": "general-fusion",
+      "name": "General Fusion",
+      "category": "Companies & Applied AI",
+      "orgType": "company",
+      "region": "Metro Vancouver",
+      "url": "https://www.generalfusion.com",
+      "location": "Richmond — 6020 Russ Baker Way",
+      "description": "Fusion energy company headquartered in Richmond. Listed as part of British Columbia’s advanced-computing and deep-tech base; its contact page does not describe AI or machine-learning work, and no such claim is made here.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 49.166592,
+      "lng": -123.133568,
+      "geoSourceUrl": "https://www.latlong.net/place/richmond-bc-canada-17787.html",
+      "sourceUrl": "https://www.generalfusion.com/contact/",
+      "evidenceQuote": "6020 Russ Baker Way Richmond, BC V7B 1B4",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
+    },
+    {
+      "id": "aspect-biosystems",
+      "name": "Aspect Biosystems",
+      "category": "Companies & Applied AI",
+      "orgType": "company",
+      "region": "Metro Vancouver",
+      "url": "https://www.aspectbiosystems.com",
+      "location": "Vancouver — 2131 Manitoba Street",
+      "description": "Vancouver bioprinting company developing therapeutic programs from its own bioprinting platform. Its contact page does not describe AI or machine-learning work; the AI-enabled characterisation comes from secondary research and is not asserted here.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 49.24966,
+      "lng": -123.11934,
+      "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
+      "sourceUrl": "https://www.aspectbiosystems.com/contact",
+      "evidenceQuote": "2131 Manitoba Street Vancouver, BC, Canada V5Y 0N7",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
+    },
+    {
+      "id": "visier",
+      "name": "Visier",
+      "category": "Companies & Applied AI",
+      "orgType": "company",
+      "region": "Metro Vancouver",
+      "url": "https://www.visier.com",
+      "location": "Vancouver — Beatty Street",
+      "description": "People-analytics and workforce-planning company headquartered in Vancouver, stating 600 employees across seven offices. Part of the province’s applied-analytics base.",
+      "size": "201-1000",
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 49.24966,
+      "lng": -123.11934,
+      "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
+      "sourceUrl": "https://www.visier.com/company/",
+      "evidenceQuote": null,
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
+    },
+    {
+      "id": "innovate-bc",
+      "name": "Innovate BC",
+      "category": "Capital & Accelerators",
+      "orgType": "government-or-crown",
+      "region": "Metro Vancouver",
+      "url": "https://www.innovatebc.ca",
+      "location": "Vancouver — Four Bentall Centre, 1055 Dunsmuir Street, Suite 810",
+      "description": "Provincial Crown agency supporting technology and innovation across British Columbia through hiring grants, mentorship, research grants, pilot funding and innovation challenges, and advising government on technology policy. Programmes named on its site include BC Fast Pilot, Integrated Marketplace, Ignite, Accelerate IP, ScaleUp and the Venture Acceleration Program.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 49.24966,
+      "lng": -123.11934,
+      "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
+      "sourceUrl": "https://www2.gov.bc.ca/gov/content/governments/technology-innovation/partner-organizations",
+      "evidenceQuote": "Innovate BC is a Crown agency of the B.C. government",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
+    },
+    {
+      "id": "digibc",
+      "name": "DigiBC",
+      "category": "Community & Convening",
+      "orgType": "nonprofit-or-association",
+      "region": "Metro Vancouver",
+      "url": "https://digibc.org",
+      "location": "Vancouver — 160-577 Great Northern Way",
+      "description": "Registered non-profit industry association for British Columbia’s creative technology sector — video games, animation, visual effects, XR and virtual production — working on advocacy, talent pipeline, equity and community programming. Founded in 1997 as New Media BC and renamed in January 2009, so New Media BC is a former name of this organization rather than a separate one.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": "Loc Dao (Executive Director)",
+      "lat": 49.24966,
+      "lng": -123.11934,
+      "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
+      "sourceUrl": "https://digibc.org/about/",
+      "evidenceQuote": "#160-577 Great Northern Way Vancouver, BC, V5T 1E1",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
+    },
+    {
+      "id": "accelerate-okanagan",
+      "name": "Accelerate Okanagan",
+      "category": "Capital & Accelerators",
+      "orgType": "nonprofit-or-association",
+      "region": "Thompson-Okanagan",
+      "url": "https://accelerateokanagan.com",
+      "location": "Kelowna — serving Osoyoos to Salmon Arm",
+      "description": "Non-profit technology accelerator for the Okanagan, providing mentorship, connections and community to entrepreneurs building technology-driven businesses. States that most of its funding comes from government programmes.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 49.882114,
+      "lng": -119.477829,
+      "geoSourceUrl": "https://www.latlong.net/place/kelowna-bc-canada-1354.html",
+      "sourceUrl": "https://accelerateokanagan.com/about/",
+      "evidenceQuote": null,
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
+    },
+    {
+      "id": "kast",
+      "name": "Kootenay Association for Science & Technology (KAST)",
+      "category": "Capital & Accelerators",
+      "orgType": "nonprofit-or-association",
+      "region": "Kootenay",
+      "url": "https://kast.com/",
+      "location": "Nelson — 91-D Baker Street",
+      "description": "Describes itself as the only non-profit tech association serving the entire Kootenay region, running technology and innovation programmes since 1998 — including startup support, venture acceleration, youth education, the MIDAS lab and the Nelson Innovation Centre, and TechEdge, an initiative to advance digital adoption by Kootenay businesses.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 49.5,
+      "lng": -117.283333,
+      "geoSourceUrl": "https://www.latlong.net/place/nelson-bc-canada-9343.html",
+      "sourceUrl": "https://kast.com/",
+      "evidenceQuote": "91-D Baker Street Nelson, BC V1L 4G8",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
+    },
+    {
+      "id": "innovation-central-society",
+      "name": "Innovation Central Society",
+      "category": "Capital & Accelerators",
+      "orgType": "nonprofit-or-association",
+      "region": "Cariboo",
+      "url": "https://innovationcentral.ca/",
+      "location": "Prince George — 1299 3rd Avenue, inside the Hubspace",
+      "description": "Non-profit supporting technology entrepreneurs in northern British Columbia, operating from the Hubspace in downtown Prince George and running a Venture Acceleration Program for startup and early-stage companies.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 53.916943,
+      "lng": -122.749443,
+      "geoSourceUrl": "https://www.latlong.net/place/prince-george-bc-canada-29186.html",
+      "sourceUrl": "https://innovationcentral.ca/contact",
+      "evidenceQuote": "1299 3rd Avenue Prince George, BC V2L 3E6",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
+    },
+    {
+      "id": "prophet-river-first-nation-data-centre",
+      "name": "Prophet River First Nation data centre project",
+      "category": "Compute & Infrastructure",
+      "orgType": "infrastructure-operator",
+      "region": "Northeast",
+      "url": "https://www.newswire.ca/news-releases/prophet-river-first-nation-and-abct-pacific-vcc-ltd-sign-loi-to-jointly-develop-major-data-centre-in-fort-st-john-area-819620927.html",
+      "location": "Fort St. John area",
+      "description": "Letter of intent, signed March 2025, between Prophet River First Nation — an independent Dene Tsaa Nation in northeast British Columbia — and ABCT Pacific (VCC) Ltd., a BC venture capital corporation, to pursue a large-scale data centre in the Fort St. John area. Prophet River First Nation would be the majority owner. Size, scope and capital cost are stated as undetermined pending a feasibility study.",
+      "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
+      "lat": 56.246464,
+      "lng": -120.847633,
+      "geoSourceUrl": "https://www.latlong.net/place/fort-st-john-bc-canada-29150.html",
+      "sourceUrl": "https://www.newswire.ca/news-releases/prophet-river-first-nation-and-abct-pacific-vcc-ltd-sign-loi-to-jointly-develop-major-data-centre-in-fort-st-john-area-819620927.html",
+      "evidenceQuote": "an independent Dene Tsaa Nation in Northeast British Columbia",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
+    },
+    {
+      "id": "upper-nicola-band-data-centre",
+      "name": "Upper Nicola Band AI data centre",
+      "category": "Compute & Infrastructure",
+      "orgType": "infrastructure-operator",
+      "region": "Thompson-Okanagan",
+      "url": "https://www.merrittherald.com/upper-nicola-indian-band-vote-yes-on-welcoming-one-of-the-countrys-largest-ai-data-centres/",
+      "location": "Nicola Lake, near Merritt — Upper Nicola Band reserve land",
+      "description": "Approved by an Upper Nicola Band membership vote that closed 7 July 2025, 98 to 33 in favour — reported as roughly 75 per cent of ballots cast — permitting the use of 100 to 150 acres of reserve land near the north end of Nicola Lake for a data centre reported at about $500 million and roughly 300 MW. Developed in partnership with Bell Canada and Kamloops-based iTel Networks. Job and construction figures reported alongside it are projections.",
+      "size": null,
+      "orgStatus": null,
+      "keyPeople": null,
+      "lat": 50.112778,
+      "lng": -120.789719,
+      "geoSourceUrl": "https://www.latlong.net/place/merritt-bc-canada-268.html",
+      "sourceUrl": "https://www.merrittherald.com/upper-nicola-indian-band-vote-yes-on-welcoming-one-of-the-countrys-largest-ai-data-centres/",
+      "evidenceQuote": null,
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": [
+        "quote-pending",
+        "projection-figures"
+      ]
+    },
+    {
+      "id": "animikii",
+      "name": "Animikii Indigenous Technology",
+      "category": "Companies & Applied AI",
+      "orgType": "company",
+      "region": "Vancouver Island & Coast",
+      "url": "https://www.animikii.com",
+      "location": "Victoria — 100-722 Cormorant St, on lək̓ʷəŋən Traditional Territory",
+      "description": "Indigenous-owned digital agency headquartered in Victoria on Songhees Nation land in lək̓ʷəŋən Traditional Territory. Its core product is Niiwin, described as an Indigenous Sovereignty Platform, and its #DataBack work is on asserting and supporting Indigenous data sovereignty. Holds B Corp and Certified Aboriginal Business certifications.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": "Jeff Ward (Founder and CEO)",
+      "lat": 48.407326,
+      "lng": -123.329773,
+      "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html",
+      "sourceUrl": "https://www.animikii.com/about",
+      "evidenceQuote": "100-722 Cormorant St, Victoria, BC V8W 1P8",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
+    },
+    {
+      "id": "ethos-lab",
+      "name": "Ethọ́s Lab",
+      "category": "Talent & Education",
+      "orgType": "nonprofit-or-association",
+      "region": "Metro Vancouver",
+      "url": "https://www.ethoslab.ca/",
+      "location": "Vancouver — 177 East 3rd Ave",
+      "description": "Youth STEAM academy in Vancouver running afterschool project-based programs and in-school activations for youth in Grades 5–12, grounding its approach in the African philosophy of Ubuntu.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 49.24966,
+      "lng": -123.11934,
+      "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
+      "sourceUrl": "https://www.ethoslab.ca/",
+      "evidenceQuote": null,
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": [
+        "quote-pending"
+      ]
     }
   ]
 }

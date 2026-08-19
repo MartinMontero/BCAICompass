@@ -17,7 +17,7 @@ is carried forward. No region, coordinate or blurb is invented. Missing is `null
 | records with any URL | 403 |
 | records with a non-LinkedIn website URL | 388 |
 | records with a raw category | 850 |
-| records carrying no flag at all | 345 |
+| records carrying no flag at all | 179 |
 
 **Nothing was dropped.** All 
 known non-entities. Silent deletion is how the predecessor lost 175 rows into a
@@ -41,6 +41,8 @@ several, so these do not sum to the record count.
 | `person-not-org` | 0 |
 | `product-not-org` | 4 |
 | `no-url` | 996 |
+| `not-an-entity` | 269 |
+| `synthesized-url` | 176 |
 
 ### Notes on three of those counts
 
@@ -55,18 +57,24 @@ several, so these do not sum to the record count.
   because many unrelated organisations legitimately share those and a collision
   there is not evidence of duplication.
 
-## The flag set cannot express the largest defect class
+## The largest defect class now rides on the record
 
-262 artifact-A rows are lines lifted from a markdown report rather than entities --
-`Headquarters:`, `CEO:`, `Team Size:`, `Talent Mapping`, `Year Founded`,
-`batch-15-formatted.json` (AUDIT.md 2.6.4). That class is larger than every other
-defect class combined, and **the closed flag set has no flag for it.**
-`person-not-org` and `product-not-org` are the nearest and both are wrong.
+**`not-an-entity` = 269.** These rows are lines lifted from a markdown report
+rather than organisations -- `Headquarters:`, `CEO:`, `Team Size:`, `Talent Mapping`,
+`Year Founded`, `batch-15-formatted.json` (AUDIT.md 2.6.4). That class is larger than
+every other defect class combined.
 
-The closed set is honored exactly as specified: those rows carry `no-url`, which is
-true, and nothing else. The consequence is that **seed.json alone understates the
-damage by design**, so the count is carried here instead. Recommended for a future
-revision of the schema: add `not-an-entity`.
+The originally specified closed flag set had **no value for it**, so the first version
+of this file carried only `no-url` on those rows and deferred the real count to this
+summary -- meaning seed.json understated the damage by design. `not-an-entity` was
+added to the closed set on 2026-08-19 and the count now rides on the record, where a
+future pass working the row will actually see it.
+
+**`synthesized-url` = 176.** Added at the same time. The domain is derivable
+character-for-character from the organisation name, so the URL carries no evidence
+that anyone ever checked it. `4agrobotics.com` had this shape and turned out to be a
+parked domain-sale page. A row with this flag needs its site resolved independently;
+the URL is a hint, not an answer.
 
 ## Surviving record counts at each filter stage
 
