@@ -194,5 +194,4 @@ Map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributo
 Built on the unceded territories of the many Indigenous nations whose lands make up
 British Columbia.
 
-Built by [Martin Montero](https://www.linkedin.com/in/martinmontero). Independent,
-unaffiliated, and unsponsored.
+Built by [Martin Montero](https://www.linkedin.com/in/martinmontero). Built in collaboration with https://bc-ai.ca
