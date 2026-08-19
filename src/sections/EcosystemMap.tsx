@@ -77,6 +77,23 @@ function FitToData({ items }: { items: Organization[] }) {
  * hardest gate cannot afford, and the dependency surface is a stated project
  * value. See research/PLAN.md section 3.1.
  */
+/**
+ * Flies the map to the selected organization. Restored from builderworkshop's
+ * AssetMap (FlyTo), which this build dropped. One deliberate change from the
+ * reference: zoom 13 instead of 16, because these pins are municipal centroids
+ * from a gazetteer, not street addresses — zoom 16 on a centroid lands on an
+ * arbitrary downtown block and looks like a wrong pin.
+ */
+function FlyTo({ target }: { target: Organization | null }) {
+  const map = useMap();
+  useEffect(() => {
+    if (target && target.lat !== undefined && target.lng !== undefined) {
+      map.flyTo([target.lat, target.lng], Math.max(map.getZoom(), 13), { duration: 1.1 });
+    }
+  }, [target, map]);
+  return null;
+}
+
 function Clusters({
   items,
   selected,
@@ -94,9 +111,20 @@ function Clusters({
   // render. That is deliberate: memoising it would require declaring the
   // projection as a dependency, and the projection is not a value React can see.
   // At a few hundred points the recomputation is trivial and always correct.
-  const [, setTick] = useState(0);
+  const [tick, setTick] = useState(0);
   const bump = useCallback(() => setTick((t) => t + 1), []);
   useMapEvents({ moveend: bump, zoomend: bump, resize: bump });
+
+  // Marker refs restore builderworkshop's click-to-open-popup behaviour. The
+  // popup can only open once the organization is rendered as an individual
+  // marker, which may be only after FlyTo has zoomed past its cluster — hence
+  // tick in the dependency list: each pan/zoom re-render retries the open.
+  const markerRefs = useRef<Record<string, L.Marker | null>>({});
+  useEffect(() => {
+    if (!selected) return;
+    const m = markerRefs.current[selected.id];
+    if (m) m.openPopup();
+  }, [selected, tick]);
 
   const cells = new Map<string, Organization[]>();
   for (const o of items) {
@@ -117,6 +145,9 @@ function Clusters({
           return (
             <Marker
               key={o.id}
+              ref={(m) => {
+                markerRefs.current[o.id] = m;
+              }}
               position={[o.lat as number, o.lng as number]}
               icon={makeDot(CATEGORY_COLORS[o.category], selected?.id === o.id)}
               eventHandlers={{ click: () => onSelect(o) }}
@@ -397,7 +428,7 @@ export default function EcosystemMap() {
               )}
             </div>
             <div className="font-mono2 text-[10px] tracking-[0.08em] text-[var(--ink-faint)] mt-3 px-1 flex items-center justify-between gap-3">
-              <span>{filtered.length} shown · click a count to zoom in</span>
+              <span>{filtered.length} shown · hover a row to fly to its pin</span>
               {(cat !== 'All' || reg !== 'All') && (
                 <button
                   onClick={() => {
@@ -430,6 +461,7 @@ export default function EcosystemMap() {
                 maxZoom={19}
               />
               <FitToData items={filtered} />
+              <FlyTo target={selected} />
               <Clusters items={filtered} selected={selected} onSelect={setSelected} />
             </MapContainer>
           </div>
