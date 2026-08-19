@@ -22,15 +22,15 @@ import {
  */
 const NOTES: Partial<Record<Region, string>> = {
   'Metro Vancouver':
-    'The densest part of the dataset, and the part most at risk of being mistaken for the whole province. Most of it is university research units and two of the three TELUS AI factory sites.',
+    'The densest cluster. University research, two of the three TELUS AI factory sites, and most of the companies.',
   'Thompson-Okanagan':
-    'Where the compute is. Every AI data-centre record in this dataset outside Vancouver sits here — Kamloops and Merritt — alongside Thompson Rivers University and UBC Okanagan.',
+    'Where the compute is. Every AI data-centre record outside Vancouver sits in Kamloops or Merritt, alongside TRU and UBC Okanagan.',
   'Vancouver Island & Coast':
-    'Two distinct clusters: University of Victoria research and Victoria companies, plus a Comox Valley community group and a regional district that adopted an AI governance policy in May 2026.',
+    'UVic research and Victoria companies, a Comox Valley community, and a regional district that adopted AI governance policy in 2026.',
   'Fraser Valley':
-    'One record: a regional AI community covering Langley to Chilliwack. Thin coverage here is a gap in this dataset, not a finding about the Fraser Valley.',
+    'A new regional AI community covering Langley to Chilliwack. Early days — more to find here.',
   'Province-wide':
-    'Organizations whose mandate is the whole province. Region here records mandate, not address — some have a head office and keep its pin, while others publish no address at all and correctly have none.',
+    'Organizations whose mandate covers all of BC. Region here is mandate, not mailing address.',
   Cariboo: 'Records verified in the Cariboo region.',
   'North Coast & Nechako': 'Records verified in the North Coast and Nechako region.',
   Northeast: 'Records verified in the Northeast region.',
@@ -71,20 +71,19 @@ export default function Regions() {
           <div>
             <div className="eyebrow mb-4">THE REGIONS</div>
             <h2 className="font-display uppercase text-5xl md:text-7xl leading-[0.95]">
-              Not just the
+              The whole
               <br />
-              Lower Mainland.
+              province.
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-[var(--ink-soft)]">
-            British Columbia's AI activity is distributed, and the usual maps flatten it into
-            "Vancouver tech". {covered} of {REGIONS.length} regions have at least one verified
-            record. Click a region to filter the map to it.{' '}
+            BC's AI work reaches further than Vancouver. {covered} of {REGIONS.length} regions
+            have at least one sourced record. Click a region to filter the map to it.{' '}
             {uncovered.length > 0 && (
               <>
                 The {uncovered.length === 1 ? 'other one is' : `other ${uncovered.length} are`} marked{' '}
-                <strong className="text-[var(--ink)]">not yet surveyed</strong> — which means nobody
-                has looked, not that nothing is there.
+                <strong className="text-[var(--ink)]">not yet surveyed</strong> — which means we
+                haven't looked yet, not that nothing's happening.
               </>
             )}
           </p>
@@ -161,17 +160,14 @@ export default function Regions() {
                     {r}
                   </h3>
                   <p className="mt-2.5 text-[13px] leading-relaxed text-[var(--ink-soft)] flex-1">
-                    Nobody has searched this region to a conclusion yet.{' '}
-                    <strong className="text-[var(--ink)]">
-                      That is a gap in this dataset, not a finding about the region.
-                    </strong>{' '}
-                    Zero records here means zero searching, not zero AI.
+                    We haven't reached this region yet. Zero records here means zero
+                    searching, not zero AI.
                   </p>
                   <a
                     href="#contribute"
                     className="mt-4 pt-3 border-t border-[var(--line)] font-mono2 text-[10px] tracking-[0.14em] uppercase text-[var(--accent)] hover:text-[var(--ink)] transition-colors"
                   >
-                    Send us a source ↓
+                    Know something here? Tell us ↓
                   </a>
                 </div>
               </div>

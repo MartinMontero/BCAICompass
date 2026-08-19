@@ -18,93 +18,79 @@ export default function Mission() {
       className="relative bg-[var(--bg)] py-20 md:py-28 border-t border-[var(--line)]"
     >
       <div className="px-5 md:px-10 max-w-[1400px] mx-auto">
-        <div className="eyebrow mb-4 reveal">THE METHOD</div>
+        <div className="eyebrow mb-4 reveal">HOW WE CHECK</div>
         <h2 className="font-display uppercase text-5xl md:text-7xl leading-[0.95] max-w-[18ch] reveal">
-          What "verified" means here.
+          Every record has a source. Here's why.
         </h2>
 
         <div className="mt-12 grid md:grid-cols-12 gap-x-10 gap-y-12">
           <div className="md:col-span-7 reveal">
             <p className="text-base md:text-lg leading-relaxed text-[var(--ink-soft)]">
-              A record is published only when four things are true at once. Its website resolved and
-              was live when someone loaded it. Its British Columbia presence was confirmed from the
-              organization's own site or from a primary source. Its category was assigned from content
-              actually read, not guessed from the name. And the specific page read, plus the date it
-              was read, are recorded on the record itself.
+              We publish a record when four things are true. The organization's website is live.
+              Its British Columbia presence is confirmed from its own site or a primary source. Its
+              category comes from what the page actually says, not what the name sounds like. And
+              the specific page we read, plus the date we read it, are on the record itself.
             </p>
 
             <p className="mt-5 text-base md:text-lg leading-relaxed text-[var(--ink-soft)]">
-              That last part is the whole idea. A directory that tells you <em>when</em> it was
-              checked but not <em>against what</em> cannot be audited, corrected, or trusted — it can
-              only be believed. Every stamp on this site is a link. Follow it and judge for yourself.
+              That last part is the whole point. If you can see where we looked, you can check
+              whether we got it right. Every stamp on this site is a link. Follow it.
             </p>
 
             <h3 className="font-display uppercase text-2xl md:text-3xl mt-12 mb-4">
-              The two tiers, and why there are two
+              Evidence quotes — and the ones still pending
             </h3>
             <p className="text-base leading-relaxed text-[var(--ink-soft)]">
               Most records carry an <strong className="text-[var(--ink)]">evidence quote</strong> — a
-              short string copied character-for-character off the source page, printed under the
-              record. Open the source, search the page for that string. If it is there, the record is
-              confirmed in about ten seconds. If it is not, the record is fabricated and you should
-              distrust the whole dataset. That is the intended trade.
+              short string copied straight off the source page, printed under the record. Open the
+              source, search for the string. If it's there, the record checks out in about ten
+              seconds.
             </p>
             <p className="mt-4 text-base leading-relaxed text-[var(--ink-soft)]">
-              The rest read{' '}
-              <strong className="text-[var(--ink)]">quote pending</strong>: sourced and checked by a
-              person, but no verbatim string was captured, so you cannot spot-check them that fast.
-              They are marked rather than quietly mixed in.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-[var(--ink-soft)]">
-              This distinction exists because of a mistake made building this site. One record
-              carried a city and a map pin taken from a footer on a domain the organization no longer
-              uses — and every automated check passed, because the checks confirmed a source
-              <em> existed</em>, not that it <em>said what the record claimed</em>. A quote closes
-              that gap. Nothing else did.
+              The rest are marked{' '}
+              <strong className="text-[var(--ink)]">quote pending</strong>: sourced and checked, but
+              we didn't capture a verbatim string, so they take longer to verify. They're marked
+              rather than quietly mixed in.
             </p>
 
             <h3 className="font-display uppercase text-2xl md:text-3xl mt-12 mb-4">
-              What we refuse to publish
+              What you won't find here
             </h3>
             <ul className="space-y-3 text-[15px] leading-relaxed text-[var(--ink-soft)]">
               <li className="flex gap-3">
                 <span className="text-[var(--accent)] font-mono2 text-xs pt-1 shrink-0">01</span>
                 <span>
-                  <strong className="text-[var(--ink)]">Funding figures.</strong> Permanently out of
-                  scope. Funding is the field most likely to be wrong, most likely to be quoted, and
-                  hardest to confirm from a primary source in one reading.
+                  <strong className="text-[var(--ink)]">Funding figures.</strong> They change fast,
+                  they're hard to confirm in one reading, and a wrong number gets quoted forever. We
+                  leave them out.
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-[var(--accent)] font-mono2 text-xs pt-1 shrink-0">02</span>
                 <span>
-                  <strong className="text-[var(--ink)]">Names and emails of individuals.</strong>{' '}
-                  Republishing scraped contact details is a privacy problem before it is an accuracy
-                  problem. This is a directory of organizations.
+                  <strong className="text-[var(--ink)]">Personal contact details.</strong> This is a
+                  directory of organizations, not people.
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-[var(--accent)] font-mono2 text-xs pt-1 shrink-0">03</span>
                 <span>
-                  <strong className="text-[var(--ink)]">Generated descriptions.</strong> No blurb is
-                  produced from a name, a domain, or a category. Where a source did not support a
-                  description, the field is blank and the site says so.
+                  <strong className="text-[var(--ink)]">Generated descriptions.</strong> If a source
+                  didn't support a description, the field is blank. No blurb is made up from a name.
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-[var(--accent)] font-mono2 text-xs pt-1 shrink-0">04</span>
                 <span>
-                  <strong className="text-[var(--ink)]">Coordinates we invented.</strong> Pins are
-                  municipal centroids from a named gazetteer, never a guessed street address. An
-                  organization with no confirmed location has no pin, and that is a correct outcome.
+                  <strong className="text-[var(--ink)]">Guessed locations.</strong> Pins come from a
+                  named gazetteer, not from memory. No confirmed location means no pin.
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-[var(--accent)] font-mono2 text-xs pt-1 shrink-0">05</span>
                 <span>
-                  <strong className="text-[var(--ink)]">Anything inherited.</strong> Candidate names
-                  came from an older dataset. Not one published value did. Every field here was
-                  sourced from scratch.
+                  <strong className="text-[var(--ink)]">Inherited values.</strong> Candidate names
+                  came from an older dataset. Every published field was sourced fresh.
                 </span>
               </li>
             </ul>
@@ -139,17 +125,14 @@ export default function Mission() {
                 Who makes this
               </div>
               <p className="text-[13.5px] leading-relaxed text-[var(--ink-soft)]">
-                BC AI Compass is a{' '}
-                <strong className="text-[var(--ink)]">BC + AI Ecosystem Association project</strong>,
-                built by Martin Montero as his contribution to it. The BC + AI Ecosystem Association
-                is itself listed in this directory, and that is worth saying plainly rather than
-                leaving you to find out.
+                A{' '}
+                <strong className="text-[var(--ink)]">BC + AI Ecosystem Association</strong> project,
+                built by Martin Montero. BC + AI is listed in this directory — we'd rather say that
+                up front than leave you to spot it.
               </p>
               <p className="mt-3 text-[13.5px] leading-relaxed text-[var(--ink-soft)]">
-                <strong className="text-[var(--ink)]">No other organization listed here is a partner,
-                funder or endorser of this project.</strong>{' '}
-                Not the universities, not the telecoms, not the Crown agencies, not any company.
-                Nobody paid for a listing. Nobody can.
+                No other listed organization is a partner or funder. No listing is paid for, and
+                none can be.
               </p>
             </div>
 
@@ -158,23 +141,21 @@ export default function Mission() {
                 Where the data came from
               </div>
               <p className="text-[13.5px] leading-relaxed text-[var(--ink-soft)]">
-                A year-old public dump of a community ecosystem database supplied a list of{' '}
-                <em>names to go and check</em> — and nothing else. That dump held 1,399 rows, of which
-                262 turned out not to be organizations at all but lines lifted from a report. The full
-                audit, including the counts and the commands that reproduce them, is in the
-                repository.
+                We started from a community ecosystem database — a list of names to go and check.
+                Every published value was sourced fresh from the organization's own site. The full
+                audit is in the repository.
               </p>
             </div>
 
             <div className="border border-[var(--line)] p-6 mt-4">
               <div className="font-mono2 text-[10px] tracking-[0.18em] uppercase text-[var(--ink-faint)] mb-3">
-                How often it is re-checked
+                How often we re-check
               </div>
               <p className="text-[13.5px] leading-relaxed text-[var(--ink-soft)]">
-                Oldest stamps first. Companies and community groups quarterly — they change fastest.
-                Infrastructure, research and public bodies annually. British Columbia's power
-                allocation for AI data centres is decided in September 2026, so the compute records
-                will move before most others do.
+                Oldest stamps first, always. Companies and community groups quarterly.
+                Infrastructure, research and public bodies annually. BC Hydro's AI data-centre
+                power allocation lands in September 2026 — those records will move before most
+                others.
               </p>
             </div>
           </div>

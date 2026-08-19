@@ -15,8 +15,8 @@ export default function Footer() {
               <span className="font-display uppercase text-lg tracking-wide">BC AI Compass</span>
             </div>
             <p className="mt-4 text-[13px] leading-relaxed text-[var(--ink-soft)] max-w-sm">
-              A verified, province-wide map and directory of British Columbia's AI ecosystem. Every
-              record carries the page it was checked against and the date it was checked.
+              British Columbia's AI ecosystem, mapped and sourced. Every record links to the page
+              we checked it against.
             </p>
             <p className="mt-4 font-mono2 text-[10px] tracking-[0.1em] text-[var(--ink-faint)]">
               {ORGANIZATIONS.length} verified organizations · newest stamp {newest}
@@ -56,9 +56,7 @@ export default function Footer() {
             </div>
             <p className="text-[12.5px] leading-relaxed text-[var(--ink-soft)]">
               A <strong className="text-[var(--ink)]">BC + AI Ecosystem Association</strong> project,
-              built by Martin Montero. BC + AI is listed in this directory. No other organization
-              listed here is a partner, funder or endorser of it, and no listing is paid for or
-              sponsored.
+              built by Martin Montero.
             </p>
             <p className="mt-4 text-[12.5px] leading-relaxed text-[var(--ink-faint)]">
               Map tiles ©{' '}

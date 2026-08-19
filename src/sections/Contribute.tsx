@@ -1,4 +1,6 @@
-const EMAIL = 'hello@bc-aicompass.ca';
+// TODO: Martin — confirm with Kris whether hello@bc-ai.ca is the right contact
+// address for Compass submissions, or whether a separate address is needed.
+const EMAIL = 'hello@bc-ai.ca';
 const REPO = 'https://github.com/MartinMontero/bcaicompass';
 
 export default function Contribute() {
@@ -12,17 +14,13 @@ export default function Contribute() {
           <div className="md:col-span-6 reveal">
             <div className="eyebrow mb-4">CONTRIBUTE</div>
             <h2 className="font-display uppercase text-5xl md:text-6xl leading-[0.95]">
-              Send a source,
+              Help us fill
               <br />
-              not a name.
+              in the map.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-[var(--ink-soft)]">
-              Missing organizations are the expected state of this dataset, not a failure of it. What
-              it cannot absorb is an unsourced name — that is exactly how the dataset this replaced
-              ended up with 1,399 rows and no way to tell which were real.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-[var(--ink-soft)]">
-              So: one link that proves the thing you are telling us. That is the whole bar.
+              There are BC AI organizations we haven't found yet. If you know one, point us at a
+              page — that's the whole bar.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -30,7 +28,7 @@ export default function Contribute() {
                 href={`mailto:${EMAIL}?subject=${encodeURIComponent('BC AI Compass — add or correct an organization')}`}
                 className="btn-primary"
               >
-                Email a correction
+                Send us a link
               </a>
               <a href={REPO} target="_blank" rel="noreferrer" className="btn-ghost">
                 Open a pull request ↗
@@ -49,22 +47,22 @@ export default function Contribute() {
                   {
                     n: '01',
                     h: 'The organization\'s own website',
-                    b: 'A live page on a domain it controls. Not a LinkedIn company page, not a Meetup group, not an aggregator listing — those are hints, and we will follow them, but they are not the answer.',
+                    b: 'A live page on a domain it controls. LinkedIn and Meetup are useful hints — we\'ll follow them — but we need the org\'s own site.',
                   },
                   {
                     n: '02',
                     h: 'A page proving BC presence',
-                    b: 'An address, a locations page, a contact page, or a primary source stating BC operation. A BC-sounding name is not evidence. Neither is a .ca domain.',
+                    b: 'An address, a contact page, or a primary source confirming BC presence.',
                   },
                   {
                     n: '03',
                     h: 'A page showing the AI is real',
-                    b: 'Where the organization itself says what AI or machine-learning work it does, funds, teaches, convenes or hosts. Being written about in an AI article is not the same as doing AI.',
+                    b: 'Where the organization says what AI work it does, funds, teaches or hosts.',
                   },
                   {
                     n: '04',
                     h: 'A correction? Point at the page.',
-                    b: 'If a record is wrong, closed, acquired, or moved, send the page that shows it. We would much rather remove a record than carry a wrong one.',
+                    b: 'If a record is wrong, closed, acquired or moved, point us at the page. We\'d rather take a record down than carry a wrong one.',
                   },
                 ].map((s) => (
                   <li key={s.n} className="flex gap-4">
@@ -82,9 +80,8 @@ export default function Contribute() {
               </ol>
 
               <p className="mt-7 pt-5 border-t border-[var(--line)] text-[12.5px] leading-relaxed text-[var(--ink-faint)]">
-                We do not list individuals, and we do not publish anyone's email or phone number. If
-                you would rather your organization were not listed, say so and it comes off — no
-                argument.
+                We don't list individuals or publish contact details. If you'd rather your
+                organization weren't listed, say so and it comes off.
               </p>
             </div>
           </div>

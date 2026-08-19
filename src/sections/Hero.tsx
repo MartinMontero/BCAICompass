@@ -25,27 +25,21 @@ export default function Hero() {
       />
 
       <div className="relative px-5 md:px-10 max-w-[1400px] mx-auto">
-        {/* "INDEPENDENT" was here until 2026-08-19 and was false: this is a BC + AI
-            Ecosystem Association project. Removed rather than reworded — the eyebrow
-            is not the place to explain a commissioning relationship, and the Method
-            section and footer both now state it in full. */}
-        <div className="eyebrow mb-6 reveal">BRITISH COLUMBIA · SOURCE-STAMPED · OPEN DATA</div>
+        <div className="eyebrow mb-6 reveal">BC + AI ECOSYSTEM · OPEN DATA</div>
 
         <h1 className="font-display uppercase leading-[0.9] text-[13vw] md:text-[8.5vw] lg:text-[7.5vw] max-w-[15ch] reveal">
-          Who is actually
+          The room,
           <br />
-          doing AI
-          <br />
-          in <span className="text-[var(--accent)]">B.C.</span>
+          mapped.
         </h1>
 
         <div className="mt-10 grid md:grid-cols-12 gap-8 items-start">
           <p className="md:col-span-5 text-base md:text-lg leading-relaxed text-[var(--ink-soft)] reveal">
-            A map and directory of British Columbia's AI ecosystem where{' '}
-            <strong className="text-[var(--ink)]">every record names the page it was checked
-            against and the day it was checked.</strong>{' '}
-            Companies, university labs, public programs, community groups, and the data centres now
-            being built in Kamloops, Merritt and Vancouver.
+            British Columbia's AI ecosystem — companies, labs, community groups,
+            public programs, and the data centres going up in Kamloops, Merritt and
+            Vancouver —{' '}
+            <strong className="text-[var(--ink)]">mapped and sourced.</strong>{' '}
+            Every record links to the page we checked and the day we checked it.
           </p>
 
           <div className="md:col-span-4 md:col-start-8 reveal">
@@ -70,7 +64,7 @@ export default function Hero() {
               </div>
             </dl>
             <p className="font-mono2 text-[10px] tracking-[0.1em] text-[var(--ink-faint)] mt-4 leading-relaxed">
-              Newest verification stamp: {stamp}. Unverified candidates are not published.
+              Last checked {stamp}. We only publish what we can source.
             </p>
           </div>
         </div>
@@ -80,7 +74,7 @@ export default function Hero() {
             Open the map
           </a>
           <a href="#method" className="btn-ghost">
-            What "verified" means here
+            How we check
           </a>
           <a
             href="./ecosystem.json"
