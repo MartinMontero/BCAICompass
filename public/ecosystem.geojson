@@ -1,0 +1,2238 @@
+{
+  "type": "FeatureCollection",
+  "name": "bcaicompass.ca — verified BC AI organizations with sourced coordinates",
+  "generated": "2026-08-19",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.340836,
+          50.676109
+        ]
+      },
+      "properties": {
+        "id": "telus-kamloops-ai-factory",
+        "name": "TELUS Kamloops AI Factory",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Thompson-Okanagan",
+        "url": "https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory",
+        "location": "Kamloops",
+        "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "telus-m3-ai-factory",
+        "name": "TELUS M3 AI Factory",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Metro Vancouver",
+        "url": "https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory",
+        "location": "Vancouver — Mount Pleasant",
+        "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "telus-150-west-georgia-ai-factory",
+        "name": "TELUS 150 West Georgia AI Factory",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Metro Vancouver",
+        "url": "https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory",
+        "location": "Vancouver — 150 West Georgia",
+        "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "telus",
+        "name": "TELUS",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Metro Vancouver",
+        "url": "https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "westbank",
+        "name": "Westbank",
+        "category": "Compute & Infrastructure",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://westbankcorp.com/",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "creative-energy",
+        "name": "Creative Energy",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Metro Vancouver",
+        "url": "https://www.creative.energy/",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.340836,
+          50.676109
+        ]
+      },
+      "properties": {
+        "id": "bell-ai-fabric-kamloops",
+        "name": "Bell AI Fabric Kamloops",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Thompson-Okanagan",
+        "url": "https://www.bell.ca/Business/AI-Fabric",
+        "location": "Kamloops",
+        "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.789719,
+          50.112778
+        ]
+      },
+      "properties": {
+        "id": "bell-ai-fabric-merritt",
+        "name": "Bell AI Fabric Merritt",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Thompson-Okanagan",
+        "url": "https://www.bell.ca/Business/AI-Fabric",
+        "location": "Merritt",
+        "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/merritt-bc-canada-268.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.340836,
+          50.676109
+        ]
+      },
+      "properties": {
+        "id": "bell-ai-fabric-kamloops-tru",
+        "name": "Bell AI Fabric Kamloops at Thompson Rivers University",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Thompson-Okanagan",
+        "url": "https://www.bell.ca/Business/AI-Fabric",
+        "location": "Kamloops — Thompson Rivers University",
+        "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.340836,
+          50.676109
+        ]
+      },
+      "properties": {
+        "id": "bell-ai-fabric-kamloops-2",
+        "name": "Bell AI Fabric Kamloops 2",
+        "category": "Compute & Infrastructure",
+        "orgType": "infrastructure-operator",
+        "region": "Thompson-Okanagan",
+        "url": "https://www.bell.ca/Business/AI-Fabric",
+        "location": "Kamloops — 1452 McGill Road",
+        "sourceUrl": "https://bebeez.eu/2026/04/14/bell-canada-breaks-ground-on-data-center-in-kamloops-british-columbia/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "city-of-vancouver",
+        "name": "City of Vancouver",
+        "category": "Public Sector & Policy",
+        "orgType": "government-or-crown",
+        "region": "Metro Vancouver",
+        "url": "https://vancouver.ca/",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.994,
+          49.6878
+        ]
+      },
+      "properties": {
+        "id": "comox-valley-regional-district",
+        "name": "Comox Valley Regional District",
+        "category": "Public Sector & Policy",
+        "orgType": "government-or-crown",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.comoxvalleyrd.ca/",
+        "location": "Comox Valley",
+        "sourceUrl": "https://thediscourse.ca/comox-valley/how-do-comox-valley-governments-and-public-organizations-use-ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://places.canadamaps.com/british-columbia/courtenay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc",
+        "name": "The University of British Columbia",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-cs",
+        "name": "UBC Department of Computer Science",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "caida",
+        "name": "CAIDA — UBC Centre for Artificial Intelligence Decision-making and Action",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://caida.ubc.ca/",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-aim-si",
+        "name": "Artificial Intelligence Methods for Scientific Impact (AIM-SI)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-ai-and-health-network",
+        "name": "UBC AI and Health Network",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-project-ada",
+        "name": "Project ADA",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-aiteccc",
+        "name": "AI and Technology-Enhanced Emergency Care Collaboration Centre (AiTECCC)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-data-science-institute",
+        "name": "UBC Data Science Institute",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://dsi.ubc.ca/",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-trustml",
+        "name": "TrustML",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-nlp-group",
+        "name": "UBC Natural Language Processing Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-dash",
+        "name": "Data Science and Health (DASH)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-graphical-ai",
+        "name": "Graphical AI",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-hai",
+        "name": "Human-AI Interaction @ UBC (HAI)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.477829,
+          49.882114
+        ]
+      },
+      "properties": {
+        "id": "ubco-digital-transparency-cluster",
+        "name": "Digital Transparency Research Excellence Cluster",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Thompson-Okanagan",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Kelowna — UBC Okanagan",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/kelowna-bc-canada-1354.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-music-create",
+        "name": "MUSIC — Multi-Scale Multi-Modal Image and Omics Computing for Health",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-smart-retention",
+        "name": "Smart Retention",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://research.ubc.ca/ai",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://research.ubc.ca/ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-cs-ai-group",
+        "name": "UBC Artificial Intelligence Research Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-cvl",
+        "name": "UBC Computer Vision Lab (CVL)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-dmm",
+        "name": "UBC Data Management and Mining Lab (DMM)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-ml-group",
+        "name": "UBC Machine Learning Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-plai",
+        "name": "PLAI — Pacific Laboratory for Artificial Intelligence",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://plai.cs.ubc.ca/",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-infovis",
+        "name": "UBC Information Visualization Group (InfoVis)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-security-privacy",
+        "name": "UBC Security and Privacy Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-ssl",
+        "name": "UBC Sensorimotor Systems Lab (SSL)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-groups",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-groups",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-mild",
+        "name": "MILD — Mathematics of Information, Learning and Data",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-centres",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-centres",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-amltn",
+        "name": "AMLTN — Advanced Machine Learning Training Network",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.cs.ubc.ca/research-centres",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.cs.ubc.ca/research-centres",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-ece-optimization-learning-control",
+        "name": "Optimization, Learning, Control — UBC Electrical & Computer Engineering",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://ece.ubc.ca/research/",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://ece.ubc.ca/research/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-aim-lab",
+        "name": "AIM Lab — Artificial Intelligence in Medicine Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://aimlab.ca",
+        "location": "Vancouver — UBC",
+        "sourceUrl": "https://aimlab.ca",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ovcare",
+        "name": "OVCARE — B.C.’s Ovarian Cancer Research Program",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "bc-cancer",
+        "name": "BC Cancer",
+        "category": "Research & Academia",
+        "orgType": "government-or-crown",
+        "region": "Metro Vancouver",
+        "url": "https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ubc-biomedical-engineering",
+        "name": "UBC School of Biomedical Engineering",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/",
+        "location": "Vancouver — UBC Vancouver campus",
+        "sourceUrl": "https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "vchri",
+        "name": "Vancouver Coastal Health Research Institute",
+        "category": "Research & Academia",
+        "orgType": "nonprofit-or-association",
+        "region": "Metro Vancouver",
+        "url": "https://www.vchri.ca/",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.vchri.ca/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "vch-vchri-ai-hub",
+        "name": "VCH-VCHRI AI Hub",
+        "category": "Research & Academia",
+        "orgType": "nonprofit-or-association",
+        "region": "Metro Vancouver",
+        "url": "https://www.vchri.ca/",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.vchri.ca/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu",
+        "name": "Simon Fraser University",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "location": "Burnaby — SFU Burnaby campus",
+        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-computing-science",
+        "name": "SFU School of Computing Science",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/computing/research.html",
+        "location": "Burnaby — 8888 University Drive",
+        "sourceUrl": "https://www.sfu.ca/computing/research.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-digital-democracies-institute",
+        "name": "Digital Democracies Institute",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://digitaldemocracies.org/",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-inn",
+        "name": "Institute for Neuroscience and Neurotechnology (INN)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-icrc",
+        "name": "International Cybercrime Research Centre (ICRC)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.82509,
+          49.10635
+        ]
+      },
+      "properties": {
+        "id": "quantum-algorithms-institute",
+        "name": "Quantum Algorithms Institute",
+        "category": "Research & Academia",
+        "orgType": "nonprofit-or-association",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "location": "Surrey",
+        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-star-institute",
+        "name": "Science and Technology for Aging Research Institute",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "viva",
+        "name": "Vancouver Institute for Visual Analytics (VIVA)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-big-data-hub",
+        "name": "SFU Big Data Hub",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-ml-group",
+        "name": "SFU Machine Learning Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-data-science-research-group",
+        "name": "SFU Data Science Research Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-3d-language-and-generation-group",
+        "name": "SFU 3D Language and Generation Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-airob-lab",
+        "name": "Autonomous Intelligence and Robotics (AIRob) Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-database-data-mining-lab",
+        "name": "SFU Database & Data Mining Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-medical-image-analysis-lab",
+        "name": "SFU Medical Image Analysis Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-mars-lab",
+        "name": "Multi-Agent Robotic Systems (MARS) Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-rosie-lab",
+        "name": "Robots with Social Intelligence and Empathy (ROSIE) Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/computing/research.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/computing/research.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-natural-language-laboratory",
+        "name": "SFU Natural Language Laboratory",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-tai-lab",
+        "name": "Trustworthy Artificial Intelligence (TAI) Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "sfu-gruvi",
+        "name": "Graphics, Usability and Visualization (GrUVI) Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/computing/research.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/computing/research.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "vinci",
+        "name": "Visual & Interactive Computing Institute (VINCI)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/fas/computing/research/centres-and-institutes.html",
+        "location": "Burnaby — SFU",
+        "sourceUrl": "https://www.sfu.ca/fas/computing/research/centres-and-institutes.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.82509,
+          49.10635
+        ]
+      },
+      "properties": {
+        "id": "sfu-metacreation-lab",
+        "name": "Metacreation Lab for Creative AI",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.metacreation.net",
+        "location": "Surrey — SFU",
+        "sourceUrl": "https://www.metacreation.net",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.82509,
+          49.10635
+        ]
+      },
+      "properties": {
+        "id": "sfu-iviz-lab",
+        "name": "iViz Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/siat/research/research-labs.html",
+        "location": "Surrey — SFU SIAT",
+        "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.82509,
+          49.10635
+        ]
+      },
+      "properties": {
+        "id": "sfu-learning-analytics-lab",
+        "name": "Learning Analytics Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/siat/research/research-labs.html",
+        "location": "Surrey — SFU SIAT",
+        "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.82509,
+          49.10635
+        ]
+      },
+      "properties": {
+        "id": "sfu-data-dialogue-lab",
+        "name": "Data & Dialogue Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/siat/research/research-labs.html",
+        "location": "Surrey — SFU SIAT",
+        "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.82509,
+          49.10635
+        ]
+      },
+      "properties": {
+        "id": "sfu-integrated-science-lab",
+        "name": "Integrated Science Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/siat/research/research-labs.html",
+        "location": "Surrey — SFU SIAT",
+        "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.82509,
+          49.10635
+        ]
+      },
+      "properties": {
+        "id": "sfu-computational-neuroscience-lab",
+        "name": "Computational Neuroscience Research Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/siat/research/research-labs.html",
+        "location": "Surrey — SFU SIAT",
+        "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.82509,
+          49.10635
+        ]
+      },
+      "properties": {
+        "id": "sfu-computational-design-lab",
+        "name": "Computational Design Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Metro Vancouver",
+        "url": "https://www.sfu.ca/siat/research/research-labs.html",
+        "location": "Surrey — SFU SIAT",
+        "sourceUrl": "https://www.sfu.ca/siat/research/research-labs.html",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "uvic",
+        "name": "University of Victoria",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "uvic-computer-science",
+        "name": "UVic Department of Computer Science",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "acis-laboratories",
+        "name": "Advanced Control and Intelligent Systems (ACIS) Laboratories",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://acislabs.ca/",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://acislabs.ca/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "uvic-gaidg-lab",
+        "name": "Graphics, Artificial Intelligence, Design, and Games (GAIDG) Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "uvic-machine-learning",
+        "name": "UVic Machine Learning Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "uvic-deia",
+        "name": "UVic Database & Data Mining Group (DEIA)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "uvic-mistic",
+        "name": "UVic Computer Music Group (MISTIC)",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "uvic-computational-biology",
+        "name": "UVic Computational Biology Group",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "uvic-theory-lab",
+        "name": "UVic Theory Lab",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://www.uvic.ca/ecs/computerscience/research/index.php",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.340836,
+          50.676109
+        ]
+      },
+      "properties": {
+        "id": "thompson-rivers-university",
+        "name": "Thompson Rivers University",
+        "category": "Research & Academia",
+        "orgType": "university-or-lab",
+        "region": "Thompson-Okanagan",
+        "url": "https://www.tru.ca/research.html",
+        "location": "Kamloops",
+        "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "sanctuary-ai",
+        "name": "Sanctuary AI",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.sanctuary.ai",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.sanctuary.ai/about",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "terramera",
+        "name": "Terramera",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.terramera.com",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.terramera.com",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.967,
+          49.267
+        ]
+      },
+      "properties": {
+        "id": "novarc-technologies",
+        "name": "Novarc Technologies",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.novarctech.com",
+        "location": "Burnaby — 4505 Still Creek Ave",
+        "sourceUrl": "https://www.novarctech.com",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "niricson",
+        "name": "Niricson",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.niricson.com",
+        "location": "Vancouver — 1200-555 West Hastings St",
+        "sourceUrl": "https://www.niricson.com",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "open-ocean-robotics",
+        "name": "Open Ocean Robotics",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.openoceanrobotics.com",
+        "location": "Victoria — 200-45 Erie Street",
+        "sourceUrl": "https://www.openoceanrobotics.com/contact",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "variational-ai",
+        "name": "Variational AI",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://variational.ai",
+        "location": "Vancouver — 201-1825 Quebec Street",
+        "sourceUrl": "https://variational.ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "digital-technology-supercluster",
+        "name": "Digital Technology Supercluster (DIGITAL)",
+        "category": "Capital & Accelerators",
+        "orgType": "investor-or-program",
+        "region": "Metro Vancouver",
+        "url": "https://www.digitalsupercluster.ca",
+        "location": "Vancouver — 2127-1055 W Georgia Street",
+        "sourceUrl": "https://www.digitalsupercluster.ca",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "viatec",
+        "name": "VIATEC",
+        "category": "Capital & Accelerators",
+        "orgType": "nonprofit-or-association",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.viatec.ca",
+        "location": "Victoria — 777 Fort Street",
+        "sourceUrl": "https://www.viatec.ca",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "new-ventures-bc",
+        "name": "New Ventures BC",
+        "category": "Capital & Accelerators",
+        "orgType": "investor-or-program",
+        "region": "Metro Vancouver",
+        "url": "https://www.newventuresbc.com",
+        "location": "Vancouver — 810-1055 Dunsmuir Street",
+        "sourceUrl": "https://www.newventuresbc.com",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "first-nations-technology-council",
+        "name": "First Nations Technology Council",
+        "category": "Talent & Education",
+        "orgType": "nonprofit-or-association",
+        "region": "Metro Vancouver",
+        "url": "https://firstnationstech.ca/",
+        "location": "Vancouver — 1707-1370 Senakw Lane",
+        "sourceUrl": "https://firstnationstech.ca/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "ai-at-uvic",
+        "name": "AI@UVic",
+        "category": "Talent & Education",
+        "orgType": "university-or-lab",
+        "region": "Vancouver Island & Coast",
+        "url": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
+        "location": "Victoria — UVic campus",
+        "sourceUrl": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "vancouver-ai",
+        "name": "Vancouver AI",
+        "category": "Community & Convening",
+        "orgType": "community-group",
+        "region": "Metro Vancouver",
+        "url": "https://bc-ai.ca/communities",
+        "location": "Vancouver",
+        "sourceUrl": "https://bc-ai.ca/communities",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.65833,
+          49.10416
+        ]
+      },
+      "properties": {
+        "id": "fv-ai-fraser-valley-ai",
+        "name": "FV+AI — Fraser Valley AI",
+        "category": "Community & Convening",
+        "orgType": "community-group",
+        "region": "Fraser Valley",
+        "url": "https://bc-ai.ca/communities",
+        "location": "Fraser Valley — Langley to Chilliwack",
+        "sourceUrl": "https://bc-ai.ca/communities",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.994,
+          49.6878
+        ]
+      },
+      "properties": {
+        "id": "cv-ai-comox-valley-ai",
+        "name": "CV + AI — Comox Valley AI",
+        "category": "Community & Convening",
+        "orgType": "community-group",
+        "region": "Vancouver Island & Coast",
+        "url": "https://bc-ai.ca/communities",
+        "location": "Comox Valley",
+        "sourceUrl": "https://bc-ai.ca/communities",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://places.canadamaps.com/british-columbia/courtenay"
+      }
+    }
+  ]
+}

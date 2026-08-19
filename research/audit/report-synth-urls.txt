@@ -1,0 +1,313 @@
+﻿
+==============================================================================
+NAME-DERIVED URL TEST
+==============================================================================
+rows with an http(s) website: 403
+website whose registered domain == slug(name) + a common TLD: 176
+  of those, the bare shape https://www.<slug>.<tld>/ with no path: 122
+
+full list (name -> url):
+    [18 Wheels Logistics]  ->  https://www.18wheelslogistics.com
+    [1Password]  ->  https://1password.com
+    [1SecondPainting]  ->  https://www.1secondpainting.com
+    [3DentAI]  ->  https://3dentai.ca
+    [4AG Robotics]  ->  https://www.4agrobotics.com
+    [Adopto]  ->  https://adopto.org
+    [Advize]  ->  https://www.advize.ca
+    [AI Stock Watch]  ->  https://www.aistockwatch.com
+    [AIM Lab (Artificial Intelligence in Medicine Lab)]  ->  https://aimlab.ca
+    [AlayaCare]  ->  https://alayacare.com
+    [Anodyne Chemistries]  ->  https://www.anodynechemistries.com
+    [AntEater]  ->  https://www.anteater.io
+    [Appnovation]  ->  https://www.appnovation.com
+    [Aqua Intelligent]  ->  https://aquaintelligent.com
+    [Arrowsmith Genetics]  ->  https://www.arrowsmithgenetics.com
+    [Artemisdata]  ->  https://artemisdata.io
+    [Artenal]  ->  https://www.artenal.ca
+    [Article]  ->  https://www.article.com
+    [Aspect Biosystems]  ->  https://www.aspectbiosystems.com
+    [Athennian]  ->  https://www.athennian.com/
+    [Automate.]  ->  https://www.automate.com
+    [Autonopia]  ->  https://www.autonopia.com
+    [Avicena AI]  ->  https://www.avicenaai.com
+    [BetterTable]  ->  https://www.bettertable.com
+    [Big Whale Labs]  ->  https://bigwhalelabs.com/
+    [Binta Financial]  ->  https://www.bintafinancial.com
+    [Bit Literate]  ->  https://www.bitliterate.com
+    [Blackout Media]  ->  https://www.blackoutmedia.ca
+    [Blockmint]  ->  https://blockmint.co
+    [Brainix]  ->  https://www.brainix.io
+    [Bridge2AI]  ->  https://www.bridge2ai.com
+    [Bron Studios]  ->  https://bronstudios.com
+    [Browse AI]  ->  https://www.browseai.com
+    [BuildDirect]  ->  https://www.builddirect.com
+    [CAIDA ]  ->  https://caida.ca
+    [Canalyst]  ->  https://canalyst.com/
+    [Canexia Health]  ->  https://canexiahealth.ca
+    [Carbon Engineering]  ->  https://carbonengineering.com
+    [CareCru]  ->  https://www.carecru.com
+    [Caseway]  ->  https://www.caseway.com
+    [Certn]  ->  https://certn.co
+    [Chimp]  ->  https://chimp.net
+    [Cifra]  ->  https://www.cifra.com
+    [Coho Data]  ->  https://www.cohodata.com
+    [Coinsquare]  ->  https://coinsquare.com
+    [ConcussionRx]  ->  https://www.concussionrx.com
+    [Corvus Energy]  ->  https://corvusenergy.com
+    [CRH Medical]  ->  https://crhmedical.com
+    [Damon]  ->  https://www.damon.com
+    [Dapper Labs]  ->  https://www.dapperlabs.com/
+    [DeepND]  ->  https://www.deepnd.io
+    [Denologix]  ->  https://www.denologix.com
+    [Diabits]  ->  https://www.diabits.com
+    [Disrupted Logic]  ->  https://www.disruptedlogic.com
+    [Djobzy]  ->  https://www.djobzy.com/
+    [Ehsai]  ->  https://ehsai.ca
+    [Ekohe]  ->  https://www.ekohe.com
+    [Ekona Power]  ->  https://www.ekonapower.com
+    [Eli Report]  ->  https://www.elireport.com
+    [Enterra Feed]  ->  https://www.enterrafeed.com
+    [EPIC Semiconductors]  ->  https://www.epicsemiconductors.com
+    [Eventbase]  ->  https://www.eventbase.com
+    [Evolve Biologix]  ->  https://www.evolvebiologix.com
+    [FansNetwork]  ->  https://fansnetwork.com/
+    [Fintel Connect]  ->  https://www.fintelconnect.com/
+    [FIRMOGRAM]  ->  https://www.firmogram.com
+    [Flash Forest]  ->  https://flashforest.ca
+    [Flashee]  ->  https://www.flashee.com
+    [Flutter Care]  ->  https://www.fluttercare.com
+    [Flytographer]  ->  https://www.flytographer.com
+    [Fobi AI]  ->  https://www.fobiai.com
+    [Frontier Collective]  ->  https://frontiercollective.com
+    [GenerationsE]  ->  https://www.generationse.com
+    [Growlyn]  ->  https://www.growlyn.com
+    [HealthTech Connex]  ->  https://www.healthtechconnex.com
+    [Hootsuite]  ->  https://www.hootsuite.com
+    [Illusense]  ->  https://www.illusense.com
+    [Implant Genius]  ->  https://www.implantgenius.com
+    [Indiegraf]  ->  https://www.indiegraf.com
+    [Innovate BC]  ->  https://innovatebc.ca
+    [Inofuse]  ->  https://www.inofuse.com
+    [INTERSOG]  ->  https://www.intersog.com
+    [IntLabs]  ->  https://www.intlabs.io
+    [IT Kapital]  ->  https://www.itkapital.com
+    [Jetson]  ->  https://www.jetson.com
+    [Kabam]  ->  https://www.kabam.com
+    [Kardium]  ->  https://kardium.com/
+    [Kindred]  ->  https://www.kindred.com
+    [Lambda Science]  ->  https://www.lambdascience.com
+    [Later]  ->  https://later.com
+    [Launch Academy]  ->  https://launchacademy.ca
+    [Life Sciences BC (LSBC)]  ->  https://lifesciencesbc.ca
+    [Lila Bioscience]  ->  https://www.lilabioscience.com
+    [Lila Sciences]  ->  https://www.lilasciences.com
+    [Lite-1]  ->  https://lite1.com
+    [LlamaZOO]  ->  https://www.llamazoo.com
+    [Loop Energy]  ->  https://loopenergy.com
+    [Lucent BioSciences]  ->  https://www.lucentbiosciences.com
+    [Lumen5]  ->  https://lumen5.com
+    [Mangrove Lithium]  ->  https://www.mangrovelithium.com
+    [MarineLabs]  ->  https://marinelabs.io/
+    [MATT3R]  ->  https://www.matt3r.com
+    [MetaVRse]  ->  https://metavrse.com
+    [MindfulGarden]  ->  https://mindfulgarden.com/
+    [Minerva Intelligence]  ->  https://minervaintelligence.com
+    [MineSense]  ->  https://www.minesense.com
+    [MiningTech North America]  ->  https://www.miningtechnorthamerica.com
+    [Mintent]  ->  https://mintent.com
+    [MistyWest]  ->  https://www.mistywest.com
+    [ModeMagic]  ->  https://modemagic.com
+    [MoogleLabs]  ->  https://www.mooglelabs.com
+    [Motion Metrics]  ->  https://motionmetrics.com/
+    [Neupeak]  ->  https://www.neupeak.com
+    [New Media BC]  ->  https://newmediabc.com
+    [Nexera Robotics]  ->  https://www.nexerarobotics.com
+    [Niricson]  ->  https://www.niricson.com/
+    [Olive]  ->  https://olive.app
+    [OneTask]  ->  https://www.onetask.com
+    [Open Ocean Robotics]  ->  https://www.openoceanrobotics.com
+    [Optimate AI]  ->  https://www.optimateai.com
+    [Orca Water]  ->  https://www.orcawater.com
+    [Payday]  ->  https://www.payday.com
+    [Pender Ventures]  ->  https://www.penderventures.com/
+    [pH7 Technologies]  ->  https://ph7technologies.com
+    [Picovoice]  ->  https://www.picovoice.com
+    [Planview (Vancouver)]  ->  https://www.planview.com
+    [Precision OS]  ->  https://www.precisionos.com
+    [Prenuvo]  ->  https://www.prenuvo.com
+    [Procurify]  ->  https://www.procurify.com
+    [Produce8]  ->  https://www.produce8.com
+    [Prompt Genie]  ->  https://www.promptgenie.com
+    [Properly]  ->  https://www.properly.ca
+    [Quandri]  ->  https://www.quandri.io/
+    [Reebee]  ->  https://www.reebee.com
+    [Rentberry]  ->  https://rentberry.com
+    [Rewind]  ->  https://rewind.ai
+    [Rigid Robotics]  ->  https://www.rigidrobotics.com
+    [Riipen]  ->  https://www.riipen.com/
+    [Routific]  ->  https://routific.com
+    [SandboxAQ (Good Chemistry Acquisition)]  ->  https://www.sandboxaq.com/
+    [Scanbo]  ->  https://www.scanbo.com
+    [Scoop Robotix]  ->  https://www.scooprobotix.com
+    [Scopemedia]  ->  https://www.scopemedia.com
+    [Scrubs Co-Pilot]  ->  https://www.scrubscopilot.com
+    [Secur3D]  ->  https://www.secur3d.com
+    [SenseNet]  ->  https://www.sensenet.com
+    [Sentient]  ->  https://www.sentient.com
+    [Showbie]  ->  https://www.showbie.com
+    [Spare]  ->  https://spare.com/
+    [SparkGeo]  ->  https://www.sparkgeo.com/
+    [Spexi]  ->  https://www.spexi.com/
+    [Spheria]  ->  https://www.spheria.ca/
+    [SquareKnot Analytics]  ->  https://squareknotanalytics.com/
+    [Strategybox]  ->  https://www.strategybox.com
+    [Symend]  ->  https://symend.com
+    [TalentMarketplace]  ->  https://www.talentmarketplace.com
+    [Tangam Systems]  ->  https://www.tangamsystems.com
+    [Tasktop]  ->  https://www.tasktop.com
+    [Tenstorrent]  ->  https://tenstorrent.com
+    [Terramera]  ->  https://www.terramera.com
+    [Theory+Practice]  ->  https://www.theorypractice.ai
+    [Thinkcx]  ->  https://www.thinkcx.com
+    [Thinkific]  ->  https://www.thinkific.com
+    [Thynkli]  ->  https://thynkli.com/
+    [Topicflow]  ->  https://www.topicflow.com
+    [Trulioo]  ->  https://www.trulioo.com/
+    [Unbounce]  ->  https://unbounce.com
+    [Vancouver Robotics Club (VRC)]  ->  https://vancouverroboticsclub.org
+    [Venovis]  ->  https://www.venovis.com
+    [VodaSafe]  ->  https://vodasafe.com/
+    [Voronoi Health Analytics]  ->  https://www.voronoihealthanalytics.com
+    [Warranty Life]  ->  https://www.warrantylife.com
+    [Wizard Labs]  ->  https://wizardlabs.com/
+    [Women Love Herbs]  ->  https://womenloveherbs.com/en
+    [XARIIA]  ->  https://www.xariia.com
+    [Youneeq]  ->  https://www.youneeq.ca
+
+==============================================================================
+THE SHARPEST SUBSET: https://www.<slug>.com with no path
+==============================================================================
+count: 110
+    [18 Wheels Logistics]  ->  https://www.18wheelslogistics.com
+    [1SecondPainting]  ->  https://www.1secondpainting.com
+    [4AG Robotics]  ->  https://www.4agrobotics.com
+    [AI Stock Watch]  ->  https://www.aistockwatch.com
+    [Anodyne Chemistries]  ->  https://www.anodynechemistries.com
+    [Appnovation]  ->  https://www.appnovation.com
+    [Arrowsmith Genetics]  ->  https://www.arrowsmithgenetics.com
+    [Article]  ->  https://www.article.com
+    [Aspect Biosystems]  ->  https://www.aspectbiosystems.com
+    [Athennian]  ->  https://www.athennian.com/
+    [Automate.]  ->  https://www.automate.com
+    [Autonopia]  ->  https://www.autonopia.com
+    [Avicena AI]  ->  https://www.avicenaai.com
+    [BetterTable]  ->  https://www.bettertable.com
+    [Binta Financial]  ->  https://www.bintafinancial.com
+    [Bit Literate]  ->  https://www.bitliterate.com
+    [Bridge2AI]  ->  https://www.bridge2ai.com
+    [Browse AI]  ->  https://www.browseai.com
+    [BuildDirect]  ->  https://www.builddirect.com
+    [CareCru]  ->  https://www.carecru.com
+    [Caseway]  ->  https://www.caseway.com
+    [Cifra]  ->  https://www.cifra.com
+    [Coho Data]  ->  https://www.cohodata.com
+    [ConcussionRx]  ->  https://www.concussionrx.com
+    [Damon]  ->  https://www.damon.com
+    [Dapper Labs]  ->  https://www.dapperlabs.com/
+    [Denologix]  ->  https://www.denologix.com
+    [Diabits]  ->  https://www.diabits.com
+    [Disrupted Logic]  ->  https://www.disruptedlogic.com
+    [Djobzy]  ->  https://www.djobzy.com/
+    [Ekohe]  ->  https://www.ekohe.com
+    [Ekona Power]  ->  https://www.ekonapower.com
+    [Eli Report]  ->  https://www.elireport.com
+    [Enterra Feed]  ->  https://www.enterrafeed.com
+    [EPIC Semiconductors]  ->  https://www.epicsemiconductors.com
+    [Eventbase]  ->  https://www.eventbase.com
+    [Evolve Biologix]  ->  https://www.evolvebiologix.com
+    [Fintel Connect]  ->  https://www.fintelconnect.com/
+    [FIRMOGRAM]  ->  https://www.firmogram.com
+    [Flashee]  ->  https://www.flashee.com
+    [Flutter Care]  ->  https://www.fluttercare.com
+    [Flytographer]  ->  https://www.flytographer.com
+    [Fobi AI]  ->  https://www.fobiai.com
+    [GenerationsE]  ->  https://www.generationse.com
+    [Growlyn]  ->  https://www.growlyn.com
+    [HealthTech Connex]  ->  https://www.healthtechconnex.com
+    [Hootsuite]  ->  https://www.hootsuite.com
+    [Illusense]  ->  https://www.illusense.com
+    [Implant Genius]  ->  https://www.implantgenius.com
+    [Indiegraf]  ->  https://www.indiegraf.com
+    [Inofuse]  ->  https://www.inofuse.com
+    [INTERSOG]  ->  https://www.intersog.com
+    [IT Kapital]  ->  https://www.itkapital.com
+    [Jetson]  ->  https://www.jetson.com
+    [Kabam]  ->  https://www.kabam.com
+    [Kindred]  ->  https://www.kindred.com
+    [Lambda Science]  ->  https://www.lambdascience.com
+    [Lila Bioscience]  ->  https://www.lilabioscience.com
+    [Lila Sciences]  ->  https://www.lilasciences.com
+    [LlamaZOO]  ->  https://www.llamazoo.com
+    [Lucent BioSciences]  ->  https://www.lucentbiosciences.com
+    [Mangrove Lithium]  ->  https://www.mangrovelithium.com
+    [MATT3R]  ->  https://www.matt3r.com
+    [MineSense]  ->  https://www.minesense.com
+    [MiningTech North America]  ->  https://www.miningtechnorthamerica.com
+    [MistyWest]  ->  https://www.mistywest.com
+    [MoogleLabs]  ->  https://www.mooglelabs.com
+    [Neupeak]  ->  https://www.neupeak.com
+    [Nexera Robotics]  ->  https://www.nexerarobotics.com
+    [Niricson]  ->  https://www.niricson.com/
+    [OneTask]  ->  https://www.onetask.com
+    [Open Ocean Robotics]  ->  https://www.openoceanrobotics.com
+    [Optimate AI]  ->  https://www.optimateai.com
+    [Orca Water]  ->  https://www.orcawater.com
+    [Payday]  ->  https://www.payday.com
+    [Pender Ventures]  ->  https://www.penderventures.com/
+    [Picovoice]  ->  https://www.picovoice.com
+    [Planview (Vancouver)]  ->  https://www.planview.com
+    [Precision OS]  ->  https://www.precisionos.com
+    [Prenuvo]  ->  https://www.prenuvo.com
+    [Procurify]  ->  https://www.procurify.com
+    [Produce8]  ->  https://www.produce8.com
+    [Prompt Genie]  ->  https://www.promptgenie.com
+    [Reebee]  ->  https://www.reebee.com
+    [Rigid Robotics]  ->  https://www.rigidrobotics.com
+    [Riipen]  ->  https://www.riipen.com/
+    [SandboxAQ (Good Chemistry Acquisition)]  ->  https://www.sandboxaq.com/
+    [Scanbo]  ->  https://www.scanbo.com
+    [Scoop Robotix]  ->  https://www.scooprobotix.com
+    [Scopemedia]  ->  https://www.scopemedia.com
+    [Scrubs Co-Pilot]  ->  https://www.scrubscopilot.com
+    [Secur3D]  ->  https://www.secur3d.com
+    [SenseNet]  ->  https://www.sensenet.com
+    [Sentient]  ->  https://www.sentient.com
+    [Showbie]  ->  https://www.showbie.com
+    [SparkGeo]  ->  https://www.sparkgeo.com/
+    [Spexi]  ->  https://www.spexi.com/
+    [Strategybox]  ->  https://www.strategybox.com
+    [TalentMarketplace]  ->  https://www.talentmarketplace.com
+    [Tangam Systems]  ->  https://www.tangamsystems.com
+    [Tasktop]  ->  https://www.tasktop.com
+    [Terramera]  ->  https://www.terramera.com
+    [Thinkcx]  ->  https://www.thinkcx.com
+    [Thinkific]  ->  https://www.thinkific.com
+    [Topicflow]  ->  https://www.topicflow.com
+    [Trulioo]  ->  https://www.trulioo.com/
+    [Venovis]  ->  https://www.venovis.com
+    [Voronoi Health Analytics]  ->  https://www.voronoihealthanalytics.com
+    [Warranty Life]  ->  https://www.warrantylife.com
+    [XARIIA]  ->  https://www.xariia.com
+
+==============================================================================
+CONTROL: SAME TEST ON A KNOWN-GOOD SUBSET
+==============================================================================
+Organisations whose real site genuinely is www.<name>.com will match this test
+too, so the count is an upper bound on synthesis, not a proof per row. The
+signal is the shape of the population: rows sharing one URL template AND a
+round funding figure AND no other sourced field.
+name-derived URL AND a bare-dollar funding value on the same row: 2
+    [Fintel Connect]  ->  https://www.fintelconnect.com/
+    [Theory+Practice]  ->  https://www.theorypractice.ai
+
+done.

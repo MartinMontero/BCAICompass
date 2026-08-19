@@ -1,0 +1,200 @@
+﻿
+==============================================================================
+ARTIFACT A -- C:\Users\User\dev\ecomap-reference\archive\2025-08-04-project-cleanup\cleanup-files\database-backup-2025-08-04.json
+==============================================================================
+backupDate      : 2025-08-04T03:05:53.411Z
+databaseId      : 1f0c6f799a3381bd8332ca0235c24655
+totalEntries    : 1399
+entries.Count   : 1399
+
+==============================================================================
+NAME COLLISIONS -- EXACT, NORMALIZED, FUZZY
+==============================================================================
+exact duplicate name groups: 2   rows involved: 2
+    2x [Digital Technology Supercluster]
+
+normalized duplicate groups (case/punctuation/legal-suffix insensitive): 30   rows involved: 61
+  [sandboxaq] <- "SandboxAQ" | "4. **SandboxAQ (Good Chemistry Acquisition)**" | "SandboxAQ (Good Chemistry Acquisition)"
+  [ai ecosystem] <- "BC + AI Ecosystem (BC AI Industry Association)" | "BC AI Ecosystem"
+  [aqua intelligent] <- "9. Aqua Intelligent" | "Aqua Intelligent"
+  [beatdapp software] <- "5. Beatdapp Software" | "Beatdapp Software"
+  [canexia health] <- "Canexia Health (Imagia Canexia Health)" | "Canexia Health"
+  [deltalyz] <- "deltAlyz Corp" | "deltAlyz Canada"
+  [digital supercluster] <- "Digital Technology Supercluster"
+  [ekona power] <- "4. Ekona Power (Hydrogen Economy Play)" | "Ekona Power"
+  [expansion] <- "Expansion:" | "International Expansion"
+  [finn ai] <- "Finn AI" | "Finn.ai"
+  [fintel connect] <- "3. **Fintel Connect**" | "Fintel Connect"
+  [focus] <- "Focus:" | "Technology Focus:"
+  [growlyn] <- "10. Growlyn" | "Growlyn"
+  [hugo] <- "6. Hugo Inc" | "Hugo Inc"
+  [key] <- "Key Technologies:" | "Key Technology:"
+  [mangrove lithium] <- "3. Mangrove Lithium (Strategic Investment Target)" | "Mangrove Lithium"
+  [meton ai] <- "Meton AI" | "Meton.ai (UnlockLand parent company)"
+  [origen air] <- "7. Origen Air" | "Origen Air"
+  [pacifican ai initiative] <- "11. PacifiCan AI Initiative" | "PacifiCan AI Initiative"
+  [phaidra] <- "2. Phaidra (Potential Unicorn)" | "Phaidra"
+  [quantum algorithms institute] <- "8. Quantum Algorithms Institute" | "Quantum Algorithms Institute"
+  [sap] <- "SAP Canada:" | "SAP Canada (Vancouver)"
+  [shade ai] <- "Shade AI" | "SHADE.ai"
+  [technical leadership] <- "Technical Leadership (CTO/Technical Founders)" | "Technical Leadership"
+  [thales] <- "5. **Thales Canada**" | "Thales Canada"
+  [unblocked] <- "1. **Unblocked**" | "Unblocked"
+  [unity] <- "Unity Technologies" | "Unity Technologies (Vancouver)"
+  [variational ai] <- "Variational.ai" | "Variational AI"
+  [viatec] <- "VIATEC (Victoria Innovation, Advanced Technology & Entrepreneurship Council)" | "VIATEC"
+  [wisr ai] <- "Wisr AI (cyber)" | "Wisr AI"
+
+==============================================================================
+FUZZY NAME PAIRS (Levenshtein on normalized name, blocked by first letter)
+==============================================================================
+distinct normalized names of length >= 4: 1352
+fuzzy pairs at Levenshtein <= 3 and similarity >= 0.82: 11
+  d=1 r=0.917  [Company Descriptions:]  ~  [Description:]
+  d=1 r=0.933  [Employee Count]  ~  [Employee Counts:]
+  d=1 r=0.889  [This Fish]  ~  [ThisFish Inc.]
+  d=1 r=0.909  [WellHealth Technologies]  ~  [WELL Health Technologies Corp]
+  d=1 r=0.833  [Year 2]  ~  [Year 1]
+  d=1 r=0.833  [Year 3]  ~  [Year 2]
+  d=1 r=0.833  [Year 3]  ~  [Year 1]
+  d=2 r=0.846  [Lila Sciences]  ~  [Life Sciences BC (LSBC)]
+  d=2 r=0.889  [Revenue Generating]  ~  [Revenue Generation]
+  d=3 r=0.87  [Competitive Positioning]  ~  [Competitive Position]
+  d=3 r=0.833  [Market Positioning:]  ~  [Market Position]
+
+containment pairs (one normalized name is a token-prefix of another, >=6 chars): 133
+  [BC Market]  <  [Market Data]
+  [BC Market]  <  [Market Reach]
+  [BC Market]  <  [Market Position]
+  [BC Market]  <  [Market Traction]
+  [BC Market]  <  [Market Advantage]
+  [BC Market]  <  [Market Positioning:]
+  [BC Market]  <  [Market Opportunities]
+  [BC Market]  <  [Market Consolidation]
+  [BC Market]  <  [Market Leadership by Sector]
+  [BC Market]  <  [Market Recognition & Awards]
+  [Defang]  <  [Defang Software Labs]
+  [Defang]  <  [Defang / Defang Software Labs]
+  [Flento]  <  [Flento app (by Acrostrong)]
+  [5. **Thales Canada** | Thales Canada]  <  [Thales / Thales Canada]
+  [AgTech]  <  [AgTech Robotics]
+  [VIATEC (Victoria Innovation, Advanced Technology & Entrepreneurship Council) | VIATEC]  <  [VIATEC AI Meetups]
+  [VIATEC (Victoria Innovation, Advanced Technology & Entrepreneurship Council) | VIATEC]  <  [VIATEC (Fort Tectoria) / VIATEC AI Meetups]
+  [Target:]  <  [Target Diseases:]
+  [Growth]  <  [Growth Metrics:]
+  [Growth]  <  [Growth-Stage Executives]
+  [Growth]  <  [Growth-Stage Transitions]
+  [Primary:]  <  [Primary Sources]
+  [Quality:]  <  [Quality Control:]
+  [Founded:]  <  [Founded by]
+  [Related:]  <  [Related LinkedIn:]
+  [Revenue]  <  [Revenue Range]
+  [Revenue]  <  [Revenue Metrics]
+  [Revenue]  <  [Revenue Traction (Early Stage)]
+  [Revenue]  <  [Revenue Generation]
+  [Revenue]  <  [Revenue Generating]
+  [Kindred]  <  [Kindred / Kindred AI]
+  [Notable:]  <  [Notable Gaps:]
+  [Notable:]  <  [Notable Project:]
+  [Notable:]  <  [Notable Products:]
+  [Notable:]  <  [Notable Positions:]
+  [Notable:]  <  [Notable Customers:]
+  [Notable:]  <  [Notable Investors]
+  [Pano AI BC]  <  [Pano AI BC Operations]
+  [Quantum BC]  <  [Quantum Dynamics]
+  [Quantum BC]  <  [Quantum Computing]
+  [Quantum BC]  <  [Quantum Applications]
+  [Quantum BC]  <  [Quantum Matter Institute]
+  [Quantum BC]  <  [8. Quantum Algorithms Institute | Quantum Algorithms Institute]
+  [Funding:]  <  [Funding Data]
+  [Funding:]  <  [Funding Range]
+  [Funding:]  <  [Funding Details]
+  [Funding:]  <  [Funding Velocity]
+  [Funding:]  <  [Funding Information:]
+  [Funding:]  <  [Funding Progression (2019-2025)]
+  [Funding:]  <  [Funding Performance]
+  [Fujitsu]  <  [Fujitsu Intelligence Technology]
+  [Fujitsu]  <  [Fujitsu / Fujitsu Intelligence Technology]
+  [SkyAcres]  <  [SkyAcres Agrotechnologies]
+  [Animikii]  <  [Animikii Indigenous Technology Inc]
+  [Animikii]  <  [Animikii / Animikii Indigenous Technology Inc]
+  [Startups:]  <  [Startups & Scale-ups:]
+  [Research:]  <  [Research Team:]
+  [Research:]  <  [Research Areas:]
+  [Research:]  <  [Research Focus:]
+  [Research:]  <  [Research Methods]
+  [Research:]  <  [Research Connections:]
+  [Research:]  <  [Research University Access]
+  [Research:]  <  [Research Commercialization]
+  [Platform:]  <  [Platform Integration:]
+  [LinkedIn:]  <  [LinkedIn URL:]
+  [LinkedIn:]  <  [LinkedIn Groups:]
+  [LinkedIn:]  <  [LinkedIn Strategy:]
+  [LinkedIn:]  <  [LinkedIn Pages Discovered:]
+  [Series A]  <  [Series A Pipeline Development]
+  [Victoria]  <  [Victoria Data Society]
+  [deltAlyz Corp | deltAlyz Canada]  <  [deltAlyz Canada / deltAlyz Corp]
+  [Traction]  <  [Traction on Demand]
+  [Industry:]  <  [Industry Impact:]
+  [Industry:]  <  [Industry Relations:]
+  [Industry:]  <  [BC Industry Partners AI Consortium]
+  [Farmonaut BC]  <  [Farmonaut BC Operations]
+  [Expansion: | International Expansion]  <  [International Expansion Plans]
+  [Expansion: | International Expansion]  <  [International Expansion Support]
+  [Aerospace]  <  [BC Aerospace Skills Gap Analysis Project]
+  [Microsoft]  <  [Microsoft Canada AI Hub]
+  [Microsoft]  <  [Microsoft Vancouver]
+  [Microsoft]  <  [Microsoft VCH AI Partnership]
+  [Microsoft]  <  [Microsoft Research Asia Vancouver]
+  [Microsoft]  <  [Microsoft Vancouver Coastal Health Partnership]
+  [Microsoft]  <  [Microsoft Research Asia Vancouver / Microsoft Vancouver]
+  [AbCellera]  <  [AbCellera Biologics]
+  [Hootsuite]  <  [Hootsuite Platform Integrations]
+  [Secondary:]  <  [Secondary Sources]
+  [Team Size:]  <  [Team Size Information:]
+  [Vancouver]  <  [Vancouver AI]
+  [Vancouver]  <  [Vancouver Office:]
+  [Vancouver]  <  [Vancouver Presence:]
+  [Vancouver]  <  [Vancouver AI Academy]
+  [Vancouver]  <  [Vancouver Connection:]
+  [Vancouver]  <  [Vancouver Tech Journal]
+  [Vancouver]  <  [Vancouver PropTech Hub]
+  [Vancouver]  <  [Vancouver Robotics Club (VRC)]
+  [Vancouver]  <  [Vancouver Angel Network (VANTEC)]
+  [Vancouver]  <  [Vancouver PropTech Ecosystem]
+  [Vancouver]  <  [Vancouver International Privacy Security Summit]
+  [Vancouver]  <  [Vancouver Game Development AI Collective]
+  [Vancouver]  <  [Vancouver Fraser Port Authority Terminal 2]
+  [Vancouver]  <  [Vancouver AI Community (VanAI) / Vancouver AI Meetup (VAM!)]
+  [MetaOptima (DermEngine)]  <  [MetaOptima / MetaOptima (DermEngine)]
+  [Enterprise:]  <  [Enterprise AI Integration]
+  [Employment:]  <  [Employment & Team Building]
+  [Genesis AI Corp]  <  [Genesis AI / Genesis AI Corp]
+  [Vancouver AI]  <  [Vancouver AI Academy]
+  [Vancouver AI]  <  [Vancouver AI Community (VanAI) / Vancouver AI Meetup (VAM!)]
+  [RBC Borealis]  <  [RBC Borealis AI (Vancouver Lab)]
+  [RBC Borealis]  <  [RBC Borealis / RBC Borealis AI (Vancouver Lab)]
+  [Verification:]  <  [Verification Levels]
+  [Verification:]  <  [Verification Standards]
+  [BC + AI Ecosystem (BC AI Industry Association) | BC AI Ecosystem]  <  [BC + AI Ecosystem Association]
+  [Responsive AI]  <  [Responsive AI / Responsive AI (Responsive Inc.)]
+  [AI Network of BC (AInBC)]  <  [AI Network of British Columbia]
+  [Motion Metrics]  <  [Motion Metrics / Weir Motion Metrics]
+  [OnDeck Fisheries]  <  [OnDeck Fisheries / OnDeck Fisheries AI]
+  [BC Tech Association]  <  [BC Tech Association Hypergrowth]
+  [Neptune Terminals]  <  [Neptune Terminals AI Operations]
+  [Absolute Software]  <  [Absolute Software Vancouver]
+  [Microsoft Vancouver]  <  [Microsoft Vancouver Coastal Health Partnership]
+  [Southern Cross Gold BC]  <  [Southern Cross Gold BC Operations]
+  [Fraser Surrey Docks]  <  [Fraser Surrey Docks AI Operations]
+  [Digital Technology Supercluster]  <  [Digital Technology Supercluster Healthtech Initiative]
+  [Investment Targeting:]  <  [Investment Targeting Intelligence]
+  [Finger Food Advanced Technology Group]  <  [Finger Food Advanced Technology Group / Finger Food Studios]
+  [BC Regional AI Initiative]  <  [BC Regional AI Initiative Recipients]
+  [Competitive Positioning]  <  [Competitive Positioning Research]
+  [MiningTech North America]  <  [MiningTech North America Conference]
+  [External Development Summit (XDS)]  <  [External Development Summit Vancouver]
+  [Stellantis LG Energy Solution BC]  <  [Stellantis LG Energy Solution BC Partnership]
+  [Microsoft Research Asia Vancouver]  <  [Microsoft Research Asia Vancouver / Microsoft Vancouver]
+
+done.

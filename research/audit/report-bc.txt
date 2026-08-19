@@ -1,0 +1,241 @@
+﻿
+==============================================================================
+ARTIFACT B -- C:\Users\User\dev\ecomap-reference\data\reports\refined-database-completeness-analysis-2025-08-04.json
+==============================================================================
+top-level keys and types:
+timestamp : String
+backupDate : String
+analysis_notes : String
+summary : object
+  total : Int32
+  missingWebsite : object
+    count : Int32
+    percentage : Decimal
+  missingEmail : object
+    count : Int32
+    percentage : Decimal
+  missingFoundingYear : object
+    count : Int32
+    percentage : Decimal
+  missingDescription : object
+    count : Int32
+    percentage : Int32
+  missingKeyPeople : object
+    count : Int32
+    percentage : Decimal
+  missingFunding : object
+    count : Int32
+    percentage : Decimal
+  completeOrganizations : Int32
+  nearCompleteOrganizations : Int32
+  highPriorityOrganizations : Int32
+  veryHighPriorityOrganizations : Int32
+  criticalPriorityOrganizations : Int32
+  emptyOrganizations : Int32
+fieldCompletenessRanking : array[6]
+highPriorityList : array[25]
+wellDocumentedSample : array[10]
+allOrganizations : array[1224]
+
+==============================================================================
+ARTIFACT C -- C:\Users\User\dev\ecomap-reference\tools\data\quality-reports\database-quality-2025-10-19.json
+==============================================================================
+top-level keys and types:
+generatedAt : String
+analysis : object
+  totalOrgs : Int32
+  fieldCompleteness : object
+    Website : object
+    LinkedIn : object
+    Email : object
+    Phone : object
+    City/Region : object
+    BC Region : object
+    Category : object
+    AI Focus Areas : object
+    Year Founded : object
+    Size : object
+    Short Blurb : object
+    Key People : object
+    Latitude : object
+    Longitude : object
+    Logo : object
+    Funding : object
+    Revenue : object
+    Valuation : object
+    Employee Count : object
+    Data Sources : object
+  categoryBreakdown : object
+    Business Services : object
+    AI Startup : object
+    Technology Companies : object
+    AI Companies : object
+    EdTech AI : object
+    Web3 Startup : object
+    Academic Research Lab : object
+    Investment Fund : object
+    Logistics Tech : object
+    Community : object
+    Healthcare & Biotech : object
+    AgTech Company : object
+    CleanTech : object
+    Industry Association : object
+    Grassroots Communities : object
+    Service Studios / Agencies : object
+    Social-Impact & Climate-Tech Hubs : object
+    Investors & Funds : object
+    Advocacy & Policy Groups : object
+    Media & Storytellers : object
+    Academic & Research Labs : object
+    Education & Training Providers : object
+    Government & Public Sector : object
+    Indigenous Tech & Creative Orgs : object
+    Enterprise / Corporate Divisions : object
+    Open-Source Projects : object
+    Start-ups & Scale-ups : object
+    Investor : object
+    Non-Profit : object
+    Company : object
+    Government Agency : object
+    Innovation Centres & Hubs : object
+    Consulting & Services : object
+    Unicorn : object
+    Government : object
+    Digital Therapeutics : object
+    Corporate Partnership : object
+    Port Terminal : object
+    Developer Community : object
+    Mining : object
+    Healthcare AI : object
+    Industry Conferences & Events : object
+    Smart Logistics Services : object
+    Wildfire Tech : object
+    Game Development Services : object
+    Construction Tech Startup : object
+    Deep-water Terminal : object
+    Game Development Studio : object
+    Legal Tech Leader : object
+    Crypto Unicorn : object
+    AgTech : object
+    Industry-Healthcare Partnership : object
+    Training Program : object
+    Port Development : object
+    Accelerators / Incubators : object
+    Innovation Hub : object
+    User Group : object
+    3PL Company : object
+    Academic : object
+    Fintech : object
+    EdTech : object
+    Media Tech : object
+    E-commerce : object
+    PropTech Startup : object
+    Marketing Tech : object
+    Service Providers : object
+    Cybersecurity : object
+    Robotics : object
+    VR/AR : object
+    AI Research Organization : object
+    Research Institute : object
+    Developer Tools AI : object
+    AI Community Organization : object
+    Venture Capital : object
+    HealthTech AI : object
+    Annual Conference : object
+    Nonprofit : object
+    Regulatory Initiative : object
+    Accelerator : object
+    Government Program : object
+    Bioprinting AI : object
+    Innovation Consortium : object
+    Innovation Center : object
+    Academic Lab : object
+  aiCompanies : object
+    total : Int32
+    completeness : object
+  mostIncomplete : array[20]
+  overallScore : Int32
+targets : object
+  websiteDiscovery : array[190]
+  emailEnrichment : array[77]
+  fundingResearch : array[249]
+  keyPeopleResearch : array[212]
+
+==============================================================================
+CROSS-ARTIFACT ORGANISATION-NAME DIFF
+==============================================================================
+distinct names in A: 1398
+distinct names in B: 1223
+distinct names in C: 285
+names in C but NOT in A (added to Notion after the 2025-08-04 dump): 67
+    [3 Lions AI Solutions]
+    [Above Sensing Ltd.]
+    [AccessAI]
+    [ADG Tech]
+    [AI Tinkerers Vancouver - Profile]
+    [AIM Lab - Artificial Intelligence in Medicine Lab]
+    [Ainome Inc.]
+    [Audette]
+    [Avigilon (Motorola Solutions)]
+    [Be Pacific™]
+    [Borealis AI (RBC Research Lab)]
+    [BrainBox AI]
+    [Cascadia Scientific]
+    [Central Interior Business Accelerator]
+    [Circles of AI]
+    [Cisco Systems Vancouver]
+    [DaoAI]
+    [Digital Democracies Institute - SFU]
+    [Digital Democracies Institute (SFU)]
+    [Fuelix AI]
+    [FYBR Solutions]
+    [Geco Strategic Weed Management]
+    [GeologicAI]
+    [Glüxkind]
+    [Health & Climate Data Lab (UBC)]
+    [IM4 Lab (Emily Carr University)]
+    [Immersio Learning Inc.]
+    [InBC Investment Corp]
+    [Indigenous Tech Symposium]
+    [Innovation Island]
+    [Insporos]
+    [Intelautomatics]
+    [Intronic]
+    [Intuitive AI]
+    [Iris AI]
+    [Langbase.com]
+    [Legible AI]
+    [Lunar AI]
+    [Mindstone Community]
+    [Ministry JEDI]
+    [MyAni EdTech]
+    [NCellular AI]
+    [New Ventures BC]
+    [NordAI]
+    [Northern Innovation Network]
+    [Novatone Consulting Ltd.]
+    [PacifiCan Regional AI Initiative]
+    [Quartech Systems Ltd.]
+    [Revela Systems]
+    [Segev LLP]
+    [SensorUp Inc.]
+    [SFU]
+    [SFU Big Data Hub]
+    [SFU Metacreation Lab]
+    [Skyward Wildfire]
+    [SmartLumber AI]
+    [Softmax Data]
+    [Spexi Geospatial]
+    [Tech Yukon]
+    [Technocrat AI]
+    [UBC Cognitive Systems]
+    [UBC Neuroethics]
+    [UBC Sauder Data + AI Research Group]
+    [UBC Space Centre]
+    [UVic Advanced Control and Intelligent Systems Lab]
+    [Vodasafe]
+    [Zero Inbox Technologies]
+
+names in A but NOT in C (deleted from Notion, or renamed, after 2025-08-04): 1180
+
+done.

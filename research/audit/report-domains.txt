@@ -1,0 +1,66 @@
+﻿
+==============================================================================
+ARTIFACT A -- C:\Users\User\dev\ecomap-reference\archive\2025-08-04-project-cleanup\cleanup-files\database-backup-2025-08-04.json
+==============================================================================
+backupDate      : 2025-08-04T03:05:53.411Z
+databaseId      : 1f0c6f799a3381bd8332ca0235c24655
+totalEntries    : 1399
+entries.Count   : 1399
+
+==============================================================================
+REGISTERED-DOMAIN COLLISIONS
+==============================================================================
+rows resolving to a registered domain: 403
+distinct registered domains          : 375
+domains carried by more than one row : 10
+rows involved in a domain collision  : 38
+  linkedin.com   [15 rows]
+      [SandboxAQ]  https://www.linkedin.com/company/sandboxaq
+      [5. **Thales Canada**]  https://www.linkedin.com/company/thales
+      [4. **SandboxAQ (Good Chemistry Acquisition)**]  https://www.linkedin.com/company/sandboxaq
+      [3. **Fintel Connect**]  https://ca.linkedin.com/company/fintelconnect
+      [1. **Unblocked**]  https://ca.linkedin.com/company/getunblocked
+      [MetaOptima / MetaOptima (DermEngine)]  https://www.linkedin.com/company/metaoptima-technology-inc-
+      [Simform]  https://www.linkedin.com/company/simform
+      [Mobcoder]  https://www.linkedin.com/company/mobcoder-inc
+      [Canexia Health (Imagia Canexia Health)]  https://ca.linkedin.com/company/imagia-canexiahealth
+      [Timezyx]  https://www.linkedin.com/company/timezyx/
+      [CamDo Solutions Inc.]  https://ca.linkedin.com/company/camdo-solutions-inc-
+      [Wayve]  https://www.linkedin.com/company/wayve-technologies
+      [Meton.ai (UnlockLand parent company)]  https://ca.linkedin.com/company/meton-ai
+      [ClearSpark AI]  https://ca.linkedin.com/company/clearspark-ai
+      [Visier]  https://ca.linkedin.com/company/visier-analytics
+  meetup.com   [6 rows]
+      [Web 3.0 Vancouver]  https://meetup.com/blockchain-vancouver
+      [YVR Crypto Network]  https://meetup.com/vanblockchain
+      [Ethereum Vancouver (EthVan)]  https://meetup.com/ethvancouver-meetup-group
+      [Women in ML & Data Science (WiMLDS YVR)]  https://meetup.com/Vancouver-Women-in-Machine-Learning-and-Data-Science
+      [GenAI & LLMs Developers]  https://meetup.com/vancouvergenaillms
+      [LLM & AI Meetup (Vancouver)]  https://meetup.com/vancouver-llm-ai-meetup
+  ubc.ca   [3 rows]
+      [UBC Emerging Media Lab]  https://eml.ubc.ca
+      [PLAI (Pacific Laboratory for Artificial Intelligence) - UBC]  https://plai.cs.ubc.ca
+      [UBC Master of Data Science (MDS)]  https://masterdatascience.ubc.ca
+  ainbc.ai   [2 rows]
+      [Artificial Intelligence Network of BC (AInBC)]  https://ainbc.ai
+      [AI Network of BC (AInBC)]  https://ainbc.ai
+  bc-ai.net   [2 rows]
+      [BC + AI Ecosystem Association]  https://vancouver.bc-ai.net
+      [Vancouver AI]  https://vancouver.bc-ai.net
+  digitalsupercluster.ca   [2 rows]
+      [Digital Technology Supercluster]  https://www.digitalsupercluster.ca
+      [Digital Technology Supercluster]  https://digitalsupercluster.ca
+  innovatebc.ca   [2 rows]
+      [BC On-Farm Technology Adoption Program]  https://www.innovatebc.ca/programs/bc-on-farm
+      [Innovate BC]  https://innovatebc.ca
+  sfu.ca   [2 rows]
+      [Machine Learning Group - SFU]  https://ml.cs.sfu.ca
+      [SFU Computing Science & Creative AI Labs]  https://www.sfu.ca/computing
+  spring.is   [2 rows]
+      [Investment & Accelerators (15)]  https://www.spring.is/
+      [Spring Activator]  https://www.spring.is/
+  uvic.ca   [2 rows]
+      [UVic Advanced Control and Intelligent Systems (ACIS) Lab]  https://uvic.ca/research/labs/acis
+      [University of Victoria (UVic) AI Research]  https://www.uvic.ca
+
+done.

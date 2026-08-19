@@ -1,0 +1,30 @@
+﻿==============================================================================
+BC AI COMPASS -- EXIT CONDITIONS
+run at (local): 2026-08-19 02:21:29
+==============================================================================
+
+Removing node_modules and dist for a clean install...
+  stopping project node process pid 24724 ("node"   "C:\Users\User\dev\BCAICompass\node_modules\.bin\\..\vite\bin\vite.js")
+PASS  npm install from a clean node_modules  --  install exit 0; node_modules verified removed before install: True
+PASS  npm run build succeeds  --  exit 0
+PASS  tsc reports no errors  --  exit 0
+PASS  eslint reports no errors  --  exit 0
+PASS  ecosystem.json and ecosystem.geojson parse as valid JSON
+PASS  every id is unique  --  102 records, 102 distinct
+PASS  every record: status verified, non-null sourceUrl, sourceDate, verified stamp  --  0 offending
+PASS  at least 100 verified records  --  102 records
+PASS  every category in the data appears in the union, and vice versa  --  declared-but-unused: 0; used-but-undeclared: 0
+PASS  no record carries coordinates without a geoSourceUrl  --  0 offending
+PASS  geojson feature count matches records with coordinates  --  geojson 97 vs data 97
+PASS  no funding / keyPeople / yearFounded / focus-area field appears anywhere in src\  --  0 hits
+PASS  the predecessor dump tag never appears as a value in src\  --  0 hits
+PASS  nothing in src\ imports from research\  --  0 hits
+PASS  unverified.json is not present in dist\  --  0 found
+PASS  dist\ contains index.html, CNAME (bcaicompass.ca), _headers and both data files  --  index=True cname=True headers=True data=True
+PASS  every inline script hash in index.html is present in public\_headers CSP
+
+==============================================================================
+CONDITIONS: 17 total, 17 passed, 0 failed
+==============================================================================
+
+ALL EXIT CONDITIONS PASS.

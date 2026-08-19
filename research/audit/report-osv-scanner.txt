@@ -1,0 +1,22 @@
+﻿osv-scanner run: 2026-08-19 02:14:48 local
+osv-scanner version: 2.4.0
+osv-scalibr version: 0.4.5
+commit: b56b5191101d5f27d4787d5583d8d01e9518a7af
+built at: 2026-06-18T12:55:27Z
+
+=== scan source --lockfile package-lock.json ===
+Starting filesystem walk for root: C:\
+Scanned C:\Users\User\dev\BCAICompass\package-lock.json file and found 321 packages
+End status: 0 dirs visited, 1 inodes visited, 1 Extract calls, 27.5524ms elapsed, 27.5524ms wall time
+
+No issues found
+lockfile scan exit: 0
+
+=== scan source (project directory, node_modules excluded by default lockfile mode) ===
+Scanning dir .
+Starting filesystem walk for root: C:\
+Scanned C:\Users\User\dev\BCAICompass\package-lock.json file and found 321 packages
+End status: 29 dirs visited, 114 inodes visited, 1 Extract calls, 45.6649ms elapsed, 45.6649ms wall time
+
+No issues found
+directory scan exit: 0

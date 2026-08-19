@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BC AI Compass — British Columbia's AI ecosystem, verified</title>
+    <meta
+      name="description"
+      content="A verified, province-wide map and directory of British Columbia's AI ecosystem. Every record carries the source URL it was checked against and the date it was checked. Independent. Open data."
+    />
+    <link rel="canonical" href="https://bcaicompass.ca/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bcaicompass.ca/" />
+    <meta property="og:title" content="BC AI Compass — British Columbia's AI ecosystem, verified" />
+    <meta
+      property="og:description"
+      content="Province-wide, source-stamped, independent. Every record names the page it was verified against and the day it was read."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BC AI Compass — British Columbia's AI ecosystem, verified" />
+    <meta
+      name="twitter:description"
+      content="Province-wide, source-stamped, independent. Every record names the page it was verified against and the day it was read."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('bcac-theme');
+          if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+﻿
+==============================================================================
+FUNDING FIELD
+==============================================================================
+rows carrying a funding value: 480
+values of the bare-dollar shape $NNN[KMB]: 230
+distinct bare-dollar values: 26
+
+bare-dollar value frequency (all):
+    26x  [$5M]
+    21x  [$25M]
+    19x  [$500K]
+    16x  [$18M]
+    15x  [$1.5M]
+    14x  [$12M]
+    13x  [$50M]
+    12x  [$3M]
+    12x  [$4M]
+    11x  [$8M]
+    11x  [$1M]
+     9x  [$35M]
+     9x  [$75M]
+     9x  [$20M]
+     8x  [$2M]
+     5x  [$15M]
+     5x  [$30M]
+     4x  [$10M]
+     4x  [$6M]
+     1x  [$5.3M]
+     1x  [$120K]
+     1x  [$8.6M]
+     1x  [$130M]
+     1x  [$115M]
+     1x  [$45M]
+     1x  [$60M]
+
+top 15 funding values overall:
+    26x  [$5M]
+    21x  [$25M]
+    19x  [$500K]
+    16x  [$18M]
+    15x  [$1.5M]
+    14x  [$12M]
+    13x  [$50M]
+    12x  [$3M]
+    12x  [$4M]
+    11x  [$1M]
+    11x  [$8M]
+     9x  [$20M]
+     9x  [$35M]
+     9x  [$75M]
+     8x  [$2M]
+
+==============================================================================
+YEARFOUNDED FIELD
+==============================================================================
+rows carrying yearFounded: 562
+implausible or non-4-digit values: 0
+
+yearFounded frequency (top 20):
+   105x  [2018]
+    64x  [2017]
+    62x  [2015]
+    53x  [2010]
+    31x  [2025]
+    26x  [2008]
+    23x  [2020]
+    22x  [2019]
+    20x  [2016]
+    17x  [2012]
+    15x  [2021]
+    13x  [2014]
+    12x  [2022]
+    10x  [2013]
+     8x  [2007]
+     8x  [2009]
+     7x  [2005]
+     7x  [2006]
+     6x  [2011]
+     6x  [2024]
+
+==============================================================================
+EMAIL FIELD
+==============================================================================
+rows carrying an email: 244
+values that are not a plausible single email address: 0
+values of the npm-package shape name@1.2.3 (scraper damage): 0
+
+==============================================================================
+KEYPEOPLE FIELD
+==============================================================================
+rows carrying keyPeople: 255
+carrying an inline "(Source: ...)" tag: 72
+  distinct source tags used:
+      52x  [Company website]
+       6x  [Company data]
+       4x  [TechCouver]
+       2x  [Company IR]
+       2x  [Company research]
+       1x  [Benjamin Dada]
+       1x  [Browse AI]
+       1x  [Lighthouse Labs]
+       1x  [Scientific publications]
+       1x  [Industry reports]
+       1x  [Company filings]
+values naming no identifiable person (generic placeholder): 20
+    [CAIDA ] = [Research directors and AI specialists from leading Canadian institutions]
+    [Tangam Systems] = [Leadership team]
+    [Lila Bioscience] = [Biotech leadership team]
+    [Bit Literate] = [Educational gaming team]
+    [Workday Vancouver] = [Vancouver office leadership]
+    [Apple Vancouver] = [Vancouver engineering leadership]
+    [Amazon Vancouver] = [Vancouver office leadership]
+    [Chinook Therapeutics] = [Clinical development team, Vancouver-founded precision medicine for rare kidney diseases (Source: Company data)]
+    [Neural Dynamics] = [Neuroscience researchers from UBC, former pharma executives - AI brain-computer interfaces, COVID long-hauler assessment tools (Source: Scientific publications)]
+    [RapidCert] = [Former government compliance officers and tech entrepreneurs - Digital certification platform, COVID pivot to general compliance (Source: Company website)]
+    [Enteligent] = [Energy industry veterans, AI researchers from UBC, former BC Hydro executives - AI grid optimization (Source: Company website)]
+    [Ariglad] = [Founding team not disclosed - AI-powered HR technology platform (Source: TechCouver)]
+    [AgriSense AI] = [Agricultural technology team]
+    [Forest AI Systems] = [Forestry technology team]
+    [Hugo Inc] = [AI data processing services for e-commerce, customer support, fraud prevention (Source: Company website)]
+    [Aqua Intelligent] = [Environmental tech entrepreneurs from UBC - AI-powered water quality monitoring with IoT sensors (Source: Company research)]
+    [Amphoraxe Life Sciences Inc] = [Antimicrobial peptides research team]
+    [Growlyn] = [Marketing automation platform serving real estate professionals and cannabis businesses (Source: Company research)]
+    [Sanctuary AI] = [Leadership transition ongoing, Phoenix humanoid robot]
+    [Frontier Collective] = [Partners focused on deep technology investments]
+
+==============================================================================
+STATUS FIELD
+==============================================================================
+   289x  [Researching]
+     1x  [Partnership Established]
+
+==============================================================================
+DESCRIPTION / REGION / COORDINATES
+==============================================================================
+property keys present anywhere in artifact A: category, email, funding, keyPeople, name, status, website, yearFounded
+  description  ABSENT
+  region       ABSENT
+  city         ABSENT
+  latitude     ABSENT
+  longitude    ABSENT
+  lat          ABSENT
+  lng          ABSENT
+  linkedin     ABSENT
+  size         ABSENT
+  employees    ABSENT
+
+done. total rows: 1399
