@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "A verified, province-wide map and directory of British Columbia's AI ecosystem — bcaicompass.ca",
+  "description": "A verified, province-wide map and directory of British Columbia's AI ecosystem — bc-aicompass.ca",
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/export-data.mjs",

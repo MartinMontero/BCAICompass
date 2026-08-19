@@ -152,7 +152,7 @@ if (problems.length > 0) {
 // ---------------------------------------------------------------------------
 // Emit
 // ---------------------------------------------------------------------------
-const site = 'https://bcaicompass.ca';
+const site = 'https://bc-aicompass.ca';
 const generated = new Date().toISOString().slice(0, 10);
 
 const organizations = ORGANIZATIONS.map((o) => ({
@@ -192,7 +192,7 @@ const dataset = {
   name: 'BC AI Compass — verified directory of British Columbia’s AI ecosystem',
   url: site,
   generated,
-  license: 'CC BY 4.0 — credit bcaicompass.ca',
+  license: 'CC BY 4.0 — credit bc-aicompass.ca',
   method:
     'Every record was independently verified: its website resolved and was live, its British Columbia presence was confirmed from its own site or a primary source, and its category was assigned from content actually read. sourceUrl names the page read; sourceDate is the day it was read. evidenceQuote is a short verbatim string copied from that page — open sourceUrl, search for the quote, and the record is confirmed or exposed. Records with evidenceQuote null carry a quote-pending flag: sourced, but not yet spot-checkable. Nothing here was carried forward from a prior dataset. Coordinates are municipal centroids, sourced in geoSourceUrl, not street addresses.',
   scope:
@@ -222,7 +222,7 @@ writeFileSync('public/ecosystem.json', JSON.stringify(dataset, null, 2) + '\n');
 
 const geojson = {
   type: 'FeatureCollection',
-  name: 'bcaicompass.ca — verified BC AI organizations with sourced coordinates',
+  name: 'bc-aicompass.ca — verified BC AI organizations with sourced coordinates',
   generated,
   features: organizations
     .filter((o) => o.lat !== undefined)

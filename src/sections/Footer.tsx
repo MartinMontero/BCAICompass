@@ -46,7 +46,7 @@ export default function Footer() {
             </ul>
             <p className="mt-4 text-[11.5px] leading-relaxed text-[var(--ink-faint)]">
               Data licensed <strong className="text-[var(--ink-soft)]">CC BY 4.0</strong> — credit
-              bcaicompass.ca. Code licensed MIT.
+              bc-aicompass.ca. Code licensed MIT.
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export default function Footer() {
             sit.
           </p>
           <p className="font-mono2 text-[10px] tracking-[0.14em] text-[var(--ink-faint)] uppercase">
-            bcaicompass.ca
+            bc-aicompass.ca
           </p>
         </div>
       </div>

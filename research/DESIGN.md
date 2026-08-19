@@ -1,4 +1,4 @@
-# DESIGN.md — bcaicompass.ca
+# DESIGN.md — bc-aicompass.ca
 
 Per-project binding for BC AI Compass. This file outranks any general design
 manual inside this repository.

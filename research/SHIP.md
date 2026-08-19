@@ -1,6 +1,6 @@
 # SHIP — deployment, rollback, and re-verification
 
-**Target:** `bcaicompass.ca` on Cloudflare Pages
+**Target:** `bc-aicompass.ca` on Cloudflare Pages
 **Build command:** `npm run build`
 **Output directory:** `dist`
 
@@ -32,7 +32,7 @@ Get-Content .\dist\CNAME
 (Get-Content .\dist\ecosystem.json -Raw | ConvertFrom-Json).count
 ```
 
-`dist\CNAME` must read `bcaicompass.ca`. The count must be at least 100.
+`dist\CNAME` must read `bc-aicompass.ca`. The count must be at least 100.
 
 ---
 
@@ -71,16 +71,16 @@ says what to look for.
 ### 1.1 Custom domain
 
 9. In the project → **Custom domains** → **Set up a custom domain**.
-10. Enter **`bcaicompass.ca`** → **Continue** → **Activate domain**.
-11. Repeat for **`www.bcaicompass.ca`**.
+10. Enter **`bc-aicompass.ca`** → **Continue** → **Activate domain**.
+11. Repeat for **`www.bc-aicompass.ca`**.
 
-If the `bcaicompass.ca` zone is in the same Cloudflare account, DNS records and the
+If the `bc-aicompass.ca` zone is in the same Cloudflare account, DNS records and the
 TLS certificate are created automatically — nothing to add by hand. If the zone
 lives elsewhere, Cloudflare shows the exact CNAME target to add at your registrar;
 use that value, not one from memory.
 
-12. Confirm HTTPS resolves at `https://bcaicompass.ca/` and that
-    `https://bcaicompass.ca/ecosystem.json` returns JSON.
+12. Confirm HTTPS resolves at `https://bc-aicompass.ca/` and that
+    `https://bc-aicompass.ca/ecosystem.json` returns JSON.
 
 ### 1.2 Confirm the security headers actually applied
 
@@ -88,7 +88,7 @@ use that value, not one from memory.
 rather than assume:
 
 ```powershell
-$r = Invoke-WebRequest -Uri "https://bcaicompass.ca/" -Method Head -UseBasicParsing
+$r = Invoke-WebRequest -Uri "https://bc-aicompass.ca/" -Method Head -UseBasicParsing
 $r.Headers.GetEnumerator() | Sort-Object Key | Format-Table -AutoSize
 ```
 
@@ -342,7 +342,7 @@ too. It meant nothing.
 | Output directory | `dist` |
 | Framework preset | **None** |
 | `NODE_VERSION` | `20` |
-| Custom domains | `bcaicompass.ca`, `www.bcaicompass.ca` |
+| Custom domains | `bc-aicompass.ca`, `www.bc-aicompass.ca` |
 | Domain file | `public\CNAME` → `dist\CNAME` |
 | Headers file | `public\_headers` → `dist\_headers` |
 | Published data | `dist\ecosystem.json`, `dist\ecosystem.geojson` |

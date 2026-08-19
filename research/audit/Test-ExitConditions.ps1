@@ -196,10 +196,10 @@ Add-Result 'unverified.json is not present in dist\' ($unverifiedInDist.Count -e
 
 # ---------------------------------------------------------------- 12. deploy artifacts
 $distIndex = Test-Path 'dist\index.html'
-$distCname = (Test-Path 'dist\CNAME') -and ((Get-Content 'dist\CNAME' -Raw).Trim() -eq 'bcaicompass.ca')
+$distCname = (Test-Path 'dist\CNAME') -and ((Get-Content 'dist\CNAME' -Raw).Trim() -eq 'bc-aicompass.ca')
 $distHeaders = Test-Path 'dist\_headers'
 $distJson = (Test-Path 'dist\ecosystem.json') -and (Test-Path 'dist\ecosystem.geojson')
-Add-Result 'dist\ contains index.html, CNAME (bcaicompass.ca), _headers and both data files' `
+Add-Result 'dist\ contains index.html, CNAME (bc-aicompass.ca), _headers and both data files' `
   ($distIndex -and $distCname -and $distHeaders -and $distJson) `
   ("index=$distIndex cname=$distCname headers=$distHeaders data=$distJson")
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bcaicompass.ca/sitemap.xml
+Sitemap: https://bc-aicompass.ca/sitemap.xml

@@ -1,4 +1,4 @@
-# BC AI Compass — bcaicompass.ca
+# BC AI Compass — bc-aicompass.ca
 
 A verified, province-wide map and directory of British Columbia's AI ecosystem.
 
@@ -185,7 +185,7 @@ and commands are in [`research/SHIP.md`](research/SHIP.md).
 - **Data: CC BY 4.0.** The dataset in `src/data/organizations.ts`,
   `public/ecosystem.json` and `public/ecosystem.geojson` is licensed under
   [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
-  **Credit `bcaicompass.ca`.** Take it and build with it.
+  **Credit `bc-aicompass.ca`.** Take it and build with it.
 
 Map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
 

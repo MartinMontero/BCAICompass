@@ -1,8 +1,8 @@
 {
   "name": "BC AI Compass — verified directory of British Columbia’s AI ecosystem",
-  "url": "https://bcaicompass.ca",
+  "url": "https://bc-aicompass.ca",
   "generated": "2026-08-19",
-  "license": "CC BY 4.0 — credit bcaicompass.ca",
+  "license": "CC BY 4.0 — credit bc-aicompass.ca",
   "method": "Every record was independently verified: its website resolved and was live, its British Columbia presence was confirmed from its own site or a primary source, and its category was assigned from content actually read. sourceUrl names the page read; sourceDate is the day it was read. evidenceQuote is a short verbatim string copied from that page — open sourceUrl, search for the quote, and the record is confirmed or exposed. Records with evidenceQuote null carry a quote-pending flag: sourced, but not yet spot-checkable. Nothing here was carried forward from a prior dataset. Coordinates are municipal centroids, sourced in geoSourceUrl, not street addresses.",
   "scope": "This maps the whole ecosystem around AI in British Columbia, not only organizations that build AI. An organization is in scope when it funds, houses, teaches, convenes, governs, represents, powers or otherwise materially supports AI work in BC, and that can be sourced. An industry association does not have to do AI to be part of the AI ecosystem.",
   "coverage": "A region or category showing zero here has NOT been surveyed to a conclusion. It is not a finding that nothing exists there. research/unverified.json records what remains unsearched.",

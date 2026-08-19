@@ -1,7 +1,7 @@
 # PLAN — BC AI Compass
 
 **Project:** BC AI Compass — a verified, province-wide map and directory of British
-Columbia's AI ecosystem, shipping at **bcaicompass.ca**.
+Columbia's AI ecosystem, shipping at **bc-aicompass.ca**.
 **Plan date:** 2026-08-19
 **Predecessor audit:** [AUDIT.md](AUDIT.md) — read that first; this plan is a response to it.
 
@@ -612,11 +612,11 @@ Martin decides otherwise.
 | 9 | **`keyPeople` and `email` are not published at all** (§1.1) | Privacy and spam liability for third parties who never consented; 20 of 255 predecessor values name no person | Adding them back needs a consent position, not just a schema field |
 | 10 | **`funding` and `yearFounded` are out of scope** (§1.1) | 230 of 480 funding values from a pool of 26 round numbers; 105 rows share founding year 2018 | Could be added later *with* per-field sources; never carried forward from artifact A |
 | 11 | **Artifact A supplies names only.** Every published field independently sourced (see "Open questions" #1) | No LICENSE file in the ecomap reference; `package.json` declares ISC, which speaks to code, not to Notion data that is not in the repo | Resolved by construction — a more permissive licence finding would not change the approach, because AUDIT.md §6 concludes only the names were worth taking anyway |
-| 12 | **Branding: BC AI Compass, bcaicompass.ca.** No BC + AI marks, no implied endorsement, no claim of affiliation (see "Open questions" #2) | Nothing in any file read states any relationship with BC + AI, Kris Krüg, the Internet Archive, TELUS, Bell, BC Hydro or any other organization. An offered conversation is not a partnership. | A stated, written partnership would change the footer, the method statement and the about copy — and nothing else |
+| 12 | **Branding: BC AI Compass, bc-aicompass.ca.** No BC + AI marks, no implied endorsement, no claim of affiliation (see "Open questions" #2) | Nothing in any file read states any relationship with BC + AI, Kris Krüg, the Internet Archive, TELUS, Bell, BC Hydro or any other organization. An offered conversation is not a partnership. | A stated, written partnership would change the footer, the method statement and the about copy — and nothing else |
 | 13 | **Stack: Vite + React static**, matching bws-reference (see "Open questions" #3) | The brief pins the dependency surface; a static build is the cheapest thing to host and the easiest to verify | See #3 below for the porting cost |
 | 14 | **`esbuild` declared explicitly in `devDependencies`; `package-lock.json` committed; `export-data.mjs` fails loudly** | AUDIT.md §8 — bws-reference imports esbuild without declaring it and resolves only via npm's flat hoisting | — |
 | 15 | **Brand accent: Pacific cyan-teal**, not builderworkshop's flag red | A different project should not wear another project's brand. Teal reads as coastal/Pacific rather than national, distinguishes BC AI Compass from builderworkshop at a glance, and holds AA contrast on both schemes. Full binding in [DESIGN.md](DESIGN.md). | One `ref` token pair in `index.css` |
-| 16 | **Data licence: CC BY 4.0, crediting bcaicompass.ca. Code: MIT.** | Matches the openness the dataset's absence in the predecessor made painful; stated explicitly in README.md | — |
+| 16 | **Data licence: CC BY 4.0, crediting bc-aicompass.ca. Code: MIT.** | Matches the openness the dataset's absence in the predecessor made painful; stated explicitly in README.md | — |
 | 17 | **All 1,399 artifact-A rows enter `seed.json`, including the 262 known non-entities**, flagged rather than deleted | Silent deletion is how the predecessor's 175 filtered rows became invisible. Attrition is documented per stage in `seed-summary.md`. | — |
 
 ### 7.1 A constraint that could not be met as specified, stated plainly

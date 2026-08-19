@@ -13,7 +13,7 @@ So the bar is one link that proves the thing you are telling us. That is it.
 
 ## The fastest way
 
-Email **hello@bcaicompass.ca**, or open a pull request against
+Email **hello@bc-aicompass.ca**, or open a pull request against
 `src/data/organizations.ts`.
 
 Either is fine. A one-line email with a good link is more useful than a pull

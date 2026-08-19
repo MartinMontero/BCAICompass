@@ -1,6 +1,6 @@
 # AUDIT — the BC AI ecosystem dataset as it actually exists
 
-**Project:** BC AI Compass (bcaicompass.ca)
+**Project:** BC AI Compass (bc-aicompass.ca)
 **Audit date:** 2026-08-19
 **Auditor:** automated analysis + manual reading, run against read-only reference clones
 **Scope:** the three surviving artifacts of `bc-ai--ecosystem-map`, and the

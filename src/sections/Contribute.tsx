@@ -1,4 +1,4 @@
-const EMAIL = 'hello@bcaicompass.ca';
+const EMAIL = 'hello@bc-aicompass.ca';
 const REPO = 'https://github.com/MartinMontero/bcaicompass';
 
 export default function Contribute() {
