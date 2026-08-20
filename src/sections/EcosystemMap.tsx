@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Polyline, Popup, useMap, useMapEvents } from 'react-leaflet';
+import { createPortal } from 'react-dom';
+import { MapContainer, TileLayer, Marker, Polyline, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
@@ -303,6 +304,15 @@ function GroupBody({
     const handler = (e: Event) => {
       const hit = (e.target as HTMLElement).closest('button[data-org]');
       if (!hit) return;
+      // Without this stop, the pick closes its own card. The chain: this
+      // listener sets state; React flushes the commit at the microtask
+      // checkpoint BETWEEN event listeners, unmounting this list mid-bubble;
+      // by the time the click reaches the map container its target is a
+      // detached node, so Leaflet's _isClickDisabled walk up the parent chain
+      // never finds the popup's disable-click flag, the map fires preclick,
+      // and the popup's own preclick handler closes it. Traced headlessly —
+      // the popupclose stack ends at _handleDOMEvent. See VERIFICATION.md 11D.
+      e.stopPropagation();
       const o = groupRef.current.find((x) => x.id === hit.getAttribute('data-org'));
       if (o) pickRef.current(o);
     };
@@ -345,6 +355,66 @@ function GroupBody({
   );
 }
 
+type Sheet =
+  | { kind: 'card'; o: Organization }
+  | { kind: 'group'; orgs: Organization[] }
+  | null;
+
+/**
+ * Owns the single Leaflet popup that shows either a record card or a shared-pin
+ * member list. Imperative on purpose: open, move and close are explicit calls
+ * against one long-lived L.Popup, so there is no library lifecycle to race.
+ * The one subtlety is reconciling the two closers — when the READER closes
+ * (X or a map click) Leaflet fires popupclose and we null the sheet to match;
+ * when WE close (sheet set to null) the same event fires and the null is a
+ * no-op. Position changes and content swaps while open never close at all.
+ */
+function SheetDriver({
+  sheet,
+  contentEl,
+  onClosed,
+}: {
+  sheet: Sheet;
+  contentEl: HTMLDivElement;
+  onClosed: () => void;
+}) {
+  const map = useMap();
+  const popupRef = useRef<L.Popup | null>(null);
+  useMapEvents({
+    popupclose: (e) => {
+      if (e.popup === popupRef.current) onClosed();
+    },
+  });
+  useEffect(() => {
+    if (!popupRef.current) {
+      popupRef.current = L.popup({
+        maxWidth: 320,
+        // FlyTo owns the camera; a popup panning against an in-flight flyTo
+        // judders.
+        autoPan: false,
+      });
+      popupRef.current.setContent(contentEl);
+    }
+    const p = popupRef.current;
+    if (sheet) {
+      const t = sheet.kind === 'card' ? sheet.o : sheet.orgs[0];
+      if (t.lat !== undefined && t.lng !== undefined) {
+        p.setLatLng([t.lat, t.lng]);
+        if (p.isOpen()) p.update();
+        else p.openOn(map);
+      }
+    } else if (p.isOpen()) {
+      map.closePopup(p);
+    }
+  }, [sheet, map, contentEl]);
+  useEffect(() => {
+    return () => {
+      if (popupRef.current) map.removeLayer(popupRef.current);
+    };
+  }, [map]);
+  return null;
+}
+
 export default function EcosystemMap({
   preset,
   onClearPreset,
@@ -356,34 +426,39 @@ export default function EcosystemMap({
   const [reg, setReg] = useState<RegFilter>('All');
   const [selected, setSelected] = useState<Organization | null>(null);
 
-  // The detail card and the shared-pin member list, as CONTROLLED popups owned
-  // here and opened at a coordinate rather than through a marker. A marker-based
-  // popup is unreachable for any record whose neighbours share its centroid —
-  // which is most of Metro Vancouver — because identical coordinates never
-  // de-cluster. At most one of these is non-null at a time. The nonce forces a
-  // remount when the same record is clicked again after the reader closed the
-  // popup with X or a map click, which Leaflet does without telling React.
-  const [opened, setOpened] = useState<Organization | null>(null);
-  const [openedGroup, setOpenedGroup] = useState<Organization[] | null>(null);
-  const [openNonce, setOpenNonce] = useState(0);
+  // The detail card and the shared-pin member list share ONE popup, owned
+  // imperatively by SheetDriver below. Two reasons it is not react-leaflet's
+  // <Popup>. First, a marker-bound popup is unreachable for any record whose
+  // neighbours share its centroid — most of Metro Vancouver — because identical
+  // coordinates never de-cluster, so the marker never exists. Second, the
+  // library's standalone popup re-runs remove/open on every render (its effect
+  // depends on the position array's identity), and two of them swapping in one
+  // commit interleave those calls through Leaflet's single map._popup slot —
+  // the group list closed and the card never survived to paint. Verified
+  // headlessly before this rewrite; see VERIFICATION.md 11D.
+  const [sheet, setSheet] = useState<Sheet>(null);
+  // The portal target the sheet renders into. One persistent element, handed
+  // to the Leaflet popup once; React keeps painting into it whether the popup
+  // is open or closed.
+  const [sheetEl] = useState(() => document.createElement('div'));
   const openCard = useCallback((o: Organization) => {
-    setOpenedGroup(null);
-    setOpened(o);
+    setSheet({ kind: 'card', o });
     setSelected(o);
-    setOpenNonce((n) => n + 1);
   }, []);
   const openGroup = useCallback((group: Organization[]) => {
-    setOpened(null);
-    setOpenedGroup(group);
-    setOpenNonce((n) => n + 1);
+    setSheet({ kind: 'group', orgs: group });
   }, []);
-  // Filters clear the whole selection surface: the flown-to record, the detail
-  // card, and the member list. A card left open for a record a filter just
-  // removed would show a thing the list no longer contains.
+  // Filters clear the whole selection surface: the flown-to record and the
+  // open sheet. A card left open for a record a filter just removed would show
+  // a thing the list no longer contains.
   const clearSelection = useCallback(() => {
     setSelected(null);
-    setOpened(null);
-    setOpenedGroup(null);
+    setSheet(null);
+  }, []);
+  // Leaflet-initiated closes (the X, a map click) null the sheet only; the
+  // flown-to highlight stays so the reader keeps their place in the list.
+  const clearSheet = useCallback(() => {
+    setSheet(null);
   }, []);
 
   // Region cards elsewhere on the page dispatch this to drive the map.
@@ -725,34 +800,16 @@ export default function EcosystemMap({
                 onOpenGroup={openGroup}
                 tracing={presetStops !== null}
               />
-              {/*
-                autoPan stays off on both: FlyTo owns the camera, and a popup
-                that pans against an in-flight flyTo judders. The nonce in each
-                key remounts the popup when the same thing is opened twice in a
-                row — Leaflet removes a closed popup without telling React, so
-                without the nonce the second click would be a no-op.
-              */}
-              {opened && opened.lat !== undefined && opened.lng !== undefined && (
-                <Popup
-                  key={`card-${opened.id}-${openNonce}`}
-                  position={[opened.lat, opened.lng]}
-                  maxWidth={320}
-                  autoPan={false}
-                >
-                  <PopupBody o={opened} />
-                </Popup>
-              )}
-              {openedGroup && openedGroup.length > 0 && (
-                <Popup
-                  key={`group-${openedGroup[0].id}-${openNonce}`}
-                  position={[openedGroup[0].lat as number, openedGroup[0].lng as number]}
-                  maxWidth={300}
-                  autoPan={false}
-                >
-                  <GroupBody group={openedGroup} onPick={openCard} />
-                </Popup>
-              )}
+              <SheetDriver sheet={sheet} contentEl={sheetEl} onClosed={clearSheet} />
             </MapContainer>
+            {createPortal(
+              sheet?.kind === 'card' ? (
+                <PopupBody o={sheet.o} />
+              ) : sheet?.kind === 'group' ? (
+                <GroupBody group={sheet.orgs} onPick={openCard} />
+              ) : null,
+              sheetEl,
+            )}
           </div>
         </div>
       </div>

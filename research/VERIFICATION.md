@@ -1024,6 +1024,88 @@ question only a person with a working viewport can answer.
 
 ---
 
+## 11D. The shared-pin picker, dead twice, and the two mechanisms that killed it — 2026-08-19/20
+
+Vancouver's 61 co-located records share one municipal coordinate, so the map offers
+a member list at that pin and the reader picks a record from it. The pick was dead on
+the live site through two consecutive fixes that each looked correct: a React
+`onClick` on the member buttons (severed because Leaflet's popup DOM sits outside
+React's delegation), then a native `addEventListener` on the list's root (the
+listener fired — and the card still never appeared). Both shipped after `tsc`,
+`eslint` and a clean build. **Neither survived a click.** This section records what
+actually killed them, because both mechanisms are invisible to every static check
+this project runs.
+
+### 11D.1 Root cause one: the library's own popup lifecycle
+
+`react-leaflet`'s standalone `<Popup>` re-runs its entire lifecycle effect on **every
+parent render**, because the effect's dependency list includes `position` — an array
+prop whose identity is new each render. Each re-run is a full
+`map.removeLayer(popup)` followed by `popup.openOn(map)`. That is survivable for one
+popup. This map had two — the detail card and the member list — swapping within a
+single commit, and their interleaved remove/open calls race through Leaflet's single
+`map._popup` slot. Instrumenting the popup pane showed the sequence: the card's
+container is added at +49 ms holding only the close button (its children portal only
+after a `popupopen` event that never matches), then both containers are removed at
+~+250 ms from inside React's commit — while sampled React state still said the card
+was open the whole time. The library and the design were incompatible; no ordering or
+keying fix changes an effect dependency inside `node_modules`.
+
+**The rewrite:** both controlled popups were replaced by one imperative `L.Popup`
+owned by a `SheetDriver` component. Open, move, close are explicit calls against one
+long-lived instance; content is a single persistent `<div>` that React portals into
+whether the popup is open or closed; a `popupclose` listener reconciles
+reader-initiated closes (the X, a map click) back into state, and state-initiated
+closes make the same event a no-op.
+
+### 11D.2 Root cause two: the pick click closes its own popup
+
+The rewrite also failed under the harness — which is the finding. The captured
+`popupclose` stack ends at Leaflet's `_handleDOMEvent`: the map received the pick
+click, synthesized `preclick`, and the popup's own default close-on-map-click handler
+closed it. The bundled Leaflet source explains why its guard failed.
+`disableClickPropagation` stops `mousedown`/`touchstart`/`dblclick`/`contextmenu` and
+sets a flag on the popup container — it does **not** stop `click`. Clicks are instead
+ignored by `_isClickDisabled`, which walks the click target's **parent chain** looking
+for that flag. The pick click detaches its own target mid-bubble: the native listener
+sets state, React flushes the commit at the microtask checkpoint **between** event
+listeners of the same dispatch, and the member list unmounts. When the click reaches
+the map container its target is an orphaned node, the parent walk finds nothing, and
+the map treats a click born inside its own popup as a map click.
+
+**The fix is one line** — `e.stopPropagation()` in the pick handler, so a handled
+pick never reaches the map. Clicks elsewhere in the popup unmount nothing, keep their
+chain, and remain protected by Leaflet's flag; map-click-to-dismiss is preserved.
+
+### 11D.3 Verified by operating the artifact, not by reading it
+
+11A.4 recorded that scroll and map geometry were untestable in the then-available
+browser pane, which does not composite frames. This pass ran the **built `dist/`
+bundle in headless Chromium** (`puppeteer-core` + `@sparticuz/chromium`, container
+devDependencies only — not committed), which composits, lays out the map, and clicks
+like a reader. Three scenarios pass against the exact code in this commit:
+
+| # | Scenario | Result |
+|---|---|---|
+| T1 | List-row click opens a record card | popup count 1, card content with Website link |
+| T2 | Cluster → fly-to-bounds → same-point cluster → 61-member list → pick | card for the picked record replaces the list, popup count 1 |
+| T3 | Close with X, then the full path again to the same record | closes to 0, list reopens, pick opens the card again |
+
+T3 matters because the old design needed a remount nonce for exactly this case;
+the `popupclose` sync now covers it structurally.
+
+**The failure-class ledger grows to seven.** A React handler that renders and never
+fires, and a click that closes the popup it was aimed at, join the fabricated QAI
+pin, the default-blue trail, the frozen count, the false "densest" claim, and the
+library's popup swap race — all **declaratively correct and silently inert**, all
+invisible to `tsc`, `eslint`, and the build, all caught only by operating the real
+thing. The second mechanism here sharpens the lesson: the first fix in this very
+arc was itself verified as "the listener now fires" and still shipped broken,
+because firing is not the behaviour. **The behaviour is the card, open, with the
+record in it.**
+
+---
+
 ## 12. What the next person should do first
 
 1. **Fix the composition skew.** Verify 30–40 BC companies. The bottleneck is
