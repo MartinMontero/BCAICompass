@@ -280,8 +280,38 @@ function GroupBody({
   onPick: (o: Organization) => void;
 }) {
   const sorted = [...group].sort((a, b) => a.name.localeCompare(b.name));
+
+  // React onClick cannot work in here. Leaflet stops event propagation at the
+  // popup wrapper so map clicks don't fall through popups — and React's
+  // synthetic events are delivered by that same bubble reaching the app root,
+  // which it never does. The build, tsc and eslint all pass with onClick; the
+  // buttons are simply dead in the browser. (The detail card's links survive
+  // because an <a href> needs no handler.) So the picker is wired with a
+  // NATIVE listener attached inside the wrapper, below Leaflet's stop. Same
+  // failure family as pathOptions.className on the trail: declaratively
+  // correct, silently inert, findable only by clicking the real thing.
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const groupRef = useRef(group);
+  const pickRef = useRef(onPick);
+  useEffect(() => {
+    groupRef.current = group;
+    pickRef.current = onPick;
+  }, [group, onPick]);
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const handler = (e: Event) => {
+      const hit = (e.target as HTMLElement).closest('button[data-org]');
+      if (!hit) return;
+      const o = groupRef.current.find((x) => x.id === hit.getAttribute('data-org'));
+      if (o) pickRef.current(o);
+    };
+    el.addEventListener('click', handler);
+    return () => el.removeEventListener('click', handler);
+  }, []);
+
   return (
-    <div>
+    <div ref={rootRef}>
       <div className="font-mono2 text-[9px] tracking-[0.16em] uppercase text-[var(--ink-faint)] mb-1">
         {group.length} organizations · one pin
       </div>
@@ -292,7 +322,8 @@ function GroupBody({
         {sorted.map((o) => (
           <button
             key={o.id}
-            onClick={() => onPick(o)}
+            type="button"
+            data-org={o.id}
             className="w-full text-left py-2 flex items-start gap-2 group"
           >
             <span
