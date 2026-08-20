@@ -103,6 +103,19 @@ export interface Organization {
   lat?: number;
   lng?: number;
   geoSourceUrl?: string;
+  /**
+   * How exact this record's coordinate is.
+   *  'address'  -- geocoded from a street address the source states. The pin is
+   *                the building.
+   *  'centroid' -- a municipal centroid from a gazetteer. The pin is the city,
+   *                not the site. This is the default, and it is not a defect.
+   * null when the record has no coordinate at all.
+   *
+   * The map draws the two differently on purpose. Rendering a city centroid and a
+   * building at identical visual weight asserts a precision the dataset does not
+   * have for most of its pins, and leaves a reader no way to tell which is which.
+   */
+  geoPrecision: 'address' | 'centroid' | null;
   /** The primary source for name, BC presence, category and org type. */
   sourceUrl: string;
   /**
@@ -192,7 +205,18 @@ export const ORG_TYPE_LABELS: Record<OrgType, string> = {
 // Municipal centroids. One entry per city, so a coordinate appears once and is
 // auditable once. Every value carries the gazetteer page it came from.
 // ---------------------------------------------------------------------------
-type CityGeo = { location: string; region: Region; lat: number; lng: number; geoSourceUrl: string };
+// geoPrecision is carried BY THE SPREAD, so a record that takes its coordinate
+// from a city cannot silently claim street-level precision. Overriding it means
+// also overriding lat, lng and geoSourceUrl in the same object literal, which is
+// exactly the edit a reviewer should be able to see in one glance.
+type CityGeo = {
+  location: string;
+  region: Region;
+  lat: number;
+  lng: number;
+  geoSourceUrl: string;
+  geoPrecision: 'centroid';
+};
 
 const CITY: Record<string, CityGeo> = {
   vancouver: {
@@ -201,6 +225,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.24966,
     lng: -123.11934,
     geoSourceUrl: 'https://www.latlong.net/place/vancouver-bc-canada-2279.html',
+    geoPrecision: 'centroid',
   },
   burnaby: {
     location: 'Burnaby',
@@ -208,6 +233,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.267,
     lng: -122.967,
     geoSourceUrl: 'https://en.wikipedia.org/wiki/Burnaby',
+    geoPrecision: 'centroid',
   },
   surrey: {
     location: 'Surrey',
@@ -215,6 +241,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.10635,
     lng: -122.82509,
     geoSourceUrl: 'https://www.latlong.net/place/surrey-bc-canada-22762.html',
+    geoPrecision: 'centroid',
   },
   victoria: {
     location: 'Victoria',
@@ -222,6 +249,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 48.407326,
     lng: -123.329773,
     geoSourceUrl: 'https://www.latlong.net/place/victoria-bc-canada-4300.html',
+    geoPrecision: 'centroid',
   },
   kelowna: {
     location: 'Kelowna',
@@ -229,6 +257,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.882114,
     lng: -119.477829,
     geoSourceUrl: 'https://www.latlong.net/place/kelowna-bc-canada-1354.html',
+    geoPrecision: 'centroid',
   },
   kamloops: {
     location: 'Kamloops',
@@ -236,6 +265,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 50.676109,
     lng: -120.340836,
     geoSourceUrl: 'https://www.latlong.net/place/kamloops-bc-canada-29153.html',
+    geoPrecision: 'centroid',
   },
   merritt: {
     location: 'Merritt',
@@ -243,6 +273,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 50.112778,
     lng: -120.789719,
     geoSourceUrl: 'https://www.latlong.net/place/merritt-bc-canada-268.html',
+    geoPrecision: 'centroid',
   },
   courtenay: {
     location: 'Courtenay',
@@ -250,6 +281,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.6878,
     lng: -124.994,
     geoSourceUrl: 'https://places.canadamaps.com/british-columbia/courtenay',
+    geoPrecision: 'centroid',
   },
   langley: {
     location: 'Langley to Chilliwack',
@@ -257,6 +289,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.10416,
     lng: -122.65833,
     geoSourceUrl: 'https://www.latlong.net/place/surrey-bc-canada-22762.html',
+    geoPrecision: 'centroid',
   },
   richmond: {
     location: 'Richmond',
@@ -264,6 +297,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.166592,
     lng: -123.133568,
     geoSourceUrl: 'https://www.latlong.net/place/richmond-bc-canada-17787.html',
+    geoPrecision: 'centroid',
   },
   nelson: {
     location: 'Nelson',
@@ -271,6 +305,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.5,
     lng: -117.283333,
     geoSourceUrl: 'https://www.latlong.net/place/nelson-bc-canada-9343.html',
+    geoPrecision: 'centroid',
   },
   princeGeorge: {
     location: 'Prince George',
@@ -278,6 +313,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 53.916943,
     lng: -122.749443,
     geoSourceUrl: 'https://www.latlong.net/place/prince-george-bc-canada-29186.html',
+    geoPrecision: 'centroid',
   },
   fortStJohn: {
     location: 'Fort St. John',
@@ -285,6 +321,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 56.246464,
     lng: -120.847633,
     geoSourceUrl: 'https://www.latlong.net/place/fort-st-john-bc-canada-29150.html',
+    geoPrecision: 'centroid',
   },
   salmonArm: {
     location: 'Salmon Arm',
@@ -292,6 +329,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 50.702221,
     lng: -119.272224,
     geoSourceUrl: 'https://www.latlong.net/place/salmon-arm-bc-canada-29193.html',
+    geoPrecision: 'centroid',
   },
   northVancouver: {
     location: 'North Vancouver',
@@ -299,6 +337,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.316666,
     lng: -123.066666,
     geoSourceUrl: 'https://www.latlong.net/place/north-vancouver-bc-canada-29179.html',
+    geoPrecision: 'centroid',
   },
   abbotsford: {
     location: 'Abbotsford',
@@ -306,6 +345,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.05798,
     lng: -122.25257,
     geoSourceUrl: 'https://www.latlong.net/place/abbotsford-bc-canada-29122.html',
+    geoPrecision: 'centroid',
   },
   castlegar: {
     location: 'Castlegar',
@@ -313,6 +353,7 @@ const CITY: Record<string, CityGeo> = {
     lat: 49.323889,
     lng: -117.659444,
     geoSourceUrl: 'https://www.latlong.net/place/castlegar-bc-canada-29135.html',
+    geoPrecision: 'centroid',
   },
 };
 
@@ -507,6 +548,12 @@ const RECORDS: Organization[] = [
   },
   {
     ...CITY.vancouver,
+    // Geocoded 2026-08-19. 111 East 5th Avenue resolves to a numbered OSM node,
+    // so the pin is the building rather than downtown Vancouver.
+    lat: 49.266589,
+    lng: -123.1022425,
+    geoSourceUrl: 'https://www.openstreetmap.org/node/10738451936',
+    geoPrecision: 'address',
     id: 'telus-m3-ai-factory',
     name: 'TELUS M3 AI Factory',
     category: 'Compute & Infrastructure',
@@ -597,6 +644,15 @@ const RECORDS: Organization[] = [
   },
   {
     ...CITY.merritt,
+    // Geocoded 2026-08-19 to Merritt Airport, which is the feature the record's
+    // own location field ties the site to. THE PIN IS THE AIRPORT, NOT THE
+    // PARCEL: the source says the facility is on a five-acre site adjacent to it,
+    // and no source gives the parcel a civic address. The description says so, so
+    // a reader is not left to assume the dot is the building.
+    lat: 50.1234675,
+    lng: -120.7430606,
+    geoSourceUrl: 'https://www.openstreetmap.org/way/1007046965',
+    geoPrecision: 'address',
     id: 'bell-ai-fabric-merritt',
     name: 'Bell AI Fabric Merritt',
     category: 'Compute & Infrastructure',
@@ -609,13 +665,20 @@ const RECORDS: Organization[] = [
     // contractor). Collapsing them into one "capacity" would force a false choice,
     // so both published figures are named and attributed.
     description:
-      'Bell AI Fabric facility in Merritt, opened spring 2026, with high-density liquid-cooled infrastructure for AI inference and training. Announced design capacity 7 MW; BUZZ HPC has secured an immediate 6.5 MW of gross capacity with an option on more. A June 2026 agreement brings Cohere and Hypertec into the deployment.',
+      'Bell AI Fabric facility in Merritt, opened spring 2026, with high-density liquid-cooled infrastructure for AI inference and training. Announced design capacity 7 MW; BUZZ HPC has secured an immediate 6.5 MW of gross capacity with an option on more. A June 2026 agreement brings Cohere and Hypertec into the deployment. The map pin marks Merritt Airport, which the source names the site as adjacent to; the five-acre parcel itself has no published civic address.',
     size: null,
     sourceUrl: 'https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc',
     ...V,
   },
   {
     ...CITY.merritt,
+    // Same point as Bell AI Fabric Merritt, deliberately: the record states BUZZ
+    // HPC is AT that facility, so a different pin would be inventing a distance
+    // between two things the source puts in one place.
+    lat: 50.1234675,
+    lng: -120.7430606,
+    geoSourceUrl: 'https://www.openstreetmap.org/way/1007046965',
+    geoPrecision: 'address',
     id: 'buzz-hpc',
     name: 'BUZZ HPC',
     category: 'Compute & Infrastructure',
@@ -630,6 +693,13 @@ const RECORDS: Organization[] = [
   },
   {
     ...CITY.kamloops,
+    // Geocoded 2026-08-19 to the TRU campus way. A campus is a real bounded
+    // feature, which is what the source names -- this is not a street address and
+    // is not claimed as one.
+    lat: 50.6724455,
+    lng: -120.3640266,
+    geoSourceUrl: 'https://www.openstreetmap.org/way/225179703',
+    geoPrecision: 'address',
     id: 'bell-ai-fabric-kamloops-tru',
     name: 'Bell AI Fabric Kamloops at Thompson Rivers University',
     category: 'Compute & Infrastructure',
@@ -644,6 +714,16 @@ const RECORDS: Organization[] = [
   },
   {
     ...CITY.kamloops,
+    // Geocoded 2026-08-19. Thompson Rivers University's own newsroom names the
+    // civic address, and OSM carries a numbered node for it. The result sits
+    // roughly a kilometre from the TRU campus point above, which is consistent
+    // with TRU describing this as a Community Trust development rather than a
+    // building on the campus itself -- so the two records pin separately, as they
+    // should.
+    lat: 50.674837,
+    lng: -120.376513,
+    geoSourceUrl: 'https://www.openstreetmap.org/node/1422253905',
+    geoPrecision: 'address',
     id: 'bell-ai-fabric-kamloops-2',
     name: 'Bell AI Fabric Kamloops 2',
     category: 'Compute & Infrastructure',
@@ -666,6 +746,8 @@ const RECORDS: Organization[] = [
     category: 'Public Sector & Policy',
     orgType: 'government-or-crown',
     region: 'Province-wide',
+    // No coordinate: a province-wide mandate has no single site to pin.
+    geoPrecision: null,
     url: 'https://app.bchydro.com/accounts-billing/electrical-connections/large-load/emerging-industries-connections.html',
     location: 'British Columbia — province-wide',
     description:
@@ -680,6 +762,8 @@ const RECORDS: Organization[] = [
     category: 'Public Sector & Policy',
     orgType: 'government-or-crown',
     region: 'Province-wide',
+    // No coordinate: a province-wide mandate has no single site to pin.
+    geoPrecision: null,
     url: 'https://news.gov.bc.ca/releases/2026ECS0005-000095',
     location: 'British Columbia — province-wide',
     description:
@@ -694,6 +778,8 @@ const RECORDS: Organization[] = [
     category: 'Public Sector & Policy',
     orgType: 'government-or-crown',
     region: 'Province-wide',
+    // No coordinate: a province-wide mandate has no single site to pin.
+    geoPrecision: null,
     url: 'https://www2.gov.bc.ca/gov/content/employment-business/economic-development/funding-and-grants/regional-artificial-intelligence-initiative',
     location: 'British Columbia — province-wide',
     description:
@@ -1285,6 +1371,8 @@ const RECORDS: Organization[] = [
     category: 'Research & Academia',
     orgType: 'nonprofit-or-association',
     region: 'Province-wide',
+    // No coordinate: a province-wide mandate has no single site to pin.
+    geoPrecision: null,
     url: 'https://www.qai.ca',
     location: 'British Columbia — no address published',
     description:
@@ -1731,6 +1819,8 @@ const RECORDS: Organization[] = [
     category: 'Research & Academia',
     orgType: 'nonprofit-or-association',
     region: 'Province-wide',
+    // No coordinate: a province-wide mandate has no single site to pin.
+    geoPrecision: null,
     url: 'https://bc.net',
     location: 'British Columbia — province-wide',
     description:
@@ -1948,6 +2038,8 @@ const RECORDS: Organization[] = [
     category: 'Community & Convening',
     orgType: 'nonprofit-or-association',
     region: 'Province-wide',
+    // No coordinate: a province-wide mandate has no single site to pin.
+    geoPrecision: null,
     url: 'https://bc-ai.ca',
     location: 'British Columbia — province-wide',
     // The previous version of this description ended "BC AI Compass is independent of
@@ -2054,6 +2146,8 @@ const RECORDS: Organization[] = [
     category: 'Community & Convening',
     orgType: 'community-group',
     region: 'Province-wide',
+    // No coordinate: a province-wide mandate has no single site to pin.
+    geoPrecision: null,
     url: 'https://bc-ai.ca/communities/ai-education',
     location: 'British Columbia — province-wide',
     // The Ethos Lab relationship is stated ON THIS PAGE, which names it "the
@@ -2101,6 +2195,8 @@ const RECORDS: Organization[] = [
     // Region stays province-wide: the page confirms no host and no cadence, so
     // asserting a seat for it would be inventing the one thing it says it lacks.
     region: 'Province-wide',
+    // No coordinate: a province-wide mandate has no single site to pin.
+    geoPrecision: null,
     url: 'https://bc-ai.ca/communities/ai-creativity-design',
     location: 'British Columbia — province-wide',
     // Recorded as forming, in the page's own words, rather than left out. A group

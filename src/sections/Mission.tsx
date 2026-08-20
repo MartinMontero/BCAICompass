@@ -83,7 +83,9 @@ export default function Mission() {
                 <span className="text-[var(--accent)] font-mono2 text-xs pt-1 shrink-0">04</span>
                 <span>
                   <strong className="text-[var(--ink)]">Guessed locations.</strong> Pins come from a
-                  named gazetteer, not from memory. No confirmed location means no pin.
+                  named gazetteer, not from memory. No confirmed location means no pin. On the map a
+                  filled dot is a pin geocoded from an address the source states; a hollow ring is a
+                  municipal centroid, marking the city rather than the site.
                 </span>
               </li>
               <li className="flex gap-3">

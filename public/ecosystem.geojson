@@ -31,8 +31,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -123.11934,
-          49.24966
+          -123.1022425,
+          49.266589
         ]
       },
       "properties": {
@@ -46,7 +46,7 @@
         "sourceUrl": "https://www.newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-canada-s-sovereign-ai-infrastructure-854223505.html",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
-        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+        "geoSourceUrl": "https://www.openstreetmap.org/node/10738451936"
       }
     },
     {
@@ -169,8 +169,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.789719,
-          50.112778
+          -120.7430606,
+          50.1234675
         ]
       },
       "properties": {
@@ -184,7 +184,7 @@
         "sourceUrl": "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
-        "geoSourceUrl": "https://www.latlong.net/place/merritt-bc-canada-268.html"
+        "geoSourceUrl": "https://www.openstreetmap.org/way/1007046965"
       }
     },
     {
@@ -192,8 +192,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.789719,
-          50.112778
+          -120.7430606,
+          50.1234675
         ]
       },
       "properties": {
@@ -207,7 +207,7 @@
         "sourceUrl": "https://explore.business.bell.ca/news-and-events/buzz-hpc-partnership-advances-sovereign-accelerated-gpu-infrastructure-merritt-bc",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
-        "geoSourceUrl": "https://www.latlong.net/place/merritt-bc-canada-268.html"
+        "geoSourceUrl": "https://www.openstreetmap.org/way/1007046965"
       }
     },
     {
@@ -215,8 +215,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.340836,
-          50.676109
+          -120.3640266,
+          50.6724455
         ]
       },
       "properties": {
@@ -230,7 +230,7 @@
         "sourceUrl": "https://betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-infrastructure/",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
-        "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html"
+        "geoSourceUrl": "https://www.openstreetmap.org/way/225179703"
       }
     },
     {
@@ -238,8 +238,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.340836,
-          50.676109
+          -120.376513,
+          50.674837
         ]
       },
       "properties": {
@@ -253,7 +253,7 @@
         "sourceUrl": "https://bebeez.eu/2026/04/14/bell-canada-breaks-ground-on-data-center-in-kamloops-british-columbia/",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
-        "geoSourceUrl": "https://www.latlong.net/place/kamloops-bc-canada-29153.html"
+        "geoSourceUrl": "https://www.openstreetmap.org/node/1422253905"
       }
     },
     {

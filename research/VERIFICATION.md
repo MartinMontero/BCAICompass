@@ -914,6 +914,116 @@ URL is a hint, not an answer" is what kept the company from being written off.
 
 ---
 
+## 11C. Street-level coordinates for the compute records — 2026-08-19
+
+Tracing the Interior Compute Corridor drew **two** markers, reading 4 and 3. They
+were cluster counts and they were correct: every coordinate in this dataset was a
+municipal centroid, so four Kamloops records sat on one point and three
+Merritt-area records on another. The addresses were already in the `location`
+field, already sourced, already rendering in the directory. Nobody had geocoded
+them.
+
+**The corridor now draws five distinct points instead of two.**
+
+### 11C.1 `geoPrecision`, added first and mechanically
+
+Every record now carries `geoPrecision`: `'address'` (the pin is the site),
+`'centroid'` (the pin is the city), or `null` (no coordinate). The `CITY` spread
+supplies `'centroid'`, so a record taking a city coordinate **cannot silently claim
+street-level precision** — overriding it means overriding `lat`, `lng` and
+`geoSourceUrl` in the same object literal, which is exactly the edit a reviewer
+should see in one glance.
+
+Dataset-wide: **5 address, 121 centroid, 8 null.**
+
+One record needed care. `first-nations-technology-council` sets
+`region: 'Province-wide'` *and* spreads `CITY.vancouver` — it has a Vancouver
+street address but a provincial mandate. It keeps its centroid coordinate and is
+not one of the eight nulls. A regex that assumed "province-wide means no
+coordinate" would have stripped its pin.
+
+### 11C.2 Every Compute & Infrastructure record, geocoded or not
+
+| Record | Result | Source / reason |
+|---|---|---|
+| `telus-m3-ai-factory` | **address** | OSM node `10738451936` for 111 East 5th Avenue — <https://www.openstreetmap.org/node/10738451936> |
+| `bell-ai-fabric-kamloops-2` | **address** | OSM node `1422253905` for 1452 McGill Road — <https://www.openstreetmap.org/node/1422253905> |
+| `bell-ai-fabric-kamloops-tru` | **address** | OSM way `225179703`, the TRU campus — <https://www.openstreetmap.org/way/225179703> |
+| `bell-ai-fabric-merritt` | **address** | OSM way `1007046965`, Merritt Airport — <https://www.openstreetmap.org/way/1007046965>. **The pin is the airport, not the parcel**; see below. |
+| `buzz-hpc` | **address** | Same point as Bell Merritt, deliberately — the record states BUZZ HPC is *at* that facility. |
+| `telus-kamloops-ai-factory` | centroid | **Neither its source nor its `location` field states a street address.** Commercial data-centre directories give 1458 Bunker Road, but a directory aggregator is not an acceptable source for a street-level pin here, and TELUS's own release says only "expanding its existing Kamloops data centre". |
+| `bell-ai-fabric-kamloops` | centroid | Its location states **"Mission Flats Road"** — a road, not a civic address. OSM's only match is way `42100922`, a 3 km tertiary highway. Any point along it would be a guess about where the facility sits. |
+| `telus-150-west-georgia-ai-factory` | centroid | **OSM has no node for the civic address.** The only match for "150 West Georgia Street" is an unrelated street segment in Coal Harbour, at the wrong end of the street. Pinning it would have been worse than the centroid. |
+| `upper-nicola-band-data-centre` | centroid | Reserve land near Nicola Lake with no civic address. **Inventing a coordinate for a First Nation's reserve land would be worse than a city pin**, and the approval was for land use across 100–150 acres, not a building. |
+| `prophet-river-first-nation-data-centre` | centroid | Letter of intent only. The source states size, scope and cost are undetermined pending a feasibility study — there is no site yet to pin. |
+| `telus`, `westbank`, `creative-energy` | centroid | Company records whose `location` field is "Vancouver" and nothing more. No address is stated to geocode. |
+
+**A duplicate scare, resolved by going to the first party.** Search results
+suggested 1452 McGill Road *was* the TRU facility — same city, same partner, same
+capacity, and a CBC headline reading "AI data centre at Thompson Rivers
+University". Two records pinned to two points would have been wrong if they were
+one building. Thompson Rivers University's own newsroom settles it: the McGill Road
+development is a **TRU Community Trust** project that will form part of Bell AI
+Fabric, and the geocodes land roughly a kilometre apart. Two facilities, two pins.
+
+**Merritt is the one judgement call worth flagging.** `'address'` is defined as
+"the pin is the building", and this pin is the airport the source names the site as
+*adjacent to*. It is not the building. It is also emphatically not a municipal
+centroid — the airport is ~1.5 km from the Merritt centroid, and the source ties
+the facility to it explicitly. It is recorded as `'address'` and **the record's own
+description says the pin marks the airport**, so a reader is not left assuming the
+dot is the data centre.
+
+### 11C.3 The map now says which pins are precise
+
+- **Filled dot** = address pin. **Hollow ring** = centroid pin. The category colour
+  moves to the ring, so filtering still reads normally, and both use tokens, so
+  both follow the theme toggle.
+- The popup on a centroid record reads *"This pin marks the city, not the site."*
+- The map caption and the Method section each carry one sentence explaining the two
+  styles.
+
+**Cluster counts during a trace.** While a pathway is active, cluster markers now
+carry **no digit**. Next to a stop list numbered 001–007, a circled "4" reads as a
+stop number, and as a stop number it was both wrong and out of order. Route
+position was the alternative and was rejected: **a cluster can hold two stops that
+are far apart in the route, so any single number on it would be a lie about the
+other one.** Outside a trace the counts are unambiguous and are unchanged.
+
+### 11C.4 Browser verification
+
+| Check | Result |
+|---|---|
+| The two pin styles render distinguishably | **VERIFIED.** Built the exact markup `makeDot` emits and read computed styles. Light: address is filled `rgb(10,100,114)` with a page-coloured border, centroid is page-coloured fill with a `rgb(10,100,114)` border — exact inverses. Fills differ, borders differ. |
+| Both styles survive the theme toggle | **VERIFIED.** Dark: address filled `rgb(52,211,230)`, centroid `rgb(28,32,39)` fill with a `rgb(52,211,230)` ring. Distinct in both themes. |
+| Centroid pins render hollow in the live map | **VERIFIED.** Three `.bcac-marker.is-centroid` present at province zoom. |
+| The centroid popup line appears | **VERIFIED.** Narrowed to Northeast, which holds one mapped record, so it drew as an individual marker. Its popup reads "This pin marks the city, not the site." |
+| Trace markers carry no digit | **VERIFIED.** Tracing the corridor produced a cluster with `is-untallied` and empty text content. |
+| Cluster counts survive outside a trace | **VERIFIED.** Filters reset, no trace: nine clusters reading 5, 61, 2, 2, 3, 20, 7, 14, 2 — all digits, none untallied. |
+| Address pin popup omits the centroid line | **UNTESTED.** The five address records all cluster at province zoom in this pane, and no filter combination isolates one. The line is a single `geoPrecision === 'centroid'` conditional whose true branch was observed; the false branch is not separately verified. |
+| Individual address pin rendering in the map | **UNTESTED**, same reason. The style contract is verified directly against the CSS; what is unverified is Leaflet drawing one. |
+
+A console `ReferenceError: trailRef is not defined` appears in the pane's retained
+log buffer. It is a stale entry from an earlier session's hot-module update, not
+live: the page renders 134 directory rows, nine clusters and working popups, which
+is impossible if `EcosystemMap` were throwing.
+
+### 11C.5 What a human still has to look at
+
+**The corridor's drawn shape after geocoding is UNTESTED, and it is the specific
+thing this change exists to fix.** The browser pane does not composite, so
+`fitBounds` cannot lay out against a real container and the polyline collapses —
+the limitation recorded in §11A.4 still applies in full. What was verified here is
+everything independent of layout: the pin styles render distinguishably in both
+themes, the centroid popup line appears, and trace markers carry no digit.
+
+**Someone needs to open the Interior Compute Corridor and look at it.** The
+coordinates say it should now be five points spread from Kamloops down to Nicola
+Lake rather than two dots. Whether that reads as a corridor on screen is a
+question only a person with a working viewport can answer.
+
+---
+
 ## 12. What the next person should do first
 
 1. **Fix the composition skew.** Verify 30–40 BC companies. The bottleneck is

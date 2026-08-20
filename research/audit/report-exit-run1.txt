@@ -1,6 +1,6 @@
 ﻿==============================================================================
 BC AI COMPASS -- EXIT CONDITIONS
-run at (local): 2026-08-19 20:06:49
+run at (local): 2026-08-19 21:07:11
 ==============================================================================
 
 Removing node_modules and dist for a clean install...
@@ -45,9 +45,15 @@ PASS  no hardcoded record counts in the onramp or pathway layer  --  0 suspect l
 PASS  no raw hex colour in any new component  --  0 hit(s)
 PASS  SHIP.md carries no stale counts and no duplicated 4.3.1  --  0 stale item(s): 
 PASS  ecosystem.json and ecosystem.geojson agree with organizations.ts  --  organizations.ts 134; ecosystem.json.count 134; organizations array 134
+PASS  every evidence quote names a place and its record is anchored  --  0 below the floor
+PASS  geoPrecision is set on every record with coordinates and null on every record without  --  0 mismatched
+PASS  no address pin cites the city gazetteer its CITY entry uses  --  0 offending
+PASS  no two address pins share a point unless their locations state the same site  --  2 shared point(s), 0 unexplained
+PASS  every Compute & Infrastructure record is geocoded or has a written reason in VERIFICATION.md  --  8 left at centroid; 0 without a written reason
+PASS  no raw hex colour in the changed map components  --  0 hit(s)
 
 ==============================================================================
-CONDITIONS: 41 total, 41 passed, 0 failed
+CONDITIONS: 47 total, 47 passed, 0 failed
 ==============================================================================
 
 ALL EXIT CONDITIONS PASS.

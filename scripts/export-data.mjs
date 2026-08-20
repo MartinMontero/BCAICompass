@@ -116,6 +116,21 @@ for (const o of ORGANIZATIONS) {
   const hasLng = o.lng !== undefined;
   if (hasLat !== hasLng) problems.push(`${where}: lat and lng must both be present or both absent`);
   if (hasLat && !o.geoSourceUrl) problems.push(`${where}: has coordinates but no geoSourceUrl`);
+
+  // geoPrecision must say what kind of pin this is. A coordinate with no stated
+  // precision is the same defect as a coordinate with no source: the map cannot
+  // tell the reader whether the dot is a building or a whole city.
+  if (hasLat && o.geoPrecision !== 'address' && o.geoPrecision !== 'centroid') {
+    problems.push(`${where}: has coordinates but geoPrecision is "${o.geoPrecision}"`);
+  }
+  if (!hasLat && o.geoPrecision !== null) {
+    problems.push(`${where}: has no coordinates but geoPrecision is "${o.geoPrecision}"`);
+  }
+  // An address pin cannot cite a city gazetteer. If it does, the number came from
+  // somewhere other than the source it names.
+  if (o.geoPrecision === 'address' && /latlong\.net|wikipedia\.org|canadamaps\.com/.test(o.geoSourceUrl ?? '')) {
+    problems.push(`${where}: geoPrecision "address" but geoSourceUrl is a city gazetteer`);
+  }
   if (hasLat && (o.lat < 48 || o.lat > 60 || o.lng < -140 || o.lng > -114)) {
     problems.push(`${where}: coordinates ${o.lat},${o.lng} fall outside British Columbia`);
   }
@@ -169,7 +184,9 @@ const organizations = ORGANIZATIONS.map((o) => ({
   keyPeople: o.keyPeople,
   ...(o.capacityDesignMW !== null ? { capacityDesignMW: o.capacityDesignMW } : {}),
   ...(o.capacitySecuredMW !== null ? { capacitySecuredMW: o.capacitySecuredMW } : {}),
-  ...(o.lat !== undefined ? { lat: o.lat, lng: o.lng, geoSourceUrl: o.geoSourceUrl } : {}),
+  ...(o.lat !== undefined
+    ? { lat: o.lat, lng: o.lng, geoSourceUrl: o.geoSourceUrl, geoPrecision: o.geoPrecision }
+    : { geoPrecision: o.geoPrecision }),
   sourceUrl: o.sourceUrl,
   evidenceQuote: o.evidenceQuote,
   sourceDate: o.sourceDate,

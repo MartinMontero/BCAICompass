@@ -30,20 +30,50 @@ const BC_BOUNDS: [[number, number], [number, number]] = [
 // actually matters across BC's 12 degrees of latitude.
 const GRID_PX = 56;
 
-function makeDot(color: string, active: boolean) {
+/**
+ * Two pin styles, because the dataset holds two kinds of coordinate.
+ *
+ * A filled dot is an 'address' pin: the source states a street address or a named
+ * feature and the dot is that place. A hollow ring is a 'centroid' pin: the
+ * coordinate is a municipal centroid from a gazetteer, so the dot is the city and
+ * not the site. Drawing both the same way would assert a precision the dataset
+ * does not have for most of its pins, with nothing on screen to tell them apart.
+ *
+ * The category colour carries over to the ring, so filtering still reads normally.
+ */
+function makeDot(color: string, active: boolean, precision: Organization['geoPrecision']) {
+  const centroid = precision !== 'address';
+  const cls = `bcac-marker${active ? ' is-active' : ''}${centroid ? ' is-centroid' : ''}`;
+  // Centroid pins take the colour on the border; address pins take it as fill.
+  const style = centroid ? `border-color:${color}` : `background:${color}`;
   return L.divIcon({
     className: 'bcac-marker-wrap',
-    html: `<span class="bcac-marker${active ? ' is-active' : ''}" style="background:${color}"></span>`,
+    html: `<span class="${cls}" style="${style}"></span>`,
     iconSize: [15, 15],
     iconAnchor: [7.5, 7.5],
   });
 }
 
-function makeCluster(count: number) {
+/**
+ * Cluster markers.
+ *
+ * `showCount` is false while a pathway is being traced. The count is correct — it
+ * is how many records fall in that grid cell — but next to a stop list numbered
+ * 001 to 007 a circled "4" reads as a stop number, and as a stop number it is both
+ * wrong and out of order. During a trace the marker therefore carries no digit and
+ * the numbered list is the single source of ordering. Route position was the other
+ * option and was rejected: a cluster can hold two stops that are far apart in the
+ * route, so any one number on it would be a lie about the other.
+ *
+ * Outside a trace the count is unambiguous and stays exactly as it was.
+ */
+function makeCluster(count: number, showCount: boolean) {
   const size = count < 10 ? 30 : count < 25 ? 36 : count < 60 ? 44 : 52;
+  const inner = showCount ? String(count) : '';
+  const cls = showCount ? 'bcac-cluster' : 'bcac-cluster is-untallied';
   return L.divIcon({
     className: 'bcac-cluster-wrap',
-    html: `<span class="bcac-cluster" style="width:${size}px;height:${size}px">${count}</span>`,
+    html: `<span class="${cls}" style="width:${size}px;height:${size}px">${inner}</span>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
   });
@@ -99,10 +129,13 @@ function Clusters({
   items,
   selected,
   onSelect,
+  tracing,
 }: {
   items: Organization[];
   selected: Organization | null;
   onSelect: (o: Organization) => void;
+  /** True while a pathway preset is active. Suppresses cluster counts. */
+  tracing: boolean;
 }) {
   const map = useMap();
 
@@ -150,7 +183,7 @@ function Clusters({
                 markerRefs.current[o.id] = m;
               }}
               position={[o.lat as number, o.lng as number]}
-              icon={makeDot(CATEGORY_COLORS[o.category], selected?.id === o.id)}
+              icon={makeDot(CATEGORY_COLORS[o.category], selected?.id === o.id, o.geoPrecision)}
               eventHandlers={{ click: () => onSelect(o) }}
             >
               <Popup>
@@ -167,7 +200,7 @@ function Clusters({
           <Marker
             key={key}
             position={[lat, lng]}
-            icon={makeCluster(group.length)}
+            icon={makeCluster(group.length, !tracing)}
             eventHandlers={{
               click: () => {
                 const pts = group.map((o) => [o.lat as number, o.lng as number] as [number, number]);
@@ -201,6 +234,13 @@ function PopupBody({ o }: { o: Organization }) {
       <div className="font-mono2 text-[10px] text-[var(--ink-faint)] mt-1.5">
         {o.location} · {ORG_TYPE_LABELS[o.orgType]}
       </div>
+      {/* Said plainly, not as a warning. A city pin is a correct answer; it just
+          is not the same answer as a building. */}
+      {o.geoPrecision === 'centroid' && (
+        <div className="font-mono2 text-[9.5px] text-[var(--ink-faint)] mt-1">
+          This pin marks the city, not the site.
+        </div>
+      )}
       {o.description && (
         <p className="text-[12.5px] leading-relaxed text-[var(--ink-soft)] mt-2">{o.description}</p>
       )}
@@ -516,7 +556,10 @@ export default function EcosystemMap({
               )}
             </div>
             <div className="font-mono2 text-[10px] tracking-[0.08em] text-[var(--ink-faint)] mt-3 px-1 flex items-center justify-between gap-3">
-              <span>{filtered.length} shown · hover a row to fly to its pin</span>
+              <span>
+                {filtered.length} shown · a filled dot is a sourced address, a ring is a city
+                centroid
+              </span>
               {(cat !== 'All' || reg !== 'All' || preset) && (
                 <button
                   onClick={() => {
@@ -566,7 +609,12 @@ export default function EcosystemMap({
                 stroke Leaflet writes inline is overridden rather than fought.
               */}
               {trailPoints.length > 1 && <Polyline ref={trailRef} positions={trailPoints} />}
-              <Clusters items={filtered} selected={selected} onSelect={setSelected} />
+              <Clusters
+                items={filtered}
+                selected={selected}
+                onSelect={setSelected}
+                tracing={presetStops !== null}
+              />
             </MapContainer>
           </div>
         </div>

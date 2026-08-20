@@ -306,6 +306,15 @@ body {
   box-shadow: 0 0 0 1.5px var(--marker-ring), 0 4px 14px rgba(0, 0, 0, 0.3);
   transition: transform 0.25s ease;
 }
+/* A centroid pin is hollow: the page background inside, the category colour on the
+   ring. An address pin stays a filled dot. Distinguishable at a glance without a
+   legend, and both follow the theme because the fill is a token, not a hex. */
+.bcac-marker.is-centroid {
+  background: var(--bg-raise);
+  border-width: 3px;
+  border-style: solid;
+}
+
 .bcac-marker.is-active {
   transform: scale(1.45);
   animation: bcac-pulse 1.6s ease-out infinite;
@@ -353,6 +362,17 @@ body {
 }
 .bcac-cluster:hover {
   transform: scale(1.1);
+}
+
+/* During a pathway trace the cluster carries no digit — the numbered stop list is
+   the only place ordering is stated. Sized down a little so an empty badge does
+   not read as a missing number. */
+.bcac-cluster.is-untallied {
+  transform: scale(0.62);
+  opacity: 0.9;
+}
+.bcac-cluster.is-untallied:hover {
+  transform: scale(0.72);
 }
 
 /* ---------- rows ---------- */

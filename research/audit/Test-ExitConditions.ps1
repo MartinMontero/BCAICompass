@@ -540,6 +540,71 @@ Add-Result 'every evidence quote names a place and its record is anchored' `
   ($quoteFloorFails.Count -eq 0) `
   ("$($quoteFloorFails.Count) below the floor" + $(if ($quoteFloorFails.Count) { ': ' + ($quoteFloorFails -join ', ') } else { '' }))
 
+# ---------------------------------------------------------------------------
+# 43-47. Coordinate precision. A map that draws a city and a building identically
+# asserts a precision it does not have; these check the dataset can always say
+# which is which, and that an address pin never rests on a city source.
+# ---------------------------------------------------------------------------
+$precBad = @($orgs | Where-Object {
+  $hasCoord = ($null -ne $_.lat)
+  if ($hasCoord) { $_.geoPrecision -ne 'address' -and $_.geoPrecision -ne 'centroid' }
+  else { $null -ne $_.geoPrecision }
+})
+Add-Result 'geoPrecision is set on every record with coordinates and null on every record without' `
+  ($precBad.Count -eq 0) ("$($precBad.Count) mismatched")
+$precBad | ForEach-Object { '      [' + $_.id + '] lat=' + $_.lat + ' geoPrecision=' + $_.geoPrecision }
+
+# An address pin citing a city gazetteer means the number did not come from the
+# source it names. These are the gazetteer hosts the CITY map uses.
+$GAZETTEERS = 'latlong\.net|wikipedia\.org|canadamaps\.com'
+$addrOnCity = @($orgs | Where-Object { $_.geoPrecision -eq 'address' -and $_.geoSourceUrl -match $GAZETTEERS })
+Add-Result 'no address pin cites the city gazetteer its CITY entry uses' ($addrOnCity.Count -eq 0) `
+  ("$($addrOnCity.Count) offending")
+$addrOnCity | ForEach-Object { '      [' + $_.id + '] ' + $_.geoSourceUrl }
+
+# Two address pins on the same point are fine ONLY where the records say they are
+# the same site. Otherwise one of them is guessing.
+$addrRecords = @($orgs | Where-Object { $_.geoPrecision -eq 'address' })
+$sharedPoints = $addrRecords | Group-Object { "$($_.lat),$($_.lng)" } | Where-Object { $_.Count -gt 1 }
+$unexplained = New-Object System.Collections.ArrayList
+foreach ($g in $sharedPoints) {
+  $names = @($g.Group | ForEach-Object { $_.location })
+  # Same site is asserted when one location names the other's facility, or both
+  # name the same anchor feature.
+  $sameSite = $false
+  foreach ($a in $names) {
+    foreach ($b in $names) {
+      if ($a -eq $b) { continue }
+      if ($a -match '(?i)at the .* facility' -or $b -match '(?i)at the .* facility') { $sameSite = $true }
+      if ($a -match '(?i)Airport' -and $b -match '(?i)Airport') { $sameSite = $true }
+    }
+  }
+  if (-not $sameSite) { [void]$unexplained.Add($g.Name + ' :: ' + ($g.Group.id -join ', ')) }
+}
+Add-Result 'no two address pins share a point unless their locations state the same site' `
+  ($unexplained.Count -eq 0) ("$($sharedPoints.Count) shared point(s), $($unexplained.Count) unexplained")
+$unexplained | ForEach-Object { '      ' + $_ }
+
+# Every compute record is either geocoded or has a written reason for not being.
+$computeCentroid = @($orgs | Where-Object { $_.category -eq 'Compute & Infrastructure' -and $_.geoPrecision -eq 'centroid' })
+$verif = if (Test-Path 'research\VERIFICATION.md') { Get-Content 'research\VERIFICATION.md' -Raw -Encoding UTF8 } else { '' }
+$missingReason = @($computeCentroid | Where-Object { $verif -notlike ('*' + $_.id + '*') })
+Add-Result 'every Compute & Infrastructure record is geocoded or has a written reason in VERIFICATION.md' `
+  ($missingReason.Count -eq 0) `
+  ("$($computeCentroid.Count) left at centroid; $($missingReason.Count) without a written reason")
+$missingReason | ForEach-Object { '      no reason recorded for: ' + $_.id }
+
+# The map components changed here must still take every colour from a token.
+$mapHex = New-Object System.Collections.ArrayList
+foreach ($f in @('src\sections\EcosystemMap.tsx', 'src\sections\Mission.tsx')) {
+  if (-not (Test-Path $f)) { continue }
+  foreach ($h in (Select-String -Path $f -Pattern '#[0-9a-fA-F]{3,8}\b')) {
+    [void]$mapHex.Add($f + ':' + $h.LineNumber)
+  }
+}
+Add-Result 'no raw hex colour in the changed map components' ($mapHex.Count -eq 0) ("$($mapHex.Count) hit(s)")
+$mapHex | ForEach-Object { '      ' + $_ }
+
 # ---------------------------------------------------------------- summary
 ''
 '=' * 78
