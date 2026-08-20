@@ -128,12 +128,16 @@ function FlyTo({ target }: { target: Organization | null }) {
 function Clusters({
   items,
   selected,
-  onSelect,
+  onOpen,
+  onOpenGroup,
   tracing,
 }: {
   items: Organization[];
   selected: Organization | null;
-  onSelect: (o: Organization) => void;
+  /** Open the detail card for one record. */
+  onOpen: (o: Organization) => void;
+  /** Open the member list for records sharing one point. */
+  onOpenGroup: (group: Organization[]) => void;
   /** True while a pathway preset is active. Suppresses cluster counts. */
   tracing: boolean;
 }) {
@@ -145,20 +149,17 @@ function Clusters({
   // render. That is deliberate: memoising it would require declaring the
   // projection as a dependency, and the projection is not a value React can see.
   // At a few hundred points the recomputation is trivial and always correct.
-  const [tick, setTick] = useState(0);
+  const [, setTick] = useState(0);
   const bump = useCallback(() => setTick((t) => t + 1), []);
   useMapEvents({ moveend: bump, zoomend: bump, resize: bump });
 
-  // Marker refs restore builderworkshop's click-to-open-popup behaviour. The
-  // popup can only open once the organization is rendered as an individual
-  // marker, which may be only after FlyTo has zoomed past its cluster — hence
-  // tick in the dependency list: each pan/zoom re-render retries the open.
-  const markerRefs = useRef<Record<string, L.Marker | null>>({});
-  useEffect(() => {
-    if (!selected) return;
-    const m = markerRefs.current[selected.id];
-    if (m) m.openPopup();
-  }, [selected, tick]);
+  // The earlier design opened popups through per-marker refs, retried on every
+  // pan and zoom. It could never work for most of this dataset: records sharing
+  // one municipal centroid never de-cluster at ANY zoom, so their individual
+  // markers never exist and their refs never fill. builderworkshop never met
+  // this because every venue there has its own street address. The detail card
+  // is now a controlled popup owned by the map component, opened at the
+  // record's coordinate directly — no marker required.
 
   const cells = new Map<string, Organization[]>();
   for (const o of items) {
@@ -179,17 +180,10 @@ function Clusters({
           return (
             <Marker
               key={o.id}
-              ref={(m) => {
-                markerRefs.current[o.id] = m;
-              }}
               position={[o.lat as number, o.lng as number]}
               icon={makeDot(CATEGORY_COLORS[o.category], selected?.id === o.id, o.geoPrecision)}
-              eventHandlers={{ click: () => onSelect(o) }}
-            >
-              <Popup>
-                <PopupBody o={o} />
-              </Popup>
-            </Marker>
+              eventHandlers={{ click: () => onOpen(o) }}
+            />
           );
         }
 
@@ -205,10 +199,15 @@ function Clusters({
               click: () => {
                 const pts = group.map((o) => [o.lat as number, o.lng as number] as [number, number]);
                 const bounds = L.latLngBounds(pts);
-                // Points sharing one municipal centroid produce a zero-area
-                // bounds; step in a fixed amount instead of jumping to max zoom.
-                if (bounds.getNorth() === bounds.getSouth() && bounds.getEast() === bounds.getWest()) {
-                  map.setView([lat, lng], Math.min(map.getZoom() + 3, 13));
+                const samePoint =
+                  bounds.getNorth() === bounds.getSouth() && bounds.getEast() === bounds.getWest();
+                // Records sharing one municipal centroid can never separate by
+                // zooming — the old step-in-3-levels answer was a click that did
+                // nothing visible. A same-point cluster now opens the member
+                // list instead, and so does any cluster the zoom can no longer
+                // split. Clusters that CAN separate still fly to their bounds.
+                if (samePoint || map.getZoom() >= 16) {
+                  onOpenGroup(group);
                 } else {
                   map.flyToBounds(bounds, { padding: [48, 48], duration: 0.9 });
                 }
@@ -267,6 +266,54 @@ function PopupBody({ o }: { o: Organization }) {
   );
 }
 
+/**
+ * The member list for a cluster whose records share one coordinate. This is
+ * the honest version of "spiderfying": rather than fanning invented offsets
+ * around the shared point, the card says plainly that one municipal pin holds
+ * several organizations and lets the reader pick one.
+ */
+function GroupBody({
+  group,
+  onPick,
+}: {
+  group: Organization[];
+  onPick: (o: Organization) => void;
+}) {
+  const sorted = [...group].sort((a, b) => a.name.localeCompare(b.name));
+  return (
+    <div>
+      <div className="font-mono2 text-[9px] tracking-[0.16em] uppercase text-[var(--ink-faint)] mb-1">
+        {group.length} organizations · one pin
+      </div>
+      <div className="font-mono2 text-[9.5px] text-[var(--ink-faint)] mb-2">
+        These records share a municipal coordinate. Pick one:
+      </div>
+      <div className="slim-scroll max-h-56 overflow-y-auto divide-y divide-[var(--line)]">
+        {sorted.map((o) => (
+          <button
+            key={o.id}
+            onClick={() => onPick(o)}
+            className="w-full text-left py-2 flex items-start gap-2 group"
+          >
+            <span
+              className="mt-[5px] w-2 h-2 rounded-full shrink-0"
+              style={{ background: CATEGORY_COLORS[o.category] }}
+            />
+            <span className="min-w-0">
+              <span className="font-display uppercase text-[13px] tracking-wide block leading-tight group-hover:text-[var(--accent)] transition-colors">
+                {o.name}
+              </span>
+              <span className="font-mono2 text-[9px] text-[var(--ink-faint)] block mt-0.5">
+                {o.location}
+              </span>
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function EcosystemMap({
   preset,
   onClearPreset,
@@ -278,29 +325,59 @@ export default function EcosystemMap({
   const [reg, setReg] = useState<RegFilter>('All');
   const [selected, setSelected] = useState<Organization | null>(null);
 
+  // The detail card and the shared-pin member list, as CONTROLLED popups owned
+  // here and opened at a coordinate rather than through a marker. A marker-based
+  // popup is unreachable for any record whose neighbours share its centroid —
+  // which is most of Metro Vancouver — because identical coordinates never
+  // de-cluster. At most one of these is non-null at a time. The nonce forces a
+  // remount when the same record is clicked again after the reader closed the
+  // popup with X or a map click, which Leaflet does without telling React.
+  const [opened, setOpened] = useState<Organization | null>(null);
+  const [openedGroup, setOpenedGroup] = useState<Organization[] | null>(null);
+  const [openNonce, setOpenNonce] = useState(0);
+  const openCard = useCallback((o: Organization) => {
+    setOpenedGroup(null);
+    setOpened(o);
+    setSelected(o);
+    setOpenNonce((n) => n + 1);
+  }, []);
+  const openGroup = useCallback((group: Organization[]) => {
+    setOpened(null);
+    setOpenedGroup(group);
+    setOpenNonce((n) => n + 1);
+  }, []);
+  // Filters clear the whole selection surface: the flown-to record, the detail
+  // card, and the member list. A card left open for a record a filter just
+  // removed would show a thing the list no longer contains.
+  const clearSelection = useCallback(() => {
+    setSelected(null);
+    setOpened(null);
+    setOpenedGroup(null);
+  }, []);
+
   // Region cards elsewhere on the page dispatch this to drive the map.
   useEffect(() => {
     const onRegion = (e: Event) => {
       setReg((e as CustomEvent<Region>).detail);
       setCat('All');
-      setSelected(null);
+      clearSelection();
     };
     window.addEventListener('bcac:region', onRegion);
     return () => window.removeEventListener('bcac:region', onRegion);
-  }, []);
+  }, [clearSelection]);
 
-  // Pathway stops dispatch this. It writes the SAME `selected` state the row
-  // hover handler writes, so FlyTo and the popup-opening effect below need no
-  // second code path — one selection mechanism, several ways to command it.
+  // Pathway stops dispatch this. It opens the record card through the same
+  // openCard the list rows and markers use — one selection mechanism, several
+  // ways to command it.
   useEffect(() => {
     const onSelect = (e: Event) => {
       const id = (e as CustomEvent<string>).detail;
       const target = ORGANIZATIONS.find((o) => o.id === id);
-      if (target && target.lat !== undefined) setSelected(target);
+      if (target && target.lat !== undefined) openCard(target);
     };
     window.addEventListener('bcac:select', onSelect);
     return () => window.removeEventListener('bcac:select', onSelect);
-  }, []);
+  }, [openCard]);
 
   // An active preset takes over from the chips. Selecting any chip clears it
   // (see the chip handlers), so the two never compete for the same slice.
@@ -393,8 +470,9 @@ export default function EcosystemMap({
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-[var(--ink-soft)]">
             {MAPPED.length} verified organizations with sourced locations, from Victoria to Prince
-            George. Pins are municipal, not street-level — the city comes from the record's source,
-            the coordinates from the gazetteer named on the record. {unmapped}{' '}
+            George. A filled dot is a street address the record's source states; a ring is a
+            municipal centroid from the gazetteer named on the record — the city, not the site.
+            {' '}{unmapped}{' '}
             {unmapped === 1 ? 'organization has' : 'organizations have'} a province-wide mandate and
             no single seat; they are in the directory below.
           </p>
@@ -438,7 +516,7 @@ export default function EcosystemMap({
                   // manual control of the slice, so the onramp/pathway label goes.
                   onClearPreset();
                   setCat(c);
-                  setSelected(null);
+                  clearSelection();
                 }}
                 disabled={empty}
                 title={empty ? 'Not yet surveyed — nobody has searched this category to a conclusion' : undefined}
@@ -484,7 +562,7 @@ export default function EcosystemMap({
                   if (!surveyed) return;
                   onClearPreset();
                   setReg(r);
-                  setSelected(null);
+                  clearSelection();
                 }}
                 disabled={!surveyed}
                 title={!surveyed ? 'Not yet surveyed — nobody has searched this region to a conclusion' : undefined}
@@ -513,7 +591,7 @@ export default function EcosystemMap({
               {filtered.map((o, i) => (
                 <button
                   key={o.id}
-                  onClick={() => setSelected(o)}
+                  onClick={() => openCard(o)}
                   onMouseEnter={() => setSelected(o)}
                   className={`map-row w-full text-left px-4 py-3.5 border-l-2 border-transparent flex items-start gap-3.5 ${
                     selected?.id === o.id ? 'is-active' : ''
@@ -557,8 +635,8 @@ export default function EcosystemMap({
             </div>
             <div className="font-mono2 text-[10px] tracking-[0.08em] text-[var(--ink-faint)] mt-3 px-1 flex items-center justify-between gap-3">
               <span>
-                {filtered.length} shown · a filled dot is a sourced address, a ring is a city
-                centroid
+                {filtered.length} shown · hover a row to fly, click for the record · filled dot =
+                address, ring = city centroid
               </span>
               {(cat !== 'All' || reg !== 'All' || preset) && (
                 <button
@@ -566,7 +644,7 @@ export default function EcosystemMap({
                     onClearPreset();
                     setCat('All');
                     setReg('All');
-                    setSelected(null);
+                    clearSelection();
                   }}
                   className="font-mono2 text-[10px] tracking-[0.14em] text-[var(--accent)] hover:text-[var(--ink)] transition-colors shrink-0"
                 >
@@ -612,9 +690,37 @@ export default function EcosystemMap({
               <Clusters
                 items={filtered}
                 selected={selected}
-                onSelect={setSelected}
+                onOpen={openCard}
+                onOpenGroup={openGroup}
                 tracing={presetStops !== null}
               />
+              {/*
+                autoPan stays off on both: FlyTo owns the camera, and a popup
+                that pans against an in-flight flyTo judders. The nonce in each
+                key remounts the popup when the same thing is opened twice in a
+                row — Leaflet removes a closed popup without telling React, so
+                without the nonce the second click would be a no-op.
+              */}
+              {opened && opened.lat !== undefined && opened.lng !== undefined && (
+                <Popup
+                  key={`card-${opened.id}-${openNonce}`}
+                  position={[opened.lat, opened.lng]}
+                  maxWidth={320}
+                  autoPan={false}
+                >
+                  <PopupBody o={opened} />
+                </Popup>
+              )}
+              {openedGroup && openedGroup.length > 0 && (
+                <Popup
+                  key={`group-${openedGroup[0].id}-${openNonce}`}
+                  position={[openedGroup[0].lat as number, openedGroup[0].lng as number]}
+                  maxWidth={300}
+                  autoPan={false}
+                >
+                  <GroupBody group={openedGroup} onPick={openCard} />
+                </Popup>
+              )}
             </MapContainer>
           </div>
         </div>
