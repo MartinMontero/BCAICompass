@@ -403,6 +403,8 @@ const QUOTE: Record<string, string> = {
   'https://www.innovatebc.ca': 'Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Vancouver, BC',
   'https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives':
     'MISA BC Spirit of Innovation Award - Service & efficiency with AI chatbots.',
+  'https://bc-ai.ca/communities/fraser-valley-ai':
+    'Practical, responsible AI for the Fraser Valley, with a local room',
 };
 
 /**
@@ -1914,13 +1916,14 @@ const RECORDS: Organization[] = [
     name: 'FV+AI — Fraser Valley AI',
     category: 'Community & Convening',
     orgType: 'community-group',
-    url: 'https://bc-ai.ca/communities',
+    url: 'https://bc-ai.ca/communities/fraser-valley-ai',
     location: 'Fraser Valley — Langley to Chilliwack',
     description:
-      'A Fraser Valley home base for practical talks, local demos and people to build with, covering Langley to Chilliwack.',
+      'BC + AI\'s Fraser Valley regional chapter, covering Langley to Chilliwack, with talks, demos and food. Grew out of the Surrey AI meetup series, whose page describes the room as having had its own gravity south of the Fraser. Its first official gathering is 9 September in Langley.',
     size: null,
-    sourceUrl: S_BCAI_COMMUNITIES,
+    sourceUrl: 'https://bc-ai.ca/communities/fraser-valley-ai',
     ...V,
+    keyPeople: 'Darren Coleman, local lead',
   },
   {
     ...CITY.courtenay,

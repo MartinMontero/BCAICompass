@@ -81,9 +81,12 @@ const DRAFT_PATHWAYS: Pathway[] = [
     id: 'chapter-circuit',
     name: 'The Chapter Circuit',
     blurb:
-      'The rooms, in walking-in order — Vancouver, Surrey, the Fraser Valley, the Comox Valley. Start at the one nearest you.',
-    // Vancouver outward. Surrey appears in the blurb but has no verified chapter
-    // record, so it is not a stop — logged in research/VERIFICATION.md.
+      'The rooms, in walking-in order — Vancouver, the Fraser Valley, the Comox Valley. Start at the one nearest you.',
+    // Vancouver outward. Surrey was dropped from the blurb on 2026-08-19 once
+    // bc-ai.ca resolved it: Surrey AI is a monthly EVENT SERIES, not a chapter,
+    // and its momentum became FV+AI. bc-ai.ca/communities/fraser-valley-ai reads
+    // "The Surrey roots ... Surrey AI built the momentum" and labels FV+AI
+    // "Regional chapter 01". Three rooms, three stops — the blurb now matches.
     stops: ['vancouver-ai', 'fv-ai-fraser-valley-ai', 'cv-ai-comox-valley-ai'],
   },
 ];
