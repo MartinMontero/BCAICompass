@@ -65,7 +65,12 @@ export const ONRAMPS: Onramp[] = [
     label: 'Learn the craft',
     question: 'I want to train or switch careers.',
     categories: ['Talent & Education'],
-    thin: true,
-    blurb: 'This slice is still being surveyed. Know a program? Tell us.',
+    // The thin flag came off on 2026-08-19. It was set when this slice held three
+    // records, all in Metro Vancouver and Victoria — too little to answer the
+    // question the card asks. It now spans the Fraser Valley, the Kootenays and
+    // the north as well, so it can. COVERAGE.md still records that bootcamps and
+    // most private training providers are unsearched; a usable slice is not a
+    // finished one, and the difference belongs in the audit rather than the card.
+    blurb: 'College programs, campus hubs and community academies — from the Fraser Valley to Prince George.',
   },
 ];

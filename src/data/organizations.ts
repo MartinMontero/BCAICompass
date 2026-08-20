@@ -286,6 +286,34 @@ const CITY: Record<string, CityGeo> = {
     lng: -120.847633,
     geoSourceUrl: 'https://www.latlong.net/place/fort-st-john-bc-canada-29150.html',
   },
+  salmonArm: {
+    location: 'Salmon Arm',
+    region: 'Thompson-Okanagan',
+    lat: 50.702221,
+    lng: -119.272224,
+    geoSourceUrl: 'https://www.latlong.net/place/salmon-arm-bc-canada-29193.html',
+  },
+  northVancouver: {
+    location: 'North Vancouver',
+    region: 'Metro Vancouver',
+    lat: 49.316666,
+    lng: -123.066666,
+    geoSourceUrl: 'https://www.latlong.net/place/north-vancouver-bc-canada-29179.html',
+  },
+  abbotsford: {
+    location: 'Abbotsford',
+    region: 'Fraser Valley',
+    lat: 49.05798,
+    lng: -122.25257,
+    geoSourceUrl: 'https://www.latlong.net/place/abbotsford-bc-canada-29122.html',
+  },
+  castlegar: {
+    location: 'Castlegar',
+    region: 'Kootenay',
+    lat: 49.323889,
+    lng: -117.659444,
+    geoSourceUrl: 'https://www.latlong.net/place/castlegar-bc-canada-29135.html',
+  },
 };
 
 // Sources cited more than once, named so a reader can see the reuse at a glance.
@@ -304,7 +332,9 @@ const S_SFU_CENTRES = 'https://www.sfu.ca/fas/computing/research/centres-and-ins
 const S_SIAT = 'https://www.sfu.ca/siat/research/research-labs.html';
 const S_UVIC_CS = 'https://www.uvic.ca/ecs/computerscience/research/index.php';
 const S_BCAI = 'https://bc-ai.ca';
-const S_BCAI_COMMUNITIES = 'https://bc-ai.ca/communities';
+// S_BCAI_COMMUNITIES (the generic /communities index) was removed on 2026-08-19.
+// Every BC + AI room now cites its own canonical page instead, which is what makes
+// a real venue or region quote available rather than a shared index string.
 const S_OVCARE = 'https://www.med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/';
 const S_COMOX = 'https://thediscourse.ca/comox-valley/how-do-comox-valley-governments-and-public-organizations-use-ai';
 
@@ -386,6 +416,39 @@ const QUOTE: Record<string, string> = {
   'https://digitalsupercluster.ca/canadas-digital-technology-supercluster-receives-funding/':
     '2127 – 1055 W. Georgia Street Vancouver, BC, V6E 3P3',
   [S_BCAI]: "300+ paying members of the nonprofit building British Columbia's AI industry",
+
+  // --- BC + AI rooms, each read off its own canonical page on 2026-08-19 ---
+  'https://bc-ai.ca/communities/vancouver-ai':
+    'H.R. MacMillan Space Centre, 1100 Chestnut St, Vancouver, BC V6J 3J9, Canada',
+  'https://bc-ai.ca/communities/comox-valley': 'Comox Valley / Vancouver Island',
+  'https://bc-ai.ca/communities/life-sciences-ai': '6151 Collingwood Pl, Vancouver, BC V6N 1V2, Canada',
+  'https://bc-ai.ca/communities/ai-education': 'Comox Valley',
+  // The four below are the WEAKEST acceptable form of this evidence: a bare city
+  // name. These pages carry no address and no regional statement, so "Vancouver"
+  // is the whole of what ties them to British Columbia in their own words. It is
+  // verbatim and it is checkable, which is the bar — but it is thin, and
+  // VERIFICATION.md says so rather than letting the stamp imply more.
+  'https://bc-ai.ca/communities/film-club': 'Vancouver',
+  'https://bc-ai.ca/communities/mac': 'Vancouver',
+  'https://bc-ai.ca/communities/futures-lab': 'Vancouver',
+  'https://bc-ai.ca/communities/ai-creativity-design': 'Vancouver',
+
+  // --- registry-and-contact-page pass, 2026-08-19 ---
+  // These came from the method change in COVERAGE.md section 4: go to the page
+  // that states a city in a structured field -- a contact page, a campus footer --
+  // rather than a marketing site that says AI on every screen and its address on
+  // none. Every one of these is an address or a headquarters sentence.
+  'https://4ag.ai/contact': 'Salmon Arm, BC',
+  'https://marinelabs.io/contact': '2100 Douglas St., Victoria, BC V8T 4L3',
+  'https://www.trulioo.com/contact': '400–114 E. Fourth Ave., Vancouver, BC V5T 1G2',
+  'https://www.zymeworks.com/contact/': '114 East 4th Avenue, Suite 800 Vancouver, BC, Canada V5T 1G4',
+  'https://jane.app/contact': 'Jane is headquartered in North Vancouver, BC, Canada',
+  'https://www.minesense.com/about-us/': 'our global headquarters are in Vancouver, Canada',
+  'https://www.dapperlabs.com/careers': 'Vancouver-based, with hubs in L.A., New York, and Charlotte.',
+  'https://www.ufv.ca/computing/': '33844 King Road, Abbotsford, BC',
+  'https://selkirk.ca/programs/digital-technology': '301 Frank Beinder Way Castlegar BC V1N 4L3 Canada',
+  'https://cnc.bc.ca/programs-courses/program/computer-network-electronics-technician':
+    '3330-22nd Ave. Prince George, BC, V2N 1P8',
   'https://kast.com/': '91-D Baker Street Nelson, BC V1L 4G8',
   'https://innovationcentral.ca/contact': '1299 3rd Avenue Prince George, BC V2L 3E6',
   'https://www.newswire.ca/news-releases/prophet-river-first-nation-and-abct-pacific-vcc-ltd-sign-loi-to-jointly-develop-major-data-centre-in-fort-st-john-area-819620927.html':
@@ -1902,12 +1965,14 @@ const RECORDS: Organization[] = [
     name: 'Vancouver AI',
     category: 'Community & Convening',
     orgType: 'community-group',
-    url: 'https://bc-ai.ca/communities',
-    location: 'Vancouver',
+    // Re-pointed 2026-08-19 from the generic communities index to this chapter's
+    // own canonical page, which is what makes a verbatim venue quote available.
+    url: 'https://bc-ai.ca/communities/vancouver-ai',
+    location: 'Vancouver — H.R. MacMillan Space Centre, 1100 Chestnut St',
     description:
-      'Described on its own listing as the original room where the BC + AI ecosystem gathers in person before the work fans out across the province.',
+      "BC + AI's flagship regional room, labelled on the communities index as the original room where the ecosystem gathers in person before the work fans out across the province. Meets monthly at the H.R. MacMillan Space Centre.",
     size: null,
-    sourceUrl: S_BCAI_COMMUNITIES,
+    sourceUrl: 'https://bc-ai.ca/communities/vancouver-ai',
     ...V,
   },
   {
@@ -1928,15 +1993,123 @@ const RECORDS: Organization[] = [
   {
     ...CITY.courtenay,
     id: 'cv-ai-comox-valley-ai',
-    name: 'CV + AI — Comox Valley AI',
+    // Full name as the communities index gives it, rather than the shortened
+    // form the index page alone supported.
+    name: 'CV + AI — Comox Valley AI Community Meetup',
     category: 'Community & Convening',
     orgType: 'community-group',
-    url: 'https://bc-ai.ca/communities',
+    url: 'https://bc-ai.ca/communities/comox-valley',
     location: 'Comox Valley',
     description:
-      'A Vancouver Island community meetup, described on its own listing as a neighbourly Island room asking what it means to be human in the age of AI.',
+      "BC + AI's Comox Valley regional chapter, described on its own page as a neighbourly Island room asking what it means to be human in the age of AI. Meets monthly on the first Thursday, at venues including the Native Sons Hall and the Florence Filberg Centre.",
     size: null,
-    sourceUrl: S_BCAI_COMMUNITIES,
+    sourceUrl: 'https://bc-ai.ca/communities/comox-valley',
+    ...V,
+    keyPeople: 'Lourdes Gant, regional co-lead',
+  },
+
+  // =========================================================================
+  // BC + AI SPECIAL-INTEREST GROUPS
+  //
+  // bc-ai.ca/communities documents nine rooms with their own pages. The dataset
+  // carried three of them. These are the six special-interest groups, each read
+  // from its own page on 2026-08-19.
+  //
+  // NOT ADDED, deliberately: "Applied & Industrial AI" and "Data & Security".
+  // The communities page files both under "Still forming" and calls them "seeds,
+  // not programs", with no host and no cadence. A seed is not an organization,
+  // and a directory that cannot tell the difference is back to counting rows.
+  // =========================================================================
+  {
+    ...CITY.vancouver,
+    id: 'bc-ai-film-club',
+    name: 'BC + AI Film Club',
+    category: 'Community & Convening',
+    orgType: 'community-group',
+    url: 'https://bc-ai.ca/communities/film-club',
+    location: 'Vancouver',
+    description:
+      "BC + AI's creative special-interest group, described on its own page as a monthly meetup for people making films with AI.",
+    size: null,
+    sourceUrl: 'https://bc-ai.ca/communities/film-club',
+    ...V,
+  },
+  {
+    ...CITY.vancouver,
+    id: 'mind-ai-and-consciousness',
+    name: 'Mind, AI and Consciousness (MAC)',
+    category: 'Community & Convening',
+    orgType: 'community-group',
+    url: 'https://bc-ai.ca/communities/mac',
+    location: 'Vancouver',
+    description:
+      'A BC + AI research community running Deep Dives roughly monthly, alongside Labs, Takeovers and Socials through the year. Thirteen Deep Dives are recorded as completed on its own page.',
+    size: null,
+    sourceUrl: 'https://bc-ai.ca/communities/mac',
+    ...V,
+  },
+  {
+    id: 'ed-ai-education-meetup',
+    name: 'Ed + AI: Education Meetup',
+    category: 'Community & Convening',
+    orgType: 'community-group',
+    region: 'Province-wide',
+    url: 'https://bc-ai.ca/communities/ai-education',
+    location: 'British Columbia — province-wide',
+    // The Ethos Lab relationship is stated ON THIS PAGE, which names it "the
+    // public partner", so it is repeated here. Had the page not said it, the
+    // index's mention alone would not have been enough to assert a partnership.
+    description:
+      'A BC + AI education community giving educators, youth, families and builders a practical place to compare what is happening in classrooms and community learning spaces. Its own page describes a consent-first learning circle with Ethọ́s Lab and names Ethọ́s Lab as the public partner.',
+    size: null,
+    sourceUrl: 'https://bc-ai.ca/communities/ai-education',
+    ...V,
+  },
+  {
+    ...CITY.vancouver,
+    id: 'ai-ethical-futures-lab',
+    name: 'AI Ethical Futures Lab',
+    category: 'Community & Convening',
+    orgType: 'community-group',
+    url: 'https://bc-ai.ca/communities/futures-lab',
+    location: 'Vancouver — Parker Street Studios',
+    description:
+      "BC + AI's civic policy lab, described on its own page as not a panel but a working room for people who want AI's possibilities without surrendering agency, accountability, or public voice. Meets monthly at Parker Street Studios.",
+    size: null,
+    sourceUrl: 'https://bc-ai.ca/communities/futures-lab',
+    ...V,
+  },
+  {
+    ...CITY.vancouver,
+    id: 'life-sciences-and-ai',
+    name: 'Life Sciences & AI',
+    category: 'Community & Convening',
+    orgType: 'community-group',
+    url: 'https://bc-ai.ca/communities/life-sciences-ai',
+    location: 'Vancouver — 6151 Collingwood Pl',
+    description:
+      'A BC + AI domain community for life sciences people, covering drug discovery, clinical care, health data, capital and policy. Its own page describes a four-part monthly series running September to December 2026, one running conversation with a different question on each date.',
+    size: null,
+    sourceUrl: 'https://bc-ai.ca/communities/life-sciences-ai',
+    ...V,
+  },
+  {
+    id: 'ai-creativity-and-design',
+    name: 'AI Creativity + Design',
+    category: 'Community & Convening',
+    orgType: 'community-group',
+    // Region stays province-wide: the page confirms no host and no cadence, so
+    // asserting a seat for it would be inventing the one thing it says it lacks.
+    region: 'Province-wide',
+    url: 'https://bc-ai.ca/communities/ai-creativity-design',
+    location: 'British Columbia — province-wide',
+    // Recorded as forming, in the page's own words, rather than left out. A group
+    // that says plainly what it has not settled yet is exactly the kind of honest
+    // record this directory should be able to carry.
+    description:
+      'A BC + AI special-interest group its own page describes as a forming group, with first-session cadence not confirmed and no host names confirmed publicly yet.',
+    size: null,
+    sourceUrl: 'https://bc-ai.ca/communities/ai-creativity-design',
     ...V,
   },
 
@@ -2159,6 +2332,178 @@ const RECORDS: Organization[] = [
   },
 
   // ---- talent ----
+  // =========================================================================
+  // COMPOSITION PASS, 2026-08-19 — companies and training, by the method change
+  // in COVERAGE.md section 4.
+  //
+  // The dataset was 72 academic units against 11 companies, and COVERAGE.md
+  // named the cause: a university publishes one page giving a lab, its field and
+  // its campus, so a single fetch satisfies every condition at once, while a
+  // company's marketing site says AI on every screen and its address on none.
+  // The fix is to stop reading marketing sites. Everything below came from a
+  // contact page, a careers page or a campus footer — pages whose job is to
+  // state a city.
+  //
+  // Region was preferred over convenience wherever the choice existed: Salmon
+  // Arm, Abbotsford, Castlegar and Prince George each carry more here than a
+  // twelfth Vancouver company would.
+  // =========================================================================
+  {
+    ...CITY.salmonArm,
+    id: '4ag-robotics',
+    name: '4AG Robotics',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://4ag.ai',
+    location: 'Salmon Arm',
+    // Its old domain, 4agrobotics.com, is a parked domain-sale page — one of the
+    // two confirmed parking pages behind the synthesized-url flag. The company is
+    // real; the domain in the predecessor dataset was not its.
+    description:
+      'Builds autonomous harvesting robots for commercial mushroom farms, attaching to a farm’s existing shelving rather than requiring new infrastructure.',
+    size: null,
+    sourceUrl: 'https://4ag.ai/contact',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.victoria,
+    id: 'marinelabs',
+    name: 'MarineLabs Data Systems',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://marinelabs.io',
+    location: 'Victoria — 2100 Douglas St',
+    description:
+      'Coastal intelligence company operating a sensor network for marine and coastal data, with Forecast AI and Wake AI named among its products.',
+    size: null,
+    sourceUrl: 'https://marinelabs.io/contact',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.vancouver,
+    id: 'trulioo',
+    name: 'Trulioo',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://www.trulioo.com',
+    location: 'Vancouver — 400-114 E. Fourth Ave',
+    description:
+      'Identity verification and business-verification platform headquartered in Vancouver, naming agentic AI for resolving beneficial owners inside its know-your-business workflow.',
+    size: null,
+    sourceUrl: 'https://www.trulioo.com/contact',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.vancouver,
+    id: 'zymeworks',
+    name: 'Zymeworks',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://www.zymeworks.com',
+    location: 'Vancouver — 114 East 4th Avenue, Suite 800',
+    // The contact page states the head office and nothing about AI. Listed for
+    // the province's computational biotherapeutics base, and the description says
+    // only what the page says — no AI claim is put in the company's mouth.
+    description:
+      'Biotherapeutics company with its head office in Vancouver. Its contact page does not describe AI or machine-learning work, and none is asserted here.',
+    size: null,
+    sourceUrl: 'https://www.zymeworks.com/contact/',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.northVancouver,
+    id: 'jane-software',
+    name: 'Jane Software',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://jane.app',
+    location: 'North Vancouver',
+    description:
+      'Practice-management software for health and wellness clinics, headquartered in North Vancouver, with an AI Scribe feature named under its charting and care tools.',
+    size: null,
+    sourceUrl: 'https://jane.app/contact',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.vancouver,
+    id: 'minesense',
+    name: 'MineSense Technologies',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://www.minesense.com',
+    location: 'Vancouver',
+    description:
+      'Sensor and ore-sorting company for mining, with global headquarters in Vancouver. Its about page describes data solutions and a client data portal; it does not name AI, and none is asserted here.',
+    size: null,
+    sourceUrl: 'https://www.minesense.com/about-us/',
+    ...V,
+    orgStatus: 'active',
+  },
+  {
+    ...CITY.vancouver,
+    id: 'dapper-labs',
+    name: 'Dapper Labs',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://www.dapperlabs.com',
+    location: 'Vancouver',
+    description:
+      'Vancouver-based consumer blockchain company with hubs in Los Angeles, New York and Charlotte. Its careers page describes AI tooling as standard across the company.',
+    size: null,
+    sourceUrl: 'https://www.dapperlabs.com/careers',
+    ...V,
+    orgStatus: 'active',
+  },
+
+  // ---- Talent & Education: the slice the "Learn the craft" onramp flagged ----
+  {
+    ...CITY.abbotsford,
+    id: 'ufv-computing',
+    name: 'University of the Fraser Valley — School of Computing',
+    category: 'Talent & Education',
+    orgType: 'university-or-lab',
+    url: 'https://www.ufv.ca/computing/',
+    location: 'Abbotsford — 33844 King Road',
+    description:
+      'Fraser Valley computing school whose programs include an AI & Machine Learning post-baccalaureate diploma.',
+    size: null,
+    sourceUrl: 'https://www.ufv.ca/computing/',
+    ...V,
+  },
+  {
+    ...CITY.castlegar,
+    id: 'selkirk-college',
+    name: 'Selkirk College',
+    category: 'Talent & Education',
+    orgType: 'university-or-lab',
+    url: 'https://selkirk.ca/programs/digital-technology',
+    location: 'Castlegar — 301 Frank Beinder Way',
+    description:
+      'Kootenay college whose digital technology programs include Foundations in Rural Data Science, described as blending analytical, technical and place-based learning.',
+    size: null,
+    sourceUrl: 'https://selkirk.ca/programs/digital-technology',
+    ...V,
+  },
+  {
+    ...CITY.princeGeorge,
+    id: 'college-of-new-caledonia',
+    name: 'College of New Caledonia',
+    category: 'Talent & Education',
+    orgType: 'university-or-lab',
+    url: 'https://cnc.bc.ca',
+    location: 'Prince George — 3330 22nd Ave',
+    description:
+      'Northern British Columbia college whose Centre for Teaching and Learning publishes generative AI guidance for its learning-technology program.',
+    size: null,
+    sourceUrl: 'https://cnc.bc.ca/programs-courses/program/computer-network-electronics-technician',
+    ...V,
+  },
+
   {
     ...CITY.vancouver,
     id: 'ethos-lab',

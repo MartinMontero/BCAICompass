@@ -1,6 +1,6 @@
 ﻿==============================================================================
 BC AI COMPASS -- EXIT CONDITIONS
-run at (local): 2026-08-19 19:10:09
+run at (local): 2026-08-19 20:07:42
 ==============================================================================
 
 Removing node_modules and dist for a clean install...
@@ -9,22 +9,22 @@ PASS  npm run build succeeds  --  exit 0
 PASS  tsc reports no errors  --  exit 0
 PASS  eslint reports no errors  --  exit 0
 PASS  ecosystem.json and ecosystem.geojson parse as valid JSON
-PASS  every id is unique  --  117 records, 117 distinct
+PASS  every id is unique  --  134 records, 134 distinct
 PASS  every record: status verified, non-null sourceUrl, sourceDate, verified stamp  --  0 offending
-PASS  at least 100 verified records  --  117 records
+PASS  at least 100 verified records  --  134 records
 PASS  every category in the data appears in the union, and vice versa  --  declared-but-unused: 0; used-but-undeclared: 0
 PASS  no record carries coordinates without a geoSourceUrl  --  0 offending
-PASS  geojson feature count matches records with coordinates  --  geojson 111 vs data 111
+PASS  geojson feature count matches records with coordinates  --  geojson 126 vs data 126
 PASS  no funding / keyPeople / yearFounded / focus-area field appears anywhere in src\  --  0 hits
 PASS  the predecessor dump tag never appears as a value in src\  --  0 hits
 PASS  nothing in src\ imports from research\  --  0 hits
 PASS  unverified.json is not present in dist\  --  0 found
 PASS  dist\ contains index.html, CNAME (bc-aicompass.ca), _headers and both data files  --  index=True cname=True headers=True data=True
 PASS  every inline script hash in index.html is present in public\_headers CSP
-PASS  record count agrees across organizations.ts, ecosystem.json and this report  --  organizations.ts 117; ecosystem.json.organizations 117; ecosystem.json.count 117
+PASS  record count agrees across organizations.ts, ecosystem.json and this report  --  organizations.ts 134; ecosystem.json.organizations 134; ecosystem.json.count 134
 PASS  every record has an evidenceQuote or a quote-pending flag  --  0 offending
 PASS  every evidenceQuote is under 15 words  --  0 too long
-PASS  quote-pending count is reported  --  37 of 117 records are quote-pending
+PASS  quote-pending count is reported  --  34 of 134 records are quote-pending
 PASS  the hand-verified quotes appear verbatim in the dataset  --  8 checked; 0 missing
 PASS  the independence claim appears in no published artifact  --  checked ecosystem.json, README.md and 1 built bundle(s); 0 hit(s)
 PASS  the five organizations withheld under the old scope test are present  --  0 still absent
@@ -36,7 +36,7 @@ PASS  union.json is materially larger than the single-file seed  --  2467 names 
 PASS  seed.json carries not-an-entity on the report-fragment rows  --  269 rows flagged not-an-entity
 PASS  seed.json carries synthesized-url on the name-derived URLs  --  176 rows flagged synthesized-url
 PASS  every region has a record or a written searched-conclusion  --  1 region(s) with zero records, all documented in COVERAGE.md: True
-PASS  src\data\organizations.ts is untouched by this feature  --  unstaged clean: True; staged clean: True
+PASS  the onramp/pathway layer stores navigation, not organization facts  --  0 URL(s) found outside comments in the tool layer
 PASS  every pathway stop id resolves to a record in ORGANIZATIONS  --  19 stop references across 4 pathways; 0 unresolved
 PASS  every shipped pathway has at least 3 stops  --  4 pathways; 0 under 3 stops
 PASS  the BC Hydro pathway note appears only if GOVERNMENT-LAYER.md supports it  --  note present: True; government layer supports it: True
@@ -44,7 +44,7 @@ PASS  every onramp category is a member of CATEGORIES  --  7 distinct categories
 PASS  no hardcoded record counts in the onramp or pathway layer  --  0 suspect literal(s)
 PASS  no raw hex colour in any new component  --  0 hit(s)
 PASS  SHIP.md carries no stale counts and no duplicated 4.3.1  --  0 stale item(s): 
-PASS  ecosystem.json and ecosystem.geojson still report 117 organizations  --  ecosystem.json.count 117; organizations array 117
+PASS  ecosystem.json and ecosystem.geojson agree with organizations.ts  --  organizations.ts 134; ecosystem.json.count 134; organizations array 134
 
 ==============================================================================
 CONDITIONS: 41 total, 41 passed, 0 failed

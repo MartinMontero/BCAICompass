@@ -17,8 +17,13 @@ function useOnrampStats() {
       const members = ORGANIZATIONS.filter((o) => cats.has(o.category));
       const byRegion = new Map<Region, number>();
       for (const o of members) byRegion.set(o.region, (byRegion.get(o.region) ?? 0) + 1);
-      const top = [...byRegion.entries()].sort((a, b) => b[1] - a[1])[0];
-      stats.set(r.id, { n: members.length, topRegion: top ? top[0] : null });
+      // "densest in X" only where a real mode exists. When the top two regions are
+      // tied — as Talent & Education is, six records spread one per region — the
+      // phrase asserts a concentration the data does not show, so it is dropped.
+      // A computed claim can still be a wrong claim.
+      const ranked = [...byRegion.entries()].sort((a, b) => b[1] - a[1]);
+      const hasMode = ranked.length > 0 && (ranked.length === 1 || ranked[0][1] > ranked[1][1]);
+      stats.set(r.id, { n: members.length, topRegion: hasMode ? ranked[0][0] : null });
     }
     return stats;
   }, []);

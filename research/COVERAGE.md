@@ -107,7 +107,58 @@ records and several are likely to be significant.
 
 ---
 
-## 4. The composition skew, stated as a defect
+## 4. The composition skew — corrected in part, 2026-08-19
+
+**The method change described in §4.1 below was executed. Here is what moved.**
+
+| Category | Before | After |
+|---|---:|---:|
+| Research & Academia | 72 | 72 |
+| **Companies & Applied AI** | **11** | **18** |
+| Compute & Infrastructure | 13 | 13 |
+| **Community & Convening** | **5** | **11** |
+| Capital & Accelerators | 8 | 8 |
+| Public Sector & Policy | 6 | 6 |
+| **Talent & Education** | **3** | **6** |
+| **Total** | **118** | **134** |
+
+**Academic share fell from 61% to 54%.** Not one academic record was added; the
+denominator moved instead. That is the correct shape of the fix — the problem was
+never that the university records were wrong, it was that nothing else was being
+found at the same rate.
+
+| Region | Before | After |
+|---|---:|---:|
+| Metro Vancouver | 81 | 90 |
+| Vancouver Island & Coast | 15 | 16 |
+| Thompson-Okanagan | 11 | 12 |
+| Province-wide | 7 | 9 |
+| **Fraser Valley** | **1** | **2** |
+| **Kootenay** | **1** | **2** |
+| **Cariboo** | **1** | **2** |
+| Northeast | 1 | 1 |
+| **North Coast & Nechako** | **0** | **0** |
+
+**The method change worked exactly as predicted.** Every company added came from a
+contact page, a careers page or a campus footer — pages whose job is to state a
+city — and not one from a marketing homepage. Salmon Arm, Abbotsford, Castlegar and
+Prince George each entered the dataset this way.
+
+**What is still wrong.** Metro Vancouver still holds 67% of all records. Research &
+Academia is still the largest category by a factor of four. North Coast & Nechako
+still holds nothing, after a second search (§1.1). Capital & Accelerators did not
+move at all — most BC venture funds remain unsearched, and they are the obvious next
+target because a fund's own site almost always states its city.
+
+**Talent & Education is no longer thin, and the "Learn the craft" onramp reflects
+that.** Three records became six, spanning Metro Vancouver, Vancouver Island, the
+Fraser Valley, the Kootenays and the Cariboo. It is usable; it is not finished.
+Bootcamps and private training providers are still unsearched, and BrainStation
+failed verification because its own Vancouver campus page does not name Vancouver.
+
+---
+
+## 4.1 The original diagnosis, kept for the record
 
 **72 of 117 records — 62% — are academic research units. 11 are companies.**
 

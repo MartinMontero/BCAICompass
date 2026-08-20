@@ -357,18 +357,34 @@ Add-Result 'every region has a record or a written searched-conclusion' $allExpl
   ("$($uncoveredRegions.Count) region(s) with zero records, all documented in COVERAGE.md: $allExplained")
 
 # ---------------------------------------------------------------------------
-# 22. The ecosystem-tool layer sits OVER the dataset and never inside it.
-# The onramp/pathway work is a layer of navigation; if it ever needed a record
-# changed to make a route work, the route would be describing the tool rather
-# than the province. git is the arbiter, not inspection.
+# 22. The ecosystem-tool layer sits OVER the dataset and never duplicates it.
+#
+# RETIRED AND REPLACED, 2026-08-19. This condition used to run
+# `git diff --quiet -- src\data\organizations.ts` and require the dataset be
+# byte-identical. That was exactly right while the onramp/pathway layer was being
+# built, because nothing in that feature had any business editing records — but as
+# a standing condition it forbids the dataset from ever growing again, which is
+# most of the work this project still has to do. A gate that blocks the next
+# correction is not protecting anything.
+#
+# The durable invariant underneath it is that the tool layer holds NAVIGATION, not
+# FACTS: a pathway references organizations by id and an onramp by category, so
+# neither can drift out of step with a record or quietly become a second, unsourced
+# copy of one. A URL in either file would be the first sign of that drift, because
+# a URL is the one thing only a verified record is allowed to carry.
 # ---------------------------------------------------------------------------
-git diff --quiet -- 'src\data\organizations.ts' 2>&1 | Out-Null
-$dataUntouchedUnstaged = ($LASTEXITCODE -eq 0)
-git diff --cached --quiet -- 'src\data\organizations.ts' 2>&1 | Out-Null
-$dataUntouchedStaged = ($LASTEXITCODE -eq 0)
-Add-Result 'src\data\organizations.ts is untouched by this feature' `
-  ($dataUntouchedUnstaged -and $dataUntouchedStaged) `
-  ("unstaged clean: $dataUntouchedUnstaged; staged clean: $dataUntouchedStaged")
+$layerLeaks = New-Object System.Collections.ArrayList
+foreach ($f in @('src\data\onramps.ts', 'src\data\pathways.ts')) {
+  if (-not (Test-Path $f)) { continue }
+  foreach ($line in (Get-Content $f -Encoding UTF8)) {
+    $trimmed = $line.Trim()
+    if ($trimmed.StartsWith('//') -or $trimmed.StartsWith('*') -or $trimmed.StartsWith('/*')) { continue }
+    if ($line -match 'https?://') { [void]$layerLeaks.Add($f + ': ' + $trimmed) }
+  }
+}
+Add-Result 'the onramp/pathway layer stores navigation, not organization facts' ($layerLeaks.Count -eq 0) `
+  ("$($layerLeaks.Count) URL(s) found outside comments in the tool layer")
+$layerLeaks | ForEach-Object { '      ' + $_ }
 
 # ---------------------------------------------------------------- 23. pathways
 $pathwaysSrc = Get-Content 'src\data\pathways.ts' -Raw -Encoding UTF8

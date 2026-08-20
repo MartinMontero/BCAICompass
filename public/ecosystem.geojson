@@ -2203,9 +2203,9 @@
         "category": "Community & Convening",
         "orgType": "community-group",
         "region": "Metro Vancouver",
-        "url": "https://bc-ai.ca/communities",
-        "location": "Vancouver",
-        "sourceUrl": "https://bc-ai.ca/communities",
+        "url": "https://bc-ai.ca/communities/vancouver-ai",
+        "location": "Vancouver — H.R. MacMillan Space Centre, 1100 Chestnut St",
+        "sourceUrl": "https://bc-ai.ca/communities/vancouver-ai",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
@@ -2245,16 +2245,108 @@
       },
       "properties": {
         "id": "cv-ai-comox-valley-ai",
-        "name": "CV + AI — Comox Valley AI",
+        "name": "CV + AI — Comox Valley AI Community Meetup",
         "category": "Community & Convening",
         "orgType": "community-group",
         "region": "Vancouver Island & Coast",
-        "url": "https://bc-ai.ca/communities",
+        "url": "https://bc-ai.ca/communities/comox-valley",
         "location": "Comox Valley",
-        "sourceUrl": "https://bc-ai.ca/communities",
+        "sourceUrl": "https://bc-ai.ca/communities/comox-valley",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://places.canadamaps.com/british-columbia/courtenay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "bc-ai-film-club",
+        "name": "BC + AI Film Club",
+        "category": "Community & Convening",
+        "orgType": "community-group",
+        "region": "Metro Vancouver",
+        "url": "https://bc-ai.ca/communities/film-club",
+        "location": "Vancouver",
+        "sourceUrl": "https://bc-ai.ca/communities/film-club",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "mind-ai-and-consciousness",
+        "name": "Mind, AI and Consciousness (MAC)",
+        "category": "Community & Convening",
+        "orgType": "community-group",
+        "region": "Metro Vancouver",
+        "url": "https://bc-ai.ca/communities/mac",
+        "location": "Vancouver",
+        "sourceUrl": "https://bc-ai.ca/communities/mac",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ai-ethical-futures-lab",
+        "name": "AI Ethical Futures Lab",
+        "category": "Community & Convening",
+        "orgType": "community-group",
+        "region": "Metro Vancouver",
+        "url": "https://bc-ai.ca/communities/futures-lab",
+        "location": "Vancouver — Parker Street Studios",
+        "sourceUrl": "https://bc-ai.ca/communities/futures-lab",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "life-sciences-and-ai",
+        "name": "Life Sciences & AI",
+        "category": "Community & Convening",
+        "orgType": "community-group",
+        "region": "Metro Vancouver",
+        "url": "https://bc-ai.ca/communities/life-sciences-ai",
+        "location": "Vancouver — 6151 Collingwood Pl",
+        "sourceUrl": "https://bc-ai.ca/communities/life-sciences-ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
       }
     },
     {
@@ -2531,6 +2623,236 @@
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.272224,
+          50.702221
+        ]
+      },
+      "properties": {
+        "id": "4ag-robotics",
+        "name": "4AG Robotics",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Thompson-Okanagan",
+        "url": "https://4ag.ai",
+        "location": "Salmon Arm",
+        "sourceUrl": "https://4ag.ai/contact",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/salmon-arm-bc-canada-29193.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.329773,
+          48.407326
+        ]
+      },
+      "properties": {
+        "id": "marinelabs",
+        "name": "MarineLabs Data Systems",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Vancouver Island & Coast",
+        "url": "https://marinelabs.io",
+        "location": "Victoria — 2100 Douglas St",
+        "sourceUrl": "https://marinelabs.io/contact",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "trulioo",
+        "name": "Trulioo",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.trulioo.com",
+        "location": "Vancouver — 400-114 E. Fourth Ave",
+        "sourceUrl": "https://www.trulioo.com/contact",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "zymeworks",
+        "name": "Zymeworks",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.zymeworks.com",
+        "location": "Vancouver — 114 East 4th Avenue, Suite 800",
+        "sourceUrl": "https://www.zymeworks.com/contact/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.066666,
+          49.316666
+        ]
+      },
+      "properties": {
+        "id": "jane-software",
+        "name": "Jane Software",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://jane.app",
+        "location": "North Vancouver",
+        "sourceUrl": "https://jane.app/contact",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/north-vancouver-bc-canada-29179.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "minesense",
+        "name": "MineSense Technologies",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.minesense.com",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.minesense.com/about-us/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "dapper-labs",
+        "name": "Dapper Labs",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://www.dapperlabs.com",
+        "location": "Vancouver",
+        "sourceUrl": "https://www.dapperlabs.com/careers",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.25257,
+          49.05798
+        ]
+      },
+      "properties": {
+        "id": "ufv-computing",
+        "name": "University of the Fraser Valley — School of Computing",
+        "category": "Talent & Education",
+        "orgType": "university-or-lab",
+        "region": "Fraser Valley",
+        "url": "https://www.ufv.ca/computing/",
+        "location": "Abbotsford — 33844 King Road",
+        "sourceUrl": "https://www.ufv.ca/computing/",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/abbotsford-bc-canada-29122.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.659444,
+          49.323889
+        ]
+      },
+      "properties": {
+        "id": "selkirk-college",
+        "name": "Selkirk College",
+        "category": "Talent & Education",
+        "orgType": "university-or-lab",
+        "region": "Kootenay",
+        "url": "https://selkirk.ca/programs/digital-technology",
+        "location": "Castlegar — 301 Frank Beinder Way",
+        "sourceUrl": "https://selkirk.ca/programs/digital-technology",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/castlegar-bc-canada-29135.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.749443,
+          53.916943
+        ]
+      },
+      "properties": {
+        "id": "college-of-new-caledonia",
+        "name": "College of New Caledonia",
+        "category": "Talent & Education",
+        "orgType": "university-or-lab",
+        "region": "Cariboo",
+        "url": "https://cnc.bc.ca",
+        "location": "Prince George — 3330 22nd Ave",
+        "sourceUrl": "https://cnc.bc.ca/programs-courses/program/computer-network-electronics-technician",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/prince-george-bc-canada-29186.html"
       }
     },
     {

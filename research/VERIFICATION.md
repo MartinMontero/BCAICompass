@@ -805,6 +805,115 @@ that no component may reach past its tokens, would have shipped silently.**
 
 ---
 
+## 11B. The community layer and the company skew — 2026-08-19
+
+### 11B.1 The BC + AI community layer is now complete
+
+`bc-ai.ca/communities` documents nine rooms with their own pages. The dataset
+carried three. All nine are now records, each read from its **own canonical page**
+rather than the shared index.
+
+| Room | Page | Evidence quote |
+|---|---|---|
+| Vancouver AI | `/communities/vancouver-ai` | "H.R. MacMillan Space Centre, 1100 Chestnut St, Vancouver, BC V6J 3J9, Canada" |
+| CV + AI — Comox Valley | `/communities/comox-valley` | "Comox Valley / Vancouver Island" |
+| FV+AI — Fraser Valley | `/communities/fraser-valley-ai` | *(already correct — untouched)* |
+| BC + AI Film Club | `/communities/film-club` | "Vancouver" |
+| Mind, AI and Consciousness (MAC) | `/communities/mac` | "Vancouver" |
+| Ed + AI: Education Meetup | `/communities/ai-education` | "Comox Valley" |
+| AI Ethical Futures Lab | `/communities/futures-lab` | "Vancouver" |
+| Life Sciences & AI | `/communities/life-sciences-ai` | "6151 Collingwood Pl, Vancouver, BC V6N 1V2, Canada" |
+| AI Creativity + Design | `/communities/ai-creativity-design` | "Vancouver" |
+
+Vancouver AI and CV + AI were re-pointed from the generic index to their own pages,
+which is what made a real venue quote available; both were quote-pending before and
+are not now. **Community & Convening went from 5 records to 11.**
+
+**Four of these quotes are the weakest form this project accepts: a bare city name.**
+The Film Club, MAC, Futures Lab and AI Creativity + Design pages carry no address
+and no regional statement, so "Vancouver" is the whole of what ties them to British
+Columbia in their own words. It is verbatim and it is checkable, which is the bar —
+but it is thin, and saying so here is better than letting a green stamp imply more
+than the page supports.
+
+**Ed + AI's partnership with Ethọ́s Lab is stated because its own page states it** —
+"a consent-first learning circle with Ethọ́s Lab", naming Ethọ́s Lab as the public
+partner. Had only the index mentioned it, it would not have been asserted.
+
+**AI Creativity + Design is recorded as forming, in the page's own words** — "forming
+group; first-session cadence not confirmed", no host names confirmed publicly. It is
+carried rather than omitted because a group that says plainly what it has not settled
+is exactly the kind of record this directory should be able to hold. Its region stays
+`Province-wide`: asserting a seat for it would invent the one thing it says it lacks.
+
+**Applied & Industrial AI and Data & Security were NOT added.** The communities page
+files both under "Still forming" and calls them "seeds, not programs", with no host
+and no cadence. A seed is not an organization.
+
+### 11B.2 Surrey and Squamish — the conflict, so it is never re-litigated
+
+This has consumed three QA passes. All four sources are named here so the next one
+starts from the evidence rather than from scratch.
+
+| Source | What it says |
+|---|---|
+| **`bc-ai.ca/communities`, chapter list** | Names **exactly three** chapters: Vancouver AI, FV+AI, CV+AI. Neither Surrey nor Squamish appears. |
+| **`bc-ai.ca/communities`, one sentence higher** | "Vancouver is the origin point. Surrey and Comox Valley show the model travelling into different communities" — which **contradicts the list directly beneath it**. |
+| **`bc-ai.ca` About page** | Says chapters launched in **Surrey, Squamish and the Comox Valley**. |
+| **`bc-ai.ca/events/series/surrey-ai`** | Presents Surrey AI as a **monthly event series**, three gatherings captured June–September 2025, whose momentum became FV+AI. |
+
+**Resolution: follow the chapter list. Three chapters. No Surrey record, no Squamish
+record.** The list is the most specific and most recent statement, the Surrey series
+page independently explains what Surrey actually was, and the prose sentence and the
+About page are the two that cannot both be reconciled with it.
+
+**This is recorded rather than resolved silently** because a future reader who finds
+the About page first will otherwise conclude the dataset is missing two chapters. It
+is not. It is following the one source that enumerates them.
+
+### 11B.3 The composition skew, corrected in part
+
+The full before-and-after is in [COVERAGE.md](COVERAGE.md) §4. The short version:
+
+- **Companies & Applied AI: 11 → 18.**
+- **Talent & Education: 3 → 6.**
+- **Community & Convening: 5 → 11.**
+- **Academic share: 61% → 54%**, with **no academic record added** — the denominator
+  moved instead, which is the right shape for this fix.
+- **Fraser Valley, Kootenay and Cariboo each went from 1 record to 2.**
+
+**The method change is what did it.** Every company added came from a contact page, a
+careers page or a campus footer — a page whose job is to state a city — and not one
+from a marketing homepage. That was COVERAGE.md's own prediction and it held.
+
+The two highest-value additions were not companies at all. **Selkirk College** in
+Castlegar and the **College of New Caledonia** in Prince George each put a training
+record into a region that had exactly one, and both were single fetches: a campus
+footer states an address whether or not the institution is trying to sell you
+anything.
+
+**Failures, recorded rather than softened:**
+
+| Candidate | Why it is not a record |
+|---|---|
+| **1QBit** | `/contact/` returns 404; the homepage carries no city, province or address anywhere including the footer. Quantum work confirmed, BC presence not. |
+| **BrainStation** | Its **own Vancouver campus page does not name Vancouver** — no city, no address. A campus page that will not state its campus city cannot pass. |
+| **Semios** | `/contact-us/` returned HTTP 403 to automated fetch, as on the earlier pass. Blocked, not absent. |
+| **Coast Mountain College** | Second attempt at the empty region. Its AI library guide names no city or address at all. **North Coast & Nechako still holds zero records** — see [COVERAGE.md](COVERAGE.md) §1.1. |
+
+**Zymeworks and MineSense are listed with no AI claim.** Both contact pages state a
+Vancouver head office and neither describes AI or machine-learning work, so their
+descriptions say exactly that. Inclusion is an ecosystem judgement under the corrected
+scope; it is not licence to put words in a company's mouth.
+
+**4AG Robotics is the flag paying off.** Its predecessor-dataset domain,
+`4agrobotics.com`, is one of the two confirmed parked domain-sale pages behind
+`synthesized-url`. The company is real, in Salmon Arm, and its actual domain is
+`4ag.ai` — found by search, verified from its own contact page. A flag that says "this
+URL is a hint, not an answer" is what kept the company from being written off.
+
+---
+
 ## 12. What the next person should do first
 
 1. **Fix the composition skew.** Verify 30–40 BC companies. The bottleneck is

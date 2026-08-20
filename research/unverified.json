@@ -45,14 +45,14 @@
         "id":  "1qbit",
         "name":  "1QBit",
         "name_raw":  "1QBit",
-        "url":  null,
-        "url_kind":  null,
-        "category_raw":  "Academic \u0026 Research Labs",
-        "source":  "bc-ai--ecosystem-map@database-backup-2025-08-04",
+        "url":  "https://1qbit.com",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
         "status":  "unverified",
-        "reason":  "No usable http(s) URL in the source, so there was nothing to resolve. Not checked in this pass.",
+        "reason":  "Legally 1QB Information Technologies Inc. Its /contact/ path returns HTTP 404 and its homepage, read 2026-08-19, carries no city, province or address anywhere including the footer -- only a copyright line. Quantum design work is confirmed on the page; BC presence is not. One first-party page naming Vancouver would settle it.",
         "flags":  [
-                      "no-url"
+
                   ]
     },
     {
@@ -3379,6 +3379,20 @@
                   ]
     },
     {
+        "id":  "brainstation",
+        "name":  "BrainStation",
+        "name_raw":  "BrainStation",
+        "url":  "https://brainstation.io/campus/vancouver",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "unverified",
+        "reason":  "Its own Vancouver campus page, read 2026-08-19, names AI and data-science certifications but contains NO mention of Vancouver, British Columbia or any address -- on the page whose whole purpose is that campus. A national bootcamp chain whose campus page will not state the campus city cannot be verified under this project rules. Worth retrying against a location or contact page.",
+        "flags":  [
+
+                  ]
+    },
+    {
         "id":  "break-and-make-robotics",
         "name":  "Break \u0026 Make Robotics",
         "name_raw":  "Break \u0026 Make Robotics",
@@ -4440,6 +4454,20 @@
                   ]
     },
     {
+        "id":  "coast-mountain-college",
+        "name":  "Coast Mountain College",
+        "name_raw":  "Coast Mountain College",
+        "url":  "https://libguides.coastmountaincollege.ca/artificial-intelligence",
+        "url_kind":  "website",
+        "category_raw":  null,
+        "source":  "checked-2026-08-19",
+        "status":  "unverified",
+        "reason":  "SECOND ATTEMPT at the only region with zero records. Its AI library guide, read 2026-08-19, describes \"A look at artificial intelligence: what it is and how to use it ethically in your work\" but names NO city, campus or BC address anywhere on the page. The college homepage confirmed campuses at Terrace, Prince Rupert, Smithers, Hazelton and Haida Gwaii but stated no AI activity. North Coast \u0026 Nechako therefore still holds no record. See COVERAGE.md section 1.1.",
+        "flags":  [
+
+                  ]
+    },
+    {
         "id":  "coast-salish-gan",
         "name":  "Coast Salish GAN",
         "name_raw":  "Coast Salish GAN",
@@ -5399,20 +5427,6 @@
         "reason":  "Name appears in the 2025-10-19 quality report and not in the 2025-08-04 dump, so it was added to the source database between those dates. No URL, no location and no field values are available anywhere in the reference repository. Not checked in this pass.",
         "flags":  [
                       "no-url"
-                  ]
-    },
-    {
-        "id":  "dapper-labs",
-        "name":  "Dapper Labs",
-        "name_raw":  "Dapper Labs",
-        "url":  "https://www.dapperlabs.com/",
-        "url_kind":  "website",
-        "category_raw":  "Crypto Unicorn",
-        "source":  "bc-ai--ecosystem-map@database-backup-2025-08-04",
-        "status":  "unverified",
-        "reason":  "Structurally intact candidate with a website URL, not reached in this verification pass. Note that AUDIT.md section 2.3 found the source URL for 176 of 403 such rows to be derivable character-for-character from the organization name, so the URL is a hint and must be re-resolved independently, not trusted.",
-        "flags":  [
-                      "synthesized-url"
                   ]
     },
     {
@@ -18952,20 +18966,6 @@
                   ]
     },
     {
-        "id":  "trulioo",
-        "name":  "Trulioo",
-        "name_raw":  "Trulioo",
-        "url":  "https://www.trulioo.com/",
-        "url_kind":  "website",
-        "category_raw":  "AI Companies",
-        "source":  "bc-ai--ecosystem-map@database-backup-2025-08-04",
-        "status":  "unverified",
-        "reason":  "Structurally intact candidate with a website URL, not reached in this verification pass. Note that AUDIT.md section 2.3 found the source URL for 176 of 403 such rows to be derivable character-for-character from the organization name, so the URL is a hint and must be re-resolved independently, not trusted.",
-        "flags":  [
-                      "synthesized-url"
-                  ]
-    },
-    {
         "id":  "trumotion-tech",
         "name":  "TruMotion Tech",
         "name_raw":  "TruMotion Tech",
@@ -20993,20 +20993,6 @@
         "reason":  "Structurally intact candidate with a website URL, not reached in this verification pass. Note that AUDIT.md section 2.3 found the source URL for 176 of 403 such rows to be derivable character-for-character from the organization name, so the URL is a hint and must be re-resolved independently, not trusted.",
         "flags":  [
 
-                  ]
-    },
-    {
-        "id":  "zymeworks",
-        "name":  "Zymeworks",
-        "name_raw":  "Zymeworks",
-        "url":  null,
-        "url_kind":  null,
-        "category_raw":  "Enterprise / Corporate Divisions",
-        "source":  "bc-ai--ecosystem-map@database-backup-2025-08-04",
-        "status":  "unverified",
-        "reason":  "No usable http(s) URL in the source, so there was nothing to resolve. Not checked in this pass.",
-        "flags":  [
-                      "no-url"
                   ]
     }
 ]
