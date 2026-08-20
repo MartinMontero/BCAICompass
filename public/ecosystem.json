@@ -6,9 +6,9 @@
   "method": "Every record was independently verified: its website resolved and was live, its British Columbia presence was confirmed from its own site or a primary source, and its category was assigned from content actually read. sourceUrl names the page read; sourceDate is the day it was read. evidenceQuote is a short verbatim string copied from that page — open sourceUrl, search for the quote, and the record is confirmed or exposed. Records with evidenceQuote null carry a quote-pending flag: sourced, but not yet spot-checkable. Nothing here was carried forward from a prior dataset. Coordinates are municipal centroids, sourced in geoSourceUrl, not street addresses.",
   "scope": "This maps the whole ecosystem around AI in British Columbia, not only organizations that build AI. An organization is in scope when it funds, houses, teaches, convenes, governs, represents, powers or otherwise materially supports AI work in BC, and that can be sourced. An industry association does not have to do AI to be part of the AI ecosystem.",
   "coverage": "A region or category showing zero here has NOT been surveyed to a conclusion. It is not a finding that nothing exists there. research/unverified.json records what remains unsearched.",
-  "quotePending": 37,
+  "quotePending": 36,
   "affiliation": "BC AI Compass is a BC + AI Ecosystem Association project, built by Martin Montero as his contribution to it. The BC + AI Ecosystem Association is listed in this directory. No other organization listed here is a partner, funder or endorser of this project, and no listing is paid for or sponsored.",
-  "count": 117,
+  "count": 118,
   "categories": [
     "Compute & Infrastructure",
     "Research & Academia",
@@ -42,7 +42,7 @@
     "Compute & Infrastructure": 13,
     "Research & Academia": 72,
     "Companies & Applied AI": 11,
-    "Public Sector & Policy": 5,
+    "Public Sector & Policy": 6,
     "Capital & Accelerators": 8,
     "Talent & Education": 3,
     "Community & Convening": 5
@@ -51,7 +51,7 @@
     "Metro Vancouver": 81,
     "Fraser Valley": 1,
     "Vancouver Island & Coast": 15,
-    "Thompson-Okanagan": 10,
+    "Thompson-Okanagan": 11,
     "Kootenay": 1,
     "Cariboo": 1,
     "North Coast & Nechako": 0,
@@ -2353,23 +2353,21 @@
       "category": "Community & Convening",
       "orgType": "community-group",
       "region": "Fraser Valley",
-      "url": "https://bc-ai.ca/communities",
+      "url": "https://bc-ai.ca/communities/fraser-valley-ai",
       "location": "Fraser Valley — Langley to Chilliwack",
-      "description": "A Fraser Valley home base for practical talks, local demos and people to build with, covering Langley to Chilliwack.",
+      "description": "BC + AI's Fraser Valley regional chapter, covering Langley to Chilliwack, with talks, demos and food. Grew out of the Surrey AI meetup series, whose page describes the room as having had its own gravity south of the Fraser. Its first official gathering is 9 September in Langley.",
       "size": null,
       "orgStatus": null,
-      "keyPeople": null,
+      "keyPeople": "Darren Coleman, local lead",
       "lat": 49.10416,
       "lng": -122.65833,
       "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html",
-      "sourceUrl": "https://bc-ai.ca/communities",
-      "evidenceQuote": null,
+      "sourceUrl": "https://bc-ai.ca/communities/fraser-valley-ai",
+      "evidenceQuote": "Practical, responsible AI for the Fraser Valley, with a local room",
       "sourceDate": "2026-08-19",
       "verified": "2026-08",
       "status": "verified",
-      "flags": [
-        "quote-pending"
-      ]
+      "flags": []
     },
     {
       "id": "cv-ai-comox-valley-ai",
@@ -2689,6 +2687,28 @@
       "flags": [
         "quote-pending"
       ]
+    },
+    {
+      "id": "city-of-kelowna",
+      "name": "City of Kelowna",
+      "category": "Public Sector & Policy",
+      "orgType": "government-or-crown",
+      "region": "Thompson-Okanagan",
+      "url": "https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives",
+      "location": "Kelowna",
+      "description": "Municipal government running a suite of AI chatbots under its Intelligent City Strategy, including Building Permit Chatbots that guide users through the permit process and a Fast Track Infill Housing Bot that checks property eligibility and design options. Recognised with an IABC Gold Quill in the Strategic Artificial Intelligence category, an MSDO Excellence in Innovation Award for the Building Permit Chatbots, and a MISA BC Spirit of Innovation Award.",
+      "size": null,
+      "orgStatus": "active",
+      "keyPeople": null,
+      "lat": 49.882114,
+      "lng": -119.477829,
+      "geoSourceUrl": "https://www.latlong.net/place/kelowna-bc-canada-1354.html",
+      "sourceUrl": "https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives",
+      "evidenceQuote": "MISA BC Spirit of Innovation Award - Service & efficiency with AI chatbots.",
+      "sourceDate": "2026-08-19",
+      "verified": "2026-08",
+      "status": "verified",
+      "flags": []
     }
   ]
 }

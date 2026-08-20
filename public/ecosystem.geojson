@@ -2226,9 +2226,9 @@
         "category": "Community & Convening",
         "orgType": "community-group",
         "region": "Fraser Valley",
-        "url": "https://bc-ai.ca/communities",
+        "url": "https://bc-ai.ca/communities/fraser-valley-ai",
         "location": "Fraser Valley — Langley to Chilliwack",
-        "sourceUrl": "https://bc-ai.ca/communities",
+        "sourceUrl": "https://bc-ai.ca/communities/fraser-valley-ai",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
@@ -2554,6 +2554,29 @@
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.477829,
+          49.882114
+        ]
+      },
+      "properties": {
+        "id": "city-of-kelowna",
+        "name": "City of Kelowna",
+        "category": "Public Sector & Policy",
+        "orgType": "government-or-crown",
+        "region": "Thompson-Okanagan",
+        "url": "https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives",
+        "location": "Kelowna",
+        "sourceUrl": "https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/kelowna-bc-canada-1354.html"
       }
     }
   ]
