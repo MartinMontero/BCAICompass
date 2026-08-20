@@ -401,6 +401,8 @@ const QUOTE: Record<string, string> = {
   'https://www.viatec.ca': '777 Fort Street, Victoria BC V8W 1G9',
   'https://www.newventuresbc.com': 'Suite #810, 1055 Dunsmuir Street, Vancouver, BC V7X 1J1',
   'https://www.innovatebc.ca': 'Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Vancouver, BC',
+  'https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives':
+    'MISA BC Spirit of Innovation Award - Service & efficiency with AI chatbots.',
 };
 
 /**
@@ -2171,6 +2173,30 @@ const RECORDS: Organization[] = [
       'Youth STEAM academy in Vancouver running afterschool project-based programs and in-school activations for youth in Grades 5–12, grounding its approach in the African philosophy of Ubuntu.',
     size: null,
     sourceUrl: 'https://www.ethoslab.ca/',
+    ...V,
+    orgStatus: 'active',
+  },
+
+  // Kelowna's AI chatbots are widely reported as the first of their kind in a
+  // Canadian municipality, and secondary sources attribute an October 2023 launch,
+  // a $350,000 provincial grant, Microsoft and RSM Canada as partners, and a
+  // 25-40% drop in frontline inquiries. NONE of that is on the page read here, so
+  // none of it is in this record. kelowna.ca returned HTTP 403 to the earlier
+  // automated pass (see COVERAGE.md section 3); it was fetched successfully on
+  // 2026-08-19 and the description below carries only what that page states.
+  {
+    ...CITY.kelowna,
+    id: 'city-of-kelowna',
+    name: 'City of Kelowna',
+    category: 'Public Sector & Policy',
+    orgType: 'government-or-crown',
+    url: 'https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives',
+    location: 'Kelowna',
+    description:
+      'Municipal government running a suite of AI chatbots under its Intelligent City Strategy, including Building Permit Chatbots that guide users through the permit process and a Fast Track Infill Housing Bot that checks property eligibility and design options. Recognised with an IABC Gold Quill in the Strategic Artificial Intelligence category, an MSDO Excellence in Innovation Award for the Building Permit Chatbots, and a MISA BC Spirit of Innovation Award.',
+    size: null,
+    sourceUrl:
+      'https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives',
     ...V,
     orgStatus: 'active',
   },
