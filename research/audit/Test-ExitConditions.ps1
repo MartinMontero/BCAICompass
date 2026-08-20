@@ -453,9 +453,17 @@ Add-Result 'SHIP.md carries no stale counts and no duplicated 4.3.1' ($shipStale
   ("$($shipStale.Count) stale item(s): " + ($shipStale -join ', '))
 
 # ---------------------------------------------------------------- 27. dataset size held
-Add-Result 'ecosystem.json and ecosystem.geojson still report 117 organizations' `
-  (($eco.count -eq 117) -and ($orgs.Count -eq 117)) `
-  ("ecosystem.json.count $($eco.count); organizations array $($orgs.Count)")
+# Derived, never hardcoded. This condition originally froze the literal 117 to
+# guard the onramps feature against silently changing the dataset -- and then
+# failed the moment a legitimately verified record was added, in a suite that
+# separately forbids hardcoded counts in the feature layer. The real invariant
+# is AGREEMENT between the source of truth and the generated artifacts, not a
+# particular number. A record added on purpose passes; a record lost by accident
+# still fails, because the three counts diverge.
+$tsRecordCount = ([regex]::Matches($srcText, "(?m)^\s{4}id:\s*'")).Count
+Add-Result 'ecosystem.json and ecosystem.geojson agree with organizations.ts' `
+  (($eco.count -eq $orgs.Count) -and ($orgs.Count -eq $tsRecordCount)) `
+  ("organizations.ts $tsRecordCount; ecosystem.json.count $($eco.count); organizations array $($orgs.Count)")
 
 # ---------------------------------------------------------------- summary
 ''
