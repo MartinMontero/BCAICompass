@@ -16,7 +16,7 @@ Set-Location C:\Users\User\dev\BCAICompass
 powershell -NoProfile -File .\research\audit\Test-ExitConditions.ps1 -CleanInstall
 ```
 
-**All 17 conditions must read PASS.** If any reads FAIL, stop — the failure is the
+**All exit conditions must read PASS.** If any reads FAIL, stop — the failure is the
 work, not the deploy.
 
 Note the `-CleanInstall` switch stops any `npm run dev` vite server running against
@@ -60,7 +60,7 @@ says what to look for.
    nowhere useful.
 7. **Save and Deploy.** Watch the log. You are looking for two lines, in order:
    ```
-   export-data: OK — 104 verified organizations, 98 with sourced coordinates.
+   export-data: OK — 117 verified organizations, 111 with sourced coordinates.
    ✓ built in ...
    ```
    If the first line is missing, `prebuild` did not run — go back to step 5 and
@@ -258,14 +258,6 @@ the 400 MW figure against an earlier Province framework page describing 300 MW A
 100 MW data centre plus 200 MW hydrogen, and that conflict should be resolvable once
 awards are public.
 
-### 4.3.1 The other scheduled trigger
-
-
-
-**BC Hydro notifies successful applicants for the 400 MW AI and data-centre
-allocation in September 2026.** 15 applications totalling roughly 800 MW were
-reported against 400 MW available, so roughly half will be refused.
-
 **Re-verify every `Compute & Infrastructure` record within two weeks of that
 announcement.** It will change this map more than anything else on the horizon, and
 a data-centre record that silently goes stale is the most misleading kind this
@@ -273,9 +265,10 @@ dataset can carry.
 
 ### 4.4 The concentration risk to watch
 
-59 of 104 records rest on 16 institutional pages. **If UBC restructures its research
-site, a fifth of the dataset loses its source at once** — and the records will still
-render, still stamped, still linking a dead URL.
+82 of 117 records rest on 16 institutional pages, and the largest single page carries
+12 of them. **If UBC restructures its research site, a tenth of the dataset loses its
+source at once** — and the records will still render, still stamped, still linking a
+dead URL.
 
 Check for that specifically, every cycle:
 

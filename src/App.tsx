@@ -1,15 +1,26 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Nav from './components/Nav';
 import Marquee from './components/Marquee';
 import Hero from './sections/Hero';
+import Onramps from './sections/Onramps';
 import EcosystemMap from './sections/EcosystemMap';
 import Directory from './sections/Directory';
+import Pathways from './sections/Pathways';
 import Regions from './sections/Regions';
 import Mission from './sections/Mission';
 import Contribute from './sections/Contribute';
 import Footer from './sections/Footer';
+import type { Preset } from './data/preset';
 
 export default function App() {
+  /**
+   * The active onramp or pathway, shared by the map and the directory so the two
+   * always show the same slice. One slot, so an onramp and a pathway cannot both
+   * be active — setting either replaces the other with no bookkeeping.
+   */
+  const [preset, setPreset] = useState<Preset>(null);
+  const clearPreset = useCallback(() => setPreset(null), []);
+
   useEffect(() => {
     let fired = false;
     const io = new IntersectionObserver(
@@ -52,8 +63,10 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
-        <EcosystemMap />
-        <Directory />
+        <Onramps onPreset={setPreset} />
+        <EcosystemMap preset={preset} onClearPreset={clearPreset} />
+        <Directory preset={preset} onClearPreset={clearPreset} />
+        <Pathways onPreset={setPreset} />
         <Regions />
         <Mission />
         <Contribute />

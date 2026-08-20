@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
 const LINKS = [
-  { n: '01', label: 'THE MAP', href: '#map' },
-  { n: '02', label: 'THE DIRECTORY', href: '#directory' },
-  { n: '03', label: 'THE REGIONS', href: '#regions' },
-  { n: '04', label: 'THE METHOD', href: '#method' },
-  { n: '05', label: 'CONTRIBUTE', href: '#contribute' },
+  { n: '01', label: 'START HERE', href: '#start' },
+  { n: '02', label: 'THE MAP', href: '#map' },
+  { n: '03', label: 'THE DIRECTORY', href: '#directory' },
+  { n: '04', label: 'PATHWAYS', href: '#pathways' },
+  { n: '05', label: 'THE REGIONS', href: '#regions' },
+  { n: '06', label: 'THE METHOD', href: '#method' },
+  { n: '07', label: 'CONTRIBUTE', href: '#contribute' },
 ];
 
 export default function Nav() {

@@ -719,6 +719,92 @@ reader was run.
 
 ---
 
+## 11A. The ecosystem-tool layer — 2026-08-19
+
+The Compass organized around what EXISTS and WHERE. This pass adds the layer that
+organizes around what a visitor wants to DO, answering a direct critique: *"you once
+again turned an ecosystem tool into an online filing cabinet."*
+
+**`src\data\organizations.ts` was not touched — not one byte.** A gate now runs
+`git diff --quiet` against it, staged and unstaged, on every verification run. The
+whole feature is a layer over the records, and if a route had ever needed a record
+bent to make it work, the route would have been describing the tool rather than the
+province.
+
+### 11A.1 Onramps
+
+Six doors named after what a visitor came to do. Every number on every card is
+computed from `ORGANIZATIONS` at render — no count is stored anywhere in
+`onramps.ts`, and a gate rejects a literal count reaching either new component. A
+hardcoded "32 verified records" would be correct today and quietly wrong the next
+time a record lands, which is this project's own failure mode running slower.
+
+### 11A.2 Pathways, and what could not be resolved
+
+Four routes, stops resolved from the live dataset by id. **Two named stops have no
+record and were omitted rather than invented:**
+
+| Named in the brief | Pathway | Why it is not a stop |
+|---|---|---|
+| **First Peoples' Cultural Council** | P3 The Indigenous AI Route | No verified record exists. Brentwood Bay, FirstVoices, and the "AI for Indigenous Language Revitalization" publication are recorded in [GAPS.md](GAPS.md) as a lead, never verified. P3 ships with 4 stops. |
+| **Surrey** | P4 The Chapter Circuit | The blurb names Vancouver, Surrey, the Fraser Valley and the Comox Valley, but no Surrey chapter is a verified record — BC + AI's own About page and press kit disagree about whether Surrey is launched, and that conflict is recorded in [GOVERNMENT-LAYER.md](GOVERNMENT-LAYER.md)-adjacent notes rather than resolved. P4 ships with 3 stops, its stated minimum. |
+
+**Neither gap was filled by creating a record.** `pathways.ts` drops unresolvable
+stops and excludes any pathway left under three, so a route can never render a blank
+or pad itself with a loosely related organization.
+
+The **P2 note** — "BC Hydro decides the power behind all of this in September 2026" —
+is the one factual claim in pathway copy. It is supported by
+[GOVERNMENT-LAYER.md](GOVERNMENT-LAYER.md), which records that BC Hydro notifies
+successful applicants for the 400 MW allocation in mid-September 2026, and a gate
+checks the note only ships while that support is present.
+
+### 11A.3 Browser verification
+
+| Check | Result |
+|---|---|
+| Onramps band renders between Hero and Method | **VERIFIED.** Section order is `top · start · map · directory · pathways · regions · method · contribute`. |
+| "Build something" filters map and directory to its three categories | **VERIFIED.** 32 rows in both; the directory contains exactly Compute & Infrastructure, Companies & Applied AI and Capital & Accelerators. Label reads `Showing: Build something (32)`. |
+| Thin "Learn the craft" card is in the not-yet-surveyed treatment and links to #contribute | **VERIFIED.** Renders as an `<a href="#contribute">` with a dashed border, reading `3 records so far` — the count derived, not typed. |
+| "Trace it on the map" draws the dashed line and filters to the route | **PARTLY VERIFIED.** The polyline renders with `class="leaflet-interactive bcac-trail"`, computed stroke `rgb(10, 100, 114)` — exactly `--accent` — and dash `2px, 9px`, switching to `rgb(52, 211, 230)` on the dark toggle. Map and directory both filter to the 7 corridor stops in route order, first `TELUS Kamloops AI Factory`, last `Upper Nicola Band AI data centre`. **The line's geometry is UNTESTED:** see §11A.4. |
+| Clicking a pathway stop selects that record on the map | **PARTLY VERIFIED.** Clicking `Bell AI Fabric Merritt` marks map row 005 `is-active`, so the existing `selected`/`FlyTo` mechanism receives it. **Popup opening is UNTESTED** — the record sits inside a Merritt cluster and its popup can only open once FlyTo has zoomed past the cluster, which needs a compositing viewport. |
+| Onramp and pathway presets clear each other; chips clear both | **VERIFIED.** Pathway → 4 rows; onramp replaces it → 32 rows and the `Tracing:` label is gone; a category chip clears the preset entirely; `Clear` restores. One nullable slot in `App.tsx` makes mutual exclusion structural rather than remembered. |
+| 380px viewport does not break either section | **VERIFIED.** Zero horizontal overflow; no element in either new section exceeds the viewport width. |
+| Keyboard reaches every onramp card, pathway control and stop | **VERIFIED.** 6 focusable onramp cards; 23 focusable controls in Pathways — 19 stops plus 4 trace buttons. |
+| No raw hex in the new components | **VERIFIED** by gate and by computed style: the trail's colour comes from `--accent` via CSS, never an inline value. |
+| Console clean | **VERIFIED after reload.** A `ReferenceError: trailRef is not defined` appears in the log between two hot updates — the JSX referencing the ref was saved a moment before the `useRef` declaring it. Absent after a full reload; the production build type-checks. Recorded rather than omitted, as with the same class of artifact in §11.9. |
+
+### 11A.4 What the browser could not test, and why
+
+**Scrolling is inert in this environment.** `window.scrollTo(0, 500)`,
+`documentElement.scrollTop = 900` and a bare `element.scrollIntoView()` all leave
+`scrollY` at `0`, on a document with `scrollHeight` 20205 against `clientHeight` 720.
+The Browser pane is not displayed, so the page is not compositing frames — the same
+condition that makes screenshots time out. **This is not a defect in the smooth-scroll
+calls; it is that nothing scrolls here at all.** The scroll-to-map behaviour on onramp
+and pathway selection is therefore **UNTESTED**. It uses the same
+`getElementById('map')?.scrollIntoView({ behavior: 'smooth' })` call the Regions
+section has shipped with since the first build.
+
+**Map geometry follows from the same limitation.** With no compositing, `fitBounds`
+cannot lay out against a real container: cluster markers report positions like
+`x: 84233, y: -162473`, far outside an 783×518 map, and the trail path collapses to a
+degenerate `M129 0L129 0`. So **"fits bounds to the route" and the drawn shape of the
+Kamloops-to-Nicola-Lake line are UNTESTED.** What *is* verified is everything that
+does not depend on layout: the correct 7 stops, in route order, with the correct
+styling on a real `<path>` element in the overlay pane.
+
+**One real bug was caught here that no other check would have found.** The trail was
+first written declaratively as `pathOptions={{ className: 'bcac-trail' }}`. The build
+passed, `tsc` passed, `eslint` passed — and the rendered path came back carrying only
+`leaflet-interactive` and Leaflet's default `stroke="#3388ff"`. Moving the class to a
+`ref` callback did not fix it either, because that fires when the layer instance is
+constructed, before Leaflet has built the `<path>`. It works from an effect, which
+runs after commit. **A line in the wrong colour, on a project whose design rule is
+that no component may reach past its tokens, would have shipped silently.**
+
+---
+
 ## 12. What the next person should do first
 
 1. **Fix the composition skew.** Verify 30–40 BC companies. The bottleneck is

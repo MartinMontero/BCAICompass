@@ -315,6 +315,19 @@ body {
   100% { box-shadow: 0 0 0 1.5px var(--marker-ring), 0 0 0 18px rgba(0, 0, 0, 0); }
 }
 
+/* ---------- pathway trail ---------- */
+/* Leaflet writes stroke as an SVG presentation attribute, where var() does not
+   resolve — so the polyline carries a className instead and the colour lives
+   here, in CSS, where the accent token works and follows the theme toggle. */
+.bcac-trail {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+
 /* ---------- map clusters ---------- */
 /* A cluster is a count, not a decoration. Sized by magnitude so the Lower
    Mainland reads as dense without swallowing the rest of the province. */

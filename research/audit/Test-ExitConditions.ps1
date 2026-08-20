@@ -356,6 +356,107 @@ foreach ($r in $uncoveredRegions) {
 Add-Result 'every region has a record or a written searched-conclusion' $allExplained `
   ("$($uncoveredRegions.Count) region(s) with zero records, all documented in COVERAGE.md: $allExplained")
 
+# ---------------------------------------------------------------------------
+# 22. The ecosystem-tool layer sits OVER the dataset and never inside it.
+# The onramp/pathway work is a layer of navigation; if it ever needed a record
+# changed to make a route work, the route would be describing the tool rather
+# than the province. git is the arbiter, not inspection.
+# ---------------------------------------------------------------------------
+git diff --quiet -- 'src\data\organizations.ts' 2>&1 | Out-Null
+$dataUntouchedUnstaged = ($LASTEXITCODE -eq 0)
+git diff --cached --quiet -- 'src\data\organizations.ts' 2>&1 | Out-Null
+$dataUntouchedStaged = ($LASTEXITCODE -eq 0)
+Add-Result 'src\data\organizations.ts is untouched by this feature' `
+  ($dataUntouchedUnstaged -and $dataUntouchedStaged) `
+  ("unstaged clean: $dataUntouchedUnstaged; staged clean: $dataUntouchedStaged")
+
+# ---------------------------------------------------------------- 23. pathways
+$pathwaysSrc = Get-Content 'src\data\pathways.ts' -Raw -Encoding UTF8
+$orgIds = @($orgs | ForEach-Object { $_.id })
+
+# Parse the draft stop lists straight out of the source, so the gate sees what the
+# author wrote rather than what the module chose to export after filtering.
+$stopBlocks = [regex]::Matches($pathwaysSrc, "stops:\s*\[(.*?)\]", 'Singleline')
+$allStops = New-Object System.Collections.ArrayList
+foreach ($b in $stopBlocks) {
+  foreach ($m in [regex]::Matches($b.Groups[1].Value, "'([^']+)'")) { [void]$allStops.Add($m.Groups[1].Value) }
+}
+$unresolved = @($allStops | Where-Object { $orgIds -notcontains $_ } | Select-Object -Unique)
+Add-Result 'every pathway stop id resolves to a record in ORGANIZATIONS' ($unresolved.Count -eq 0) `
+  ("$($allStops.Count) stop references across $($stopBlocks.Count) pathways; $($unresolved.Count) unresolved")
+$unresolved | ForEach-Object { '      unresolved stop id: ' + $_ }
+
+$shortPathways = @($stopBlocks | Where-Object {
+  ([regex]::Matches($_.Groups[1].Value, "'([^']+)'")).Count -lt 3
+})
+Add-Result 'every shipped pathway has at least 3 stops' ($shortPathways.Count -eq 0) `
+  ("$($stopBlocks.Count) pathways; $($shortPathways.Count) under 3 stops")
+
+# The BC Hydro note is a factual claim and may appear only while its source says so.
+$noteInPathways = $pathwaysSrc -match 'BC Hydro decides the power behind all of this in September 2026'
+$govLayer = if (Test-Path 'research\GOVERNMENT-LAYER.md') { Get-Content 'research\GOVERNMENT-LAYER.md' -Raw -Encoding UTF8 } else { '' }
+$govSupports = ($govLayer -match 'allocation in mid-September 2026') -and ($govLayer -match '400 MW')
+Add-Result 'the BC Hydro pathway note appears only if GOVERNMENT-LAYER.md supports it' `
+  ((-not $noteInPathways) -or $govSupports) `
+  ("note present: $noteInPathways; government layer supports it: $govSupports")
+
+# ---------------------------------------------------------------- 24. onramps
+$onrampsSrc = Get-Content 'src\data\onramps.ts' -Raw -Encoding UTF8
+$declaredCats = @($eco.categories)
+$onrampCats = @()
+foreach ($m in [regex]::Matches($onrampsSrc, "categories:\s*\[(.*?)\]", 'Singleline')) {
+  foreach ($c in [regex]::Matches($m.Groups[1].Value, "'([^']+)'")) { $onrampCats += $c.Groups[1].Value }
+}
+$onrampCats = @($onrampCats | Select-Object -Unique)
+$badCats = @($onrampCats | Where-Object { $declaredCats -notcontains $_ })
+Add-Result 'every onramp category is a member of CATEGORIES' ($badCats.Count -eq 0) `
+  ("$($onrampCats.Count) distinct categories referenced; $($badCats.Count) not in the union")
+$badCats | ForEach-Object { '      not a declared category: ' + $_ }
+
+# A hardcoded count is a fact that goes stale silently. Counts must be derived.
+$countLiterals = New-Object System.Collections.ArrayList
+foreach ($f in @('src\sections\Onramps.tsx', 'src\sections\Pathways.tsx', 'src\data\onramps.ts', 'src\data\pathways.ts')) {
+  if (-not (Test-Path $f)) { continue }
+  foreach ($line in (Get-Content $f -Encoding UTF8)) {
+    # Comments are not rendered, so a number in one cannot go stale on a visitor.
+    # Skipping them keeps the check pointed at the thing it actually cares about:
+    # a literal count reaching the page.
+    $trimmed = $line.Trim()
+    if ($trimmed.StartsWith('//') -or $trimmed.StartsWith('*') -or $trimmed.StartsWith('/*')) { continue }
+    # A bare number next to "record"/"organization"/"verified" in rendered text.
+    if ($line -match '\b\d{2,}\s*(verified|records?|organizations?)\b') { [void]$countLiterals.Add($f + ': ' + $trimmed) }
+  }
+}
+Add-Result 'no hardcoded record counts in the onramp or pathway layer' ($countLiterals.Count -eq 0) `
+  ("$($countLiterals.Count) suspect literal(s)")
+$countLiterals | ForEach-Object { '      ' + $_ }
+
+# ---------------------------------------------------------------- 25. no raw hex in new components
+$hexHits = New-Object System.Collections.ArrayList
+foreach ($f in @('src\sections\Onramps.tsx', 'src\sections\Pathways.tsx', 'src\data\onramps.ts', 'src\data\pathways.ts', 'src\data\preset.ts')) {
+  if (-not (Test-Path $f)) { continue }
+  foreach ($h in (Select-String -Path $f -Pattern '#[0-9a-fA-F]{3,8}\b')) {
+    [void]$hexHits.Add($f + ':' + $h.LineNumber)
+  }
+}
+Add-Result 'no raw hex colour in any new component' ($hexHits.Count -eq 0) ("$($hexHits.Count) hit(s)")
+$hexHits | ForEach-Object { '      ' + $_ }
+
+# ---------------------------------------------------------------- 26. SHIP.md freshness
+$ship = Get-Content 'research\SHIP.md' -Raw -Encoding UTF8
+$shipStale = New-Object System.Collections.ArrayList
+if ($ship -match '17 exit conditions' -or $ship -match 'All 17 conditions') { [void]$shipStale.Add('17 exit conditions') }
+if ($ship -match '104 organizations' -or $ship -match '104 verified organizations') { [void]$shipStale.Add('104 organizations') }
+if ($ship -match '(?m)^###\s*4\.3\.1') { [void]$shipStale.Add('duplicated 4.3.1') }
+if ($ship -match '59 of 104') { [void]$shipStale.Add('59 of 104 recount') }
+Add-Result 'SHIP.md carries no stale counts and no duplicated 4.3.1' ($shipStale.Count -eq 0) `
+  ("$($shipStale.Count) stale item(s): " + ($shipStale -join ', '))
+
+# ---------------------------------------------------------------- 27. dataset size held
+Add-Result 'ecosystem.json and ecosystem.geojson still report 117 organizations' `
+  (($eco.count -eq 117) -and ($orgs.Count -eq 117)) `
+  ("ecosystem.json.count $($eco.count); organizations array $($orgs.Count)")
+
 # ---------------------------------------------------------------- summary
 ''
 '=' * 78

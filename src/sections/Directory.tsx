@@ -8,27 +8,49 @@ import {
   type Category,
   type Region,
 } from '../data/organizations';
+import type { Preset } from '../data/preset';
 
 type CatFilter = 'All' | Category;
 type RegFilter = 'All' | Region;
 
-export default function Directory() {
+export default function Directory({
+  preset,
+  onClearPreset,
+}: {
+  preset: Preset;
+  onClearPreset: () => void;
+}) {
   const [cat, setCat] = useState<CatFilter>('All');
   const [reg, setReg] = useState<RegFilter>('All');
   const [q, setQ] = useState('');
+
+  // The same preset the map is showing, so picking an onramp moves both together
+  // instead of leaving the directory contradicting the map above it.
+  const presetCats = useMemo(
+    () => (preset?.kind === 'onramp' ? new Set<Category>(preset.categories) : null),
+    [preset]
+  );
+  const presetStops = useMemo(
+    () => (preset?.kind === 'pathway' ? new Set<string>(preset.stops) : null),
+    [preset]
+  );
 
   const rows = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return ORGANIZATIONS.filter(
       (o) =>
-        (cat === 'All' || o.category === cat) &&
+        (presetStops
+          ? presetStops.has(o.id)
+          : presetCats
+            ? presetCats.has(o.category)
+            : cat === 'All' || o.category === cat) &&
         (reg === 'All' || o.region === reg) &&
         (needle === '' ||
           o.name.toLowerCase().includes(needle) ||
           o.location.toLowerCase().includes(needle) ||
           (o.description ?? '').toLowerCase().includes(needle))
     );
-  }, [cat, reg, q]);
+  }, [cat, reg, q, presetCats, presetStops]);
 
   const catCounts = useMemo(() => {
     const c: Record<string, number> = { All: ORGANIZATIONS.length };
@@ -87,7 +109,9 @@ export default function Directory() {
                 <button
                   key={c}
                   onClick={() => {
-                    if (!empty) setCat(c);
+                    if (empty) return;
+                    onClearPreset();
+                    setCat(c);
                   }}
                   disabled={empty}
                   title={empty ? 'Not yet surveyed — nobody has searched this category to a conclusion' : undefined}
@@ -117,7 +141,10 @@ export default function Directory() {
                 return (
                   <button
                     key={r}
-                    onClick={() => setReg(r)}
+                    onClick={() => {
+                      onClearPreset();
+                      setReg(r);
+                    }}
                     className={`font-mono2 text-[9.5px] tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-300 ${
                       active
                         ? 'bg-[var(--brand)] text-[var(--brand-ink)] border-[var(--brand)]'

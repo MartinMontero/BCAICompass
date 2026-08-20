@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Polyline, Popup, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
@@ -13,6 +13,7 @@ import {
   type Organization,
   type Region,
 } from '../data/organizations';
+import type { Preset } from '../data/preset';
 
 type CatFilter = 'All' | Category;
 type RegFilter = 'All' | Region;
@@ -226,7 +227,13 @@ function PopupBody({ o }: { o: Organization }) {
   );
 }
 
-export default function EcosystemMap() {
+export default function EcosystemMap({
+  preset,
+  onClearPreset,
+}: {
+  preset: Preset;
+  onClearPreset: () => void;
+}) {
   const [cat, setCat] = useState<CatFilter>('All');
   const [reg, setReg] = useState<RegFilter>('All');
   const [selected, setSelected] = useState<Organization | null>(null);
@@ -242,13 +249,72 @@ export default function EcosystemMap() {
     return () => window.removeEventListener('bcac:region', onRegion);
   }, []);
 
-  const filtered = useMemo(
-    () =>
-      MAPPED.filter(
-        (o) => (cat === 'All' || o.category === cat) && (reg === 'All' || o.region === reg)
-      ),
-    [cat, reg]
+  // Pathway stops dispatch this. It writes the SAME `selected` state the row
+  // hover handler writes, so FlyTo and the popup-opening effect below need no
+  // second code path — one selection mechanism, several ways to command it.
+  useEffect(() => {
+    const onSelect = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      const target = ORGANIZATIONS.find((o) => o.id === id);
+      if (target && target.lat !== undefined) setSelected(target);
+    };
+    window.addEventListener('bcac:select', onSelect);
+    return () => window.removeEventListener('bcac:select', onSelect);
+  }, []);
+
+  // An active preset takes over from the chips. Selecting any chip clears it
+  // (see the chip handlers), so the two never compete for the same slice.
+  const presetCats = useMemo(
+    () => (preset?.kind === 'onramp' ? new Set<Category>(preset.categories) : null),
+    [preset]
   );
+  const presetStops = useMemo(
+    () => (preset?.kind === 'pathway' ? preset.stops : null),
+    [preset]
+  );
+
+  const filtered = useMemo(() => {
+    // A pathway is an ordered route, so its stops are returned IN ROUTE ORDER
+    // rather than in dataset order — the list beside the map then reads as the
+    // itinerary it is, and the polyline below joins them in the same sequence.
+    if (presetStops) {
+      return presetStops
+        .map((id) => MAPPED.find((o) => o.id === id))
+        .filter((o): o is Organization => !!o);
+    }
+    return MAPPED.filter(
+      (o) =>
+        (presetCats ? presetCats.has(o.category) : cat === 'All' || o.category === cat) &&
+        (reg === 'All' || o.region === reg)
+    );
+  }, [cat, reg, presetCats, presetStops]);
+
+  /** Route line vertices, in stop order. Empty unless a pathway is being traced. */
+  const trailPoints = useMemo(() => {
+    if (!presetStops) return [] as [number, number][];
+    return filtered
+      .filter((o) => o.lat !== undefined && o.lng !== undefined)
+      .map((o) => [o.lat as number, o.lng as number] as [number, number]);
+  }, [presetStops, filtered]);
+
+  /**
+   * The trail's styling class, applied to the SVG path after commit.
+   *
+   * Not via pathOptions: browser checking showed the rendered path carrying only
+   * Leaflet's own class and its default blue stroke, so the declarative prop was
+   * not reaching the element in this react-leaflet version. Not via the ref
+   * callback either — that fires when the layer instance is constructed, before
+   * Leaflet has built the <path>, so getElement() is still undefined.
+   *
+   * By the time an effect runs, the layer is on the map and the element exists.
+   * classList.add is idempotent, so re-running on every trail change is free.
+   * The class carries the colour, which is why this matters: it is what lets the
+   * stroke be var(--accent) and follow the theme toggle.
+   */
+  const trailRef = useRef<L.Polyline | null>(null);
+  useEffect(() => {
+    trailRef.current?.getElement()?.classList.add('bcac-trail');
+  }, [trailPoints]);
 
   const catCounts = useMemo(() => {
     const c: Record<string, number> = { All: MAPPED.length };
@@ -294,6 +360,23 @@ export default function EcosystemMap() {
           </p>
         </div>
 
+        {/* active preset — the one dismissible label, above the untouched filter rows */}
+        {preset && (
+          <div className="flex flex-wrap items-center gap-3 mb-4 reveal">
+            <span className="font-mono2 text-[10.5px] tracking-[0.14em] uppercase bg-[var(--brand)] text-[var(--brand-ink)] px-3.5 py-2">
+              {preset.kind === 'onramp'
+                ? `Showing: ${preset.label} (${filtered.length})`
+                : `Tracing: ${preset.name}`}
+            </span>
+            <button
+              onClick={onClearPreset}
+              className="font-mono2 text-[10.5px] tracking-[0.14em] uppercase text-[var(--accent)] hover:text-[var(--ink)] transition-colors"
+            >
+              Clear
+            </button>
+          </div>
+        )}
+
         {/* category filters */}
         <div className="flex flex-wrap gap-2 mb-3 reveal">
           {/*
@@ -311,6 +394,9 @@ export default function EcosystemMap() {
                 key={c}
                 onClick={() => {
                   if (empty) return;
+                  // Selecting a chip clears any preset: the visitor has taken
+                  // manual control of the slice, so the onramp/pathway label goes.
+                  onClearPreset();
                   setCat(c);
                   setSelected(null);
                 }}
@@ -356,6 +442,7 @@ export default function EcosystemMap() {
                 key={r}
                 onClick={() => {
                   if (!surveyed) return;
+                  onClearPreset();
                   setReg(r);
                   setSelected(null);
                 }}
@@ -417,6 +504,7 @@ export default function EcosystemMap() {
                   </p>
                   <button
                     onClick={() => {
+                      onClearPreset();
                       setCat('All');
                       setReg('All');
                     }}
@@ -429,9 +517,10 @@ export default function EcosystemMap() {
             </div>
             <div className="font-mono2 text-[10px] tracking-[0.08em] text-[var(--ink-faint)] mt-3 px-1 flex items-center justify-between gap-3">
               <span>{filtered.length} shown · hover a row to fly to its pin</span>
-              {(cat !== 'All' || reg !== 'All') && (
+              {(cat !== 'All' || reg !== 'All' || preset) && (
                 <button
                   onClick={() => {
+                    onClearPreset();
                     setCat('All');
                     setReg('All');
                     setSelected(null);
@@ -462,6 +551,21 @@ export default function EcosystemMap() {
               />
               <FitToData items={filtered} />
               <FlyTo target={selected} />
+              {/*
+                The route line. Colour and dash come from .bcac-trail in index.css
+                so the stroke can be var(--accent) and follow the theme — a raw hex
+                here would be the one place on the map that ignores the toggle.
+
+                The class is also applied through the ref because pathOptions did
+                NOT reach the rendered path: the element came back carrying only
+                Leaflet's own class and its default blue stroke. Browser checking
+                caught that; the declarative prop alone would have shipped a line
+                in the wrong colour that no unit test would have noticed.
+
+                A CSS declaration beats an SVG presentation attribute, so the
+                stroke Leaflet writes inline is overridden rather than fought.
+              */}
+              {trailPoints.length > 1 && <Polyline ref={trailRef} positions={trailPoints} />}
               <Clusters items={filtered} selected={selected} onSelect={setSelected} />
             </MapContainer>
           </div>
