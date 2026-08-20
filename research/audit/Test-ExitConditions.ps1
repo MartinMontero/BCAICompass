@@ -481,6 +481,65 @@ Add-Result 'ecosystem.json and ecosystem.geojson agree with organizations.ts' `
   (($eco.count -eq $orgs.Count) -and ($orgs.Count -eq $tsRecordCount)) `
   ("organizations.ts $tsRecordCount; ecosystem.json.count $($eco.count); organizations array $($orgs.Count)")
 
+# ---------------------------------------------------------------- evidence quote floor
+# A quote exists so a reader can open sourceUrl, search the page for the string,
+# and confirm the record in about ten seconds. That only works if the string
+# LOCATES the organization. Four special-interest-group quotes came back as the
+# bare word "Vancouver": verbatim, checkable, and true of very nearly every page
+# on that domain. Under the old rules they carried the same green stamp as a
+# quote giving a street address, and only VERIFICATION.md knew the difference.
+#
+# The floor, both halves required:
+#   1. the quote names a BC place, a BC institution, or a BC postal code, AND
+#   2. the record carries a resolvable url or a non-empty location.
+#
+# Half 2 is what makes a thin quote still usable: "Vancouver" plus a canonical
+# URL is checkable, while "Vancouver" alone is not. A quote naming no place at
+# all fails outright, whatever else the record has.
+#
+# The place vocabulary is DERIVED from the location and region values already in
+# the dataset, so it cannot go stale against a frozen list -- the same reason
+# condition 27 stopped hardcoding 117. Only the institution markers are written
+# out, because an institution name is not a place and cannot be derived from one.
+$placeTokens = New-Object System.Collections.Generic.HashSet[string]
+foreach ($o in $orgs) {
+  foreach ($chunk in ($o.location -split '[^A-Za-z\.]+')) {
+    if ($chunk.Length -ge 4) { [void]$placeTokens.Add($chunk.ToLower()) }
+  }
+  if ($o.region) { foreach ($chunk in ($o.region -split '[^A-Za-z]+')) {
+    if ($chunk.Length -ge 4) { [void]$placeTokens.Add($chunk.ToLower()) } } }
+}
+foreach ($m in @(
+  'british columbia','b.c.','simon fraser','university of victoria','uvic',
+  'university of british columbia','bcit','thompson rivers','emily carr',
+  'kwantlen','langara','douglas college','camosun','capilano','royal roads',
+  'vancouver island university','okanagan college','north island college',
+  'coast mountain college','justice institute','trinity western',
+  'university canada west','selkirk college','college of new caledonia',
+  'northern british columbia','quest university','yukon'
+)) { [void]$placeTokens.Add($m) }
+
+$quoteFloorFails = @()
+foreach ($o in $orgs) {
+  if (-not $o.evidenceQuote) { continue }
+  $q = $o.evidenceQuote.ToLower()
+  $namesPlace = $false
+  if ($q -match '\bV\d[A-Za-z]\s?\d[A-Za-z]\d\b') { $namesPlace = $true }
+  if (-not $namesPlace -and ($q -match '\bbc\b')) { $namesPlace = $true }
+  if (-not $namesPlace) {
+    foreach ($t in $placeTokens) { if ($q.Contains($t)) { $namesPlace = $true; break } }
+  }
+  $anchored = ((-not [string]::IsNullOrWhiteSpace($o.url)) -or
+               (-not [string]::IsNullOrWhiteSpace($o.location)))
+  if (-not ($namesPlace -and $anchored)) {
+    $why = if (-not $namesPlace) { 'names no place' } else { 'no url or location' }
+    $quoteFloorFails += "$($o.id) [$why]"
+  }
+}
+Add-Result 'every evidence quote names a place and its record is anchored' `
+  ($quoteFloorFails.Count -eq 0) `
+  ("$($quoteFloorFails.Count) below the floor" + $(if ($quoteFloorFails.Count) { ': ' + ($quoteFloorFails -join ', ') } else { '' }))
+
 # ---------------------------------------------------------------- summary
 ''
 '=' * 78
