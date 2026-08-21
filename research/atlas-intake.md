@@ -207,3 +207,73 @@ FriendsQuarters, Multimodal Media Lab, Glüxkind, AI Tinkerers Vancouver, VANTEC
 Futureproof Festival as its own record, Genome BC, Northeastern Vancouver, Rival
 Technologies, Segev LLP, Squamish Nation. Search extracts exist for several of
 these; a search extract is not a page that was read.
+
+---
+
+# SECOND PASS — 2026-08-21
+
+## The expanded capture
+
+A 268-page print of the live AI Ecosystem Map yielded 86 names. One "Load more"
+survived and only 30 pages carried content, so it is still not the whole
+database. Against the published dataset, the 546-row Observatory export and the
+1,277-row triage pool, exactly one name was new: **Glüxkind**. Three others that
+the automated check flagged were artifacts — "IM4 Lab (Emily Carr" and
+"Intelligence network of BC)" are wrapped fragments, and SFU Computing Science,
+AI Tinkerers and VANTEC are all in the pool. AI Tinkerers and VANTEC had looked
+new in an earlier check only because the normaliser was stripping "Vancouver" as
+a stop word. That was a bug in the check, not a finding.
+
+**Five samples of that database now agree.** The 1,399-row 2025 snapshot, the
+546-row export, and three PDF captures of increasing size. The number of
+organisations it contains that this pipeline has never seen is one.
+
+## Added
+
+`gluxkind` — Glüxkind Technologies, Vancouver. AI-assisted smart strollers.
+Quote "Designed in Vancouver. Recognized internationally." read off
+gluxkind.com/rosa-smart-stroller on 2026-08-21.
+
+`ai-happy-hour` now carries its quote. The entry was written in the previous
+pass but the script that wrote it aborted on a later assertion before saving, so
+the record shipped quote-pending with a quote sitting unused. Fixed.
+
+## The geocoding attempt, and why it failed
+
+Every route to a building coordinate was tried and every one is closed from this
+environment:
+
+| route | result |
+|---|---|
+| container → nominatim, photon, opencage, geocode.maps.co, overpass, geoapify | `x-deny-reason: host_not_allowed` on all six |
+| fetch → openstreetmap.org/node/… | robots-disallowed |
+| fetch → nominatim.openstreetmap.org/search | robots-disallowed |
+| fetch → wikidata.org | domain is cache-only |
+| fetch → en.wikipedia.org article | infobox stripped, and `?action=raw` is ignored |
+| search extraction → Wikipedia infobox | **worked** — 49.276205, -123.1444 |
+
+The last one was applied to `vancouver-ai` and **the gate rejected it**, which
+is the right outcome. export-data.mjs already names wikipedia.org alongside
+latlong.net as a city gazetteer and refuses it as the source of an address pin,
+on the grounds that a building coordinate must come from a source stating that
+building. The record stays at the Vancouver centroid with that reasoning written
+into it rather than the rule being loosened to admit a weak source.
+
+Unblocking the three address pins needs an OSM node resolved by hand. Wikidata
+gives node **4215844490** for the Space Centre as a starting point.
+
+## Government layer
+
+The Glumac entry in GOVERNMENT-LAYER.md moves from Tier B to corroborated — the
+province's own biography page and the Wikipedia office box agree on the
+2025-07-17 appointment and show no end date, re-checked 2026-08-21.
+
+Separately, that file's claim of a **2026-08-14 cabinet shuffle** could not be
+corroborated. Every search result describes the 2025-07-17 shuffle instead. The
+claim is flagged in place, not deleted.
+
+## Corrections with nothing to correct
+
+The Multimodal Media Lab / SFU error and The Upgrade's founders touch no shipped
+record — neither organisation is in the dataset. Both are documented above so
+that if either is ever added, the error is not imported with it.

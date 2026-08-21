@@ -467,6 +467,11 @@ const QUOTE: Record<string, string> = {
   'https://digitalsupercluster.ca/canadas-digital-technology-supercluster-receives-funding/':
     '2127 – 1055 W. Georgia Street Vancouver, BC, V6E 3P3',
   [S_BCAI]: "300+ paying members of the nonprofit building British Columbia's AI industry",
+  // Read 2026-08-21. The events calendar lists every upcoming gathering with its
+  // venue and street address inline; this is the AI Happy Hour card's venue line.
+  'https://bc-ai.ca/events': 'FriendsQuarters, 116 W Hastings St Unit 200, Vancouver, BC V6B 1G8',
+  // Read 2026-08-21, from the Rosa product page.
+  'https://gluxkind.com/rosa-smart-stroller': 'Designed in Vancouver. Recognized internationally.',
 
   // --- BC + AI rooms, each read off its own canonical page on 2026-08-19 ---
   'https://bc-ai.ca/communities/vancouver-ai':
@@ -2063,6 +2068,17 @@ const RECORDS: Organization[] = [
   },
   {
     ...CITY.vancouver,
+    // STAYS A CENTROID, and the reason is worth recording. This chapter meets
+    // monthly at the H.R. MacMillan Space Centre, 1100 Chestnut St, so it should
+    // pin at the building. An attempt on 2026-08-21 to geocode it failed the
+    // gate: the only coordinate obtainable from this environment came from the
+    // Wikipedia infobox, and export-data.mjs refuses wikipedia.org as the source
+    // of an address pin, correctly -- a building coordinate has to come from a
+    // source that states that building, not a gazetteer. Everything else was
+    // blocked: openstreetmap.org and nominatim.openstreetmap.org refuse automated
+    // access, wikidata.org is cache-only, and the direct fetch of the Wikipedia
+    // article strips the infobox. Wikidata records OSM node 4215844490 for this
+    // building; resolving that node by hand is what unblocks the pin.
     id: 'vancouver-ai',
     name: 'Vancouver AI',
     category: 'Community & Convening',
@@ -2258,6 +2274,26 @@ const RECORDS: Organization[] = [
   // an ecosystem judgement; the description is not licence to assert AI activity
   // a page did not claim.
   // =========================================================================
+  // The one organisation the BC + AI Ecosystem Association's database held that
+  // this pipeline had never seen. That database was sampled five ways -- the
+  // 1,399-row 2025 snapshot, the 546-row Observatory export, and three
+  // successively larger PDF captures of the live AI Ecosystem Map -- and this is
+  // the entire yield. Added 2026-08-21 after reading the page below.
+  {
+    ...CITY.vancouver,
+    id: 'gluxkind',
+    name: 'Glüxkind Technologies',
+    category: 'Companies & Applied AI',
+    orgType: 'company',
+    url: 'https://gluxkind.com',
+    location: 'Vancouver',
+    description:
+      'Builds AI-assisted smart strollers. The Rosa model carries dual 500W motors with adaptive push assist, real-time terrain and load adjustment, gradient-responsive braking, automatic parking and a multi-sensor safety system, with GPS and over-the-air updates through a companion app. The product page cites a CES Innovation Award in 2024 and a GLOMO Award at Mobile World Congress in 2026.',
+    size: null,
+    sourceUrl: 'https://gluxkind.com/rosa-smart-stroller',
+    ...V,
+    orgStatus: 'active',
+  },
   {
     ...CITY.vancouver,
     id: 'abcellera',
