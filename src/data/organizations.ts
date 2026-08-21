@@ -47,6 +47,15 @@ export type OrgType =
   | 'investor-or-program'
   | 'nonprofit-or-association'
   | 'community-group'
+  /**
+   * A gathering that recurs on a schedule, as distinct from the body that runs
+   * it. Vancouver AI is a community-group: a standing chapter with members.
+   * The AI Film Club is a recurring-event: a series that meets, with no
+   * membership apart from turning up. The difference matters to a reader
+   * deciding what to do on a Tuesday, which is the whole reason these are on a
+   * map rather than in a list.
+   */
+  | 'recurring-event'
   | 'infrastructure-operator';
 
 /**
@@ -198,6 +207,7 @@ export const ORG_TYPE_LABELS: Record<OrgType, string> = {
   'investor-or-program': 'Investor / program',
   'nonprofit-or-association': 'Non-profit / association',
   'community-group': 'Community group',
+  'recurring-event': 'Recurring event',
   'infrastructure-operator': 'Infrastructure operator',
 };
 
@@ -2117,7 +2127,7 @@ const RECORDS: Organization[] = [
     id: 'bc-ai-film-club',
     name: 'BC + AI Film Club',
     category: 'Community & Convening',
-    orgType: 'community-group',
+    orgType: 'recurring-event',
     url: 'https://bc-ai.ca/communities/film-club',
     location: 'Vancouver',
     description:
@@ -2131,7 +2141,7 @@ const RECORDS: Organization[] = [
     id: 'mind-ai-and-consciousness',
     name: 'Mind, AI and Consciousness (MAC)',
     category: 'Community & Convening',
-    orgType: 'community-group',
+    orgType: 'recurring-event',
     url: 'https://bc-ai.ca/communities/mac',
     location: 'Vancouver',
     description:
@@ -2144,7 +2154,7 @@ const RECORDS: Organization[] = [
     id: 'ed-ai-education-meetup',
     name: 'Ed + AI: Education Meetup',
     category: 'Community & Convening',
-    orgType: 'community-group',
+    orgType: 'recurring-event',
     region: 'Province-wide',
     // No coordinate: a province-wide mandate has no single site to pin.
     geoPrecision: null,
@@ -2164,9 +2174,9 @@ const RECORDS: Organization[] = [
     id: 'ai-ethical-futures-lab',
     name: 'AI Ethical Futures Lab',
     category: 'Community & Convening',
-    orgType: 'community-group',
+    orgType: 'recurring-event',
     url: 'https://bc-ai.ca/communities/futures-lab',
-    location: 'Vancouver — Parker Street Studios',
+    location: 'Vancouver — Parker Street Studios, 1000 Parker St',
     description:
       "BC + AI's civic policy lab, described on its own page as not a panel but a working room for people who want AI's possibilities without surrendering agency, accountability, or public voice. Meets monthly at Parker Street Studios.",
     size: null,
@@ -2178,7 +2188,7 @@ const RECORDS: Organization[] = [
     id: 'life-sciences-and-ai',
     name: 'Life Sciences & AI',
     category: 'Community & Convening',
-    orgType: 'community-group',
+    orgType: 'recurring-event',
     url: 'https://bc-ai.ca/communities/life-sciences-ai',
     location: 'Vancouver — 6151 Collingwood Pl',
     description:
@@ -2191,7 +2201,7 @@ const RECORDS: Organization[] = [
     id: 'ai-creativity-and-design',
     name: 'AI Creativity + Design',
     category: 'Community & Convening',
-    orgType: 'community-group',
+    orgType: 'recurring-event',
     // Region stays province-wide: the page confirms no host and no cadence, so
     // asserting a seat for it would be inventing the one thing it says it lacks.
     region: 'Province-wide',
@@ -2222,6 +2232,28 @@ const RECORDS: Organization[] = [
   // support AI work in BC, and can that be sourced? An industry association does
   // not have to do AI to be part of the AI ecosystem.
   //
+  // AI Happy Hour was in the association's own community database but not here,
+  // because the earlier pass read /communities and this series has no page there
+  // -- it lives only on the events calendar. Added 2026-08-21 from that calendar.
+  // Pins at the Vancouver centroid for now: FriendsQuarters at 116 West Hastings
+  // is a real street address and belongs at building precision, but no coordinate
+  // for it has been sourced yet. See research/atlas-intake.md.
+  {
+    ...CITY.vancouver,
+    id: 'ai-happy-hour',
+    name: 'AI Happy Hour',
+    category: 'Community & Convening',
+    orgType: 'recurring-event',
+    url: 'https://bc-ai.ca/events',
+    location: 'Vancouver — FriendsQuarters, 116 W Hastings St Unit 200',
+    description:
+      'Monthly third-Friday drop-in social for the BC + AI community, held at the FriendsQuarters coworking and event space in downtown Vancouver. No talks and no programme: the calendar describes it as a come-after-work gathering.',
+    size: null,
+    sourceUrl: 'https://bc-ai.ca/events',
+    ...V,
+    orgStatus: 'active',
+  },
+
   // Each description below still states only what its source states. Inclusion is
   // an ecosystem judgement; the description is not licence to assert AI activity
   // a page did not claim.
