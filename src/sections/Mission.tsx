@@ -129,7 +129,15 @@ export default function Mission() {
               <p className="text-[13.5px] leading-relaxed text-[var(--ink-soft)]">
                 A{' '}
                 <strong className="text-[var(--ink)]">BC + AI Ecosystem Association</strong> project,
-                built by Martin Montero. BC + AI is listed in this directory — we'd rather say that
+                built by{' '}
+                <a
+                  href="https://www.linkedin.com/in/martinmontero/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[var(--accent)]"
+                >
+                  Martin Montero
+                </a>. BC + AI is listed in this directory — we'd rather say that
                 up front than leave you to spot it.
               </p>
               <p className="mt-3 text-[13.5px] leading-relaxed text-[var(--ink-soft)]">

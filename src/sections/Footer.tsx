@@ -56,7 +56,15 @@ export default function Footer() {
             </div>
             <p className="text-[12.5px] leading-relaxed text-[var(--ink-soft)]">
               A <strong className="text-[var(--ink)]">BC + AI Ecosystem Association</strong> project,
-              built by Martin Montero.
+              built by{' '}
+              <a
+                href="https://www.linkedin.com/in/martinmontero/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-[var(--accent)]"
+              >
+                Martin Montero
+              </a>.
             </p>
             <p className="mt-4 text-[12.5px] leading-relaxed text-[var(--ink-faint)]">
               Map tiles ©{' '}
