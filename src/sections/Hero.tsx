@@ -1,87 +1,45 @@
 import { MAPPED, ORGANIZATIONS, REGIONS } from '../data/organizations';
 
 export default function Hero() {
-  const regionsCovered = REGIONS.filter((r) => ORGANIZATIONS.some((o) => o.region === r)).length;
-  const stamp = ORGANIZATIONS.map((o) => o.verified).sort().slice(-1)[0];
+  const regionsCovered = REGIONS.filter((region) => ORGANIZATIONS.some((organization) => organization.region === region)).length;
+  const stamp = ORGANIZATIONS.map((organization) => organization.verified).sort().slice(-1)[0];
 
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <div aria-hidden className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 55% at 22% 12%, var(--hero-glow), transparent 70%)' }} />
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            'radial-gradient(ellipse 70% 55% at 22% 12%, var(--hero-glow), transparent 70%)',
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)',
           backgroundSize: '72px 72px',
         }}
       />
 
       <div className="relative px-5 md:px-10 max-w-[1400px] mx-auto">
         <div className="eyebrow mb-6 reveal">BC + AI ECOSYSTEM · OPEN DATA</div>
-
         <h1 className="font-display uppercase leading-[0.9] text-[13vw] md:text-[8.5vw] lg:text-[7.5vw] max-w-[15ch] reveal">
-          The room,
-          <br />
-          mapped.
+          The room,<br />mapped.
         </h1>
 
         <div className="mt-10 grid md:grid-cols-12 gap-8 items-start">
           <p className="md:col-span-5 text-base md:text-lg leading-relaxed text-[var(--ink-soft)] reveal">
-            British Columbia's AI ecosystem — companies, labs, community groups,
-            public programs, and the data centres going up in Kamloops, Merritt and
-            Vancouver —{' '}
-            <strong className="text-[var(--ink)]">mapped and sourced.</strong>{' '}
-            Every record links to the page we checked and the day we checked it.
+            British Columbia's AI ecosystem—companies, labs, community groups, public programs, and the data centres going up in Kamloops, Merritt and Vancouver—<strong className="text-[var(--ink)]">mapped, sourced, and ready to act on.</strong> Find a next step, save a shortlist, or build a working plan.
           </p>
-
           <div className="md:col-span-4 md:col-start-8 reveal">
             <dl className="grid grid-cols-3 gap-4 border-t border-[var(--line)] pt-5">
-              <div>
-                <dt className="font-mono2 text-[9.5px] tracking-[0.16em] uppercase text-[var(--ink-faint)]">
-                  Verified
-                </dt>
-                <dd className="font-display text-4xl md:text-5xl mt-1">{ORGANIZATIONS.length}</dd>
-              </div>
-              <div>
-                <dt className="font-mono2 text-[9.5px] tracking-[0.16em] uppercase text-[var(--ink-faint)]">
-                  On the map
-                </dt>
-                <dd className="font-display text-4xl md:text-5xl mt-1">{MAPPED.length}</dd>
-              </div>
-              <div>
-                <dt className="font-mono2 text-[9.5px] tracking-[0.16em] uppercase text-[var(--ink-faint)]">
-                  Regions
-                </dt>
-                <dd className="font-display text-4xl md:text-5xl mt-1">{regionsCovered}</dd>
-              </div>
+              <div><dt className="font-mono2 text-[9.5px] tracking-[0.16em] uppercase text-[var(--ink-faint)]">Verified</dt><dd className="font-display text-4xl md:text-5xl mt-1">{ORGANIZATIONS.length}</dd></div>
+              <div><dt className="font-mono2 text-[9.5px] tracking-[0.16em] uppercase text-[var(--ink-faint)]">On the map</dt><dd className="font-display text-4xl md:text-5xl mt-1">{MAPPED.length}</dd></div>
+              <div><dt className="font-mono2 text-[9.5px] tracking-[0.16em] uppercase text-[var(--ink-faint)]">Regions</dt><dd className="font-display text-4xl md:text-5xl mt-1">{regionsCovered}</dd></div>
             </dl>
-            <p className="font-mono2 text-[10px] tracking-[0.1em] text-[var(--ink-faint)] mt-4 leading-relaxed">
-              Last checked {stamp}. We only publish what we can source.
-            </p>
+            <p className="font-mono2 text-[10px] tracking-[0.1em] text-[var(--ink-faint)] mt-4 leading-relaxed">Last checked {stamp}. We only publish what we can source.</p>
           </div>
         </div>
 
         <div className="mt-12 flex flex-wrap items-center gap-3 reveal">
-          <a href="#map" className="btn-primary">
-            Open the map
-          </a>
-          <a href="#method" className="btn-ghost">
-            How we check
-          </a>
-          <a
-            href="./ecosystem.json"
-            className="font-mono2 text-[11px] tracking-[0.14em] text-[var(--accent)] hover:text-[var(--ink)] transition-colors ml-1"
-          >
-            ecosystem.json ↓
-          </a>
+          <a href="#ask" className="btn-primary">Ask the map</a>
+          <a href="#planner" className="btn-ghost">Build an action plan</a>
+          <a href="./ecosystem.json" className="min-h-11 inline-flex items-center font-mono2 text-[11px] tracking-[0.14em] text-[var(--accent)] hover:text-[var(--ink)] transition-colors ml-1">ecosystem.json ↓</a>
         </div>
       </div>
     </section>
