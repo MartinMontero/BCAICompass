@@ -19,10 +19,23 @@ company. No listing is paid for or sponsored.
 
 ## What is here
 
-- **117 verified organizations**, each with a `sourceUrl`, a `sourceDate` and a
-  `verified` stamp, and 80 of them carry a verbatim evidence quote copied off the source page. 111 have sourced coordinates and appear on the map; the rest
-  have a province-wide mandate and no single seat, and appear in the directory
-  without a pin.
+- **136 verified organizations**, each with a `sourceUrl`, a `sourceDate` and a
+  `verified` stamp; 102 carry a verbatim evidence quote copied from the source page.
+  128 have sourced coordinates and appear on the map; the remaining eight appear
+  in the directory without a pin.
+- **Ask the map** — deterministic plain-language retrieval over the verified
+  records. Whole-word and phrase matching, practical vocabulary expansion, and
+  explicit location exclusions produce ranked results with an explanation for
+  every match. No remote AI service generates organization claims.
+- **Action planner** — seven goals, regional filtering, four-step working
+  checklists, curated verified records, pathway tracing, and Markdown export.
+  Checklist guidance is clearly separated from sourced organization facts.
+- **Shortlists** — add records from search, plans, or directory rows, then copy or
+  export sourced Markdown and UTF-8 CSV. The 50-record list is stored only in the
+  current browser; it does not sync, and clearing browser data removes it.
+- **Working playbooks** — editable AI use-case, pilot-evaluation, and responsible
+  procurement templates with copy, Markdown download, reset, and official B.C.
+  privacy/governance starting points. Drafts last for the open page only.
 - **The map** — province-wide, fitted to the data rather than centred on
   Vancouver, with region and category filters and grid-based marker clustering so
   Kamloops, Merritt, Kelowna, Victoria, Courtenay and Surrey stay findable next to
@@ -116,6 +129,13 @@ any BC AI dataset, including this one.
 - Tailwind CSS 3.4
 - Leaflet / React-Leaflet with OpenStreetMap tiles
 - Token-based light/dark theming — see [`research/DESIGN.md`](research/DESIGN.md)
+- Vitest for deterministic core-logic tests and V8 coverage
+- Playwright for production-build browser tests at desktop and mobile widths
+
+The practical workflows are frontend-only and require no API keys. Search and plan
+construction run locally over the published dataset. Shortlist persistence uses
+`localStorage` with an in-memory fallback; playbook drafts are deliberately not
+persisted. This is browser-local convenience, not an account or cloud-sync system.
 
 No clustering library: the marker clusterer is ~60 lines in
 `src/sections/EcosystemMap.tsx`. The reasoning is in
@@ -154,15 +174,32 @@ compile error, not a code review.
 ## Verify
 
 ```bash
-powershell -NoProfile -File .\research\audit\Test-ExitConditions.ps1 -CleanInstall
+npm install
+npm run verify:data
+npm test
+npm run test:coverage
+npm run lint
+npm run build
+npx playwright install chromium
+npm run test:e2e
+npm audit
 ```
 
-32 machine-checked conditions: clean install, build, `tsc`, `eslint`, both JSON
-outputs parse, ids unique, every record sourced and stamped, at least 100 records,
-category union closed in both directions, no coordinate without a source, GeoJSON
-feature count matches, no inherited field anywhere in `src/`, `src/` never imports
-from `research/`, `unverified.json` never reaches `dist/`, deploy artifacts
-present, and every inline script hash present in the CSP.
+The unit suite uses Arrange–Act–Assert tests for retrieval, regional planning,
+shortlist validation, CSV/Markdown exports, malformed storage, limits, and
+spreadsheet-formula escaping. Coverage thresholds are 80% for statements,
+branches, functions, and lines. Playwright exercises the production build in
+Chromium: search and empty states, plan creation and pathway tracing, downloads,
+clipboard success/failure, shortlist persistence and clearing, directory saving,
+playbook editing/reset, theme switching, mobile navigation, runtime errors,
+first-party requests, and 375px overflow. On Linux, an existing Chromium can be
+selected with `CHROMIUM_PATH=/path/to/chromium npm run test:e2e`.
+
+The versioned acceptance contract and machine verifier live in `verifier/v1/`;
+timestamped results, including unsuccessful runs, are indexed under
+`verifier/runs/`. The earlier PowerShell research gate remains available as
+`research/audit/Test-ExitConditions.ps1` for the original dataset and deployment
+checks.
 
 ## Adding or correcting an organization
 
