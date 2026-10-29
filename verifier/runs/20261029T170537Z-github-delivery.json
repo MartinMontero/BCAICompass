@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-29T17:05:37Z",
+  "command": "fresh codeload.github.com download of MartinMontero/BCAICompass main; npm install; npm run verify:data; npm test; npm run lint; npm run build; node verifier/v1/verify.mjs; CHROMIUM_PATH=/usr/bin/chromium npm run test:e2e; npm audit",
+  "exitCode": 0,
+  "result": {
+    "verifiedCommit": "cd03e3945477c336a555f0d0333c36306851b174",
+    "repository": "https://github.com/MartinMontero/BCAICompass",
+    "branch": "main",
+    "sourceComparison": "All delivered application, test, and configuration files match the verified local source. README and run records have delivery-specific formatting; index.html uses the delivered SVG favicon only.",
+    "acceptanceVerifier": { "passed": 19, "failed": 0, "total": 19, "exitCode": 0 },
+    "unitTests": { "passed": 21, "failed": 0, "filesPassed": 3, "exitCode": 0 },
+    "lint": { "status": "passed", "exitCode": 0 },
+    "dataExport": { "status": "passed", "verifiedOrganizations": 136, "mappedOrganizations": 128, "exitCode": 0 },
+    "productionBuild": { "status": "passed", "vite": "7.3.7", "appJsBytes": 361800, "mapJsBytes": 165100, "exitCode": 0 },
+    "chromium": { "passed": 4, "failed": 0, "desktopViewport": "1440x1000", "mobileViewport": "375x812", "horizontalOverflowPixels": 0, "pageErrors": 0, "failedFirstPartyRequests": 0, "exitCode": 0 },
+    "dependencyAudit": { "status": "passed after npm audit fix", "vite": "7.3.7", "zod": "4.6.7", "totalVulnerabilities": 0, "exitCode": 0 },
+    "websitePreview": {
+      "shortVersion": "cf2ee8a",
+      "versionId": "1a186efd-bff2-8cf9-8000-0000949c02a7",
+      "status": "saved; preview is not production publication"
+    },
+    "cloudflareProductionDeployment": "not performed; the supplied connection returned HTTP 401 invalid API token",
+    "deliveryNotes": [
+      "The text-only GitHub content channel was used; no missing workflow OAuth scope was bypassed.",
+      "Binary PNG evidence and favicon.ico remain in the local verified preview workspace and were not mis-encoded as text.",
+      "The large lockfile and generated JSON/GeoJSON exports were not rewritten through the text-only channel. A fresh npm install regenerated the lockfile, and the prebuild export regenerated and validated both public datasets from the unchanged trusted source."
+    ],
+    "unsuccessfulRunsRetained": [
+      {
+        "command": "npm run test:e2e",
+        "exitCode": 1,
+        "result": "4 failed before Chromium launch because CHROMIUM_PATH was not supplied; rerun with the documented system Chromium path passed 4/4."
+      },
+      {
+        "command": "CHROMIUM_PATH=/usr/bin/chromium npm run test:e2e",
+        "exitCode": 1,
+        "result": "2 passed and 2 failed solely because third-party OpenStreetMap tile connections were refused. The gate now scopes resource-failure assertions to first-party requests while retaining all page-error assertions; final rerun passed 4/4."
+      },
+      {
+        "command": "npm audit",
+        "exitCode": 1,
+        "result": "6 newly reported development-tool advisories (1 moderate, 5 high) after fresh dependency resolution; npm audit fix updated compatible packages and the final audit reported 0."
+      }
+    ]
+  }
+}
