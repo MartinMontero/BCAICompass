@@ -9,7 +9,7 @@ export default tseslint.config(
     // Generated output, dependencies, and the read-only research corpus. The
     // audit scripts in research/audit are PowerShell, not JS, and the JSON
     // artifacts there are data, not source.
-    ignores: ['dist', 'node_modules', 'public/ecosystem.json', 'public/ecosystem.geojson', 'research'],
+    ignores: ['dist', 'node_modules', 'coverage', 'test-results', 'playwright-report', 'public/ecosystem.json', 'public/ecosystem.geojson', 'research'],
   },
   {
     files: ['**/*.{ts,tsx}'],
