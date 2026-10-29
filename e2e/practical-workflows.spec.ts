@@ -5,13 +5,25 @@ function monitorRuntime(page: Page): string[] {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(`Page error: ${error.message}`));
   page.on('console', (message) => {
-    if (message.type() === 'error') errors.push(`Console error: ${message.text()} (${message.location().url || 'no URL'})`);
+    if (message.type() !== 'error') return;
+    const source = message.location().url;
+    // Page errors are captured separately. Resource-console errors are relevant
+    // here only when the failing resource is first-party; external map tiles and
+    // fonts have their own availability and must not make this gate flaky.
+    if (!source || new URL(source).origin === 'http://127.0.0.1:4173') {
+      errors.push(`Console error: ${message.text()} (${source || 'no URL'})`);
+    }
   });
   page.on('response', (response) => {
     const url = new URL(response.url());
-    if (response.status() >= 400) {
-      const scope = url.origin === 'http://127.0.0.1:4173' ? 'First-party' : 'Third-party';
-      errors.push(`${scope} HTTP ${response.status()}: ${url.href}`);
+    if (url.origin === 'http://127.0.0.1:4173' && response.status() >= 400) {
+      errors.push(`First-party HTTP ${response.status()}: ${url.href}`);
+    }
+  });
+  page.on('requestfailed', (request) => {
+    const url = new URL(request.url());
+    if (url.origin === 'http://127.0.0.1:4173') {
+      errors.push(`First-party request failed: ${url.href} (${request.failure()?.errorText || 'unknown'})`);
     }
   });
   return errors;
