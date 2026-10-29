@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-10-29T09:12:00Z",
+  "command": "npm ci && npm run test:coverage && npm run lint && npm run build && npm audit && CHROMIUM_PATH=/usr/bin/chromium npm run test:e2e",
+  "exitCode": 0,
+  "result": {
+    "cleanInstall": "passed; 290 packages installed from package-lock.json",
+    "unitTests": { "passed": 21, "failed": 0, "filesPassed": 3, "filesFailed": 0 },
+    "coverage": {
+      "statements": 97.98,
+      "branches": 91.46,
+      "functions": 100,
+      "lines": 99.13,
+      "threshold": 80,
+      "searchLines": 100,
+      "planLines": 100,
+      "shortlistLines": 96.55
+    },
+    "lint": "passed with zero errors and zero warnings after generated-output ignores",
+    "dataExport": "passed; 136 verified organizations and 128 sourced coordinates",
+    "productionBuild": { "status": "passed", "appJsBytes": 361800, "mapJsBytes": 165100, "bundleSizeWarning": false },
+    "dependencyAudit": { "info": 0, "low": 0, "moderate": 0, "high": 0, "critical": 0, "total": 0 },
+    "chromium": {
+      "passed": 4,
+      "failed": 0,
+      "desktopViewport": "1440x1000",
+      "mobileViewport": "375x812",
+      "horizontalOverflowPixels": 0,
+      "consoleErrors": 0,
+      "pageErrors": 0,
+      "failedFirstPartyRequests": 0,
+      "workflows": [
+        "plain-language search and useful zero-result state",
+        "regional action plan and pathway tracing",
+        "shortlist add/remove/clear and reload persistence",
+        "CSV and Markdown downloads",
+        "clipboard success and denial fallback",
+        "directory saving",
+        "independent playbook drafts, reset, and download",
+        "light/dark theme switching",
+        "mobile navigation and 375px overflow"
+      ]
+    }
+  }
+}

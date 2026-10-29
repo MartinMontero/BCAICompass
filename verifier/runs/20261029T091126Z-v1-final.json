@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-10-29T09:11:52.805Z",
+  "command": "node verifier/v1/verify.mjs",
+  "exitCode": 0,
+  "result": {
+    "version": "v1",
+    "passed": 19,
+    "failed": 0,
+    "total": 19,
+    "checks": [
+      { "name": "Trusted organization dataset unchanged", "pass": true, "detail": "07c001e1febed219bdb0bb1582f30aa35ef8f8e4931ce73ab2a074856a4aafd6" },
+      { "name": "Required workflow file: src/lib/search.ts", "pass": true, "detail": "" },
+      { "name": "Required workflow file: src/lib/plan.ts", "pass": true, "detail": "" },
+      { "name": "Required workflow file: src/lib/shortlist.ts", "pass": true, "detail": "" },
+      { "name": "Required workflow file: src/data/playbooks.ts", "pass": true, "detail": "" },
+      { "name": "Required workflow file: src/sections/ActionPlanner.tsx", "pass": true, "detail": "" },
+      { "name": "Required workflow file: src/sections/Playbooks.tsx", "pass": true, "detail": "" },
+      { "name": "Required workflow file: src/components/Shortlist.tsx", "pass": true, "detail": "" },
+      { "name": "Required workflow file: src/tests/search.test.ts", "pass": true, "detail": "" },
+      { "name": "Required workflow file: src/tests/plan.test.ts", "pass": true, "detail": "" },
+      { "name": "Required workflow file: src/tests/shortlist.test.ts", "pass": true, "detail": "" },
+      { "name": "Action planner mounted", "pass": true, "detail": "" },
+      { "name": "Playbooks mounted", "pass": true, "detail": "" },
+      { "name": "Shortlist mounted", "pass": true, "detail": "" },
+      { "name": "Test script declared", "pass": true, "detail": "vitest run" },
+      { "name": "Command passes: run verify:data", "pass": true, "detail": "export-data: OK — 136 verified organizations, 128 with sourced coordinates; wrote public/ecosystem.json and public/ecosystem.geojson" },
+      { "name": "Command passes: test", "pass": true, "detail": "3 test files passed; 21 tests passed; duration 1.19s" },
+      { "name": "Command passes: run lint", "pass": true, "detail": "eslint ." },
+      { "name": "Command passes: run build", "pass": true, "detail": "app JS 361.80 kB; map JS 165.10 kB; built in 5.71s" }
+    ]
+  }
+}
