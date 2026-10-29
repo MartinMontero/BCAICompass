@@ -16,9 +16,13 @@ type RegFilter = 'All' | Region;
 export default function Directory({
   preset,
   onClearPreset,
+  savedIds,
+  onToggle,
 }: {
   preset: Preset;
   onClearPreset: () => void;
+  savedIds: Set<string>;
+  onToggle: (id: string) => void;
 }) {
   const [cat, setCat] = useState<CatFilter>('All');
   const [reg, setReg] = useState<RegFilter>('All');
@@ -93,6 +97,7 @@ export default function Directory({
             <input
               type="search"
               value={q}
+              maxLength={240}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search name, place or description…"
               className="w-full md:max-w-md bg-[var(--bg-raise)] border border-[var(--line)] px-4 py-2.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-faint)] focus:border-[var(--brand)] outline-none transition-colors"
@@ -164,7 +169,7 @@ export default function Directory({
 
         <div className="divide-y divide-[var(--line)] border-t border-b border-[var(--line)]">
           {rows.map((o, i) => (
-            <div key={o.id} className="org-row grid md:grid-cols-12 gap-2 md:gap-5 py-4 px-1 reveal">
+            <div key={o.id} className="org-row grid md:grid-cols-12 gap-2 md:gap-5 py-4 px-1">
               <div className="md:col-span-1 font-mono2 text-[10px] text-[var(--ink-faint)] pt-1">
                 {String(i + 1).padStart(3, '0')}
               </div>
@@ -182,6 +187,19 @@ export default function Directory({
                   {ORG_TYPE_LABELS[o.orgType]}
                   {o.size && <span> · {o.size}</span>}
                 </div>
+                <button
+                  type="button"
+                  aria-pressed={savedIds.has(o.id)}
+                  aria-label={`${savedIds.has(o.id) ? 'Remove' : 'Add'} ${o.name} ${savedIds.has(o.id) ? 'from' : 'to'} shortlist`}
+                  onClick={() => onToggle(o.id)}
+                  className={`mt-3 min-h-10 px-3 border font-mono2 text-[10px] tracking-[0.08em] uppercase transition-colors ${
+                    savedIds.has(o.id)
+                      ? 'border-[var(--brand)] bg-[var(--brand)] text-[var(--brand-ink)]'
+                      : 'border-[var(--line-strong)] text-[var(--ink-soft)] hover:border-[var(--brand)] hover:text-[var(--accent)]'
+                  }`}
+                >
+                  {savedIds.has(o.id) ? '✓ Saved' : '+ Shortlist'}
+                </button>
               </div>
 
               <div
