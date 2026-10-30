@@ -81,12 +81,19 @@ test('search, regional planning, pathway tracing, shortlist exports, and persist
   expect(planMarkdown).toContain('Source checked');
   await planner.getByRole('button', { name: 'Copy action plan' }).click();
   await expect(planner.getByText('Plan copied.')).toBeVisible();
+  await planner.locator('ol input[type="checkbox"]').first().check();
+  await expect(planner.locator('[aria-label="1 of 4 planning steps complete"]')).toBeVisible();
+  await capture(page, testInfo, 'desktop-planner.png', planner);
 
   await planner.getByRole('button', { name: /Trace:.*Founder/ }).click();
   await expect(page.locator('#map')).toContainText(/Tracing: .*Founder/i);
 
   const shortlist = page.locator('#shortlist');
-  await expect(shortlist.locator('article')).toHaveCount(2);
+  await expect(shortlist.locator('tbody tr')).toHaveCount(2);
+  await shortlist.getByLabel('Sort by').selectOption('name');
+  const comparedNames = await shortlist.locator('tbody th[scope="row"] a').allTextContents();
+  expect(comparedNames).toEqual([...comparedNames].sort((a, b) => a.localeCompare(b)));
+  await capture(page, testInfo, 'desktop-comparison.png', shortlist);
   const csv = await downloadContents(page, () => shortlist.getByRole('button', { name: 'Download CSV' }).click());
   expect(csv).toContain('Name,Category,Type,Location,Region,Website,Source,Verified');
   expect(csv.trim().split('\r\n')).toHaveLength(3);
@@ -97,7 +104,7 @@ test('search, regional planning, pathway tracing, shortlist exports, and persist
   await expect(shortlist.getByText('Shortlist copied.')).toBeVisible();
 
   await page.reload();
-  await expect(page.locator('#shortlist').locator('article')).toHaveCount(2);
+  await expect(page.locator('#shortlist').locator('tbody tr')).toHaveCount(2);
   await expect(page.getByRole('link', { name: 'Open shortlist, 2 saved' })).toBeVisible();
   await page.locator('#shortlist').getByRole('button', { name: 'Clear shortlist' }).click();
   await page.locator('#shortlist').getByRole('button', { name: 'Yes, clear' }).click();
@@ -115,6 +122,11 @@ test('directory saving, independent playbook drafts, reset, downloads, and theme
   await expect(addButton).toBeVisible();
   await addButton.click();
   await expect(directory.getByRole('button', { name: /Remove Vancouver AI.*from shortlist/i }).first()).toHaveAttribute('aria-pressed', 'true');
+  const evidence = directory.locator('details').first();
+  await expect(evidence).not.toHaveAttribute('open', '');
+  await evidence.locator('summary').click();
+  await expect(evidence).toHaveAttribute('open', '');
+  await expect(evidence).toContainText(/Evidence on source page|Quote pending|“/);
   await directory.getByRole('button', { name: /Remove Vancouver AI.*from shortlist/i }).first().click();
   await directory.getByLabel('Search organizations').fill('');
   await expect(directory.locator('.org-row')).toHaveCount(136);
@@ -143,6 +155,36 @@ test('directory saving, independent playbook drafts, reset, downloads, and theme
   expect(errors).toEqual([]);
 });
 
+test('atlas, planner, map, and directory share region state and search can locate a record', async ({ page }, testInfo) => {
+  const errors = monitorRuntime(page);
+  await page.goto('/?flat=1');
+
+  const atlas = page.locator('#regions');
+  const thompson = atlas.getByRole('button', { name: /^Thompson-Okanagan:/ });
+  await thompson.focus();
+  await thompson.press('Enter');
+  await expect(page.locator('#planner').getByLabel('Region')).toHaveValue('Thompson-Okanagan');
+  await expect(page.locator('#map').getByRole('button', { name: /^Thompson-Okanagan \(\d+\)/ })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('#directory').getByRole('button', { name: /^Thompson-Okanagan \d+/ })).toHaveAttribute('aria-pressed', 'true');
+  const regionalRows = page.locator('#directory .org-row');
+  expect(await regionalRows.count()).toBeGreaterThan(0);
+  for (const row of await regionalRows.all()) await expect(row).toContainText('Thompson-Okanagan');
+  await capture(page, testInfo, 'desktop-atlas.png', atlas);
+
+  await atlas.getByRole('button', { name: 'Open this view on map' }).click();
+  await expect(page.locator('#map')).toBeInViewport({ ratio: 0.1 });
+  await page.locator('#map').getByRole('button', { name: /^Metro Vancouver \(\d+\)/ }).click();
+  await expect(page.locator('#planner').getByLabel('Region')).toHaveValue('Metro Vancouver');
+  await expect(atlas.getByRole('button', { name: /^Metro Vancouver:/ })).toHaveAttribute('aria-pressed', 'true');
+
+  const ask = page.locator('#ask');
+  await ask.getByLabel('What are you trying to do?').fill('I need a health research collaborator');
+  await ask.getByRole('button', { name: 'FIND VERIFIED MATCHES' }).click();
+  await ask.getByRole('button', { name: /Locate .* on map/ }).first().click();
+  await expect(page.locator('#map .leaflet-popup')).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
 test('clipboard denial produces a useful fallback instead of a false success', async ({ page }) => {
   const errors = monitorRuntime(page);
   await page.addInitScript(() => {
@@ -154,6 +196,29 @@ test('clipboard denial produces a useful fallback instead of a false success', a
   await page.goto('/?flat=1#playbooks');
   await page.locator('#playbooks').getByRole('button', { name: 'Copy template' }).click();
   await expect(page.locator('#playbooks').getByText('Copy failed. Select the text or download the file.')).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test('375, 768, 1024, and 1440px layouts remain usable without page overflow', async ({ page }, testInfo) => {
+  const errors = monitorRuntime(page);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.addInitScript(() => {
+    window.localStorage.setItem('bcac-shortlist-v1', JSON.stringify(['bc-ai-ecosystem-association', 'new-ventures-bc']));
+  });
+  for (const width of [375, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/?flat=1');
+    await capture(page, testInfo, `responsive-${width}-top.png`);
+    await capture(page, testInfo, `responsive-${width}-atlas.png`, page.locator('#regions'));
+    if (width === 375 || width === 1440) await capture(page, testInfo, `responsive-${width}-comparison.png`, page.locator('#shortlist'));
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(overflow, `horizontal overflow at ${width}px`).toBeLessThanOrEqual(1);
+    await expect(page.locator('#ask').getByRole('button', { name: 'FIND VERIFIED MATCHES' })).toBeVisible();
+  }
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await page.getByRole('button', { name: 'Switch to dark theme' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await capture(page, testInfo, 'responsive-1440-dark.png');
   expect(errors).toEqual([]);
 });
 

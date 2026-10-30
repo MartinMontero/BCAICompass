@@ -12,12 +12,11 @@ import {
   REGIONS,
   type Category,
   type Organization,
-  type Region,
 } from '../data/organizations';
 import type { Preset } from '../data/preset';
+import type { PlanRegion } from '../lib/plan';
 
 type CatFilter = 'All' | Category;
-type RegFilter = 'All' | Region;
 
 // British Columbia, corner to corner. Used only when the dataset has fewer than
 // two mapped points, so the map is never centred on a hardcoded city.
@@ -418,12 +417,15 @@ function SheetDriver({
 export default function EcosystemMap({
   preset,
   onClearPreset,
+  region,
+  onRegionChange,
 }: {
   preset: Preset;
   onClearPreset: () => void;
+  region: PlanRegion;
+  onRegionChange: (region: PlanRegion) => void;
 }) {
   const [cat, setCat] = useState<CatFilter>('All');
-  const [reg, setReg] = useState<RegFilter>('All');
   const [selected, setSelected] = useState<Organization | null>(null);
 
   // The detail card and the shared-pin member list share ONE popup, owned
@@ -461,17 +463,6 @@ export default function EcosystemMap({
     setSheet(null);
   }, []);
 
-  // Region cards elsewhere on the page dispatch this to drive the map.
-  useEffect(() => {
-    const onRegion = (e: Event) => {
-      setReg((e as CustomEvent<Region>).detail);
-      setCat('All');
-      clearSelection();
-    };
-    window.addEventListener('bcac:region', onRegion);
-    return () => window.removeEventListener('bcac:region', onRegion);
-  }, [clearSelection]);
-
   // Pathway stops dispatch this. It opens the record card through the same
   // openCard the list rows and markers use — one selection mechanism, several
   // ways to command it.
@@ -508,9 +499,9 @@ export default function EcosystemMap({
     return MAPPED.filter(
       (o) =>
         (presetCats ? presetCats.has(o.category) : cat === 'All' || o.category === cat) &&
-        (reg === 'All' || o.region === reg)
+        (region === 'All regions' || o.region === region)
     );
-  }, [cat, reg, presetCats, presetStops]);
+  }, [cat, region, presetCats, presetStops]);
 
   /** Route line vertices, in stop order. Empty unless a pathway is being traced. */
   const trailPoints = useMemo(() => {
@@ -546,7 +537,7 @@ export default function EcosystemMap({
   }, []);
 
   const regCounts = useMemo(() => {
-    const c: Record<string, number> = { All: MAPPED.length };
+    const c: Record<string, number> = { 'All regions': MAPPED.length };
     for (const k of REGIONS) c[k] = MAPPED.filter((o) => o.region === k).length;
     return c;
   }, []);
@@ -563,16 +554,12 @@ export default function EcosystemMap({
   const listRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="map" className="relative bg-[var(--bg-raise)] py-20 md:py-28">
+    <section id="map" className="relative bg-[var(--bg-raise)] py-16 md:py-24 border-t border-[var(--line)]">
       <div className="px-5 md:px-10 max-w-[1400px] mx-auto">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-10 reveal">
           <div>
-            <div className="eyebrow mb-4">THE MAP</div>
-            <h2 className="font-display uppercase text-5xl md:text-7xl leading-[0.95]">
-              The whole
-              <br />
-              province.
-            </h2>
+            <div className="eyebrow mb-3">04 · SPATIAL MAP</div>
+            <h2 className="font-display uppercase text-4xl md:text-6xl leading-[0.95]">Explore the province.</h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-[var(--ink-soft)]">
             {MAPPED.length} verified organizations with sourced locations, from Victoria to Prince
@@ -625,8 +612,9 @@ export default function EcosystemMap({
                   clearSelection();
                 }}
                 disabled={empty}
+                aria-pressed={active}
                 title={empty ? 'Not yet surveyed — nobody has searched this category to a conclusion' : undefined}
-                className={`font-mono2 text-[10.5px] tracking-[0.12em] uppercase px-3.5 py-2 border transition-all duration-300 ${
+                className={`min-h-11 rounded-full font-mono2 text-[10px] tracking-[0.06em] uppercase px-3.5 py-2 border transition-all duration-300 ${
                   empty
                     ? 'border-dashed border-[var(--line)] text-[var(--ink-faint)] cursor-not-allowed'
                     : active
@@ -657,22 +645,22 @@ export default function EcosystemMap({
             exist and are in the directory. Hiding either would let the map assert
             emptiness nobody has established.
           */}
-          {(['All', ...REGIONS] as RegFilter[]).map((r) => {
-            const active = reg === r;
+          {(['All regions', ...REGIONS] as PlanRegion[]).map((r) => {
+            const active = region === r;
             const mapped = regCounts[r] ?? 0;
-            const surveyed = r === 'All' || (allRegionCounts[r] ?? 0) > 0;
+            const surveyed = r === 'All regions' || (allRegionCounts[r] ?? 0) > 0;
             return (
               <button
                 key={r}
                 onClick={() => {
                   if (!surveyed) return;
-                  onClearPreset();
-                  setReg(r);
+                  onRegionChange(r);
                   clearSelection();
                 }}
                 disabled={!surveyed}
+                aria-pressed={active}
                 title={!surveyed ? 'Not yet surveyed — nobody has searched this region to a conclusion' : undefined}
-                className={`font-mono2 text-[9.5px] tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-300 ${
+                className={`min-h-11 rounded-full font-mono2 text-[9px] tracking-[0.05em] uppercase px-3 py-1.5 border transition-all duration-300 ${
                   !surveyed
                     ? 'border-dashed border-[var(--line)] text-[var(--ink-faint)] cursor-not-allowed'
                     : active
@@ -692,7 +680,7 @@ export default function EcosystemMap({
           <div className="lg:col-span-4 order-2 lg:order-1">
             <div
               ref={listRef}
-              className="slim-scroll border border-[var(--line)] lg:h-[72vh] lg:overflow-y-auto divide-y divide-[var(--line)]"
+              className="slim-scroll rounded-[var(--radius-lg)] border border-[var(--line)] lg:h-[72vh] lg:overflow-y-auto divide-y divide-[var(--line)]"
             >
               {filtered.map((o, i) => (
                 <button
@@ -730,7 +718,7 @@ export default function EcosystemMap({
                     onClick={() => {
                       onClearPreset();
                       setCat('All');
-                      setReg('All');
+                      onRegionChange('All regions');
                     }}
                     className="mt-4 font-mono2 text-[10px] tracking-[0.14em] border border-[var(--accent)] text-[var(--accent)] px-4 py-2 hover:bg-[var(--brand)] hover:text-[var(--brand-ink)] transition-colors"
                   >
@@ -744,12 +732,12 @@ export default function EcosystemMap({
                 {filtered.length} shown · hover a row to fly, click for the record · filled dot =
                 address, ring = city centroid
               </span>
-              {(cat !== 'All' || reg !== 'All' || preset) && (
+              {(cat !== 'All' || region !== 'All regions' || preset) && (
                 <button
                   onClick={() => {
                     onClearPreset();
                     setCat('All');
-                    setReg('All');
+                    onRegionChange('All regions');
                     clearSelection();
                   }}
                   className="font-mono2 text-[10px] tracking-[0.14em] text-[var(--accent)] hover:text-[var(--ink)] transition-colors shrink-0"
@@ -762,7 +750,7 @@ export default function EcosystemMap({
 
           {/* map */}
           <div
-            className="lg:col-span-8 order-1 lg:order-2 border border-[var(--line)] relative"
+            className="lg:col-span-8 order-1 lg:order-2 rounded-[var(--radius-lg)] overflow-hidden border border-[var(--line)] relative"
             role="region"
             aria-label="Interactive map of verified British Columbia AI organizations, on OpenStreetMap"
           >

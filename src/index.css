@@ -20,6 +20,14 @@
   --r-paper: #f6f4ef;
   --r-ink: #14171c;
 
+  /* Component scale: 8px rhythm with 4px fine adjustments. */
+  --radius: 8px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 2px 10px rgba(20, 23, 28, 0.08);
+  --shadow-md: 0 18px 48px rgba(20, 23, 28, 0.10);
+
   color-scheme: light dark;
 }
 
@@ -244,33 +252,46 @@ body {
 
 /* ---------- buttons ---------- */
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border-radius: var(--radius-sm);
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   background: var(--brand);
   color: var(--brand-ink);
-  padding: 14px 24px;
-  transition: background 0.25s ease, color 0.25s ease;
+  padding: 12px 22px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 .btn-primary:hover {
   background: var(--ink);
   color: var(--bg);
 }
 .btn-ghost {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border-radius: var(--radius-sm);
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   border: 1px solid var(--line-strong);
   color: var(--ink);
-  padding: 14px 24px;
-  transition: border-color 0.25s ease;
+  padding: 12px 22px;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 .btn-ghost:hover {
   border-color: var(--ink);
+  background: var(--bg-raise);
+}
+
+summary::marker {
+  color: var(--accent);
 }
 
 /* ---------- leaflet ---------- */
@@ -400,11 +421,10 @@ body {
 
 /* ---------- rows ---------- */
 .org-row {
-  transition: background 0.3s ease, padding-left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background 0.2s ease;
 }
 .org-row:hover {
-  background: var(--line);
-  padding-left: 1rem;
+  background: var(--bg-raise);
 }
 .map-row {
   transition: background 0.25s ease, border-color 0.25s ease;
