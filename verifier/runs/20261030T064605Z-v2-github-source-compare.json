@@ -1,0 +1,17 @@
+{
+  "version": "v2",
+  "timestamp": "2026-10-30T06:46:05Z",
+  "command": "fresh codeload.github.com download of MartinMontero/BCAICompass main; byte comparison of 25 delivered UX/evidence files against the verified local source",
+  "exitCode": 1,
+  "result": {
+    "comparedFiles": 25,
+    "matchedFiles": 23,
+    "mismatchedFiles": 2,
+    "applicationSourceMatched": true,
+    "mismatches": [
+      "verifier/runs/20261030T062048Z-v2-acceptance.json: one timing value in retained output was transcribed as import 502ms instead of 504ms",
+      "verifier/runs/20261030T062506Z-v2-coverage.json: three check marks used literal UTF-8 instead of the retained JSON unicode escape form"
+    ],
+    "resolution": "Correct the two evidence files to byte-identical retained content and rerun the fresh-source comparison and full verifier. No application source mismatch was found."
+  }
+}
