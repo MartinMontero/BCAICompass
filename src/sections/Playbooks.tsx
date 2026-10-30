@@ -19,7 +19,7 @@ export default function Playbooks() {
       <div className="px-5 md:px-10 max-w-[1400px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 items-end reveal">
           <div className="md:col-span-7">
-            <div className="eyebrow mb-4">WORKING TEMPLATES</div>
+            <div className="eyebrow mb-4">07 · WORKING TEMPLATES</div>
             <h2 className="font-display uppercase text-5xl md:text-7xl leading-[0.95]">Do the work, not just the reading.</h2>
           </div>
           <p className="md:col-span-4 md:col-start-9 text-base leading-relaxed text-[var(--ink-soft)]">
