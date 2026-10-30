@@ -3,23 +3,29 @@ import Nav from './components/Nav';
 import Marquee from './components/Marquee';
 import Hero from './sections/Hero';
 import AskTheMap from './sections/AskTheMap';
-import Onramps from './sections/Onramps';
 import ActionPlanner from './sections/ActionPlanner';
 import EcosystemMap from './sections/EcosystemMap';
 import Directory from './sections/Directory';
 import Shortlist from './components/Shortlist';
-import Pathways from './sections/Pathways';
 import Playbooks from './sections/Playbooks';
 import Regions from './sections/Regions';
 import Mission from './sections/Mission';
 import Contribute from './sections/Contribute';
 import Footer from './sections/Footer';
 import type { Preset } from './data/preset';
+import type { PlanRegion } from './lib/plan';
 import { useShortlist } from './hooks/useShortlist';
 
 export default function App() {
   const [preset, setPreset] = useState<Preset>(null);
+  const [sharedRegion, setSharedRegion] = useState<PlanRegion>('All regions');
   const clearPreset = useCallback(() => setPreset(null), []);
+  const changeRegion = useCallback((region: PlanRegion) => {
+    setSharedRegion(region);
+    // A pathway/onramp preset is a different slice. Manual region control takes
+    // precedence everywhere so the four views never contradict one another.
+    setPreset(null);
+  }, []);
   const shortlist = useShortlist();
   const savedIds = useMemo(() => new Set(shortlist.ids), [shortlist.ids]);
 
@@ -63,14 +69,12 @@ export default function App() {
         <Hero />
         <Marquee />
         <AskTheMap savedIds={savedIds} onToggle={shortlist.toggle} />
-        <Onramps onPreset={setPreset} />
-        <ActionPlanner savedIds={savedIds} onToggle={shortlist.toggle} onPreset={setPreset} />
-        <EcosystemMap preset={preset} onClearPreset={clearPreset} />
-        <Directory preset={preset} onClearPreset={clearPreset} savedIds={savedIds} onToggle={shortlist.toggle} />
+        <ActionPlanner savedIds={savedIds} onToggle={shortlist.toggle} onPreset={setPreset} region={sharedRegion} onRegionChange={changeRegion} />
+        <Regions region={sharedRegion} onRegionChange={changeRegion} />
+        <EcosystemMap key={sharedRegion} preset={preset} onClearPreset={clearPreset} region={sharedRegion} onRegionChange={changeRegion} />
+        <Directory preset={preset} onClearPreset={clearPreset} savedIds={savedIds} onToggle={shortlist.toggle} region={sharedRegion} onRegionChange={changeRegion} />
         <Shortlist shortlist={shortlist} />
-        <Pathways onPreset={setPreset} />
         <Playbooks />
-        <Regions />
         <Mission />
         <Contribute />
       </main>

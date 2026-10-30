@@ -3,17 +3,16 @@ import { useEffect, useState } from 'react';
 const LINKS = [
   { n: '01', label: 'ASK THE MAP', href: '#ask', short: 'ASK' },
   { n: '02', label: 'ACTION PLAN', href: '#planner', short: 'PLAN' },
-  { n: '03', label: 'THE MAP', href: '#map', short: 'MAP' },
-  { n: '04', label: 'THE DIRECTORY', href: '#directory', short: 'DIRECTORY' },
-  { n: '05', label: 'SHORTLIST', href: '#shortlist', short: 'SHORTLIST' },
-  { n: '06', label: 'PATHWAYS', href: '#pathways', short: 'PATHWAYS' },
+  { n: '03', label: 'REGIONAL ATLAS', href: '#regions', short: 'ATLAS' },
+  { n: '04', label: 'THE MAP', href: '#map', short: 'MAP' },
+  { n: '05', label: 'THE DIRECTORY', href: '#directory', short: 'DIRECTORY' },
+  { n: '06', label: 'COMPARE', href: '#shortlist', short: 'COMPARE' },
   { n: '07', label: 'PLAYBOOKS', href: '#playbooks', short: 'PLAYBOOKS' },
-  { n: '08', label: 'THE REGIONS', href: '#regions', short: 'REGIONS' },
-  { n: '09', label: 'THE METHOD', href: '#method', short: 'METHOD' },
-  { n: '10', label: 'CONTRIBUTE', href: '#contribute', short: 'CONTRIBUTE' },
+  { n: '08', label: 'THE METHOD', href: '#method', short: 'METHOD' },
+  { n: '09', label: 'CONTRIBUTE', href: '#contribute', short: 'CONTRIBUTE' },
 ];
 
-const DESKTOP_LINKS = LINKS.filter((link) => ['#ask', '#planner', '#map', '#directory', '#pathways', '#playbooks', '#method'].includes(link.href));
+const DESKTOP_LINKS = LINKS.filter((link) => ['#ask', '#planner', '#regions', '#map', '#directory', '#playbooks', '#method'].includes(link.href));
 
 export default function Nav({ savedCount }: { savedCount: number }) {
   const [hidden, setHidden] = useState(false);
