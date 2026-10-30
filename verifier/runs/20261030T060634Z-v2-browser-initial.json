@@ -1,0 +1,13 @@
+{
+  "version": "v2",
+  "timestamp": "2026-10-30T06:06:34Z",
+  "command": "CHROMIUM_PATH=/usr/bin/chromium npm run test:e2e",
+  "exitCode": 1,
+  "result": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "failure": "The shared-region scenario found that the active map region was visually selected but did not expose aria-pressed. The build and other five scenarios passed.",
+    "resolution": "Added aria-pressed to map category and region filter buttons; rerun required."
+  }
+}

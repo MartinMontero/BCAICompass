@@ -1,0 +1,79 @@
+{
+  "version": "v2",
+  "timestamp": "2026-10-30T06:27:00Z",
+  "command": "consolidated final quality, security, and visual review of the passing v2 build",
+  "exitCode": 0,
+  "result": {
+    "acceptance": {
+      "record": "verifier/runs/20261030T062048Z-v2-acceptance.json",
+      "passed": 14,
+      "failed": 0,
+      "unitTestsPassed": 21,
+      "browserScenariosPassed": 6,
+      "dataExport": "136 verified organizations; 128 with sourced coordinates",
+      "lint": "passed",
+      "productionBuild": "passed"
+    },
+    "coverage": {
+      "record": "verifier/runs/20261030T062506Z-v2-coverage.json",
+      "command": "npm run test:coverage",
+      "exitCode": 0,
+      "statementsPercent": 97.98,
+      "branchesPercent": 91.46,
+      "functionsPercent": 100,
+      "linesPercent": 99.13
+    },
+    "dependencyAudit": {
+      "record": "verifier/runs/20261030T062503Z-v2-dependency-audit.json",
+      "command": "npm audit --audit-level=low",
+      "exitCode": 0,
+      "vulnerabilities": 0
+    },
+    "security": {
+      "record": "verifier/v2/security-review.md",
+      "owaspCategoriesReviewed": 10,
+      "openHigh": 0,
+      "openMedium": 0,
+      "openLow": 0,
+      "status": "pass"
+    },
+    "datasetSha256": "07c001e1febed219bdb0bb1582f30aa35ef8f8e4931ce73ab2a074856a4aafd6",
+    "visualReview": {
+      "status": "pass",
+      "viewports": [375, 768, 1024, 1440],
+      "themes": ["light", "dark"],
+      "reducedMotion": true,
+      "inspected": [
+        "desktop-top.png",
+        "desktop-search.png",
+        "desktop-planner.png",
+        "desktop-atlas.png",
+        "desktop-comparison.png",
+        "responsive-375-top.png",
+        "responsive-375-atlas.png",
+        "responsive-375-comparison.png",
+        "responsive-768-top.png",
+        "responsive-768-atlas.png",
+        "responsive-1024-top.png",
+        "responsive-1024-atlas.png",
+        "responsive-1440-top.png",
+        "responsive-1440-atlas.png",
+        "responsive-1440-comparison.png",
+        "responsive-1440-dark.png",
+        "mobile-search.png",
+        "mobile-playbooks.png"
+      ],
+      "observations": [
+        "The need-to-plan-to-spatial-exploration-to-comparison flow is visible and no redundant standalone pathway or onramp section remains.",
+        "Planner checklist progress, compact sourced recommendations, regional atlas metrics, map actions, and comparison sorting are legible.",
+        "The 375px atlas labels remain inside the schematic after node-position correction.",
+        "The 375px comparison table scrolls intentionally inside its own container; document overflow is zero after the Actions-header correction.",
+        "Light and dark themes retain readable contrast, visible controls, intact glyphs, and no unexplained clipping or blank content."
+      ]
+    },
+    "unsuccessfulRunsRetained": [
+      "verifier/runs/20261030T060634Z-v2-browser-initial.json",
+      "verifier/runs/20261030T061402Z-v2-acceptance.json"
+    ]
+  }
+}
