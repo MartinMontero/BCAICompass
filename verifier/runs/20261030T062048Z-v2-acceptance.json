@@ -1,0 +1,118 @@
+{
+  "version": "v2",
+  "timestamp": "2026-10-30T06:20:48.818Z",
+  "command": "node verifier/v2/verify.mjs",
+  "exitCode": 0,
+  "passed": 14,
+  "failed": 0,
+  "total": 14,
+  "checks": [
+    {
+      "name": "Trusted organization dataset unchanged",
+      "pass": true,
+      "detail": "07c001e1febed219bdb0bb1582f30aa35ef8f8e4931ce73ab2a074856a4aafd6"
+    },
+    {
+      "name": "Connected workflow mounts atlas and comparison",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Redundant standalone goal/pathway sections unmounted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Shared region passed to planner, map, directory, and atlas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Interactive data-derived regional atlas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Comparison shortlist includes sorting and coverage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Directory progressively discloses evidence",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Search results retain explanations and map action",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Accessible token, focus, and reduced-motion foundations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Command passes: data export",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: unit tests",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: lint",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: production build",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: browser workflows",
+      "pass": true,
+      "detail": "exit 0"
+    }
+  ],
+  "commands": [
+    {
+      "label": "data export",
+      "command": "npm run verify:data",
+      "startedAt": "2026-10-30T06:18:40.863Z",
+      "exitCode": 0,
+      "outputTail": "> bcaicompass@1.0.0 verify:data\n> node scripts/export-data.mjs\n\nexport-data: OK — 136 verified organizations, 128 with sourced coordinates.\n  wrote public/ecosystem.json and public/ecosystem.geojson"
+    },
+    {
+      "label": "unit tests",
+      "command": "npm test",
+      "startedAt": "2026-10-30T06:18:41.490Z",
+      "exitCode": 0,
+      "outputTail": "\n\n\u001b[1m\u001b[30m\u001b[46m RUN \u001b[49m\u001b[39m\u001b[22m \u001b[36mv4.1.12 \u001b[39m\u001b[90m/mnt/agents/output/app\u001b[39m\n\n \u001b[32m✓\u001b[39m src/tests/search.test.ts \u001b[2m(\u001b[22m\u001b[2m9 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 169\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m src/tests/plan.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 14\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m src/tests/shortlist.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 8\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m3 passed\u001b[39m\u001b[22m\u001b[90m (3)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m21 passed\u001b[39m\u001b[22m\u001b[90m (21)\u001b[39m\n\u001b[2m   Start at \u001b[22m 14:18:42\n\u001b[2m   Duration \u001b[22m 1.30s\u001b[2m (transform 435ms, setup 0ms, import 502ms, tests 191ms, environment 0ms)\u001b[22m"
+    },
+    {
+      "label": "lint",
+      "command": "npm run lint",
+      "startedAt": "2026-10-30T06:18:44.064Z",
+      "exitCode": 0,
+      "outputTail": "> bcaicompass@1.0.0 lint\n> eslint ."
+    },
+    {
+      "label": "production build",
+      "command": "npm run build",
+      "startedAt": "2026-10-30T06:18:53.830Z",
+      "exitCode": 0,
+      "outputTail": "> tsc -b && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 95 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   2.40 kB │ gzip:   0.93 kB\ndist/assets/index-CMDDXEw-.css   45.83 kB │ gzip:  13.38 kB\ndist/assets/map-DOeTghz-.js     165.10 kB │ gzip:  48.56 kB\ndist/assets/index-C-iijM3d.js   365.21 kB │ gzip: 105.82 kB\n✓ built in 6.23s"
+    },
+    {
+      "label": "browser workflows",
+      "command": "npm run test:e2e",
+      "startedAt": "2026-10-30T06:19:09.316Z",
+      "exitCode": 0,
+      "outputTail": "\n\nRunning 6 tests using 1 worker\n\n  ✓  1 e2e/practical-workflows.spec.ts:48:1 › search, regional planning, pathway tracing, shortlist exports, and persistence work end to end (18.2s)\n  ✓  2 e2e/practical-workflows.spec.ts:115:1 › directory saving, independent playbook drafts, reset, downloads, and theme switching work (14.8s)\n  ✓  3 e2e/practical-workflows.spec.ts:158:1 › atlas, planner, map, and directory share region state and search can locate a record (10.2s)\n  ✓  4 e2e/practical-workflows.spec.ts:188:1 › clipboard denial produces a useful fallback instead of a false success (4.4s)\n  ✓  5 e2e/practical-workflows.spec.ts:202:1 › 375, 768, 1024, and 1440px layouts remain usable without page overflow (15.9s)\n  ✓  6 e2e/practical-workflows.spec.ts:225:1 › 375px mobile navigation and primary workflows have no horizontal page overflow (6.5s)\n\n  6 passed (1.4m)"
+    }
+  ]
+}
