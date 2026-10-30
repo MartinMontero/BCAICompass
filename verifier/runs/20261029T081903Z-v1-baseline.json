@@ -1,32 +1,105 @@
-{
-  "recordedAt": "2026-10-29T08:19:03Z",
-  "command": "node verifier/v1/verify.mjs",
-  "exitCode": 1,
-  "result": {
-    "version": "v1",
-    "passed": 4,
-    "failed": 15,
-    "total": 19,
-    "checks": [
-      { "name": "Trusted organization dataset unchanged", "pass": true, "detail": "07c001e1febed219bdb0bb1582f30aa35ef8f8e4931ce73ab2a074856a4aafd6" },
-      { "name": "Required workflow file: src/lib/search.ts", "pass": false, "detail": "" },
-      { "name": "Required workflow file: src/lib/plan.ts", "pass": false, "detail": "" },
-      { "name": "Required workflow file: src/lib/shortlist.ts", "pass": false, "detail": "" },
-      { "name": "Required workflow file: src/data/playbooks.ts", "pass": false, "detail": "" },
-      { "name": "Required workflow file: src/sections/ActionPlanner.tsx", "pass": false, "detail": "" },
-      { "name": "Required workflow file: src/sections/Playbooks.tsx", "pass": false, "detail": "" },
-      { "name": "Required workflow file: src/components/Shortlist.tsx", "pass": false, "detail": "" },
-      { "name": "Required workflow file: src/tests/search.test.ts", "pass": false, "detail": "" },
-      { "name": "Required workflow file: src/tests/plan.test.ts", "pass": false, "detail": "" },
-      { "name": "Required workflow file: src/tests/shortlist.test.ts", "pass": false, "detail": "" },
-      { "name": "Action planner mounted", "pass": false, "detail": "" },
-      { "name": "Playbooks mounted", "pass": false, "detail": "" },
-      { "name": "Shortlist mounted", "pass": false, "detail": "" },
-      { "name": "Test script declared", "pass": false, "detail": "missing" },
-      { "name": "Command passes: run verify:data", "pass": true, "detail": "export-data: OK — 136 verified organizations, 128 with sourced coordinates." },
-      { "name": "Command passes: test", "pass": false, "detail": "npm error Missing script: test" },
-      { "name": "Command passes: run lint", "pass": true, "detail": "eslint ." },
-      { "name": "Command passes: run build", "pass": true, "detail": "dist/assets/index-CcxIyZtl.js 480.26 kB; built in 5.30s" }
-    ]
-  }
-}
+{"recordedAt":"2026-10-29T08:19:03Z","command":"node verifier/v1/verify.mjs",
+"result":{
+  "version": "v1",
+  "passed": 4,
+  "failed": 15,
+  "total": 19,
+  "checks": [
+    {
+      "name": "Trusted organization dataset unchanged",
+      "pass": true,
+      "detail": "07c001e1febed219bdb0bb1582f30aa35ef8f8e4931ce73ab2a074856a4aafd6"
+    },
+    {
+      "name": "Required workflow file: src/lib/search.ts",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Required workflow file: src/lib/plan.ts",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Required workflow file: src/lib/shortlist.ts",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Required workflow file: src/data/playbooks.ts",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Required workflow file: src/sections/ActionPlanner.tsx",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Required workflow file: src/sections/Playbooks.tsx",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Required workflow file: src/components/Shortlist.tsx",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Required workflow file: src/tests/search.test.ts",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Required workflow file: src/tests/plan.test.ts",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Required workflow file: src/tests/shortlist.test.ts",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Action planner mounted",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Playbooks mounted",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Shortlist mounted",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "Test script declared",
+      "pass": false,
+      "detail": "missing"
+    },
+    {
+      "name": "Command passes: run verify:data",
+      "pass": true,
+      "detail": "> node scripts/export-data.mjs |  | export-data: OK — 136 verified organizations, 128 with sourced coordinates. |   wrote public/ecosystem.json and public/ecosystem.geojson"
+    },
+    {
+      "name": "Command passes: test",
+      "pass": false,
+      "detail": "npm error Missing script: \"test\" | npm error | npm error To see a list of scripts, run: | npm error   npm run | npm error A complete log of this run can be found in: /home/kimi/.npm-cache/_logs/2026-10-29T08_19_04_000Z-debug-0.log"
+    },
+    {
+      "name": "Command passes: run lint",
+      "pass": true,
+      "detail": "> bcaicompass@1.0.0 lint | > eslint ."
+    },
+    {
+      "name": "Command passes: run build",
+      "pass": true,
+      "detail": "dist/index.html                   2.20 kB │ gzip:   0.87 kB | dist/assets/index-DRh9Z4NI.css   40.00 kB │ gzip:  12.30 kB | dist/assets/index-CcxIyZtl.js   480.26 kB │ gzip: 140.70 kB | ✓ built in 5.30s"
+    }
+  ]
+},
+"exitCode":1}
