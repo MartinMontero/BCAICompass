@@ -1,0 +1,9 @@
+{
+  "kind": "correct-record",
+  "name": "[Test] Production contribution workflow",
+  "website": "https://bc-aicompass.ca",
+  "sourceUrl": "https://github.com/MartinMontero/BCAICompass",
+  "location": "",
+  "details": "End-to-end verification of the public contribution form after configuring the server-side token. This is a test submission; please close the pull request after review.",
+  "submittedAt": "2026-11-01T09:25:15.845Z"
+}
