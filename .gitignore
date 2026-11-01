@@ -6,3 +6,13 @@ dist/
 coverage/
 test-results/
 playwright-report/
+.env.local
+.env.*.local
+*.db
+*.sqlite
+*.sqlite3
+db/migrations/*.sql
+*.tsbuildinfo
+build/
+.nyc_output/
+*.log
