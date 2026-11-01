@@ -1,0 +1,104 @@
+{
+  "version": "v3",
+  "timestamp": "2026-11-01T07:33:01Z",
+  "command": "Verify final GitHub source/evidence delivery and record runtime/publication boundaries",
+  "exitCode": 0,
+  "result": "passed",
+  "preview": {
+    "versionId": "124f992",
+    "type": "dynamic",
+    "saved": true,
+    "urlReturned": false,
+    "productionPublication": false
+  },
+  "acceptance": {
+    "record": "verifier/runs/20261101T063312Z-v3-acceptance.json",
+    "passed": 21,
+    "failed": 0,
+    "total": 21,
+    "unitAndIntegrationTests": 29,
+    "browserWorkflows": "passed",
+    "dependencyVulnerabilities": 0,
+    "organizationDatasetSha256": "07c001e1febed219bdb0bb1582f30aa35ef8f8e4931ce73ab2a074856a4aafd6",
+    "verifiedOrganizations": 136,
+    "sourcedCoordinates": 128
+  },
+  "github": {
+    "repository": "MartinMontero/BCAICompass",
+    "branch": "main",
+    "verifiedSourceHead": "73f653247bd89142f6185b9c047478d5ff9586a5",
+    "commits": [
+      "160b914261cc65b9e480ae5fd5c707dedc780d65",
+      "27e6e07dbb162f23500eb7791a33c3cba988c8b3",
+      "92aead5727dfd075560212a1bb6992e31403c904",
+      "4258a435cb5524e9bdaa28ab9e78591c23d4016d",
+      "f74733705bcc10b0ab6418c7f2c3f94363ffac9c",
+      "bb784769c374bb4de4beaa68000c913c41b32e74",
+      "73f653247bd89142f6185b9c047478d5ff9586a5"
+    ],
+    "verifiedFiles": [
+      "Dockerfile",
+      "README.md",
+      "CONTRIBUTING.md",
+      "verifier/README.md",
+      "verifier/v3/acceptance.md",
+      "verifier/v3/security-review.md",
+      "verifier/v3/verify.mjs",
+      "verifier/runs/20261101T062956Z-v3-dependency-audit.json",
+      "verifier/runs/20261101T063000Z-v3-visual-review.json",
+      "verifier/runs/20261101T063312Z-v3-acceptance.json",
+      "verifier/runs/20261101T063433Z-v3-production-cold-start.json",
+      "verifier/runs/20261101T072125Z-v3-run-history.json"
+    ],
+    "runHistory": {
+      "indexedRuns": 19,
+      "passedRuns": 11,
+      "failedRuns": 8,
+      "originalHashesRetained": true
+    }
+  },
+  "cleanCopyVerification": {
+    "exactLocalDeliveryCopy": {
+      "result": "passed",
+      "checks": [
+        "clean dependency installation",
+        "type check",
+        "production build",
+        "zero-vulnerability dependency audit",
+        "organization dataset hash",
+        "five original PNG evidence hashes"
+      ]
+    },
+    "githubSourceFallback": {
+      "result": "passed",
+      "installCommand": "npm install --no-audit --no-fund",
+      "checks": [
+        "backend dependency tree reconciled",
+        "type check passed",
+        "production build passed",
+        "dist/boot.js created",
+        "dist/public/index.html created"
+      ]
+    }
+  },
+  "limitations": {
+    "githubByteIdenticalToLocalVerifiedProject": false,
+    "packageLockExactlySynchronized": false,
+    "packageLockNote": "GitHub retains the older lockfile. The delivered Dockerfile and setup guide use npm install to reconcile it; this is a verified functional fallback, not an exact lockfile synchronization.",
+    "allOriginalPerRunLogsMirroredToGithub": false,
+    "allOriginalPngEvidenceMirroredToGithub": false,
+    "localEvidenceRetention": "Original per-run JSON logs and all five PNG screenshots remain unchanged in the verified local project. GitHub contains the final key evidence records and a 19-run index with original SHA-256 hashes."
+  },
+  "runtime": {
+    "realPullRequestCreationConfigured": false,
+    "requiredServerSecret": "GITHUB_TOKEN",
+    "requiredScope": "Fine-grained token limited to MartinMontero/BCAICompass with Contents and Pull requests read/write access",
+    "missingCredentialBehavior": "Explicit unavailable response with downloadable fallback; no simulated pull request"
+  },
+  "production": {
+    "cloudflareDeploymentAttemptedInThisDelivery": false,
+    "cloudflareDeploymentSucceeded": false,
+    "publicSiteLiveClaim": false,
+    "requiredUserAction": "Configure the server-side GitHub token and perform the production deployment when ready."
+  }
+}
