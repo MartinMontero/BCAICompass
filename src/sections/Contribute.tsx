@@ -74,7 +74,11 @@ export default function Contribute() {
   });
 
   const download = () => {
-    downloadText('bc-ai-compass-contribution.json', `${JSON.stringify(publicCopy(), null, 2)}\n`, 'application/json;charset=utf-8');
+    downloadText(
+      'bc-ai-compass-contribution.json',
+      `${JSON.stringify(publicCopy(), null, 2)}\n`,
+      'application/json;charset=utf-8',
+    );
   };
 
   const submit = async () => {
@@ -116,14 +120,18 @@ export default function Contribute() {
         <div className="grid md:grid-cols-12 gap-x-10 gap-y-10">
           <div className="md:col-span-7 reveal">
             <div className="eyebrow mb-3">CONTRIBUTE · GUIDED REVIEW</div>
-            <h2 className="font-display uppercase text-4xl md:text-6xl leading-[0.95]">Send a source.<br />No GitHub needed.</h2>
+            <h2 className="font-display uppercase text-4xl md:text-6xl leading-[0.95]">Send a source.</h2>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--ink-soft)]">Tell us what belongs, check your answers, then send. The server creates a pull request for maintainers to review; nothing is merged automatically.</p>
+
             {step === 'success' && pullRequest ? (
               <div className="mt-8 rounded-[var(--radius-lg)] border border-[var(--brand)] bg-[var(--bg)] p-6" aria-live="polite">
                 <div className="font-mono2 text-[10px] uppercase tracking-[0.08em] text-[var(--accent)]">Submission received</div>
                 <h3 className="mt-3 font-display uppercase text-3xl">Pull request created.</h3>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--ink-soft)]">A maintainer still needs to check the sources and merge it. You can keep the pull-request link to follow that review.</p>
-                <div className="mt-6 flex flex-wrap gap-3"><a href={pullRequest.url} target="_blank" rel="noreferrer" className="btn-primary">View pull request #{pullRequest.number} ↗</a><button type="button" onClick={reset} className="btn-ghost">Make another contribution</button></div>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a href={pullRequest.url} target="_blank" rel="noreferrer" className="btn-primary">View pull request #{pullRequest.number} ↗</a>
+                  <button type="button" onClick={reset} className="btn-ghost">Make another contribution</button>
+                </div>
               </div>
             ) : step === 'review' ? (
               <div className="mt-8 rounded-[var(--radius-lg)] border border-[var(--line-strong)] bg-[var(--bg)] p-5 md:p-6">
@@ -159,24 +167,51 @@ export default function Contribute() {
                     ))}
                   </div>
                 </fieldset>
+
                 <div className="mt-5 grid sm:grid-cols-2 gap-4">
-                  <label className="text-[12px] font-semibold">Name<input value={form.name} onChange={(event) => update('name', event.target.value)} maxLength={160} autoComplete="off" className={inputClass} placeholder="Organization or resource" aria-invalid={Boolean(errors.name)} />{errors.name && <span className="mt-1 block text-[11px] text-[var(--accent)]">{errors.name}</span>}</label>
-                  <label className="text-[12px] font-semibold">Website<input type="url" value={form.website} onChange={(event) => update('website', event.target.value)} maxLength={2048} autoComplete="off" className={inputClass} placeholder="https://…" aria-invalid={Boolean(errors.website)} />{errors.website && <span className="mt-1 block text-[11px] text-[var(--accent)]">{errors.website}</span>}</label>
+                  <label className="text-[12px] font-semibold">Name
+                    <input value={form.name} onChange={(event) => update('name', event.target.value)} maxLength={160} autoComplete="off" className={inputClass} placeholder="Organization or resource" aria-invalid={Boolean(errors.name)} />
+                    {errors.name && <span className="mt-1 block text-[11px] text-[var(--accent)]">{errors.name}</span>}
+                  </label>
+                  <label className="text-[12px] font-semibold">Website
+                    <input type="url" value={form.website} onChange={(event) => update('website', event.target.value)} maxLength={2048} autoComplete="off" className={inputClass} placeholder="https://…" aria-invalid={Boolean(errors.website)} />
+                    {errors.website && <span className="mt-1 block text-[11px] text-[var(--accent)]">{errors.website}</span>}
+                  </label>
                 </div>
-                <label className="mt-4 block text-[12px] font-semibold">Supporting source URL<input type="url" value={form.sourceUrl} onChange={(event) => update('sourceUrl', event.target.value)} maxLength={2048} className={inputClass} placeholder="A public page that supports the change" aria-invalid={Boolean(errors.sourceUrl)} />{errors.sourceUrl && <span className="mt-1 block text-[11px] text-[var(--accent)]">{errors.sourceUrl}</span>}</label>
-                {form.kind !== 'suggest-public-ai' && <label className="mt-4 block text-[12px] font-semibold">B.C. location<input value={form.location} onChange={(event) => update('location', event.target.value)} maxLength={160} className={inputClass} placeholder="City, region, or province-wide" aria-invalid={Boolean(errors.location)} />{errors.location && <span className="mt-1 block text-[11px] text-[var(--accent)]">{errors.location}</span>}</label>}
+
+                <label className="mt-4 block text-[12px] font-semibold">Supporting source URL
+                  <input type="url" value={form.sourceUrl} onChange={(event) => update('sourceUrl', event.target.value)} maxLength={2048} className={inputClass} placeholder="A public page that supports the change" aria-invalid={Boolean(errors.sourceUrl)} />
+                  {errors.sourceUrl && <span className="mt-1 block text-[11px] text-[var(--accent)]">{errors.sourceUrl}</span>}
+                </label>
+
+                {form.kind !== 'suggest-public-ai' && (
+                  <label className="mt-4 block text-[12px] font-semibold">B.C. location
+                    <input value={form.location} onChange={(event) => update('location', event.target.value)} maxLength={160} className={inputClass} placeholder="City, region, or province-wide" aria-invalid={Boolean(errors.location)} />
+                    {errors.location && <span className="mt-1 block text-[11px] text-[var(--accent)]">{errors.location}</span>}
+                  </label>
+                )}
+
                 <label className="mt-4 block text-[12px] font-semibold">What should reviewers know?
                   <textarea value={form.details} onChange={(event) => update('details', event.target.value)} maxLength={3000} rows={5} className={`${inputClass} py-3 resize-y`} placeholder={form.kind === 'correct-record' ? 'What is wrong, and what does the source show instead?' : 'What is the AI or public-knowledge work, and why is it useful?'} aria-invalid={Boolean(errors.details)} />
                   <span className="mt-1 flex justify-between gap-3 text-[10px] font-normal text-[var(--ink-faint)]"><span>Do not include personal contact details.</span><span>{form.details.length}/3000</span></span>
                   {errors.details && <span className="mt-1 block text-[11px] text-[var(--accent)]">{errors.details}</span>}
                 </label>
-                <label className="mt-5 flex items-start gap-3 text-[12px] leading-relaxed text-[var(--ink-soft)]"><input type="checkbox" checked={form.consent} onChange={(event) => update('consent', event.target.checked)} className="mt-1 h-4 w-4 shrink-0 accent-[var(--brand)]" /><span>I confirm that these are public sources and that I have not included personal contact details. I understand the submission will be public.</span></label>
+
+                <label className="mt-5 flex items-start gap-3 text-[12px] leading-relaxed text-[var(--ink-soft)]">
+                  <input type="checkbox" checked={form.consent} onChange={(event) => update('consent', event.target.checked)} className="mt-1 h-4 w-4 shrink-0 accent-[var(--brand)]" />
+                  <span>I confirm that these are public sources and that I have not included personal contact details. I understand the submission will be public.</span>
+                </label>
                 {errors.consent && <div className="mt-2 text-[11px] text-[var(--accent)]">{errors.consent}</div>}
-                <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden"><label>Company<input tabIndex={-1} autoComplete="off" value={form.honeypot} onChange={(event) => update('honeypot', event.target.value)} /></label></div>
+
+                <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+                  <label>Company<input tabIndex={-1} autoComplete="off" value={form.honeypot} onChange={(event) => update('honeypot', event.target.value)} /></label>
+                </div>
+
                 <button type="submit" className="btn-primary mt-6 w-full sm:w-auto">Review submission →</button>
               </form>
             )}
           </div>
+
           <aside className="md:col-span-5 reveal">
             <div className="border-t-2 border-[var(--ink)] pt-5">
               <div className="font-mono2 text-[10px] tracking-[0.14em] uppercase text-[var(--ink-faint)]">A useful submission has</div>
@@ -186,7 +221,10 @@ export default function Contribute() {
                   ['02', 'A B.C. connection', 'For organizations, identify a B.C. location or province-wide presence.'],
                   ['03', 'Enough context to check', 'Point to the real AI work, correction, preservation role, or public benefit.'],
                 ].map(([n, heading, body]) => (
-                  <li key={n} className="grid grid-cols-[32px_1fr] gap-3"><span className="font-mono2 text-[10px] text-[var(--accent)]">{n}</span><span><strong className="font-display uppercase text-xl">{heading}</strong><span className="mt-1 block text-[12px] leading-relaxed text-[var(--ink-soft)]">{body}</span></span></li>
+                  <li key={n} className="grid grid-cols-[32px_1fr] gap-3">
+                    <span className="font-mono2 text-[10px] text-[var(--accent)]">{n}</span>
+                    <span><strong className="font-display uppercase text-xl">{heading}</strong><span className="mt-1 block text-[12px] leading-relaxed text-[var(--ink-soft)]">{body}</span></span>
+                  </li>
                 ))}
               </ol>
               <p className="mt-7 border-t border-[var(--line)] pt-5 text-[11px] leading-relaxed text-[var(--ink-faint)]">No account, email address, or GitHub knowledge is needed. Submissions are reviewed by people; an unchecked organization is not treated as nonexistent.</p>
