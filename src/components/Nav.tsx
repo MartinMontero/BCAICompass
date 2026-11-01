@@ -3,16 +3,17 @@ import { useEffect, useState } from 'react';
 const LINKS = [
   { n: '01', label: 'ASK THE MAP', href: '#ask', short: 'ASK' },
   { n: '02', label: 'ACTION PLAN', href: '#planner', short: 'PLAN' },
-  { n: '03', label: 'REGIONAL ATLAS', href: '#regions', short: 'ATLAS' },
-  { n: '04', label: 'THE MAP', href: '#map', short: 'MAP' },
-  { n: '05', label: 'THE DIRECTORY', href: '#directory', short: 'DIRECTORY' },
-  { n: '06', label: 'COMPARE', href: '#shortlist', short: 'COMPARE' },
-  { n: '07', label: 'PLAYBOOKS', href: '#playbooks', short: 'PLAYBOOKS' },
-  { n: '08', label: 'THE METHOD', href: '#method', short: 'METHOD' },
-  { n: '09', label: 'CONTRIBUTE', href: '#contribute', short: 'CONTRIBUTE' },
+  { n: '03', label: 'PUBLIC AI', href: '#public-ai', short: 'PUBLIC AI' },
+  { n: '04', label: 'REGIONAL ATLAS', href: '#regions', short: 'ATLAS' },
+  { n: '05', label: 'THE MAP', href: '#map', short: 'MAP' },
+  { n: '06', label: 'THE DIRECTORY', href: '#directory', short: 'DIRECTORY' },
+  { n: '07', label: 'COMPARE', href: '#shortlist', short: 'COMPARE' },
+  { n: '08', label: 'PLAYBOOKS', href: '#playbooks', short: 'PLAYBOOKS' },
+  { n: '09', label: 'THE METHOD', href: '#method', short: 'METHOD' },
+  { n: '10', label: 'CONTRIBUTE', href: '#contribute', short: 'CONTRIBUTE' },
 ];
 
-const DESKTOP_LINKS = LINKS.filter((link) => ['#ask', '#planner', '#regions', '#map', '#directory', '#playbooks', '#method'].includes(link.href));
+const DESKTOP_LINKS = LINKS.filter((link) => ['#ask', '#planner', '#public-ai', '#regions', '#map', '#directory', '#playbooks', '#method'].includes(link.href));
 
 export default function Nav({ savedCount }: { savedCount: number }) {
   const [hidden, setHidden] = useState(false);
@@ -64,39 +65,17 @@ export default function Nav({ savedCount }: { savedCount: number }) {
             <span className="block w-2.5 h-2.5 bg-[var(--brand)] group-hover:rotate-45 transition-transform duration-200" />
             <span className="font-display text-lg md:text-xl tracking-wide uppercase">BC AI Compass</span>
           </a>
-
           <nav className="hidden lg:flex items-center gap-4" aria-label="Primary">
             {DESKTOP_LINKS.map((link) => (
-              <a key={link.href} href={link.href} className="font-mono2 text-[9.5px] tracking-[0.1em] text-[var(--ink-soft)] hover:text-[var(--ink)] transition-colors">
-                {link.short}
-              </a>
+              <a key={link.href} href={link.href} className="font-mono2 text-[9.5px] tracking-[0.1em] text-[var(--ink-soft)] hover:text-[var(--ink)] transition-colors">{link.short}</a>
             ))}
-            <a href="#shortlist" className="min-h-11 inline-flex items-center font-mono2 text-[9.5px] tracking-[0.1em] border border-[var(--line-strong)] px-3 text-[var(--ink)] hover:border-[var(--brand)] transition-colors" aria-label={`Open shortlist, ${savedCount} saved`}>
-              SAVED <span className="ml-2 text-[var(--accent)]">{savedCount}</span>
-            </a>
-            <button onClick={toggleTheme} className="theme-toggle" aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'} title={theme === 'dark' ? 'Light' : 'Dark'}>
-              {theme === 'dark' ? 'LIGHT ◐' : 'DARK ◑'}
-            </button>
+            <a href="#shortlist" className="min-h-11 inline-flex items-center font-mono2 text-[9.5px] tracking-[0.1em] border border-[var(--line-strong)] px-3 text-[var(--ink)] hover:border-[var(--brand)] transition-colors" aria-label={`Open shortlist, ${savedCount} saved`}>SAVED <span className="ml-2 text-[var(--accent)]">{savedCount}</span></a>
+            <button onClick={toggleTheme} className="theme-toggle" aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'} title={theme === 'dark' ? 'Light' : 'Dark'}>{theme === 'dark' ? 'LIGHT ◐' : 'DARK ◑'}</button>
           </nav>
-
-          <button
-            className="lg:hidden min-h-11 font-mono2 text-[11px] tracking-[0.18em] bg-[var(--ink)] text-[var(--bg)] px-4 py-2"
-            onClick={() => setOpen(!open)}
-            aria-expanded={open}
-            aria-controls="mobile-navigation"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-          >
-            {open ? 'CLOSE ✕' : 'MENU ☰'}
-          </button>
+          <button className="lg:hidden min-h-11 font-mono2 text-[11px] tracking-[0.18em] bg-[var(--ink)] text-[var(--bg)] px-4 py-2" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? 'Close menu' : 'Open menu'}>{open ? 'CLOSE ✕' : 'MENU ☰'}</button>
         </div>
       </header>
-
-      <div
-        id="mobile-navigation"
-        inert={!open}
-        className={`fixed inset-0 z-[990] bg-[var(--bg)] overflow-y-auto px-5 pt-24 pb-8 transition-opacity duration-200 lg:hidden ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        aria-hidden={!open}
-      >
+      <div id="mobile-navigation" inert={!open} className={`fixed inset-0 z-[990] bg-[var(--bg)] overflow-y-auto px-5 pt-24 pb-8 transition-opacity duration-200 lg:hidden ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} aria-hidden={!open}>
         <nav aria-label="Mobile">
           {LINKS.map((link) => (
             <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="flex items-baseline gap-4 py-2.5 border-t border-[var(--line)] last:border-b group">
@@ -111,12 +90,21 @@ export default function Nav({ savedCount }: { savedCount: number }) {
           <div className="flex flex-wrap gap-2">
             <a href="./ecosystem.json" className="font-mono2 text-[10px] tracking-[0.14em] text-[var(--ink-soft)] border border-[var(--line)] px-3 py-2.5">ecosystem.json ↓</a>
             <a href="#contribute" onClick={() => setOpen(false)} className="font-mono2 text-[10px] tracking-[0.14em] bg-[var(--ink)] text-[var(--bg)] px-3 py-2.5">Send a source ↗</a>
-            <button onClick={toggleTheme} className="theme-toggle" aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}>
-              {theme === 'dark' ? 'LIGHT ◐' : 'DARK ◑'}
-            </button>
+            <button onClick={toggleTheme} className="theme-toggle" aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}>{theme === 'dark' ? 'LIGHT ◐' : 'DARK ◑'}</button>
           </div>
         </div>
       </div>
+      <nav aria-label="Mobile tasks" className="mobile-task-bar lg:hidden">
+        {[
+          { label: 'Ask', href: '#ask', mark: '01' },
+          { label: 'Plan', href: '#planner', mark: '02' },
+          { label: 'Public AI', href: '#public-ai', mark: '03' },
+          { label: 'Map', href: '#map', mark: '04' },
+        ].map((link) => (
+          <a key={link.href} href={link.href} onClick={() => setOpen(false)}><span aria-hidden="true">{link.mark}</span>{link.label}</a>
+        ))}
+        <a href="#shortlist" onClick={() => setOpen(false)} aria-label={`Saved, ${savedCount} organizations`}><span aria-hidden="true">{String(savedCount).padStart(2, '0')}</span>Saved</a>
+      </nav>
     </>
   );
 }

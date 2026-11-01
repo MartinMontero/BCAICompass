@@ -2,36 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===========================================================================
-   BC AI Compass — token architecture
-   ref (raw, fixed) -> sys (semantic, scheme-swapped) -> components consume sys.
-   No component in src/ references a raw hex value. See research/DESIGN.md.
-   =========================================================================== */
-
-/* ---------- ref: raw brand values, fixed across schemes ---------- */
 :root {
-  /* Pacific teal is the single brand accent. Not the flag red of the project
-     this pattern was adapted from — a different project should not wear another
-     project's brand. */
   --r-teal: #0d7c8a;
   --r-teal-deep: #0a6472;
   --r-teal-hi: #34d3e6;
   --r-slate: #1b2027;
   --r-paper: #f6f4ef;
   --r-ink: #14171c;
-
-  /* Component scale: 8px rhythm with 4px fine adjustments. */
   --radius: 8px;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
   --shadow-sm: 0 2px 10px rgba(20, 23, 28, 0.08);
   --shadow-md: 0 18px 48px rgba(20, 23, 28, 0.10);
-
   color-scheme: light dark;
 }
 
-/* ---------- sys: LIGHT — cool paper, true ink, one teal accent ---------- */
 :root,
 :root[data-theme='light'] {
   --bg: #f6f4ef;
@@ -42,13 +28,10 @@
   --ink-faint: rgba(20, 23, 28, 0.52);
   --line: rgba(20, 23, 28, 0.15);
   --line-strong: rgba(20, 23, 28, 0.32);
-
   --brand: var(--r-teal);
   --brand-ink: #ffffff;
   --accent: var(--r-teal-deep);
   --focus: var(--r-teal-deep);
-
-  /* Seven category dots, tuned to AA on this surface. */
   --cat-infra: #0a6472;
   --cat-research: #5b3fa8;
   --cat-company: #a8410c;
@@ -56,7 +39,6 @@
   --cat-capital: #7a5c00;
   --cat-talent: #1e7a45;
   --cat-community: #a01e5a;
-
   --selection-bg: var(--r-teal);
   --selection-ink: #ffffff;
   --tile-filter: none;
@@ -69,7 +51,6 @@
   --cluster-ink: #ffffff;
 }
 
-/* ---------- sys: DARK — cool ink, off-white text, lifted teal ---------- */
 :root[data-theme='dark'] {
   --bg: #14171c;
   --bg-raise: #1c2027;
@@ -79,12 +60,10 @@
   --ink-faint: rgba(238, 241, 244, 0.54);
   --line: rgba(238, 241, 244, 0.15);
   --line-strong: rgba(238, 241, 244, 0.32);
-
   --brand: var(--r-teal);
   --brand-ink: #ffffff;
   --accent: var(--r-teal-hi);
   --focus: var(--r-teal-hi);
-
   --cat-infra: #34d3e6;
   --cat-research: #a78bfa;
   --cat-company: #fb923c;
@@ -92,7 +71,6 @@
   --cat-capital: #f0b429;
   --cat-talent: #4fd08a;
   --cat-community: #f472b6;
-
   --selection-bg: var(--r-teal);
   --selection-ink: #ffffff;
   --tile-filter: grayscale(0.6) brightness(0.82) contrast(1.05);
@@ -105,354 +83,75 @@
   --cluster-ink: #0f1216;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-section[id] {
-  scroll-margin-top: 88px;
-}
-
-:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
-
-button:not(:disabled),
-[role='button']:not([aria-disabled='true']) {
-  cursor: pointer;
-}
-
-.skip-link {
-  position: fixed;
-  top: 8px;
-  left: 8px;
-  z-index: 100;
-  padding: 12px 16px;
-  background: var(--ink);
-  color: var(--bg);
-  font-size: 13px;
-  font-weight: 600;
-  transform: translateY(-160%);
-  transition: transform 0.2s ease;
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 88px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+button:not(:disabled), [role='button']:not([aria-disabled='true']) { cursor: pointer; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 12px 16px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 600; transform: translateY(-160%); transition: transform 0.2s ease; }
+.skip-link:focus { transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .marquee-track { animation: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-}
-
-::selection {
-  background: var(--selection-bg);
-  color: var(--selection-ink);
-}
-
-/* Display face is IBM Plex Sans Condensed rather than a second vendor's
-   webfont — one family, three widths, one CSP entry. */
-.font-display {
-  font-family: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.005em;
-}
-
-.font-mono2 {
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-}
-
-.eyebrow {
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-/* ---------- reveal on scroll ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.flat .reveal {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
-}
-
-/* ---------- marquee ---------- */
-@keyframes bcac-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: bcac-marquee 42s linear infinite;
-}
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
-/* ---------- nav ---------- */
-.site-nav {
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.site-nav.nav-hidden {
-  transform: translateY(-110%);
-}
-.nav-scrolled {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: var(--nav-bg);
-  border-bottom: 1px solid var(--line);
-}
-@supports not (backdrop-filter: blur(12px)) {
-  .nav-scrolled { background: var(--bg); }
-}
-
-.theme-toggle {
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--ink-soft);
-  border: 1px solid var(--line);
-  background: transparent;
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
-.theme-toggle:hover {
-  border-color: var(--brand);
-  color: var(--ink);
-}
-
-/* ---------- buttons ---------- */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  border-radius: var(--radius-sm);
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  background: var(--brand);
-  color: var(--brand-ink);
-  padding: 12px 22px;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-.btn-primary:hover {
-  background: var(--ink);
-  color: var(--bg);
-}
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  border-radius: var(--radius-sm);
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  border: 1px solid var(--line-strong);
-  color: var(--ink);
-  padding: 12px 22px;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-.btn-ghost:hover {
-  border-color: var(--ink);
-  background: var(--bg-raise);
-}
-
-summary::marker {
-  color: var(--accent);
-}
-
-/* ---------- leaflet ---------- */
-.leaflet-container {
-  background: var(--bg-raise);
-  font-family: 'IBM Plex Sans', sans-serif;
-  outline: none;
-}
-.leaflet-tile-pane {
-  filter: var(--tile-filter);
-}
-.leaflet-control-attribution {
-  background: var(--nav-bg) !important;
-  color: var(--ink-soft) !important;
-  font-family: 'IBM Plex Sans', sans-serif !important;
-  font-size: 11px !important;
-}
-.leaflet-control-attribution a {
-  color: var(--ink) !important;
-}
-.leaflet-bar a {
-  background: var(--bg-raise) !important;
-  color: var(--ink) !important;
-  border-color: var(--line) !important;
-}
-.leaflet-popup-content-wrapper {
-  background: var(--bg-raise) !important;
-  color: var(--ink) !important;
-  border: 1px solid var(--line);
-  border-radius: 4px !important;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28) !important;
-}
-.leaflet-popup-tip {
-  background: var(--bg-raise) !important;
-  border: 1px solid var(--line);
-}
-.leaflet-popup-content {
-  margin: 14px 16px !important;
-  min-width: 230px;
-}
-.leaflet-popup-close-button {
-  color: var(--ink-soft) !important;
-}
-
-/* ---------- map markers ---------- */
-.bcac-marker-wrap {
-  background: transparent;
-  border: none;
-}
-.bcac-marker {
-  display: block;
-  width: 15px;
-  height: 15px;
-  border-radius: 999px;
-  border: 3px solid var(--bg);
-  box-shadow: 0 0 0 1.5px var(--marker-ring), 0 4px 14px rgba(0, 0, 0, 0.3);
-  transition: transform 0.25s ease;
-}
-/* A centroid pin is hollow: the page background inside, the category colour on the
-   ring. An address pin stays a filled dot. Distinguishable at a glance without a
-   legend, and both follow the theme because the fill is a token, not a hex. */
-.bcac-marker.is-centroid {
-  background: var(--bg-raise);
-  border-width: 3px;
-  border-style: solid;
-}
-
-.bcac-marker.is-active {
-  transform: scale(1.45);
-  animation: bcac-pulse 1.6s ease-out infinite;
-}
-@keyframes bcac-pulse {
-  0% { box-shadow: 0 0 0 1.5px var(--marker-ring), 0 0 0 0 var(--pulse); }
-  100% { box-shadow: 0 0 0 1.5px var(--marker-ring), 0 0 0 18px rgba(0, 0, 0, 0); }
-}
-
-/* ---------- pathway trail ---------- */
-/* Leaflet writes stroke as an SVG presentation attribute, where var() does not
-   resolve — so the polyline carries a className instead and the colour lives
-   here, in CSS, where the accent token works and follows the theme toggle. */
-.bcac-trail {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 3;
-  stroke-dasharray: 2 9;
-  stroke-linecap: round;
-  opacity: 0.9;
-}
-
-/* ---------- map clusters ---------- */
-/* A cluster is a count, not a decoration. Sized by magnitude so the Lower
-   Mainland reads as dense without swallowing the rest of the province. */
-.bcac-cluster-wrap {
-  background: transparent;
-  border: none;
-}
-.bcac-cluster {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: var(--cluster-bg);
-  color: var(--cluster-ink);
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: 2px solid var(--bg);
-  box-shadow: 0 0 0 1.5px var(--marker-ring), 0 6px 18px rgba(0, 0, 0, 0.35);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-.bcac-cluster:hover {
-  transform: scale(1.1);
-}
-
-/* During a pathway trace the cluster carries no digit — the numbered stop list is
-   the only place ordering is stated. Sized down a little so an empty badge does
-   not read as a missing number. */
-.bcac-cluster.is-untallied {
-  transform: scale(0.62);
-  opacity: 0.9;
-}
-.bcac-cluster.is-untallied:hover {
-  transform: scale(0.72);
-}
-
-/* ---------- rows ---------- */
-.org-row {
-  transition: background 0.2s ease;
-}
-.org-row:hover {
-  background: var(--bg-raise);
-}
-.map-row {
-  transition: background 0.25s ease, border-color 0.25s ease;
-}
-.map-row:hover,
-.map-row.is-active {
-  background: var(--line);
-}
-.map-row.is-active {
-  border-color: var(--line-strong);
-}
-
-/* ---------- verified stamp ---------- */
-.stamp {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 9.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 2px 6px;
-  white-space: nowrap;
-}
-
-/* thin scrollbars */
+body { background: var(--bg); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
+::selection { background: var(--selection-bg); color: var(--selection-ink); }
+.font-display { font-family: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif; font-weight: 700; letter-spacing: 0.005em; }
+.font-mono2 { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+.eyebrow { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.flat .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+@keyframes bcac-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { display: flex; width: max-content; animation: bcac-marquee 42s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+.site-nav { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+.site-nav.nav-hidden { transform: translateY(-110%); }
+.nav-scrolled { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: var(--nav-bg); border-bottom: 1px solid var(--line); }
+@supports not (backdrop-filter: blur(12px)) { .nav-scrolled { background: var(--bg); } }
+.theme-toggle { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: var(--ink-soft); border: 1px solid var(--line); background: transparent; padding: 8px 12px; cursor: pointer; transition: border-color 0.3s ease, color 0.3s ease; }
+.theme-toggle:hover { border-color: var(--brand); color: var(--ink); }
+.btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; border-radius: var(--radius-sm); font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; background: var(--brand); color: var(--brand-ink); padding: 12px 22px; transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease; }
+.btn-primary:hover { background: var(--ink); color: var(--bg); }
+.btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; border-radius: var(--radius-sm); font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; border: 1px solid var(--line-strong); color: var(--ink); padding: 12px 22px; transition: border-color 0.2s ease, background 0.2s ease; }
+.btn-ghost:hover { border-color: var(--ink); background: var(--bg-raise); }
+summary::marker { color: var(--accent); }
+.leaflet-container { background: var(--bg-raise); font-family: 'IBM Plex Sans', sans-serif; outline: none; }
+.leaflet-tile-pane { filter: var(--tile-filter); }
+.leaflet-control-attribution { background: var(--nav-bg) !important; color: var(--ink-soft) !important; font-family: 'IBM Plex Sans', sans-serif !important; font-size: 11px !important; }
+.leaflet-control-attribution a { color: var(--ink) !important; }
+.leaflet-bar a { background: var(--bg-raise) !important; color: var(--ink) !important; border-color: var(--line) !important; }
+.leaflet-popup-content-wrapper { background: var(--bg-raise) !important; color: var(--ink) !important; border: 1px solid var(--line); border-radius: 4px !important; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28) !important; }
+.leaflet-popup-tip { background: var(--bg-raise) !important; border: 1px solid var(--line); }
+.leaflet-popup-content { margin: 14px 16px !important; min-width: 230px; }
+.leaflet-popup-close-button { color: var(--ink-soft) !important; }
+.bcac-marker-wrap { background: transparent; border: none; }
+.bcac-marker { display: block; width: 15px; height: 15px; border-radius: 999px; border: 3px solid var(--bg); box-shadow: 0 0 0 1.5px var(--marker-ring), 0 4px 14px rgba(0, 0, 0, 0.3); transition: transform 0.25s ease; }
+.bcac-marker.is-centroid { background: var(--bg-raise); border-width: 3px; border-style: solid; }
+.bcac-marker.is-active { transform: scale(1.45); animation: bcac-pulse 1.6s ease-out infinite; }
+@keyframes bcac-pulse { 0% { box-shadow: 0 0 0 1.5px var(--marker-ring), 0 0 0 0 var(--pulse); } 100% { box-shadow: 0 0 0 1.5px var(--marker-ring), 0 0 0 18px rgba(0, 0, 0, 0); } }
+.bcac-trail { fill: none; stroke: var(--accent); stroke-width: 3; stroke-dasharray: 2 9; stroke-linecap: round; opacity: 0.9; }
+.bcac-cluster-wrap { background: transparent; border: none; }
+.bcac-cluster { display: flex; align-items: center; justify-content: center; border-radius: 999px; background: var(--cluster-bg); color: var(--cluster-ink); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.02em; border: 2px solid var(--bg); box-shadow: 0 0 0 1.5px var(--marker-ring), 0 6px 18px rgba(0, 0, 0, 0.35); cursor: pointer; transition: transform 0.2s ease; }
+.bcac-cluster:hover { transform: scale(1.1); }
+.bcac-cluster.is-untallied { transform: scale(0.62); opacity: 0.9; }
+.bcac-cluster.is-untallied:hover { transform: scale(0.72); }
+.org-row { transition: background 0.2s ease; }
+.org-row:hover { background: var(--bg-raise); }
+.map-row { transition: background 0.25s ease, border-color 0.25s ease; }
+.map-row:hover, .map-row.is-active { background: var(--line); }
+.map-row.is-active { border-color: var(--line-strong); }
+.stamp { display: inline-flex; align-items: center; gap: 5px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 2px 6px; white-space: nowrap; }
 .slim-scroll::-webkit-scrollbar { width: 4px; }
 .slim-scroll::-webkit-scrollbar-thumb { background: var(--line-strong); }
 .slim-scroll::-webkit-scrollbar-track { background: transparent; }
+.mobile-task-bar { position: fixed; z-index: 980; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); background: var(--nav-bg); border-top: 1px solid var(--line-strong); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.mobile-task-bar a { min-width: 0; min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 10px; font-weight: 600; line-height: 1; }
+.mobile-task-bar a span { color: var(--accent); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 8px; letter-spacing: 0.04em; }
+.mobile-task-bar a:hover { color: var(--accent); }
+@media (max-width: 1023px) {
+  body { padding-bottom: calc(66px + env(safe-area-inset-bottom)); }
+  section[id] { scroll-margin-bottom: 76px; }
+}
+@supports not (backdrop-filter: blur(14px)) { .mobile-task-bar { background: var(--bg); } }
