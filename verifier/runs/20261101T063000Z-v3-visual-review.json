@@ -1,0 +1,42 @@
+{
+  "version": "v3",
+  "timestamp": "2026-11-01T06:30:00Z",
+  "command": "CHROMIUM_PATH=/usr/bin/chromium npx playwright test e2e/public-ai-mobile.spec.ts",
+  "exitCode": 0,
+  "browserScenarios": {
+    "passed": 3,
+    "failed": 0
+  },
+  "evidence": [
+    {
+      "file": "verifier/v3/evidence/mobile-public-ai.png",
+      "viewport": "375x812",
+      "result": "pass",
+      "review": "Search, resource type, principle controls, practical-use cards, related-directory disclosures, and phone task navigation remain readable without horizontal overflow."
+    },
+    {
+      "file": "verifier/v3/evidence/desktop-public-ai.png",
+      "viewport": "1440x1000",
+      "result": "pass",
+      "review": "Two-column resource library uses the available width and keeps filters, practical uses, source dates, and official links visible."
+    },
+    {
+      "file": "verifier/v3/evidence/mobile-comparison.png",
+      "viewport": "375x812",
+      "result": "pass",
+      "review": "Comparison cards replace sideways table scrolling while preserving organization details, evidence, source links, sorting, removal, and exports."
+    },
+    {
+      "file": "verifier/v3/evidence/mobile-contribution-form.png",
+      "viewport": "375x812",
+      "result": "pass",
+      "review": "Guided contribution controls, consent, supporting-source guidance, and review action remain usable at phone width."
+    },
+    {
+      "file": "verifier/v3/evidence/mobile-contribution-review.png",
+      "viewport": "375x812",
+      "result": "pass",
+      "review": "Review state exposes the public submission, create-PR action, edit action, and download fallback without requiring GitHub knowledge."
+    }
+  ]
+}

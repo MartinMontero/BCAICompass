@@ -1,0 +1,23 @@
+{
+  "version": "v3",
+  "timestamp": "2026-11-01T06:34:33.089Z",
+  "command": "node dist/boot.js in standalone directory without node_modules",
+  "exitCode": 0,
+  "checks": [
+    {
+      "name": "Production HTML entry",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "Contribution without GitHub credential returns honest fallback",
+      "status": 503,
+      "pass": true
+    },
+    {
+      "name": "Unknown API route",
+      "status": 404,
+      "pass": true
+    }
+  ]
+}

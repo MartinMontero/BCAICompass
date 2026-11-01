@@ -1,0 +1,167 @@
+{
+  "version": "v3",
+  "timestamp": "2026-11-01T06:33:12.931Z",
+  "command": "node verifier/v3/verify.mjs",
+  "exitCode": 0,
+  "passed": 21,
+  "failed": 0,
+  "total": 21,
+  "checks": [
+    {
+      "name": "Trusted organization dataset unchanged",
+      "pass": true,
+      "detail": "07c001e1febed219bdb0bb1582f30aa35ef8f8e4931ce73ab2a074856a4aafd6"
+    },
+    {
+      "name": "Public AI is mounted as a separate curated resource workflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Public AI provides deterministic search and both filters",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Related organizations are explicitly not Public AI certifications",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Mobile task navigation exposes five primary destinations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Phone directory filters use an accessible disclosure",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Mobile comparison cards preserve full desktop table",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Guided form replaces developer PR action and collects no email",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Shared strict contract enforces consent and bounded public fields",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Client exposes PR URL only after confirmed server success",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Server uses fixed GitHub origin and server-only credential",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Hono contribution route precedes API catch-all",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Cloudflare Pages Function shares service and context.env",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Browser source contains no GitHub credential variable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Command passes: data export",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: unit and integration tests",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: type check",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: lint",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: production build",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: browser workflows",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "Command passes: dependency audit",
+      "pass": true,
+      "detail": "exit 0"
+    }
+  ],
+  "commands": [
+    {
+      "label": "data export",
+      "command": "npm run verify:data",
+      "startedAt": "2026-11-01T06:30:28.193Z",
+      "exitCode": 0,
+      "outputTail": "> bcaicompass@1.0.0 verify:data\n> node scripts/export-data.mjs\n\nexport-data: OK — 136 verified organizations, 128 with sourced coordinates.\n  wrote public/ecosystem.json and public/ecosystem.geojson"
+    },
+    {
+      "label": "unit and integration tests",
+      "command": "npm test",
+      "startedAt": "2026-11-01T06:30:28.697Z",
+      "exitCode": 0,
+      "outputTail": "\u001b[22m\u001b[39m{\"ts\":\"2026-11-01T06:30:31.299Z\",\"level\":\"info\",\"requestId\":\"307f8e7c-4765-45f9-aeed-753f41728c43\",\"msg\":\"request\",\"method\":\"POST\",\"path\":\"/api/contributions\",\"status\":400,\"durationMs\":4}\n\n\u001b[90mstdout\u001b[2m | src/tests/contribution.test.ts\u001b[2m > \u001b[22m\u001b[2mguided contribution contract\u001b[2m > \u001b[22m\u001b[2mregisters the REST route before the API 404 handler and keeps unknown routes unavailable\n\u001b[22m\u001b[39m{\"ts\":\"2026-11-01T06:30:31.302Z\",\"level\":\"info\",\"requestId\":\"48e043e7-1e71-428b-9cb1-578140434d32\",\"msg\":\"request\",\"method\":\"GET\",\"path\":\"/api/not-a-route\",\"status\":404,\"durationMs\":0}\n\n \u001b[32m✓\u001b[39m src/tests/contribution.test.ts \u001b[2m(\u001b[22m\u001b[2m5 tests\u001b[2m)\u001b[22m\u001b[32m 53\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m src/tests/plan.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[2m)\u001b[22m\u001b[32m 14\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m src/tests/shortlist.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[2m)\u001b[22m\u001b[32m 8\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m src/tests/public-ai.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[2m)\u001b[22m\u001b[32m 6\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m5 passed\u001b[39m\u001b[22m\u001b[90m (5)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m29 passed\u001b[39m\u001b[22m\u001b[90m (29)\u001b[39m\n\u001b[2m   Start at \u001b[22m 14:30:29\n\u001b[2m   Duration \u001b[22m 2.53s\u001b[2m (transform 710ms, setup 0ms, import 951ms, tests 251ms, environment 1ms)\u001b[22m"
+    },
+    {
+      "label": "type check",
+      "command": "npm run check",
+      "startedAt": "2026-11-01T06:30:32.062Z",
+      "exitCode": 0,
+      "outputTail": "> bcaicompass@1.0.0 check\n> tsc -b"
+    },
+    {
+      "label": "lint",
+      "command": "npm run lint",
+      "startedAt": "2026-11-01T06:30:45.167Z",
+      "exitCode": 0,
+      "outputTail": "> bcaicompass@1.0.0 lint\n> eslint .\n\n\n/mnt/agents/output/app/src/providers/trpc.tsx\n  8:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components\n\n✖ 1 problem (0 errors, 1 warning)"
+    },
+    {
+      "label": "production build",
+      "command": "npm run build",
+      "startedAt": "2026-11-01T06:30:55.099Z",
+      "exitCode": 0,
+      "outputTail": "\"/** Anchors a pattern source. The interpolation lives here rather than at the call site because\n * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it\n * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */\"\n\nin \"node_modules/zod/v4/core/regexes.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\nnode_modules/zod/v4/core/util.js (400:0): A comment\n\n\"// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle.\"\n\nin \"node_modules/zod/v4/core/util.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\n\n  dist/boot.js  994.9kb\n\n⚡ Done in 383ms"
+    },
+    {
+      "label": "browser workflows",
+      "command": "npm run test:e2e",
+      "startedAt": "2026-11-01T06:31:03.698Z",
+      "exitCode": 0,
+      "outputTail": "\"// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle.\"\n\nin \"node_modules/zod/v4/core/util.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\nnode_modules/zod/v4/core/regexes.js (74:0): A comment\n\n\"/** Anchors a pattern source. The interpolation lives here rather than at the call site because\n * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it\n * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */\"\n\nin \"node_modules/zod/v4/core/regexes.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\n\n  dist/boot.js  994.9kb\n\n⚡ Done in 154ms"
+    },
+    {
+      "label": "dependency audit",
+      "command": "npm audit --audit-level=low",
+      "startedAt": "2026-11-01T06:33:11.919Z",
+      "exitCode": 0,
+      "outputTail": "found 0 vulnerabilities"
+    }
+  ]
+}
