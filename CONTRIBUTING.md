@@ -13,11 +13,14 @@ So the bar is one link that proves the thing you are telling us. That is it.
 
 ## The fastest way
 
-Email **hello@bc-aicompass.ca**, or open a pull request against
-`src/data/organizations.ts`.
+Use the site's **Contribute** form to add an organization, correct a record, or
+suggest a Public AI resource. It asks for public sources, lets you review the
+answers, and creates a pull request for maintainer review—no GitHub account or
+developer workflow is needed. Nothing is merged automatically.
 
-Either is fine. A one-line email with a good link is more useful than a pull
-request with a missing source.
+If the server is not configured, download the form's JSON copy and email it to
+**hello@bc-aicompass.ca**. Developers can still edit `src/data/organizations.ts`
+directly using the evidence rules below.
 
 ---
 

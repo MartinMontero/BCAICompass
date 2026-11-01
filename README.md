@@ -33,6 +33,13 @@ company. No listing is paid for or sponsored.
 - **Shortlists** — add records from search, plans, or directory rows, then copy or
   export sourced Markdown and UTF-8 CSV. The 50-record list is stored only in the
   current browser; it does not sync, and clearing browser data removes it.
+- **Public AI field library** — 11 separately curated public-knowledge, preservation,
+  open-infrastructure, legal, data, and public-model resources with deterministic
+  search, practical-use notes, principle filters, and related directory links.
+- **Mobile task workflow** — persistent phone shortcuts, collapsible directory
+  filters, and comparison cards that retain the complete desktop table's actions.
+- **Guided contributions** — a public-source form with validation, review, consent,
+  downloadable fallback, and server-side GitHub pull-request creation.
 - **Working playbooks** — editable AI use-case, pilot-evaluation, and responsible
   procurement templates with copy, Markdown download, reset, and official B.C.
   privacy/governance starting points. Drafts last for the open page only.
@@ -132,10 +139,12 @@ any BC AI dataset, including this one.
 - Vitest for deterministic core-logic tests and V8 coverage
 - Playwright for production-build browser tests at desktop and mobile widths
 
-The practical workflows are frontend-only and require no API keys. Search and plan
-construction run locally over the published dataset. Shortlist persistence uses
-`localStorage` with an in-memory fallback; playbook drafts are deliberately not
-persisted. This is browser-local convenience, not an account or cloud-sync system.
+Search, Public AI discovery, and plan construction run locally over published data
+and require no API keys. Shortlist persistence uses `localStorage` with an in-memory
+fallback; playbook drafts are deliberately not persisted. This is browser-local
+convenience, not an account or cloud-sync system. Only guided contribution submission
+uses the Hono server (or the equivalent Cloudflare Pages Function), because the
+GitHub credential must remain server-side.
 
 No clustering library: the marker clusterer is ~60 lines in
 `src/sections/EcosystemMap.tsx`. The reasoning is in
@@ -165,7 +174,20 @@ npm run build
 `prebuild` runs `scripts/export-data.mjs`, which **validates the dataset and fails
 the build** if any record lacks a source URL, carries coordinates without a
 `geoSourceUrl`, has a duplicate id, uses a category outside the union, or if the
-verified count drops below 100. Then `tsc -b && vite build` emits `dist/`.
+verified count drops below 100. The build emits the frontend to `dist/public/` and
+the bundled Hono entry to `dist/boot.js`. Cloudflare Pages should use `dist/public`
+as its build-output directory; `functions/api/contributions.ts` supplies the same
+contribution endpoint there.
+
+### Contribution service configuration
+
+Set `GITHUB_TOKEN` only in the server environment. Use a fine-grained GitHub token
+limited to `MartinMontero/BCAICompass`, with **Contents: Read and write** and
+**Pull requests: Read and write**. `GITHUB_OWNER` and `GITHUB_REPO` are optional and
+default to that repository. On Cloudflare Pages, configure these under the project's
+**Settings → Variables and Secrets**, with the token stored as a secret. Never use a
+`VITE_` prefix. Without the token, the form returns an explicit unavailable state and
+offers a download; it never simulates a successful pull request.
 
 `status: 'verified'` is a **literal type** on `Organization`, so an unverified
 record cannot enter the published array without `tsc` failing. The ship gate is a
@@ -195,9 +217,9 @@ playbook editing/reset, theme switching, mobile navigation, runtime errors,
 first-party requests, and 375px overflow. On Linux, an existing Chromium can be
 selected with `CHROMIUM_PATH=/path/to/chromium npm run test:e2e`.
 
-The versioned acceptance contract and machine verifier live in `verifier/v1/`;
-timestamped results, including unsuccessful runs, are indexed under
-`verifier/runs/`. The earlier PowerShell research gate remains available as
+The versioned acceptance contracts and machine verifiers live in `verifier/v1/`,
+`verifier/v2/`, and `verifier/v3/`; timestamped results, including unsuccessful
+runs, are indexed under `verifier/runs/`. The earlier PowerShell research gate remains available as
 `research/audit/Test-ExitConditions.ps1` for the original dataset and deployment
 checks.
 
