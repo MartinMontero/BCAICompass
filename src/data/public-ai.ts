@@ -72,6 +72,17 @@ export const PUBLIC_AI_RESOURCES: PublicAiResource[] = [
     checked: '2026-11-01',
   },
   {
+    id: 'bc-public-compute',
+    name: 'Public Compute Project',
+    type: 'Data',
+    url: 'https://bc-ai.ca/public-compute',
+    description: 'An independent BC + AI public-interest framework and pilot registry for B.C. data-centre proposals, tracking ownership, electricity, costs, authority, and durable public value.',
+    practicalUse: 'Check who owns a major compute proposal, separate requested from connected electricity, and review source-backed accountability questions, commitments, and missing information.',
+    principles: ['Open infrastructure', 'Accountability', 'Public-interest AI'],
+    relatedOrgIds: ['bc-ai-ecosystem-association'],
+    checked: '2026-11-01',
+  },
+  {
     id: 'mozilla-common-voice',
     name: 'Mozilla Common Voice',
     type: 'Community',

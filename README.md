@@ -7,10 +7,11 @@ was checked.** That is the entire premise. A directory that tells you *when* it 
 checked but not *against what* cannot be audited or corrected — it can only be
 believed, and this one does not ask to be believed.
 
-**BC AI Compass is built from [data](https://app.notion.com/p/kriskrug/BC-AI-Community-Atlas-1f0c6f799a3380699decf86aa4d48c7e) curated by [BC + AI Ecosystem Association](https://bc-ai.ca),
-built by Martin Montero** as his contribution to it. 
+**BC AI Compass is a [BC + AI Ecosystem Association](https://bc-ai.ca) project,
+built by Martin Montero** as his contribution to it. BC + AI is itself listed in this
+directory, and that is stated on the site rather than left for you to discover.
 
-**No organization listed here is a partner, funder or endorser of this
+**No other organization listed here is a partner, funder or endorser of this
 project** — not the universities, not the telecoms, not the Crown agencies, not any
 company. No listing is paid for or sponsored.
 
@@ -32,8 +33,8 @@ company. No listing is paid for or sponsored.
 - **Shortlists** — add records from search, plans, or directory rows, then copy or
   export sourced Markdown and UTF-8 CSV. The 50-record list is stored only in the
   current browser; it does not sync, and clearing browser data removes it.
-- **Public AI field library** — 11 separately curated public-knowledge, preservation,
-  open-infrastructure, legal, data, and public-model resources with deterministic
+- **Public AI field library** — 12 separately curated public-knowledge, preservation,
+  open-infrastructure, legal, data, public-compute, and public-model resources with deterministic
   search, practical-use notes, principle filters, and related directory links.
 - **Mobile task workflow** — persistent phone shortcuts, collapsible directory
   filters, and comparison cards that retain the complete desktop table's actions.
@@ -195,7 +196,7 @@ compile error, not a code review.
 ## Verify
 
 ```bash
-npm install
+npm ci
 npm run verify:data
 npm test
 npm run test:coverage
@@ -249,7 +250,8 @@ Map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributo
 
 ## Credits
 
-Built on the unceded and ancestral territories of the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations whose lands make up British Columbia.
+Built on the unceded territories of the many Indigenous nations whose lands make up
+British Columbia.
 
 A [BC + AI Ecosystem Association](https://bc-ai.ca) project, built by
 [Martin Montero](https://www.linkedin.com/in/martinmontero).
