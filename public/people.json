@@ -1,0 +1,464 @@
+{
+  "name": "BC AI Compass — sourced people in British Columbia’s AI ecosystem",
+  "url": "https://bc-aicompass.ca/#people",
+  "generated": "2026-11-04",
+  "license": "CC BY 4.0 — credit bc-aicompass.ca",
+  "method": "Every profile names a public role or project contribution, the exact public source read, the read date, and a short verbatim excerpt. Search runs locally over published fields. Related organization IDs refer to the separately verified organization registry.",
+  "privacy": "Public professional information only. No personal email addresses, phone numbers, mailto links, or private contact details. Connection paths are public routes into a community or project, not a promise of personal availability.",
+  "coverage": {
+    "activeCommunitiesReviewed": 10,
+    "communitiesWithNamedPublicLeads": 8,
+    "communitiesWithoutConfirmedLead": [
+      "Mind, AI, and Consciousness (MAC)",
+      "AI Creativity + Design"
+    ]
+  },
+  "count": 21,
+  "people": [
+    {
+      "id": "kris-krug",
+      "name": "Kris Krüg",
+      "role": "Founder and Executive Director",
+      "community": "Vancouver AI",
+      "communityLead": true,
+      "location": "Vancouver",
+      "summary": "Leads BC + AI and its flagship Vancouver room, connecting community building, creative technology, public documentation, and builder support.",
+      "expertise": ["community building", "creative technology", "photography", "public-interest AI", "builder support"],
+      "projects": ["Vancouver AI", "BC + AI Ecosystem Association", "Futureproof Festival of AI", "AI Builders Fellowship", "Responsible AI Professional"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about community, creative technology, or builder support", "url": "https://bc-ai.ca/members/kris-krug" },
+        { "kind": "offer-help", "label": "Bring a useful project or collaboration idea", "url": "https://bc-ai.ca/members/kris-krug" },
+        { "kind": "join-project", "label": "Join Vancouver AI or the wider BC + AI community", "url": "https://bc-ai.ca/communities/vancouver-ai" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/about",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Holds the association, the flagship Vancouver room",
+      "status": "verified",
+      "profileUrl": "https://bc-ai.ca/members/kris-krug",
+      "relatedOrgIds": ["bc-ai-ecosystem-association", "vancouver-ai"]
+    },
+    {
+      "id": "kevin-friel",
+      "name": "Kevin Friel",
+      "role": "AI Film Club Lead",
+      "community": "AI Film Club",
+      "communityLead": true,
+      "location": "Vancouver",
+      "summary": "Leads the recurring room where filmmakers screen work, compare tools, and discuss creative control in AI-assisted production.",
+      "expertise": ["AI filmmaking", "creative production", "screenings", "creative control"],
+      "projects": ["BC + AI Film Club", "Futureproof Festival of AI"],
+      "connections": [
+        { "kind": "get-help", "label": "Bring a film workflow or creative-control question", "url": "https://bc-ai.ca/communities/film-club" },
+        { "kind": "offer-help", "label": "Offer a screening, tool demo, or work in progress", "url": "https://bc-ai.ca/communities/film-club" },
+        { "kind": "join-project", "label": "Join the next Film Club screening and conversation", "url": "https://bc-ai.ca/communities/film-club" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/about",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Holds the recurring room where filmmakers can screen work",
+      "status": "verified",
+      "relatedOrgIds": ["bc-ai-film-club"]
+    },
+    {
+      "id": "fiann-ohagan",
+      "name": "Fiann O’Hagan",
+      "role": "Physical AI & Robotics Co-lead",
+      "community": "Physical AI & Robotics",
+      "communityLead": true,
+      "location": "Vancouver",
+      "summary": "Co-leads Physical AI & Robotics and coaches the Prince of Wales P.O.W.E.R. robotics club, connecting student builders with the wider community.",
+      "expertise": ["robotics", "FIRST Tech Challenge", "student coaching", "hardware", "AI consciousness"],
+      "projects": ["Physical AI & Robotics", "P.O.W.E.R. FTC Team 20266", "The Mirror Test — MAC"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about robotics, student building, or hardware", "url": "https://bc-ai.ca/members/opaque-v1~925b44a31b0733acb2464b50f97447cc" },
+        { "kind": "offer-help", "label": "Offer a robotics demonstration or youth-building support", "url": "https://bc-ai.ca/communities/robotics" },
+        { "kind": "join-project", "label": "Join the Physical AI & Robotics group", "url": "https://bc-ai.ca/communities/robotics" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/robotics",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Fiann co-leads our Physical AI & Robotics group",
+      "status": "verified",
+      "profileUrl": "https://bc-ai.ca/members/opaque-v1~925b44a31b0733acb2464b50f97447cc",
+      "relatedOrgIds": ["bc-ai-ecosystem-association", "vancouver-ai", "mind-ai-and-consciousness"]
+    },
+    {
+      "id": "david-gloyn-cox",
+      "name": "David Gloyn-Cox",
+      "role": "Physical AI & Robotics Co-lead",
+      "community": "Physical AI & Robotics",
+      "communityLead": true,
+      "location": "Vancouver",
+      "summary": "Co-leads the robotics group and contributes spare servos, robot parts, and hands-on hardware support for young builders.",
+      "expertise": ["robotics", "enterprise architecture", "electronics", "servos", "hardware mentoring"],
+      "projects": ["Physical AI & Robotics", "Vancouver AI hardware demonstrations"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about robotics hardware or enterprise architecture", "url": "https://bc-ai.ca/members/dreffed" },
+        { "kind": "offer-help", "label": "Offer parts, a demonstration, or hands-on building help", "url": "https://bc-ai.ca/communities/robotics" },
+        { "kind": "join-project", "label": "Build with the Physical AI & Robotics group", "url": "https://bc-ai.ca/communities/robotics" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/robotics",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "David co-leads the group with Fiann.",
+      "status": "verified",
+      "profileUrl": "https://bc-ai.ca/members/dreffed",
+      "relatedOrgIds": ["bc-ai-ecosystem-association", "vancouver-ai"]
+    },
+    {
+      "id": "darren-coleman",
+      "name": "Darren Coleman",
+      "role": "Fraser Valley AI Local Lead",
+      "community": "FV+AI: Fraser Valley AI",
+      "communityLead": true,
+      "location": "Fraser Valley — Langley",
+      "summary": "Leads the Fraser Valley room for practical talks, local demonstrations, introductions, and building with neighbours from Langley to Chilliwack.",
+      "expertise": ["local community organizing", "practical AI", "Fraser Valley", "talks and demonstrations"],
+      "projects": ["FV+AI: Fraser Valley AI", "Surrey AI community lineage"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about the Fraser Valley community", "url": "https://bc-ai.ca/communities/fraser-valley-ai" },
+        { "kind": "offer-help", "label": "Pitch a practical talk or local demonstration", "url": "https://bc-ai.ca/communities/fraser-valley-ai" },
+        { "kind": "join-project", "label": "Join the next FV+AI gathering", "url": "https://bc-ai.ca/communities/fraser-valley-ai" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/fraser-valley-ai",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Darren Coleman",
+      "status": "verified",
+      "relatedOrgIds": ["fv-ai-fraser-valley-ai"]
+    },
+    {
+      "id": "matthew-schwartzman",
+      "name": "Matthew Schwartzman",
+      "role": "Fraser Valley AI Co-organizer",
+      "community": "FV+AI: Fraser Valley AI",
+      "communityLead": true,
+      "location": "Fraser Valley",
+      "summary": "Co-organizes Fraser Valley AI, helping keep the regional chapter local, connected, and recurring.",
+      "expertise": ["community organizing", "Fraser Valley", "regional chapters", "recurring events"],
+      "projects": ["FV+AI: Fraser Valley AI"],
+      "connections": [
+        { "kind": "get-help", "label": "Connect about the Fraser Valley chapter", "url": "https://bc-ai.ca/communities/fraser-valley-ai" },
+        { "kind": "offer-help", "label": "Offer a local talk, venue, or organizing help", "url": "https://bc-ai.ca/communities/fraser-valley-ai" },
+        { "kind": "join-project", "label": "Take part in the next Fraser Valley room", "url": "https://bc-ai.ca/communities/fraser-valley-ai" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/about",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Keeps Fraser Valley AI local, connected, and recurring.",
+      "status": "verified",
+      "relatedOrgIds": ["fv-ai-fraser-valley-ai"]
+    },
+    {
+      "id": "lourdes-gant",
+      "name": "Lourdes Gant",
+      "role": "Comox Valley Regional Lead",
+      "community": "CV + AI: Comox Valley AI",
+      "communityLead": true,
+      "location": "Comox Valley",
+      "summary": "Main organizer of Comox Valley AI, bringing neighbours together around responsible adoption, organizational knowledge, business strategy, and sustainable aquaculture.",
+      "expertise": ["responsible AI adoption", "business strategy", "sustainable aquaculture", "knowledge preservation", "community organizing"],
+      "projects": ["CV + AI: Comox Valley AI", "Sustainable Business Dynamics"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about responsible adoption or the Valley chapter", "url": "https://sustainabilityteam.ai/about" },
+        { "kind": "offer-help", "label": "Offer to speak, organize, sponsor, or suggest a venue", "url": "https://bc-ai.ca/communities/comox-valley" },
+        { "kind": "join-project", "label": "Join the next Comox Valley meetup", "url": "https://bc-ai.ca/communities/comox-valley" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/comox-valley",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Lourdes Gant is the regional lead and main organizer",
+      "status": "verified",
+      "profileUrl": "https://sustainabilityteam.ai/about",
+      "relatedOrgIds": ["cv-ai-comox-valley-ai"]
+    },
+    {
+      "id": "steve-jones",
+      "name": "Steve Jones",
+      "role": "Comox Valley Co-lead and Civic Contributor",
+      "community": "CV + AI: Comox Valley AI",
+      "communityLead": true,
+      "location": "Comox Valley",
+      "summary": "Co-leads Comox Valley AI and authored a provincial AI questionnaire covering infrastructure, public services, regulation, the economy, and sovereignty.",
+      "expertise": ["community organizing", "civic policy", "AI infrastructure", "public services", "sovereignty"],
+      "projects": ["CV + AI: Comox Valley AI", "BC provincial AI questionnaire", "AI Ethical Futures Lab #8"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about the chapter or provincial policy questionnaire", "url": "https://bc-ai.ca/events/2026-10-07-ai-ethical-futures-lab-8" },
+        { "kind": "offer-help", "label": "Offer local organizing or civic-policy contributions", "url": "https://bc-ai.ca/communities/comox-valley" },
+        { "kind": "join-project", "label": "Join a Comox Valley or Futures Lab working session", "url": "https://bc-ai.ca/communities/futures-lab" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/comox-valley",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Co-leads the Comox Valley AI chapter.",
+      "status": "verified",
+      "relatedOrgIds": ["cv-ai-comox-valley-ai", "ai-ethical-futures-lab"]
+    },
+    {
+      "id": "colin-fitzgerald",
+      "name": "Colin Fitzgerald",
+      "role": "Comox Valley AI Co-lead",
+      "community": "CV + AI: Comox Valley AI",
+      "communityLead": true,
+      "location": "Comox Valley",
+      "summary": "Publicly confirmed co-lead of the Comox Valley chapter. BC + AI has not yet published a longer professional bio.",
+      "expertise": ["community organizing", "Comox Valley", "regional chapters"],
+      "projects": ["CV + AI: Comox Valley AI"],
+      "connections": [
+        { "kind": "offer-help", "label": "Offer local organizing, speaking, or venue help", "url": "https://bc-ai.ca/communities/comox-valley" },
+        { "kind": "join-project", "label": "Join the next Comox Valley gathering", "url": "https://bc-ai.ca/communities/comox-valley" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/comox-valley",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Co-leads the Comox Valley AI chapter.",
+      "status": "verified",
+      "relatedOrgIds": ["cv-ai-comox-valley-ai"]
+    },
+    {
+      "id": "mel-dipietro",
+      "name": "Mel DiPietro",
+      "role": "Comox Valley AI Co-lead",
+      "community": "CV + AI: Comox Valley AI",
+      "communityLead": true,
+      "location": "Comox Valley",
+      "summary": "Publicly confirmed co-lead of the Comox Valley chapter. BC + AI has not yet published a longer professional bio.",
+      "expertise": ["community organizing", "Comox Valley", "regional chapters"],
+      "projects": ["CV + AI: Comox Valley AI"],
+      "connections": [
+        { "kind": "offer-help", "label": "Offer local organizing, speaking, or venue help", "url": "https://bc-ai.ca/communities/comox-valley" },
+        { "kind": "join-project", "label": "Join the next Comox Valley gathering", "url": "https://bc-ai.ca/communities/comox-valley" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/comox-valley",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Co-leads the Comox Valley AI chapter.",
+      "status": "verified",
+      "relatedOrgIds": ["cv-ai-comox-valley-ai"]
+    },
+    {
+      "id": "anthonia-ogundele",
+      "name": "Anthonia Ogundele",
+      "role": "Ed + AI Co-lead and Ethọ́s Lab Executive Director",
+      "community": "Ed + AI: Education Meetup",
+      "communityLead": true,
+      "location": "Vancouver",
+      "summary": "Connects youth, educators, families, and creative technology through Ethọ́s Lab, which holds the Ed + AI room and its community leadership.",
+      "expertise": ["education", "youth programs", "creative technology", "community imagination", "equity"],
+      "projects": ["Ed + AI: Education Meetup", "Ethọ́s Lab", "AI Experimentation Club"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about youth, education, and creative technology", "url": "https://bc-ai.ca/videos/2026-07-03-anthonia-ogundele-ai-education-needs-community" },
+        { "kind": "offer-help", "label": "Offer a session, student project, or education workflow", "url": "https://bc-ai.ca/communities/ai-education" },
+        { "kind": "join-project", "label": "Join the next Ed + AI learning circle", "url": "https://bc-ai.ca/communities/ai-education" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/about",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Connects youth, educators, families, and creative technology through Ethọ́s Lab.",
+      "status": "verified",
+      "profileUrl": "https://ethoslab.ca/",
+      "relatedOrgIds": ["ed-ai-education-meetup", "ethos-lab"]
+    },
+    {
+      "id": "nessa-palmer",
+      "name": "Nessa Palmer",
+      "role": "Ed + AI Facilitator and Educator",
+      "community": "Ed + AI: Education Meetup",
+      "communityLead": false,
+      "location": "Vancouver",
+      "summary": "Educator, curriculum designer, Instructional Skills Workshop facilitator, and UBC Master of Educational Technology graduate student who facilitates Ed + AI sessions.",
+      "expertise": ["curriculum design", "facilitation", "education", "international students", "community learning"],
+      "projects": ["Ed + AI: Education Meetup", "UBC Master of Educational Technology"],
+      "connections": [
+        { "kind": "get-help", "label": "Bring a curriculum, facilitation, or classroom question", "url": "https://bc-ai.ca/communities/ai-education" },
+        { "kind": "offer-help", "label": "Offer to facilitate or show an education project", "url": "https://bc-ai.ca/communities/ai-education" },
+        { "kind": "join-project", "label": "Join an Ed + AI session", "url": "https://bc-ai.ca/communities/ai-education" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/ai-education",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Nessa Palmer is an educator, curriculum designer",
+      "status": "verified",
+      "relatedOrgIds": ["ed-ai-education-meetup"]
+    },
+    {
+      "id": "jesi-carson",
+      "name": "Jesi Carson",
+      "role": "AI Ethical Futures Lab Lead",
+      "community": "AI Ethical Futures Lab",
+      "communityLead": true,
+      "location": "Vancouver",
+      "summary": "Leads the civic and public-interest inquiry, designed and facilitated its first lab, and turned the small-group worksheets into a public report.",
+      "expertise": ["process design", "facilitation", "public-interest AI", "civic engagement", "public reporting"],
+      "projects": ["AI Ethical Futures Lab", "AEFL #1 public report", "People’s AI Consultation"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about facilitation, process design, or civic inquiry", "url": "https://jesicarson.com/" },
+        { "kind": "offer-help", "label": "Bring a public-interest question or workshop contribution", "url": "https://bc-ai.ca/communities/futures-lab" },
+        { "kind": "join-project", "label": "Join an AI Ethical Futures Lab working session", "url": "https://bc-ai.ca/communities/futures-lab" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/about",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Holds the network’s recurring civic and public-interest inquiry.",
+      "status": "verified",
+      "profileUrl": "https://jesicarson.com/",
+      "relatedOrgIds": ["ai-ethical-futures-lab"]
+    },
+    {
+      "id": "peter-van-garderen",
+      "name": "Peter Van Garderen",
+      "role": "Federal AI Transparency Consultation Facilitator",
+      "community": "AI Ethical Futures Lab",
+      "communityLead": false,
+      "location": "Vancouver",
+      "summary": "Facilitated the lab’s federal AI transparency consultation and published its recording, transcript, and notes for public review.",
+      "expertise": ["facilitation", "AI transparency", "public consultation", "documentation"],
+      "projects": ["AI Ethical Futures Lab #6", "Federal AI transparency consultation"],
+      "connections": [
+        { "kind": "get-help", "label": "Review the facilitated consultation record and methods", "url": "https://github.com/bc-ai-ecosystem/ai-ethical-futures-lab-6" },
+        { "kind": "offer-help", "label": "Contribute to a public-interest working session", "url": "https://bc-ai.ca/communities/futures-lab" },
+        { "kind": "join-project", "label": "Join the next AI Ethical Futures Lab", "url": "https://bc-ai.ca/communities/futures-lab" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/futures-lab",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Peter Van Garderen ran it and published the recording",
+      "status": "verified",
+      "relatedOrgIds": ["ai-ethical-futures-lab"]
+    },
+    {
+      "id": "sara-taherzadeh",
+      "name": "Sara Taherzadeh",
+      "role": "AI Transparency Submission Author",
+      "community": "AI Ethical Futures Lab",
+      "communityLead": false,
+      "location": "Vancouver",
+      "summary": "Turned the facilitated federal transparency session into the written submission that a later lab reviewed and approved.",
+      "expertise": ["AI transparency", "policy writing", "public consultation", "public-interest AI"],
+      "projects": ["Federal AI transparency submission", "AI Ethical Futures Lab #6"],
+      "connections": [
+        { "kind": "get-help", "label": "Read the public submission and its source trail", "url": "https://bc-ai.ca/communities/futures-lab/ai-transparency" },
+        { "kind": "offer-help", "label": "Contribute research or writing to a civic working room", "url": "https://bc-ai.ca/communities/futures-lab" },
+        { "kind": "join-project", "label": "Join a future AI Ethical Futures Lab session", "url": "https://bc-ai.ca/communities/futures-lab" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/futures-lab",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Sara Taherzadeh turned the night into the written submission.",
+      "status": "verified",
+      "relatedOrgIds": ["ai-ethical-futures-lab"]
+    },
+    {
+      "id": "simon-haworth",
+      "name": "Simon Haworth",
+      "role": "Life Sciences & AI Co-lead",
+      "community": "Life Sciences & AI",
+      "communityLead": true,
+      "location": "Vancouver",
+      "summary": "Co-leads Life Sciences & AI and works on drug discovery, local healthcare, the Wild Salmon proposal, and the Vancouver Macnab community challenge.",
+      "expertise": ["drug discovery", "life sciences", "healthcare", "AI commercialization", "community health"],
+      "projects": ["Life Sciences & AI", "Wild Salmon proposal", "Vancouver Macnab"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about AI drug discovery or life-sciences projects", "url": "https://bc-ai.ca/videos/2026-09-28-community-spotlight-simon-haworth" },
+        { "kind": "offer-help", "label": "Offer help organizing the Vancouver Macnab challenge", "url": "https://bc-ai.ca/communities/life-sciences-ai" },
+        { "kind": "join-project", "label": "Pull up a chair at Life Sciences & AI", "url": "https://bc-ai.ca/communities/life-sciences-ai" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/life-sciences-ai",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Simon Haworth co-leads the Life Sciences and AI group.",
+      "status": "verified",
+      "relatedOrgIds": ["life-sciences-and-ai"]
+    },
+    {
+      "id": "mauricio-penteado",
+      "name": "Mauricio Penteado",
+      "role": "Life Sciences and Healthcare Community Contributor",
+      "community": "Life Sciences & AI",
+      "communityLead": false,
+      "location": "Vancouver",
+      "summary": "Contributes to the Life Sciences and Healthcare work group and its Overdose Prevention Society partnership on Vancouver’s Downtown Eastside.",
+      "expertise": ["community health", "life sciences", "healthcare partnerships", "Downtown Eastside"],
+      "projects": ["Downtown Eastside initiative", "Overdose Prevention Society partnership", "Life Sciences & AI"],
+      "connections": [
+        { "kind": "get-help", "label": "Learn about the Downtown Eastside initiative", "url": "https://bc-ai.ca/communities/life-sciences-ai" },
+        { "kind": "offer-help", "label": "Offer relevant healthcare or community-health experience", "url": "https://bc-ai.ca/communities/life-sciences-ai" },
+        { "kind": "join-project", "label": "Join the Life Sciences & AI table", "url": "https://bc-ai.ca/communities/life-sciences-ai" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/communities/life-sciences-ai",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Mauricio Penteado is part of the Life Sciences",
+      "status": "verified",
+      "relatedOrgIds": ["life-sciences-and-ai"]
+    },
+    {
+      "id": "martin-lopatka",
+      "name": "Martin Lopatka",
+      "role": "Responsible AI Professional Curriculum Lead",
+      "community": "BC + AI programs",
+      "communityLead": false,
+      "location": "British Columbia",
+      "summary": "Leads RAP curriculum with responsible-AI assessment expertise, forensic statistics, and production machine-learning experience.",
+      "expertise": ["responsible AI", "assessment frameworks", "forensic statistics", "production machine learning", "governance"],
+      "projects": ["Responsible AI Professional", "Ethics Practice Assistant"],
+      "connections": [
+        { "kind": "get-help", "label": "Bring a responsible-AI assessment or governance question", "url": "https://bc-ai.ca/certification/responsible-ai-professional" },
+        { "kind": "offer-help", "label": "Contribute a real deployment scenario or governance question", "url": "https://bc-ai.ca/certification/responsible-ai-professional" },
+        { "kind": "join-project", "label": "Join the next Responsible AI Professional cohort", "url": "https://bc-ai.ca/certification/responsible-ai-professional" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/certification/responsible-ai-professional",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Mozilla alum with production ML systems experience.",
+      "status": "verified",
+      "relatedOrgIds": ["bc-ai-ecosystem-association"]
+    },
+    {
+      "id": "sarah-downey",
+      "name": "Sarah Downey",
+      "role": "Responsible AI Professional Governance Facilitator",
+      "community": "BC + AI programs",
+      "communityLead": false,
+      "location": "British Columbia",
+      "summary": "Facilitates governance for RAP, drawing on nonprofit leadership and work helping mission-driven organizations adopt AI responsibly.",
+      "expertise": ["AI governance", "nonprofit leadership", "responsible adoption", "values-centred practice", "facilitation"],
+      "projects": ["Responsible AI Professional", "AI governance practice"],
+      "connections": [
+        { "kind": "get-help", "label": "Bring a nonprofit AI governance or adoption question", "url": "https://bc-ai.ca/certification/responsible-ai-professional" },
+        { "kind": "offer-help", "label": "Offer a mission-driven governance scenario", "url": "https://bc-ai.ca/certification/responsible-ai-professional" },
+        { "kind": "join-project", "label": "Join a Responsible AI Professional cohort", "url": "https://bc-ai.ca/certification/responsible-ai-professional" }
+      ],
+      "sourceUrl": "https://bc-ai.ca/certification/responsible-ai-professional",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "20+ years in nonprofit leadership, helping mission-driven organizations adopt AI responsibly.",
+      "status": "verified",
+      "relatedOrgIds": ["bc-ai-ecosystem-association"]
+    },
+    {
+      "id": "loc-dao",
+      "name": "Loc Dao",
+      "role": "DigiBC Executive Director",
+      "community": "Wider ecosystem",
+      "communityLead": false,
+      "location": "Vancouver",
+      "summary": "Leads British Columbia’s creative-technology industry association, connecting animation, games, visual effects, XR, talent, and community programs.",
+      "expertise": ["creative technology", "animation", "video games", "visual effects", "XR", "industry partnerships"],
+      "projects": ["DigiBC", "Signals Creative Tech Expo", "Creative-technology talent programs"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about creative-technology sector connections", "url": "https://digibc.org/about/" },
+        { "kind": "offer-help", "label": "Offer a community, education, or industry partnership", "url": "https://digibc.org/about/" },
+        { "kind": "join-project", "label": "Take part in DigiBC community programs", "url": "https://digibc.org/about/" }
+      ],
+      "sourceUrl": "https://digibc.org/about/",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Executive Director",
+      "status": "verified",
+      "relatedOrgIds": ["digibc"]
+    },
+    {
+      "id": "jeff-ward",
+      "name": "Jeff Ward",
+      "role": "Animikii Founder and Chief Executive Officer",
+      "community": "Wider ecosystem",
+      "communityLead": false,
+      "location": "Victoria",
+      "summary": "Founded Animikii and leads its culturally informed technology work, including the Niiwin Indigenous Sovereignty Platform and partner-built software.",
+      "expertise": ["Indigenous data sovereignty", "culturally informed technology", "Niiwin", "software partnerships", "digital agency leadership"],
+      "projects": ["Animikii Indigenous Technology", "Niiwin Indigenous Sovereignty Platform"],
+      "connections": [
+        { "kind": "get-help", "label": "Ask about culturally informed technology partnerships", "url": "https://www.animikii.com/about" },
+        { "kind": "offer-help", "label": "Bring a values-led organization or project partnership", "url": "https://www.animikii.com/about" },
+        { "kind": "join-project", "label": "Explore joining the Animikii team", "url": "https://www.animikii.com/about" }
+      ],
+      "sourceUrl": "https://www.animikii.com/about",
+      "sourceDate": "2026-11-04",
+      "evidenceQuote": "Founder and Chief Executive Officer (CEO)",
+      "status": "verified",
+      "relatedOrgIds": ["animikii"]
+    }
+  ]
+}
