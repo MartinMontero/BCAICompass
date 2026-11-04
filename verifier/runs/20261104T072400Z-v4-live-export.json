@@ -1,0 +1,17 @@
+{
+  "version": "v4",
+  "timestamp": "2026-11-04T07:24:00Z",
+  "command": "Read and parse https://bc-aicompass.ca/people.json through the independent URL fetch channel",
+  "exitCode": 0,
+  "count": 21,
+  "coverage": {
+    "activeCommunitiesReviewed": 10,
+    "communitiesWithNamedPublicLeads": 8,
+    "communitiesWithoutConfirmedLead": [
+      "Mind, AI, and Consciousness (MAC)",
+      "AI Creativity + Design"
+    ]
+  },
+  "generated": "2026-11-04",
+  "result": "Live custom-domain export contains all 21 people, the expected coverage, public role sources, and public connection paths."
+}

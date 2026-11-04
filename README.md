@@ -36,6 +36,10 @@ company. No listing is paid for or sponsored.
 - **Public AI field library** — 12 separately curated public-knowledge, preservation,
   open-infrastructure, legal, data, public-compute, and public-model resources with deterministic
   search, practical-use notes, principle filters, and related directory links.
+- **People directory** — 21 sourced public professional profiles covering community leaders and
+  project contributors. Search names, expertise, projects, communities, and places; filter by
+  get-help, offer-help, or join-project intent; then follow public connection paths and exact
+  role sources. Two communities without confirmed public leads are disclosed, not guessed.
 - **Mobile task workflow** — persistent phone shortcuts, collapsible directory
   filters, and comparison cards that retain the complete desktop table's actions.
 - **Guided contributions** — a public-source form with validation, review, consent,
@@ -57,7 +61,8 @@ company. No listing is paid for or sponsored.
 - **Open data** — the whole dataset ships as
   [`public/ecosystem.json`](public/ecosystem.json) and
   [`public/ecosystem.geojson`](public/ecosystem.geojson), regenerated and
-  re-validated on every build.
+  re-validated on every build. The separate public-professional dataset ships as
+  [`public/people.json`](public/people.json), with role sources and coverage gaps.
 
 ## Scope — the whole ecosystem, not only the AI builders
 
@@ -125,6 +130,7 @@ any BC AI dataset, including this one.
 | [`research/SHIP.md`](research/SHIP.md) | Deployment, rollback, and the re-verification cadence |
 | [`research/COVERAGE.md`](research/COVERAGE.md) | **What has been searched and what has not** — including why one region is still empty. Read this before drawing conclusions from a zero. |
 | [`research/GOVERNMENT-LAYER.md`](research/GOVERNMENT-LAYER.md) | BC's AI portfolio and the municipal layer, on one dated page rather than scattered across records |
+| [`research/PEOPLE.md`](research/PEOPLE.md) | People inclusion, public-source coverage, leadership gaps, privacy, and connection-path rules |
 | [`research/seed-summary.md`](research/seed-summary.md) | The source data normalized into leads, with attrition per filter stage |
 | [`research/union.json`](research/union.json) | 2,467 distinct names from **every** JSON and CSV in the source repository, not just the one backup dump |
 | [`research/unverified.json`](research/unverified.json) | 1,475 candidates that did **not** reach verified, with a reason each. Never built into the site. |
@@ -139,7 +145,7 @@ any BC AI dataset, including this one.
 - Vitest for deterministic core-logic tests and V8 coverage
 - Playwright for production-build browser tests at desktop and mobile widths
 
-Search, Public AI discovery, and plan construction run locally over published data
+Search, People discovery, Public AI discovery, and plan construction run locally over published data
 and require no API keys. Shortlist persistence uses `localStorage` with an in-memory
 fallback; playbook drafts are deliberately not persisted. This is browser-local
 convenience, not an account or cloud-sync system. Only guided contribution submission
@@ -218,7 +224,7 @@ first-party requests, and 375px overflow. On Linux, an existing Chromium can be
 selected with `CHROMIUM_PATH=/path/to/chromium npm run test:e2e`.
 
 The versioned acceptance contracts and machine verifiers live in `verifier/v1/`,
-`verifier/v2/`, and `verifier/v3/`; timestamped results, including unsuccessful
+`verifier/v2/`, `verifier/v3/`, and `verifier/v4/`; timestamped results, including unsuccessful
 runs, are indexed under `verifier/runs/`. The earlier PowerShell research gate remains available as
 `research/audit/Test-ExitConditions.ps1` for the original dataset and deployment
 checks.
@@ -241,8 +247,8 @@ and commands are in [`research/SHIP.md`](research/SHIP.md).
 ## Licence
 
 - **Code: MIT.** See [`LICENSE`](LICENSE).
-- **Data: CC BY 4.0.** The dataset in `src/data/organizations.ts`,
-  `public/ecosystem.json` and `public/ecosystem.geojson` is licensed under
+- **Data: CC BY 4.0.** The datasets in `src/data/organizations.ts`, `src/data/people.ts`,
+  `public/ecosystem.json`, `public/ecosystem.geojson`, and `public/people.json` are licensed under
   [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
   **Credit `bc-aicompass.ca`.** Take it and build with it.
 
