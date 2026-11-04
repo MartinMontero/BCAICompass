@@ -5,6 +5,7 @@ import Hero from './sections/Hero';
 import AskTheMap from './sections/AskTheMap';
 import ActionPlanner from './sections/ActionPlanner';
 import PublicAI from './sections/PublicAI';
+import People from './sections/People';
 import EcosystemMap from './sections/EcosystemMap';
 import Directory from './sections/Directory';
 import Shortlist from './components/Shortlist';
@@ -23,6 +24,8 @@ export default function App() {
   const clearPreset = useCallback(() => setPreset(null), []);
   const changeRegion = useCallback((region: PlanRegion) => {
     setSharedRegion(region);
+    // A pathway/onramp preset is a different slice. Manual region control takes
+    // precedence everywhere so the four views never contradict one another.
     setPreset(null);
   }, []);
   const shortlist = useShortlist();
@@ -70,6 +73,7 @@ export default function App() {
         <AskTheMap savedIds={savedIds} onToggle={shortlist.toggle} />
         <ActionPlanner savedIds={savedIds} onToggle={shortlist.toggle} onPreset={setPreset} region={sharedRegion} onRegionChange={changeRegion} />
         <PublicAI />
+        <People />
         <Regions region={sharedRegion} onRegionChange={changeRegion} />
         <EcosystemMap key={sharedRegion} preset={preset} onClearPreset={clearPreset} region={sharedRegion} onRegionChange={changeRegion} />
         <Directory preset={preset} onClearPreset={clearPreset} savedIds={savedIds} onToggle={shortlist.toggle} region={sharedRegion} onRegionChange={changeRegion} />
