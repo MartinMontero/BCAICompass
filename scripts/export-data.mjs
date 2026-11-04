@@ -264,8 +264,79 @@ const geojson = {
 
 writeFileSync('public/ecosystem.geojson', JSON.stringify(geojson, null, 2) + '\n');
 
+// Public professional People directory. This is a separate dataset: adding a
+// person never changes organization verification. Contact details stay out even
+// when a public source publishes them; connection paths use public web pages.
+let PEOPLE, ACTIVE_PEOPLE_COMMUNITIES, COMMUNITIES_WITHOUT_CONFIRMED_LEAD, CONNECTION_KINDS;
+try {
+  const result = await build({
+    entryPoints: ['src/data/people.ts'],
+    bundle: true,
+    format: 'esm',
+    platform: 'node',
+    write: false,
+  });
+  const code = result.outputFiles[0].text;
+  ({ PEOPLE, ACTIVE_PEOPLE_COMMUNITIES, COMMUNITIES_WITHOUT_CONFIRMED_LEAD, CONNECTION_KINDS } = await import(
+    'data:text/javascript;base64,' + Buffer.from(code).toString('base64')
+  ));
+} catch (err) {
+  fail('could not bundle src/data/people.ts.\n  ' + (err && err.message ? err.message : String(err)));
+}
+
+const peopleProblems = [];
+const peopleIds = new Set();
+if (!Array.isArray(PEOPLE) || PEOPLE.length < 20) peopleProblems.push('People must contain at least 20 sourced public profiles');
+for (const person of PEOPLE ?? []) {
+  const where = `[${person.id ?? '(no id)'}] ${person.name ?? '(no name)'}`;
+  if (!person.id) peopleProblems.push(`${where}: missing id`);
+  else if (peopleIds.has(person.id)) peopleProblems.push(`${where}: duplicate id`);
+  else peopleIds.add(person.id);
+  if (person.status !== 'verified') peopleProblems.push(`${where}: status must be verified`);
+  if (!/^https:\/\//.test(person.sourceUrl ?? '')) peopleProblems.push(`${where}: sourceUrl must be HTTPS`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(person.sourceDate ?? '')) peopleProblems.push(`${where}: sourceDate must be YYYY-MM-DD`);
+  if (typeof person.evidenceQuote !== 'string' || person.evidenceQuote.trim().split(/\s+/).filter(Boolean).length >= 15) {
+    peopleProblems.push(`${where}: evidenceQuote must be present and under 15 words`);
+  }
+  if (!Array.isArray(person.connections) || person.connections.length === 0) peopleProblems.push(`${where}: needs a public connection path`);
+  for (const connection of person.connections ?? []) {
+    if (!CONNECTION_KINDS.includes(connection.kind)) peopleProblems.push(`${where}: unsupported connection kind`);
+    if (!/^https:\/\//.test(connection.url ?? '')) peopleProblems.push(`${where}: connection URLs must be HTTPS`);
+  }
+  for (const id of person.relatedOrgIds ?? []) {
+    if (!seenIds.has(id)) peopleProblems.push(`${where}: related organization ${id} does not exist`);
+  }
+  const serialized = JSON.stringify(person);
+  if (/mailto:|"(?:email|phone)"\s*:/i.test(serialized)) peopleProblems.push(`${where}: personal contact fields or mailto links are forbidden`);
+  if (person.profileUrl && !/^https:\/\//.test(person.profileUrl)) peopleProblems.push(`${where}: profileUrl must be HTTPS`);
+}
+const leadCommunities = new Set((PEOPLE ?? []).filter((person) => person.communityLead).map((person) => person.community));
+if ((ACTIVE_PEOPLE_COMMUNITIES ?? []).length !== 10) peopleProblems.push('the active-community review list must contain ten rooms');
+if (leadCommunities.size !== 8) peopleProblems.push(`expected eight communities with named public leads, found ${leadCommunities.size}`);
+for (const community of COMMUNITIES_WITHOUT_CONFIRMED_LEAD ?? []) {
+  if (leadCommunities.has(community)) peopleProblems.push(`${community}: cannot be both an unconfirmed-lead gap and a lead community`);
+}
+if (peopleProblems.length > 0) fail(`${peopleProblems.length} People dataset problem(s):\n\n    - ` + peopleProblems.join('\n    - '));
+
+const peopleDataset = {
+  name: 'BC AI Compass — sourced people in British Columbia’s AI ecosystem',
+  url: `${site}/#people`,
+  generated,
+  license: 'CC BY 4.0 — credit bc-aicompass.ca',
+  method: 'Every profile names a public role or project contribution, the exact public source read, the read date, and a short verbatim excerpt. Search runs locally over published fields. Related organization IDs refer to the separately verified organization registry.',
+  privacy: 'Public professional information only. No personal email addresses, phone numbers, mailto links, or private contact details. Connection paths are public routes into a community or project, not a promise of personal availability.',
+  coverage: {
+    activeCommunitiesReviewed: ACTIVE_PEOPLE_COMMUNITIES.length,
+    communitiesWithNamedPublicLeads: leadCommunities.size,
+    communitiesWithoutConfirmedLead: COMMUNITIES_WITHOUT_CONFIRMED_LEAD,
+  },
+  count: PEOPLE.length,
+  people: PEOPLE,
+};
+writeFileSync('public/people.json', JSON.stringify(peopleDataset, null, 2) + '\n');
+
 console.log(
   `export-data: OK — ${organizations.length} verified organizations, ` +
-    `${geojson.features.length} with sourced coordinates.`
+    `${geojson.features.length} with sourced coordinates; ${PEOPLE.length} sourced people.`
 );
-console.log('  wrote public/ecosystem.json and public/ecosystem.geojson');
+console.log('  wrote public/ecosystem.json, public/ecosystem.geojson, and public/people.json');
