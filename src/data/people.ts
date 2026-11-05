@@ -1,6 +1,7 @@
 // Public professional profiles, curated separately from the organization registry.
 // A profile names a public role or project contribution, not personal availability.
 // Never add personal email addresses, phone numbers, or private contact details.
+import { ECOSYSTEM_PEOPLE } from './ecosystem-people';
 
 export const ACTIVE_PEOPLE_COMMUNITIES = [
   'Physical AI & Robotics',
@@ -67,7 +68,7 @@ const LIFE_SCIENCES = 'https://bc-ai.ca/communities/life-sciences-ai';
 const RAP = 'https://bc-ai.ca/certification/responsible-ai-professional';
 const CHECKED = '2026-11-04';
 
-export const PEOPLE: Person[] = [
+const BASE_PEOPLE: Person[] = [
   {
     id: 'kris-krug',
     name: 'Kris Krüg',
@@ -88,7 +89,7 @@ export const PEOPLE: Person[] = [
     evidenceQuote: 'Holds the association, the flagship Vancouver room',
     status: 'verified',
     profileUrl: 'https://bc-ai.ca/members/kris-krug',
-    relatedOrgIds: ['bc-ai-ecosystem-association', 'vancouver-ai'],
+    relatedOrgIds: ['bc-ai-ecosystem-association', 'vancouver-ai', 'ai-happy-hour'],
   },
   {
     id: 'kevin-friel',
@@ -514,3 +515,5 @@ export const PEOPLE: Person[] = [
     relatedOrgIds: ['animikii'],
   },
 ];
+
+export const PEOPLE: Person[] = [...BASE_PEOPLE, ...ECOSYSTEM_PEOPLE];
