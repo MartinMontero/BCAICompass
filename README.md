@@ -7,8 +7,8 @@ was checked.** That is the entire premise. A directory that tells you *when* it 
 checked but not *against what* cannot be audited or corrected — it can only be
 believed, and this one does not ask to be believed.
 
-**BC AI Compass is a [BC + AI Ecosystem Association](https://bc-ai.ca) project,
-built by Martin Montero** as his contribution to it. BC + AI is itself listed in this
+**BC AI Compass is built with [data] (https://app.notion.com/p/kriskrug/BC-AI-Community-Atlas-1f0c6f799a3380699decf86aa4d48c7e) from the [BC + AI Ecosystem Association](https://bc-ai.ca) project,
+this tool was built by Martin Montero** as his contribution to it. BC + AI is itself listed in this
 directory, and that is stated on the site rather than left for you to discover.
 
 **No other organization listed here is a partner, funder or endorser of this
@@ -257,8 +257,7 @@ Map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributo
 
 ## Credits
 
-Built on the unceded territories of the many Indigenous nations whose lands make up
-British Columbia.
+Built on the unceded territories of the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations.
 
 A [BC + AI Ecosystem Association](https://bc-ai.ca) project, built by
 [Martin Montero](https://www.linkedin.com/in/martinmontero).
