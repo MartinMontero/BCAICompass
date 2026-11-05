@@ -30,6 +30,7 @@ export default function People() {
   const selected = results.find((result) => result.person.id === selectedId) ?? results[0];
   const hasFilters = query.trim() !== '' || community !== 'All' || connection !== 'All';
   const leadCommunityCount = useMemo(() => new Set(PEOPLE.filter((person) => person.communityLead).map((person) => person.community)).size, []);
+  const coveredOrganizationCount = useMemo(() => new Set(PEOPLE.flatMap((person) => person.relatedOrgIds)).size, []);
 
   const clear = () => {
     setQuery('');
@@ -130,7 +131,7 @@ export default function People() {
             <details className="mt-4 border-t border-[var(--line)] pt-3 group">
               <summary className="min-h-11 inline-flex items-center font-mono2 text-[9.5px] uppercase tracking-[0.06em] text-[var(--accent)] cursor-pointer">Coverage and method ＋</summary>
               <p className="text-xs leading-relaxed text-[var(--ink-soft)]">
-                {leadCommunityCount} of {ACTIVE_PEOPLE_COMMUNITIES.length} active communities have named public leads. {COMMUNITIES_WITHOUT_CONFIRMED_LEAD.join(' and ')} have no confirmed public lead listed; no one is guessed into those roles.
+                {PEOPLE.length} people across {coveredOrganizationCount} of 136 verified organizations. {leadCommunityCount} of {ACTIVE_PEOPLE_COMMUNITIES.length} active communities have named public leads. {COMMUNITIES_WITHOUT_CONFIRMED_LEAD.join(' and ')} have no confirmed public lead listed; no one is guessed into those roles. City of Vancouver has no confirmed AI-specific project lead.
               </p>
               <a href="./people.json" className="mt-2 min-h-11 inline-flex items-center text-xs text-[var(--accent)]">Download people.json ↓</a>
             </details>

@@ -1,5 +1,6 @@
 import { expect, test, type TestInfo } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
+import { PEOPLE } from '../src/data/people';
 
 async function capture(page: import('@playwright/test').Page, testInfo: TestInfo, name: string, target: import('@playwright/test').Locator) {
   const body = await target.screenshot();
@@ -15,7 +16,7 @@ test('People search explains matches and opens sourced project connection paths'
   const people = page.locator('#people');
   await expect(people.getByRole('heading', { name: 'Find a person, not just a project.' })).toBeVisible();
   await expect(people.locator('[data-person]')).toHaveCount(6);
-  await expect(people).toContainText('21 of 21 sourced people');
+  await expect(people).toContainText(`${PEOPLE.length} of ${PEOPLE.length} sourced people`);
 
   await people.getByLabel('Search people').fill('Simon drug discovery');
   await expect(people.locator('[data-person]')).toHaveCount(1);

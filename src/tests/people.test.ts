@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { ACTIVE_PEOPLE_COMMUNITIES, COMMUNITIES_WITHOUT_CONFIRMED_LEAD, CONNECTION_KINDS, PEOPLE } from '../data/people';
 import { ORGANIZATIONS } from '../data/organizations';
 import { searchPeople } from '../lib/people';
@@ -40,7 +41,7 @@ describe('sourced People directory', () => {
     expect(searchPeople(PEOPLE, { ...filters, query: 'drug discovery' }).map((result) => result.person.id)).toContain('simon-haworth');
     expect(searchPeople(PEOPLE, { ...filters, query: 'Niiwin' }).map((result) => result.person.id)).toEqual(['jeff-ward']);
     expect(searchPeople(PEOPLE, { ...filters, query: 'Fraser Valley' }).map((result) => result.person.id)).toEqual(expect.arrayContaining(['darren-coleman', 'matthew-schwartzman']));
-    expect(searchPeople(PEOPLE, { ...filters, query: 'Victoria' }).map((result) => result.person.id)).toEqual(['jeff-ward']);
+    expect(searchPeople(PEOPLE, { ...filters, query: 'Victoria' }).map((result) => result.person.id)).toEqual(expect.arrayContaining(['jeff-ward', 'julie-angus', 'kevin-stanley']));
   });
 
   it('requires every meaningful query term and explains the match', () => {
@@ -58,9 +59,25 @@ describe('sourced People directory', () => {
     expect(searchPeople(PEOPLE, filters)).toHaveLength(PEOPLE.length);
   });
 
+  it('covers all 136 organizations and keeps the first-pass profiles', () => {
+    const review = JSON.parse(readFileSync('research/people-source-review.json', 'utf8'));
+    expect(review.organizationCount).toBe(136);
+    expect(review.reviewedCount).toBe(136);
+    expect(review.coverageComplete).toBe(true);
+    expect(review.expandedPeopleCount).toBe(PEOPLE.length);
+    expect(PEOPLE.length).toBe(127);
+    expect(review.organizationsWithPublishedPeople).toBe(134);
+    expect(review.organizationsWithoutPublishedPeople).toBe(2);
+    const firstPassIds = ['kris-krug', 'kevin-friel', 'fiann-ohagan', 'david-gloyn-cox', 'darren-coleman', 'matthew-schwartzman', 'lourdes-gant', 'steve-jones', 'colin-fitzgerald', 'mel-dipietro', 'anthonia-ogundele', 'nessa-palmer', 'jesi-carson', 'peter-van-garderen', 'sara-taherzadeh', 'simon-haworth', 'mauricio-penteado', 'martin-lopatka', 'sarah-downey', 'loc-dao', 'jeff-ward'];
+    for (const id of firstPassIds) expect(PEOPLE.some((person) => person.id === id)).toBe(true);
+    const reviewIds = new Set(review.organizations.map((organization: { organizationId: string }) => organization.organizationId));
+    for (const organization of ORGANIZATIONS) expect(reviewIds.has(organization.id)).toBe(true);
+  });
+
   it('expands practical vocabulary without introducing unsupported people', () => {
     const results = searchPeople(PEOPLE, { ...filters, query: 'robot' });
     expect(results.map((result) => result.person.id)).toEqual(expect.arrayContaining(['fiann-ohagan', 'david-gloyn-cox']));
-    expect(results.every((result) => result.person.expertise.includes('robotics'))).toBe(true);
+    expect(results.length).toBeGreaterThan(0);
+    expect(results.every((result) => result.person.expertise.some((item) => item.includes('robot')))).toBe(true);
   });
 });
