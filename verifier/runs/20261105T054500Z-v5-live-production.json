@@ -1,0 +1,21 @@
+{
+  "version": "v5",
+  "timestamp": "2026-11-05T06:07:17.573Z",
+  "command": "Production expanded People browser and open-data verification",
+  "exitCode": 0,
+  "initialResultCards": 6,
+  "countText": "127 of 127 sourced people",
+  "searchResult": "Raymond Ng",
+  "profileSource": "https://aihealth.med.ubc.ca/people/",
+  "relatedOrganizationLinks": 1,
+  "mobileOverflowPixels": 0,
+  "peopleJsonStatus": 200,
+  "peopleJsonCount": 127,
+  "organizationReview": {
+    "organizationsReviewed": 136,
+    "organizationsWithPublishedPeople": 134,
+    "organizationsWithoutPublishedPeople": 2,
+    "reviewFile": "research/people-source-review.json"
+  },
+  "consoleErrors": []
+}

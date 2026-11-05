@@ -1,0 +1,28 @@
+{
+  "version": "v5",
+  "timestamp": "2026-11-05T06:08:00Z",
+  "command": "Final full-coverage delivery review",
+  "exitCode": 0,
+  "acceptance": {
+    "run": "verifier/runs/20261105T052752Z-v5-acceptance.json",
+    "passed": 33,
+    "failed": 0,
+    "unitTests": 37,
+    "organizationDatasetSha256": "07c001e1febed219bdb0bb1582f30aa35ef8f8e4931ce73ab2a074856a4aafd6"
+  },
+  "previewVersion": "c94800c",
+  "github": {
+    "branch": "main",
+    "head": "0ccee056a97bc7d1b04cc8ea4670d0e89b0e4b18",
+    "url": "https://github.com/MartinMontero/BCAICompass/commit/0ccee056a97bc7d1b04cc8ea4670d0e89b0e4b18"
+  },
+  "production": {
+    "peopleCount": 127,
+    "organizationsReviewed": 136,
+    "organizationsWithPublishedPeople": 134,
+    "organizationsWithoutPublishedPeople": 2,
+    "browserRun": "verifier/runs/20261105T054500Z-v5-live-production.json",
+    "mobileOverflowPixels": 0,
+    "consoleErrors": []
+  }
+}
