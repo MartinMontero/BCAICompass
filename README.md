@@ -36,10 +36,11 @@ company. No listing is paid for or sponsored.
 - **Public AI field library** — 12 separately curated public-knowledge, preservation,
   open-infrastructure, legal, data, public-compute, and public-model resources with deterministic
   search, practical-use notes, principle filters, and related directory links.
-- **People directory** — 21 sourced public professional profiles covering community leaders and
-  project contributors. Search names, expertise, projects, communities, and places; filter by
-  get-help, offer-help, or join-project intent; then follow public connection paths and exact
-  role sources. Two communities without confirmed public leads are disclosed, not guessed.
+- **People directory** — 127 sourced public professional profiles across 134 of 136 verified
+  organizations, covering community leaders, researchers, founders, and project contributors.
+  Search names, expertise, projects, communities, and places; filter by get-help, offer-help,
+  or join-project intent; then follow public connection paths and exact role sources. The full
+  organization review ledger and the two organizations without confirmed profiles are public.
 - **Mobile task workflow** — persistent phone shortcuts, collapsible directory
   filters, and comparison cards that retain the complete desktop table's actions.
 - **Guided contributions** — a public-source form with validation, review, consent,
@@ -224,7 +225,7 @@ first-party requests, and 375px overflow. On Linux, an existing Chromium can be
 selected with `CHROMIUM_PATH=/path/to/chromium npm run test:e2e`.
 
 The versioned acceptance contracts and machine verifiers live in `verifier/v1/`,
-`verifier/v2/`, `verifier/v3/`, and `verifier/v4/`; timestamped results, including unsuccessful
+`verifier/v2/`, `verifier/v3/`, `verifier/v4/`, and `verifier/v5/`; timestamped results, including unsuccessful
 runs, are indexed under `verifier/runs/`. The earlier PowerShell research gate remains available as
 `research/audit/Test-ExitConditions.ps1` for the original dataset and deployment
 checks.

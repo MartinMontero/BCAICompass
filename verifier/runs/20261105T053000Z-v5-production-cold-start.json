@@ -1,0 +1,21 @@
+{
+  "version": "v5",
+  "timestamp": "2026-11-05T05:28:34.666Z",
+  "command": "PORT=4174 npm start + expanded production visual/cold-start check",
+  "exitCode": 0,
+  "countText": "127 of 127 sourced people",
+  "requests": 51,
+  "transferBytes": 792205,
+  "overflow": [
+    { "width": 375, "pixels": 0 },
+    { "width": 768, "pixels": 0 },
+    { "width": 1024, "pixels": 0 },
+    { "width": 1440, "pixels": 0 }
+  ],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "screenshots": [
+    "20261105T053000Z-desktop-expanded-people.png",
+    "20261105T053000Z-mobile-expanded-people.png"
+  ]
+}
