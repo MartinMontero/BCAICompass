@@ -2,6 +2,19 @@
 
 Read on **2026-11-04**. The People directory is a separate public-professional dataset in `src/data/people.ts`; it does not modify or re-verify organization records.
 
+## Full-dataset expansion
+
+The directory now contains **127 unique public profiles across 134 of the 136 verified organizations**. The original 21 profiles are preserved. New profiles were researched organization by organization rather than inferred from the BC + AI community pages alone.
+
+`research/people-source-review.json` is the authoritative coverage ledger. It contains one entry for every organization and records seed URLs, followed team/leadership/project links, HTTP results, readable-text results, published profile IDs, and the review outcome. **117 organizations had readable pages during the first crawl; 19 required alternate public-source searches or remained inaccessible.** No inaccessible page is silently treated as evidence that no person exists.
+
+The two organizations without a published profile are explicit:
+
+- **City of Vancouver** — no confirmed AI-specific project lead was added; the general mayor is not presented as an AI project contact.
+- **AI Creativity + Design** — the public community page explicitly says no host names are confirmed publicly yet.
+
+Shared leaders are represented once and linked to every relevant verified organization. Current-role checks replace outdated appointment records where necessary—for example, TELUS, DIGITAL, Terramera, 4AG Robotics, QAI, and Innovate BC use their current public leadership rather than former leaders.
+
 ## Inclusion rule
 
 A person is included only when a public page names them and supports a current community role or a specific project contribution. Each record carries that page as `sourceUrl`, the read date, and a short verbatim `evidenceQuote`. A public source naming someone as a speaker does **not** make them a community lead. A record with only a role and no longer published bio says so.

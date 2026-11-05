@@ -12,7 +12,7 @@
 // breaks at prebuild, before the type-check, with a bare module-resolution error.
 // See research/AUDIT.md section 8.
 import { build } from 'esbuild';
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync } from 'node:fs';
 
 const MIN_VERIFIED = 100;
 
@@ -318,6 +318,24 @@ for (const community of COMMUNITIES_WITHOUT_CONFIRMED_LEAD ?? []) {
 }
 if (peopleProblems.length > 0) fail(`${peopleProblems.length} People dataset problem(s):\n\n    - ` + peopleProblems.join('\n    - '));
 
+const sourceReview = JSON.parse(readFileSync('research/people-source-review.json', 'utf8'));
+const reviewIds = new Set((sourceReview.organizations ?? []).map((organization) => organization.organizationId));
+if (sourceReview.organizationCount !== 136 || sourceReview.reviewedCount !== 136 || sourceReview.coverageComplete !== true) {
+  peopleProblems.push('the public-source review must cover all 136 organizations');
+}
+for (const id of seenIds) {
+  if (!reviewIds.has(id)) peopleProblems.push(`organization ${id} is missing from the public-source review`);
+}
+if (sourceReview.expandedPeopleCount !== PEOPLE.length) peopleProblems.push('expandedPeopleCount does not match the People dataset');
+if (sourceReview.organizationsWithPublishedPeople !== 134) peopleProblems.push('expected 134 organizations with published people');
+if (sourceReview.organizationsWithoutPublishedPeople !== 2) peopleProblems.push('expected two documented organizations without published people');
+for (const organization of sourceReview.organizations ?? []) {
+  for (const personId of organization.peopleIds ?? []) {
+    if (!peopleIds.has(personId)) peopleProblems.push(`${organization.organizationId}: unknown published person ${personId}`);
+  }
+}
+if (peopleProblems.length > 0) fail(`${peopleProblems.length} People dataset problem(s):\n\n    - ` + peopleProblems.join('\n    - '));
+
 const peopleDataset = {
   name: 'BC AI Compass — sourced people in British Columbia’s AI ecosystem',
   url: `${site}/#people`,
@@ -329,6 +347,12 @@ const peopleDataset = {
     activeCommunitiesReviewed: ACTIVE_PEOPLE_COMMUNITIES.length,
     communitiesWithNamedPublicLeads: leadCommunities.size,
     communitiesWithoutConfirmedLead: COMMUNITIES_WITHOUT_CONFIRMED_LEAD,
+    organizationReview: {
+      organizationsReviewed: sourceReview.reviewedCount,
+      organizationsWithPublishedPeople: sourceReview.organizationsWithPublishedPeople,
+      organizationsWithoutPublishedPeople: sourceReview.organizationsWithoutPublishedPeople,
+      reviewFile: 'research/people-source-review.json',
+    },
   },
   count: PEOPLE.length,
   people: PEOPLE,
