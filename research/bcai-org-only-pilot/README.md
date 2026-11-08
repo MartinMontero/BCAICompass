@@ -1,6 +1,6 @@
 # BC + AI organization data and proposed ten-org pilot
 
-Prepared November 7, 2026 for discussion with Martin Montero. Local draft; not sent or published.
+Prepared November 7, 2026 for discussion with Martin Montero. Research draft for review; no collaboration agreement is assumed.
 
 This packet contains **900 organization records**, 36 proposed same-entity mappings, seven broader-record coverage links, and ten organization review candidates. It contains no people dataset. It adds only research material and does not modify Compass's published application or registries.
 
@@ -30,3 +30,5 @@ The JSON has an `organizations` array and an organization count; it is a purpose
 The data is reusable under **CC BY 4.0**, with credit to **BC + AI Ecosystem Association — https://bc-ai.ca**. Compass-derived organization fields retain credit to **bc-aicompass.ca**. Public release is distinct from verification of every factual claim. Records remain research candidates until they meet the receiving project's evidence policy.
 
 The proposed exchange can combine Compass's detailed lab, infrastructure and regional-support coverage with BC + AI's broader organization directory. Each project retains its editorial decisions. No partnership or reciprocal maintenance commitment is assumed.
+
+Review drafts: [note to Martin](../bcai-org-only-pilot-notes/MARTIN-NOTE-DRAFT.md) and [proposed PR](../bcai-org-only-pilot-notes/PR-DRAFT.md). These files are proposals, not sent outreach or an agreed pilot.
