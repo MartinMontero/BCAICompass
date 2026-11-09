@@ -629,7 +629,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://dsi.ubc.ca/",
       "evidenceQuote": "Earth Sciences Building 2178–2207 Main Mall Vancouver, BC Canada V6T 1Z4",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -652,7 +652,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://trustml.ubc.ca/",
       "evidenceQuote": "Research Excellence Clusters at UBC Vancouver",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -744,7 +744,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://www.cs.ubc.ca/cs-research/lci/research-groups/human-ai-interaction/",
       "evidenceQuote": "Department of Computer Science 201-2366 Main Mall Vancouver, BC Canada V6T 1Z4",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -1652,7 +1652,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://sfu-tai.github.io/",
       "evidenceQuote": "Our lab is located in the beautiful Burnaby campus of Simon Fraser University",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -1723,7 +1723,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://www.metacreation.net/contact",
       "evidenceQuote": "Surrey, BC V3T 0A3",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -1746,7 +1746,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://ivizlab.github.io/",
       "evidenceQuote": "Surrey, BC, Canada V3T 0A3",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -1884,7 +1884,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
       "evidenceQuote": "University of Victoria 3800 Finnerty Road Victoria BC V8P 5C2 Canada",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -2108,14 +2108,14 @@
       "region": "Province-wide",
       "url": "https://bc.net",
       "location": "British Columbia — province-wide",
-      "description": "Not-for-profit shared-services organization for British Columbia’s higher-education and research institutions. BetaKit reported on May 28, 2025 that Bell said students and faculty would reach compute at its Thompson Rivers University data centre through BCNET.",
+      "description": "Not-for-profit shared-services organization for British Columbia’s higher-education and research institutions.",
       "size": null,
       "orgStatus": null,
       "keyPeople": null,
       "geoPrecision": null,
       "sourceUrl": "https://www.bc.net/about",
       "evidenceQuote": "dedicated to the needs of B.C.'s higher education and research institutions",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -2349,7 +2349,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://www.newventuresbc.com",
       "evidenceQuote": "Suite #810 1055 Dunsmuir Street Vancouver, BC V7X 1J1",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -2395,7 +2395,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
       "evidenceQuote": "University of Victoria 3800 Finnerty Road Victoria BC V8P 5C2 Canada",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []
@@ -2850,7 +2850,7 @@
       "geoPrecision": "centroid",
       "sourceUrl": "https://kast.com/",
       "evidenceQuote": "91-D Baker Street Nelson, BC V1L 4G8",
-      "sourceDate": "2026-08-19",
+      "sourceDate": "2026-11-08",
       "verified": "2026-08",
       "status": "verified",
       "flags": []

@@ -1,6 +1,6 @@
 # Ten-record pilot: what happened when each record was checked against its own page
 
-Date of all page reads: 2026-11-08. Branch: `pilot-ten`. Nothing was pushed, merged or posted anywhere.
+Date of all page reads: 2026-11-08. Branch: `pilot-ten`. Nothing was pushed, merged or posted anywhere. The `sourceDate` field of these ten records (and of `uvic`, which cites the same page as AI@UVic) now says 2026-11-08, the day their pages were read and their quotes checked.
 
 ## How to read this
 
@@ -26,6 +26,25 @@ Outcome count: 1 accepted, 5 accepted-with-source-fix, 4 corrected, 0 unresolved
 | ai-at-uvic | accepted |
 | kast | corrected |
 
+## Which page supports each description
+
+A record stores one source address, but a description can draw on more than one page. This table names the page that supports each description sentence, and says where it is not the record's stored source. The same information is in the `page_url_for_description` column of the CSV.
+
+| Record | Page that supports the description | Same as the record's stored source? |
+|---|---|---|
+| ubc-data-science-institute | https://dsi.ubc.ca/ | Yes |
+| ubc-trustml | https://trustml.ubc.ca/ | Yes |
+| ubc-hai | https://www.cs.ubc.ca/cs-research/lci/research-groups/human-ai-interaction/ | Yes |
+| sfu-tai-lab | None: the record has no description | Not applicable |
+| sfu-iviz-lab | https://ivizlab.github.io/ | Yes |
+| sfu-metacreation-lab | https://www.metacreation.net (the lab's home page) | **No.** The stored source is https://www.metacreation.net/contact, the page that names the place. |
+| bcnet | https://www.bc.net/about | Yes |
+| new-ventures-bc | https://www.newventuresbc.com/ for the first sentence (mentorship, funding, annual competition); https://www.newventuresbc.com/discovery-foundation-ai-business-accelerator/ for the accelerator clause | **Partly.** The stored source is the home page; the accelerator clause is on the accelerator page. |
+| ai-at-uvic | https://www.uvic.ca/campus/artificial-intelligence/index.php | Yes |
+| kast | https://kast.com/ for the first two sentences; https://kast.com/programs/community/midas-stac/ for the sentence about the MIDAS Lab handover to Selkirk College | **Partly.** The stored source is https://kast.com/; the handover sentence is on the MIDAS/STAC page. |
+
+I re-read each of these pages on 2026-11-09 and confirmed that its description wording is on it.
+
 ## One paragraph per record
 
 **UBC Data Science Institute (accepted-with-source-fix).** No packet row. The record cited a UBC research-portal list page that covers dozens of groups; it now cites the institute's own site, https://dsi.ubc.ca/. The page calls the institute "a Faculty of Science initiative", so the record's word "Faculty-wide" was replaced. The place-naming quote is the footer address of the Faculty of Science's Office of the Dean (Vancouver, BC). The institute's own address is also in the footer ("EOS Main Building 6339 Stores Road, Room 113C") but names no city, so I did not use it as the quote.
@@ -40,7 +59,7 @@ Outcome count: 1 accepted, 5 accepted-with-source-fix, 4 corrected, 0 unresolved
 
 **Metacreation Lab (accepted-with-source-fix).** No packet row. The lab's home page gave no place-naming words, so the record carried the quote-pending flag. Its contact page prints "Surrey, BC V3T 0A3", so the stored source moved there and the flag is gone. The record's link stays on the home page, which carries the description wording. The record therefore stands on two pages of the same site, because it can only store one source address.
 
-**BCNET (corrected).** No packet row (the packet's BCcampus row is a different organization). The first sentence now rests on BCNET's own about page: "dedicated to the needs of B.C.'s higher education and research institutions". The second sentence, about Thompson Rivers University (TRU) compute, had only a BetaKit news article behind it. I reread that article: it says Bell said the TRU data centre will give students and faculty access to compute, not just on campus but "through provincial network service provider BCNET". That is Bell's future-tense statement as reported by BetaKit on May 28, 2025, not a BCNET statement, and the "training and inference compute" wording in the old record is not in that passage, so I reworded the sentence to say exactly that. **The TRU-compute claim is still second-hand.** BCNET's home, about, news and search pages never mention Thompson Rivers University, Bell or AI, and I could not read Bell's own release (see "Pages I could not read").
+**BCNET (corrected).** No packet row (the packet's BCcampus row is a different organization). The description now has one sentence, and it rests on BCNET's own about page: "dedicated to the needs of B.C.'s higher education and research institutions". The record used to carry a second sentence about Thompson Rivers University (TRU) compute, backed only by a BetaKit news article. **That sentence has been removed, so the claim is not on the map.** The claim (that BCNET provides compute to TRU students and faculty) is reported second-hand: BetaKit, in an article it published on May 28, 2025 (its byline and page date both say so), says Bell said the TRU data centre will give students and faculty access to compute, not just on campus but "through provincial network service provider BCNET". That is Bell's future-tense statement as BetaKit reported it, not a BCNET statement, and the "training and inference compute" wording in the old record is not in that passage. I did not find the claim on BCNET's own pages (home, About Us, news, and its site search for "Thompson Rivers") or on the TRU pages I checked (TRU's newsroom item about 1452 McGill Road, TRU's newsroom search for "BCNET", and tru.ca's home and research pages), all checked on 2026-11-09. I cannot prove it appears nowhere on either whole site, and I could not read Bell's own release (see "Pages I could not read").
 
 **New Ventures BC (corrected).** No packet row. It is a different organization from Innovate BC: its page says the 2026 competition is "presented by Innovate BC", and the two share a suite address. Two defects fixed. First, the stored address quote had commas the page does not print, so it was not verbatim; it now matches the footer exactly ("Suite #810 1055 Dunsmuir Street Vancouver, BC V7X 1J1"). Second, the description said the accelerator "helps BC companies move beyond experimentation", which is not on the accelerator's page; the description now says what the page says: a two-stream AI training program for early-stage and growth-stage BC companies, built around workshops, mentorship and an AI implementation plan. That program is time-limited (Stream 2 applications closed September 7, 2026 and the cohort ends December 2026), so that sentence needs a re-check after December.
 
@@ -50,9 +69,9 @@ Outcome count: 1 accepted, 5 accepted-with-source-fix, 4 corrected, 0 unresolved
 
 ## The three judgments
 
-**1. Did any outcome change a record on the map?** Not any pin. No coordinates moved, no record was added or removed, and the map still shows 136 records. What changed is what a visitor reads and where links lead: five descriptions were rewritten (Data Science Institute, HAI, BCNET, New Ventures BC, KAST) and four outward links now go to the organization's own page (TrustML, HAI, TAI Lab, iViz Lab). The published data files changed for eleven records: these ten plus `uvic`, because `uvic` cites the same UVic page as AI@UVic and so picks up the same new quote.
+**1. Did any outcome change a record on the map?** Not any pin. No coordinates moved, no record was added or removed, and the map still shows 136 records. What changed is what a visitor reads and where links lead: five descriptions were rewritten or shortened (Data Science Institute, HAI, BCNET, New Ventures BC, KAST) and four outward links now go to the organization's own page (TrustML, HAI, TAI Lab, iViz Lab). The published data files changed for eleven records: these ten plus `uvic`, because `uvic` cites the same UVic page as AI@UVic and so picks up the same new quote.
 
-**2. Did any source get stronger?** Yes, in seven of ten records. Six moved from a list page or a news article to the organization's own page (Data Science Institute, TrustML, HAI, TAI Lab, iViz Lab, BCNET). Metacreation moved to a page that actually names its place. Two more kept their page but got a better quote (New Ventures BC, whose old quote was not verbatim, and AI@UVic, whose old quote named no place). Two records dropped the quote-pending flag (Metacreation and BCNET), so the pending count fell from 34 to 32. One claim did not get stronger: BCNET's tie to the TRU compute remains second-hand.
+**2. Did any source get stronger?** Yes, in seven of ten records. Six moved from a list page or a news article to the organization's own page (Data Science Institute, TrustML, HAI, TAI Lab, iViz Lab, BCNET). Metacreation moved to a page that actually names its place. Two more kept their page but got a better quote (New Ventures BC, whose old quote was not verbatim, and AI@UVic, whose old quote named no place). Two records dropped the quote-pending flag (Metacreation and BCNET), so the pending count fell from 34 to 32. One claim could not be made stronger, so it was taken off the map: BCNET's tie to TRU compute is second-hand (BetaKit quoting what Bell said).
 
 **3. Average minutes per record, and what that costs for about 530 packet rows.** These are *agent minutes*, the clock time I took, not the time a person would need. I timed each record with a stopwatch log.
 - Stopwatch windows (reading the pages and checking quotes): 0.3 to 3.2 minutes per record; total 11.9 minutes; **average 1.2 minutes per record.** The two slow ones were BCNET (2.7) and New Ventures BC (3.2), the two where I found real discrepancies.

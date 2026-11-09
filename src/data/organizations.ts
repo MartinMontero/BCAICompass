@@ -391,6 +391,10 @@ const S_COMOX = 'https://thediscourse.ca/comox-valley/how-do-comox-valley-govern
 
 const READ = '2026-08-19';
 const STAMP = '2026-08';
+// Read date for the eleven records re-checked against their own pages on 2026-11-08
+// (the ten pilot-ten records plus uvic, which cites the same page as ai-at-uvic).
+// Set per record, after the V spread; every other record keeps READ.
+const READ_PILOT = '2026-11-08';
 
 /**
  * Shared defaults, spread into every record.
@@ -974,6 +978,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://dsi.ubc.ca/',
     ...V,
+    sourceDate: READ_PILOT,
   },
   {
     ...CITY.vancouver,
@@ -988,6 +993,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://trustml.ubc.ca/',
     ...V,
+    sourceDate: READ_PILOT,
   },
   {
     ...CITY.vancouver,
@@ -1044,6 +1050,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.cs.ubc.ca/cs-research/lci/research-groups/human-ai-interaction/',
     ...V,
+    sourceDate: READ_PILOT,
   },
   {
     ...CITY.kelowna,
@@ -1584,6 +1591,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://sfu-tai.github.io/',
     ...V,
+    sourceDate: READ_PILOT,
   },
   {
     ...CITY.burnaby,
@@ -1625,6 +1633,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.metacreation.net/contact',
     ...V,
+    sourceDate: READ_PILOT,
   },
   {
     ...CITY.surrey,
@@ -1639,6 +1648,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://ivizlab.github.io/',
     ...V,
+    sourceDate: READ_PILOT,
   },
   {
     ...CITY.surrey,
@@ -1722,6 +1732,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.uvic.ca/campus/artificial-intelligence/index.php',
     ...V,
+    sourceDate: READ_PILOT,
   },
   {
     ...CITY.victoria,
@@ -1858,10 +1869,11 @@ const RECORDS: Organization[] = [
     url: 'https://bc.net',
     location: 'British Columbia — province-wide',
     description:
-      'Not-for-profit shared-services organization for British Columbia’s higher-education and research institutions. BetaKit reported on May 28, 2025 that Bell said students and faculty would reach compute at its Thompson Rivers University data centre through BCNET.',
+      'Not-for-profit shared-services organization for British Columbia’s higher-education and research institutions.',
     size: null,
     sourceUrl: 'https://www.bc.net/about',
     ...V,
+    sourceDate: READ_PILOT,
   },
 
   // =========================================================================
@@ -2021,6 +2033,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.newventuresbc.com',
     ...V,
+    sourceDate: READ_PILOT,
   },
 
   // =========================================================================
@@ -2059,6 +2072,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.uvic.ca/campus/artificial-intelligence/index.php',
     ...V,
+    sourceDate: READ_PILOT,
   },
 
   // =========================================================================
@@ -2440,6 +2454,7 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://kast.com/',
     ...V,
+    sourceDate: READ_PILOT,
     orgStatus: 'active',
   },
   {
