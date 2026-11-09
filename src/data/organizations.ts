@@ -481,8 +481,6 @@ const QUOTE: Record<string, string> = {
   'https://digibc.org/about/': '#160-577 Great Northern Way Vancouver, BC, V5T 1E1',
   'https://wearebctech.com/members/member-directory/name/digibc-1/':
     '210 – 1401 West 8th Ave Vancouver, BC V6H 1C9',
-  'https://www2.gov.bc.ca/gov/content/governments/technology-innovation/partner-organizations':
-    'Innovate BC is a Crown agency of the B.C. government',
   'https://digitalsupercluster.ca/canadas-digital-technology-supercluster-receives-funding/':
     '2127 – 1055 W. Georgia Street Vancouver, BC, V6E 3P3',
   // Corrected 2026-11-09 (quote audit): the page says "300+ members", not "300+ paying
@@ -549,7 +547,9 @@ const QUOTE: Record<string, string> = {
   // Corrected 2026-11-08 (pilot-ten): the earlier string had commas the page does not
   // have. This is the footer address exactly as the page prints it.
   'https://www.newventuresbc.com': 'Suite #810 1055 Dunsmuir Street Vancouver, BC V7X 1J1',
-  'https://www.innovatebc.ca': 'Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Vancouver, BC',
+  // Corrected 2026-11-09 (quote audit): the old string skipped "Box 49164,". This is the
+  // footer address exactly as the page prints it (14 words); innovate-bc now cites it.
+  'https://www.innovatebc.ca': 'Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Box 49164, Vancouver, BC, V7X 1J1',
   'https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives':
     'MISA BC Spirit of Innovation Award - Service & efficiency with AI chatbots.',
   // Replaced 2026-11-09 (quote audit): the earlier sentence is no longer on the page, in
@@ -1482,7 +1482,10 @@ const RECORDS: Organization[] = [
     location: 'Vancouver',
     description: 'Institute focused on visual analytics, using AI for data visualization and interpretation.',
     size: null,
-    sourceUrl: S_SFU_AI,
+    // Own page for VIVA (no other record cites it) and no quote-table entry: it prints no
+    // Vancouver place name, so the record is quote-pending rather than carrying SFU's Burnaby
+    // address (changed 2026-11-09).
+    sourceUrl: 'https://www.sfu.ca/big-data/about-us/consultation-services.html',
     ...V,
     sourceDate: READ_AUDIT,
     verified: STAMP_AUDIT,
@@ -2176,7 +2179,7 @@ const RECORDS: Organization[] = [
     // this organization and is not affiliated with or endorsed by it." That was false.
     // BC + AI commissioned this project. Corrected 2026-08-19.
     description:
-      'Non-profit association describing itself as 300+ members building British Columbia’s AI industry, running regional chapters, certifications, the AI Builders Fellowship and the Futureproof Festival. No founding year is published here: the association’s own About page and press kit give different years, and picking one would be choosing rather than sourcing. BC AI Compass is a BC + AI Ecosystem Association project, so this is the one record in the directory published by its own commissioning organization.',
+      'Non-profit association describing itself as 300+ members building British Columbia’s AI industry, running regional chapters, certifications, the AI Builders Fellowship and the Futureproof Festival. Its About page describes it as founded 2023 and incorporated in August 2025, and its press kit agrees (the first recurring Vancouver room began in 2023; the nonprofit association launched in August 2025). BC AI Compass is a BC + AI Ecosystem Association project, so this is the one record in the directory published by its own commissioning organization.',
     size: null,
     sourceUrl: S_BCAI,
     ...V,
@@ -2487,11 +2490,12 @@ const RECORDS: Organization[] = [
     // shuffle complicates both. The export script fails the build if a reporting
     // ministry appears in this description.
     description:
-      'Provincial Crown agency supporting technology and innovation across British Columbia through hiring grants, mentorship, research grants, pilot funding and innovation challenges, and advising government on technology policy. Programmes named on its site include BC Fast Pilot, Integrated Marketplace, Ignite, Accelerate IP, ScaleUp and the Venture Acceleration Program.',
+      'Fosters innovation across all regions of British Columbia through programs that include pilot funding and mentorship and business coaching for entrepreneurs. Programmes named on its site include BC Fast Pilot, Integrated Marketplace, Ignite, Accelerate IP, ScaleUp and the Venture Acceleration Program.',
     size: null,
-    sourceUrl:
-      'https://www2.gov.bc.ca/gov/content/governments/technology-innovation/partner-organizations',
+    sourceUrl: 'https://www.innovatebc.ca',
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
     orgStatus: 'active',
   },
   {
@@ -2785,7 +2789,7 @@ const RECORDS: Organization[] = [
     url: 'https://cnc.bc.ca',
     location: 'Prince George — 3330 22nd Ave',
     description:
-      'Northern British Columbia college whose Centre for Teaching and Learning publishes generative AI guidance for its learning-technology program.',
+      'College with campuses in Prince George, Burns Lake, Mackenzie, Quesnel and Vanderhoof whose Centre for Teaching and Learning publishes generative AI guidance for its learning-technology program.',
     size: null,
     sourceUrl: 'https://cnc.bc.ca/services/centre-for-teaching-and-learning/learning-technology/generative-ai',
     ...V,

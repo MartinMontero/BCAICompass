@@ -1216,7 +1216,7 @@
         "region": "Metro Vancouver",
         "url": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
         "location": "Vancouver",
-        "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
+        "sourceUrl": "https://www.sfu.ca/big-data/about-us/consultation-services.html",
         "sourceDate": "2026-11-09",
         "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
@@ -2504,9 +2504,9 @@
         "region": "Metro Vancouver",
         "url": "https://www.innovatebc.ca",
         "location": "Vancouver — Four Bentall Centre, 1055 Dunsmuir Street, Suite 810",
-        "sourceUrl": "https://www2.gov.bc.ca/gov/content/governments/technology-innovation/partner-organizations",
-        "sourceDate": "2026-08-19",
-        "verified": "2026-08",
+        "sourceUrl": "https://www.innovatebc.ca",
+        "sourceDate": "2026-11-09",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
       }
     },

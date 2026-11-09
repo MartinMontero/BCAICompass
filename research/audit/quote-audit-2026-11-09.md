@@ -12,15 +12,15 @@ Every one of the 136 records has exactly one status.
 |---|---:|---:|---|
 | verbatim | 91 | 100 | The quote is on the page, word for word. |
 | differs | 9 | 0 | The page was read, and the quote is not on it. |
-| unreachable | 4 | 3 | The page could not be read. |
-| no-quote | 32 | 33 | The record has no quote (it carries the "quote-pending" flag). |
+| unreachable | 4 | 2 | The page could not be read. |
+| no-quote | 32 | 34 | The record has no quote (it carries the "quote-pending" flag). |
 | verbatim-whitespace-only | 0 | 0 | matches once spacing is tidied |
 | typography-only | 0 | 0 | differs only in curly versus straight quote marks or dash type |
 | needs-rendering | 0 | 0 | found only after scripts run, still unresolved |
 | verbatim-rendered | 0 | 0 | found only after the page's scripts ran |
-| **Total** | **136** | **136** | 100 + 0 + 3 + 33 |
+| **Total** | **136** | **136** | 100 + 0 + 2 + 34 |
 
-Of the 103 records that have a quote, **100 now pass and 3 cannot be checked** (all 3 have a dead or blocked page). The first check found 91 passing, 9 differing and 4 unreachable of 104. By page: the 136 records cite 78 pages; 55 pass, 0 differ, 3 cannot be read, and 20 are cited only by records with no quote (78 in all).
+Of the 102 records that have a quote, **100 now pass and 2 cannot be checked** (all 2 have a dead or blocked page). The first check found 91 passing, 9 differing and 4 unreachable of 104. By page: the 136 records cite 78 pages; 56 pass, 0 differ, 2 cannot be read, and 21 are cited only by records with no quote (79 in all).
 
 ## What the check did
 
@@ -43,9 +43,13 @@ Of the 103 records that have a quote, **100 now pass and 3 cannot be checked** (
 | fv-ai-fraser-valley-ai | quote | the stored sentence was no longer on the page | A Fraser Valley home base for practical talks |
 | animikii | quote | a comma the page does not print | 100-722 Cormorant St Victoria, BC V8W 1P8 |
 | college-of-new-caledonia | source link and quote | the old link was a 404 | source link now the College's Generative AI page; quote unchanged: 3330-22nd Ave. Prince George, BC, V2N 1P8 |
+| innovate-bc | source link, quote and description | the old link was a 404; its pages do not support the Crown-agency, government-advice, grant or challenge claims | source link now https://www.innovatebc.ca; quote "Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Box 49164, Vancouver, BC, V7X 1J1"; description trimmed to what its pages say |
+| viva | source link; quote removed | its quote named SFU's Burnaby address but the record is in Vancouver | own page (Big Data Hub page describing VIVA); no quote (quote-pending) |
+| bc-ai-ecosystem-association (2) | description | it said no founding year was published and that the About page and press kit disagree; both now say 2023 and August 2025 | description now cites founded 2023 and incorporated in August 2025 |
+| college-of-new-caledonia (2) | description | 'Northern British Columbia' is not on its pages | College with campuses in Prince George, Burns Lake, Mackenzie, Quesnel and Vanderhoof |
 | niricson | quote removed | the page no longer prints an address or any BC place name | no quote (quote-pending again) |
 
-All of these except Niricson now pass. For each record changed, `sourceDate` is 2026-11-09 and `verified` is 2026-11, except Niricson (quote removed, dates left as they were). Records whose quote already passed were not re-stamped. The 20 Simon Fraser University records fixed in commit 4 are in their own section below.
+All of these now pass except Niricson and viva, which are quote-pending. For each record whose quote or source link changed, `sourceDate` is 2026-11-09 and `verified` is 2026-11, except Niricson (quote removed, dates left as they were); the two description-only fixes kept their dates. Records whose quote already passed were not re-stamped. The 20 Simon Fraser University records fixed in commit 4 are in their own section below.
 
 ## The patterns
 
@@ -53,7 +57,7 @@ All of these except Niricson now pass. For each record changed, `sourceDate` is 
 
 **2. Wording that is not on the page (4 records).** The Quantum Algorithms Institute's About text and the Fraser Valley room page no longer contain the sentences that were stored (both fixed). Niricson's page shows no address or BC place name at all, so its quote was removed and the record is quote-pending again. The fourth was different: the BC + AI Ecosystem Association quote, and its description, said "300+ **paying** members", and the page says "300+ members". Both now match the page. (The page does show a membership price, so members do pay; it just does not describe the 300+ as "paying members".)
 
-**3. Dead and blocked sources (4 records at first, 3 now).** The College of New Caledonia's link was a 404 and has been repointed to its Generative AI page. Innovate BC's source link is still a 404 and no single current page supports its description (details below). digiBC and the City of Kelowna refused the automated request (403); they may be fine in an ordinary browser, and a person has to look.
+**3. Dead and blocked sources (4 records at first, 2 now).** The College of New Caledonia's link was a 404 and has been repointed to its Generative AI page. Innovate BC was repointed to its own site (commit 5). digiBC and the City of Kelowna refused the automated request (403); they may be fine in an ordinary browser, and a person has to look.
 
 **4. Passing quotes that prove little.** 29 records pass because the quote is an institution's name that happens to contain a place word ("The University of British Columbia", "© University of Victoria"). They are word for word, but they name an organization, not a location. 8 records carry only a bare place name ("Vancouver", "Burnaby, B.C." or "Comox Valley"); these pass, but they are the weakest acceptable form.
 
@@ -61,17 +65,17 @@ All of these except Niricson now pass. For each record changed, `sourceDate` is 
 
 **6. A source that has quietly become a different page.** Selkirk College's source address now redirects to a site-search results page. The quote is word for word in that page's footer, but the program page the record means to cite looks gone, so the pass says little. Several other sources redirect to a renamed page on the same site; these are noted per row in the CSV.
 
-**7. A leftover entry in the quote table.** The table that holds quotes has an entry for `https://www.innovatebc.ca` that no record uses (the Innovate BC record cites a different, dead page). Its text still skips "Box 49164," and is not word for word, but nothing published depends on it.
+**7. A leftover entry in the quote table (resolved).** The table had an entry for `https://www.innovatebc.ca` that no record used, whose text skipped "Box 49164,". Since the Innovate BC record now cites that page, the entry was corrected to the page's exact line rather than removed; the table's dead entry for the old gov.bc.ca page was removed.
 
 ## Records that are not "verbatim"
 
 **differs (0):** none.
 
-**unreachable (3):** innovate-bc (HTTP 404), digibc (HTTP 403), city-of-kelowna (HTTP 403).
+**unreachable (2):** digibc (HTTP 403), city-of-kelowna (HTTP 403).
 
 **needs-rendering, still unresolved:** none.
 
-**no-quote (33),** grouped by the page they cite. Every one of these pages could be read except as noted. No quotes were invented for them.
+**no-quote (34),** grouped by the page they cite. Every one of these pages could be read except as noted. No quotes were invented for them.
 
 - TELUS and Government of Canada release on newswire.ca (7): telus-kamloops-ai-factory, telus-m3-ai-factory, telus-150-west-georgia-ai-factory, telus, westbank, creative-energy, city-of-vancouver
 - BetaKit article about Bell (3): bell-ai-fabric-kamloops, bell-ai-fabric-kamloops-tru, thompson-rivers-university
@@ -79,11 +83,12 @@ All of these except Niricson now pass. For each record changed, `sourceDate` is 
 - Bell's Buzz HPC announcement (2): bell-ai-fabric-merritt, buzz-hpc
 - BC government energy release on news.gov.bc.ca (2): bc-hydro, bc-ministry-of-energy-and-climate-solutions
 - Vancouver Coastal Health Research Institute (2): vchri, vch-vchri-ai-hub
-- One record each (14): bell-ai-fabric-kamloops-2 (bebeez.eu), pacifican (www2.gov.bc.ca), comox-valley-regional-district (thediscourse.ca), ubc-ece-optimization-learning-control (ece.ubc.ca), ubc-aim-lab (aimlab.ca), vinci (sfu.ca), acis-laboratories (acislabs.ca), sanctuary-ai (sanctuary.ai), terramera (terramera.com), niricson (niricson.com), visier (visier.com), accelerate-okanagan (accelerateokanagan.com), upper-nicola-band-data-centre (merrittherald.com), ethos-lab (ethoslab.ca)
+- One record each (15): bell-ai-fabric-kamloops-2 (bebeez.eu), pacifican (www2.gov.bc.ca), comox-valley-regional-district (thediscourse.ca), ubc-ece-optimization-learning-control (ece.ubc.ca), ubc-aim-lab (aimlab.ca), viva (sfu.ca), vinci (sfu.ca), acis-laboratories (acislabs.ca), sanctuary-ai (sanctuary.ai), terramera (terramera.com), niricson (niricson.com), visier (visier.com), accelerate-okanagan (accelerateokanagan.com), upper-nicola-band-data-centre (merrittherald.com), ethos-lab (ethoslab.ca)
 
 ## What still needs a person
 
-- **innovate-bc.** The source link (a gov.bc.ca partner-organizations page) is a 404, and so are the two parent pages on gov.bc.ca that I tried. Innovate BC's own site (home, About, Programs and Contact pages) prints the address and supports the programme names, mentorship and pilot funding in the description, but says nothing about being a Crown agency, hiring grants, research grants, innovation challenges or advising government. The only current page I found that calls Innovate BC a Crown agency is a gov.bc.ca page about the Venture Acceleration Program, which prints no street address and is not the page the record relied on. Because no single page supports the whole description, nothing was changed. A person needs to choose: repoint the record to `https://www.innovatebc.ca/` (the line "Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Box 49164, Vancouver, BC, V7X 1J1" is word for word on its home, About and Programs pages, 14 words) and trim the description to what that site supports, or find the page that replaced the partner-organizations page.
+- **viva.** Its own site (viva.sfu.ca) timed out, so it cites the Big Data Hub page that describes it, which prints no Vancouver place; it is quote-pending. That page does not say VIVA uses "AI", as the description does. A person should find a current VIVA page with a Vancouver address and check the description.
+- **bc-ai-ecosystem-association.** The export gate (`scripts/export-data.mjs`) still has a rule that this record's founding year must stay out of the description because the About page and press kit disagree. Both now agree, so the rule's premise is out of date; the description uses the page's own wording ("founded 2023") to avoid tripping it. A person should decide whether to retire the rule.
 - **digibc** and **city-of-kelowna.** Both refused the automated request (HTTP 403 on both attempts). Open each page in an ordinary browser, search for the stored quote, and say whether it is still there. The blocks were not worked around.
 - **niricson.** Find Niricson's current contact or address page, read it, and change the source link and quote together. Until then the record is quote-pending.
 - **The College of New Caledonia description** says "Northern British Columbia college". Its pages list campuses in Prince George, Burns Lake, Mackenzie, Quesnel and Vanderhoof but never use the word "Northern". It is geography rather than a quoted claim; decide whether to keep it.
@@ -103,7 +108,7 @@ The 20 Simon Fraser University records whose stored quote named the university b
 | sfu-inn | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
 | sfu-icrc | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
 | sfu-star-institute | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
-| viva | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 (the record is located in Vancouver; this page's address is SFU Burnaby, flagged for a person) |
+| viva | © Simon Fraser University | (replaced in commit 5: the Burnaby address did not fit a Vancouver record, so viva now cites its own page and is quote-pending) |
 | sfu-big-data-hub | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
 | sfu-ml-group | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
 | sfu-data-science-research-group | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
@@ -119,7 +124,7 @@ The 20 Simon Fraser University records whose stored quote named the university b
 | sfu-computational-neuroscience-lab | Simon Fraser University | 250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3 |
 | sfu-computational-design-lab | Simon Fraser University | 250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3 |
 
-**One flag for a person:** `viva` (Vancouver Institute for Visual Analytics) is located in Vancouver in the record, but it shares the Big Data Hub page with six Burnaby records, so its quote names Burnaby, SFU's campus address. The quote is exact page text and names a BC place, as asked, but it does not match that record's own location.
+**viva:** `viva` (Vancouver Institute for Visual Analytics) is located in Vancouver but shared the Burnaby page, so commit 5 moved it to its own page (the Big Data Hub page that describes VIVA). That page names no Vancouver place, so viva is quote-pending and the other six records keep the shared Burnaby quote.
 
 ## Sources cited by three or more records
 
@@ -131,14 +136,14 @@ A pass on a shared source proves little about any one record.
 | 10 | cs.ubc.ca/research-groups | The University of British Columbia | verbatim |
 | 8 | sfu.ca/fas/computing/research/labs.html | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 | verbatim |
 | 7 | newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-c | (none) | no-quote |
-| 7 | sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 | verbatim |
 | 7 | uvic.ca/ecs/computerscience/research/index.php | © University of Victoria | verbatim |
+| 6 | sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 | verbatim |
 | 5 | sfu.ca/siat/research/research-labs.html | 250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3 | verbatim |
 | 3 | betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-inf | (none) | no-quote |
 | 3 | med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/ | (none) | no-quote |
 | 3 | sfu.ca/computing/research.html | Burnaby, B.C. | verbatim |
 
-Those 10 pages carry 63 of the 136 records.
+Those 10 pages carry 62 of the 136 records.
 
 ## The eleven pilot records (regression check)
 

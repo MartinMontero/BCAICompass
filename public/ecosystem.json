@@ -6,7 +6,7 @@
   "method": "Every record was independently verified: its website resolved and was live, its British Columbia presence was confirmed from its own site or a primary source, and its category was assigned from content actually read. sourceUrl names the page read; sourceDate is the day it was read. evidenceQuote is a short verbatim string copied from that page — open sourceUrl, search for the quote, and the record is confirmed or exposed. Records with evidenceQuote null carry a quote-pending flag: sourced, but not yet spot-checkable. Nothing here was carried forward from a prior dataset. Coordinates are municipal centroids, sourced in geoSourceUrl, not street addresses.",
   "scope": "This maps the whole ecosystem around AI in British Columbia, not only organizations that build AI. An organization is in scope when it funds, houses, teaches, convenes, governs, represents, powers or otherwise materially supports AI work in BC, and that can be sourced. An industry association does not have to do AI to be part of the AI ecosystem.",
   "coverage": "A region or category showing zero here has NOT been surveyed to a conclusion. It is not a finding that nothing exists there. research/unverified.json records what remains unsearched.",
-  "quotePending": 33,
+  "quotePending": 34,
   "affiliation": "BC AI Compass is a BC + AI Ecosystem Association project, built by Martin Montero as his contribution to it. The BC + AI Ecosystem Association is listed in this directory. No other organization listed here is a partner, funder or endorser of this project, and no listing is paid for or sponsored.",
   "count": 136,
   "categories": [
@@ -1397,12 +1397,14 @@
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "geoPrecision": "centroid",
-      "sourceUrl": "https://www.sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html",
-      "evidenceQuote": "8888 University Drive Burnaby, B.C. Canada V5A 1S6",
+      "sourceUrl": "https://www.sfu.ca/big-data/about-us/consultation-services.html",
+      "evidenceQuote": null,
       "sourceDate": "2026-11-09",
       "verified": "2026-11",
       "status": "verified",
-      "flags": []
+      "flags": [
+        "quote-pending"
+      ]
     },
     {
       "id": "sfu-big-data-hub",
@@ -2410,7 +2412,7 @@
       "region": "Province-wide",
       "url": "https://bc-ai.ca",
       "location": "British Columbia — province-wide",
-      "description": "Non-profit association describing itself as 300+ members building British Columbia’s AI industry, running regional chapters, certifications, the AI Builders Fellowship and the Futureproof Festival. No founding year is published here: the association’s own About page and press kit give different years, and picking one would be choosing rather than sourcing. BC AI Compass is a BC + AI Ecosystem Association project, so this is the one record in the directory published by its own commissioning organization.",
+      "description": "Non-profit association describing itself as 300+ members building British Columbia’s AI industry, running regional chapters, certifications, the AI Builders Fellowship and the Futureproof Festival. Its About page describes it as founded 2023 and incorporated in August 2025, and its press kit agrees (the first recurring Vancouver room began in 2023; the nonprofit association launched in August 2025). BC AI Compass is a BC + AI Ecosystem Association project, so this is the one record in the directory published by its own commissioning organization.",
       "size": null,
       "orgStatus": null,
       "keyPeople": null,
@@ -2771,7 +2773,7 @@
       "region": "Metro Vancouver",
       "url": "https://www.innovatebc.ca",
       "location": "Vancouver — Four Bentall Centre, 1055 Dunsmuir Street, Suite 810",
-      "description": "Provincial Crown agency supporting technology and innovation across British Columbia through hiring grants, mentorship, research grants, pilot funding and innovation challenges, and advising government on technology policy. Programmes named on its site include BC Fast Pilot, Integrated Marketplace, Ignite, Accelerate IP, ScaleUp and the Venture Acceleration Program.",
+      "description": "Fosters innovation across all regions of British Columbia through programs that include pilot funding and mentorship and business coaching for entrepreneurs. Programmes named on its site include BC Fast Pilot, Integrated Marketplace, Ignite, Accelerate IP, ScaleUp and the Venture Acceleration Program.",
       "size": null,
       "orgStatus": "active",
       "keyPeople": null,
@@ -2779,10 +2781,10 @@
       "lng": -123.11934,
       "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html",
       "geoPrecision": "centroid",
-      "sourceUrl": "https://www2.gov.bc.ca/gov/content/governments/technology-innovation/partner-organizations",
-      "evidenceQuote": "Innovate BC is a Crown agency of the B.C. government",
-      "sourceDate": "2026-08-19",
-      "verified": "2026-08",
+      "sourceUrl": "https://www.innovatebc.ca",
+      "evidenceQuote": "Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Box 49164, Vancouver, BC, V7X 1J1",
+      "sourceDate": "2026-11-09",
+      "verified": "2026-11",
       "status": "verified",
       "flags": []
     },
@@ -3167,7 +3169,7 @@
       "region": "Cariboo",
       "url": "https://cnc.bc.ca",
       "location": "Prince George — 3330 22nd Ave",
-      "description": "Northern British Columbia college whose Centre for Teaching and Learning publishes generative AI guidance for its learning-technology program.",
+      "description": "College with campuses in Prince George, Burns Lake, Mackenzie, Quesnel and Vanderhoof whose Centre for Teaching and Learning publishes generative AI guidance for its learning-technology program.",
       "size": null,
       "orgStatus": null,
       "keyPeople": null,
