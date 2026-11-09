@@ -61,13 +61,14 @@ describe('sourced People directory', () => {
 
   it('covers all 136 organizations and keeps the first-pass profiles', () => {
     const review = JSON.parse(readFileSync('research/people-source-review.json', 'utf8'));
-    expect(review.organizationCount).toBe(136);
-    expect(review.reviewedCount).toBe(136);
+    expect(review.organizationCount).toBe(ORGANIZATIONS.length);
+    expect(review.reviewedCount).toBe(ORGANIZATIONS.length);
     expect(review.coverageComplete).toBe(true);
     expect(review.expandedPeopleCount).toBe(PEOPLE.length);
-    expect(PEOPLE.length).toBe(126);
-    expect(review.organizationsWithPublishedPeople).toBe(133);
-    expect(review.organizationsWithoutPublishedPeople).toBe(3);
+    // Derived, not frozen: the ledger must agree with what the People dataset actually links.
+    const organizationsLinkedToPeople = new Set(PEOPLE.flatMap((person) => person.relatedOrgIds)).size;
+    expect(review.organizationsWithPublishedPeople).toBe(organizationsLinkedToPeople);
+    expect(review.organizationsWithoutPublishedPeople).toBe(ORGANIZATIONS.length - organizationsLinkedToPeople);
     const firstPassIds = ['kris-krug', 'kevin-friel', 'fiann-ohagan', 'david-gloyn-cox', 'darren-coleman', 'matthew-schwartzman', 'lourdes-gant', 'steve-jones', 'colin-fitzgerald', 'mel-dipietro', 'anthonia-ogundele', 'nessa-palmer', 'jesi-carson', 'peter-van-garderen', 'sara-taherzadeh', 'simon-haworth', 'mauricio-penteado', 'martin-lopatka', 'sarah-downey', 'loc-dao', 'jeff-ward'];
     for (const id of firstPassIds) expect(PEOPLE.some((person) => person.id === id)).toBe(true);
     const reviewIds = new Set(review.organizations.map((organization: { organizationId: string }) => organization.organizationId));

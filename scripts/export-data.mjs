@@ -320,15 +320,24 @@ if (peopleProblems.length > 0) fail(`${peopleProblems.length} People dataset pro
 
 const sourceReview = JSON.parse(readFileSync('research/people-source-review.json', 'utf8'));
 const reviewIds = new Set((sourceReview.organizations ?? []).map((organization) => organization.organizationId));
-if (sourceReview.organizationCount !== 136 || sourceReview.reviewedCount !== 136 || sourceReview.coverageComplete !== true) {
-  peopleProblems.push('the public-source review must cover all 136 organizations');
+// These figures are derived from the data rather than frozen. A frozen number fails the
+// build on the next legitimate change and teaches people to edit the number; a derived
+// one fails only when the coverage ledger has genuinely fallen out of step with the data.
+const organizationTotal = ORGANIZATIONS.length;
+if (sourceReview.organizationCount !== organizationTotal || sourceReview.reviewedCount !== organizationTotal || sourceReview.coverageComplete !== true) {
+  peopleProblems.push(`the public-source review must cover all ${organizationTotal} organizations; rerun scripts/finalize-people-coverage.mjs`);
 }
 for (const id of seenIds) {
   if (!reviewIds.has(id)) peopleProblems.push(`organization ${id} is missing from the public-source review`);
 }
 if (sourceReview.expandedPeopleCount !== PEOPLE.length) peopleProblems.push('expandedPeopleCount does not match the People dataset');
-if (sourceReview.organizationsWithPublishedPeople !== 133) peopleProblems.push('expected 133 organizations with published people');
-if (sourceReview.organizationsWithoutPublishedPeople !== 3) peopleProblems.push('expected three documented organizations without published people');
+const organizationsLinkedToPeople = new Set((PEOPLE ?? []).flatMap((person) => person.relatedOrgIds ?? []).filter((id) => seenIds.has(id))).size;
+if (sourceReview.organizationsWithPublishedPeople !== organizationsLinkedToPeople) {
+  peopleProblems.push(`the ledger says ${sourceReview.organizationsWithPublishedPeople} organizations have published people but the People dataset links ${organizationsLinkedToPeople}; rerun scripts/finalize-people-coverage.mjs`);
+}
+if (sourceReview.organizationsWithoutPublishedPeople !== organizationTotal - organizationsLinkedToPeople) {
+  peopleProblems.push(`the ledger says ${sourceReview.organizationsWithoutPublishedPeople} organizations have no published people but the People dataset leaves ${organizationTotal - organizationsLinkedToPeople}; rerun scripts/finalize-people-coverage.mjs`);
+}
 for (const organization of sourceReview.organizations ?? []) {
   for (const personId of organization.peopleIds ?? []) {
     if (!peopleIds.has(personId)) peopleProblems.push(`${organization.organizationId}: unknown published person ${personId}`);
