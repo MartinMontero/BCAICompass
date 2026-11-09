@@ -45,7 +45,7 @@ Of the 103 records that have a quote, **100 now pass and 3 cannot be checked** (
 | college-of-new-caledonia | source link and quote | the old link was a 404 | source link now the College's Generative AI page; quote unchanged: 3330-22nd Ave. Prince George, BC, V2N 1P8 |
 | niricson | quote removed | the page no longer prints an address or any BC place name | no quote (quote-pending again) |
 
-All of these except Niricson now pass. For each record changed, `sourceDate` is 2026-11-09 and `verified` is 2026-11, except Niricson (quote removed, dates left as they were). Records whose quote already passed were not re-stamped.
+All of these except Niricson now pass. For each record changed, `sourceDate` is 2026-11-09 and `verified` is 2026-11, except Niricson (quote removed, dates left as they were). Records whose quote already passed were not re-stamped. The 20 Simon Fraser University records fixed in commit 4 are in their own section below.
 
 ## The patterns
 
@@ -90,7 +90,36 @@ All of these except Niricson now pass. For each record changed, `sourceDate` is 
 
 ## Quotes that do not name a place (flag only)
 
-These 21 records' quotes contain no BC city, region, province name, street address or postal code. They are flagged, not judged. **20 SFU records:** sfu, sfu-digital-democracies-institute, sfu-inn, sfu-icrc, sfu-star-institute, viva, sfu-big-data-hub, sfu-ml-group, sfu-data-science-research-group, sfu-3d-language-and-generation-group, sfu-airob-lab, sfu-database-data-mining-lab, sfu-medical-image-analysis-lab, sfu-mars-lab, sfu-natural-language-laboratory, sfu-learning-analytics-lab, sfu-data-dialogue-lab, sfu-integrated-science-lab, sfu-computational-neuroscience-lab, sfu-computational-design-lab. **1 other:** city-of-kelowna ("MISA BC Spirit of Innovation Award - Service & efficiency with AI chatbots.").
+This record's quote contains no BC city, region, province name, street address or postal code. It is flagged, not judged. **1 other:** city-of-kelowna ("MISA BC Spirit of Innovation Award - Service & efficiency with AI chatbots.").
+
+## Simon Fraser University quotes (commit 4)
+
+The 20 Simon Fraser University records whose stored quote named the university but no place cite just three pages (7 + 8 + 5 records). On each page the contact address in the footer is an exact run of the page's own text that names a place, so all 20 quotes were replaced, and no record was left unchanged. Because a quote belongs to a page, each change applies to every record citing that page: **Big Data Hub page** (8888 University Drive Burnaby, B.C. Canada V5A 1S6): sfu, sfu-digital-democracies-institute, sfu-inn, sfu-icrc, sfu-star-institute, viva, sfu-big-data-hub. **Computing Science labs page** (8888 University Drive Burnaby, B.C. Canada V5A 1S6): sfu-ml-group, sfu-data-science-research-group, sfu-3d-language-and-generation-group, sfu-airob-lab, sfu-database-data-mining-lab, sfu-medical-image-analysis-lab, sfu-mars-lab, sfu-natural-language-laboratory. **School of Interactive Arts and Technology labs page** (250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3): sfu-learning-analytics-lab, sfu-data-dialogue-lab, sfu-integrated-science-lab, sfu-computational-neuroscience-lab, sfu-computational-design-lab. Each of the three new quotes is 8 words and was confirmed in both the raw and the browser-rendered page text. Those 20 records now show sourceDate 2026-11-09 and verified 2026-11.
+
+| Record | Old quote | New quote, or why unchanged |
+|---|---|---|
+| sfu | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-digital-democracies-institute | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-inn | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-icrc | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-star-institute | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| viva | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 (the record is located in Vancouver; this page's address is SFU Burnaby, flagged for a person) |
+| sfu-big-data-hub | © Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-ml-group | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-data-science-research-group | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-3d-language-and-generation-group | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-airob-lab | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-database-data-mining-lab | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-medical-image-analysis-lab | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-mars-lab | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-natural-language-laboratory | Simon Fraser University | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 |
+| sfu-learning-analytics-lab | Simon Fraser University | 250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3 |
+| sfu-data-dialogue-lab | Simon Fraser University | 250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3 |
+| sfu-integrated-science-lab | Simon Fraser University | 250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3 |
+| sfu-computational-neuroscience-lab | Simon Fraser University | 250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3 |
+| sfu-computational-design-lab | Simon Fraser University | 250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3 |
+
+**One flag for a person:** `viva` (Vancouver Institute for Visual Analytics) is located in Vancouver in the record, but it shares the Big Data Hub page with six Burnaby records, so its quote names Burnaby, SFU's campus address. The quote is exact page text and names a BC place, as asked, but it does not match that record's own location.
 
 ## Sources cited by three or more records
 
@@ -100,11 +129,11 @@ A pass on a shared source proves little about any one record.
 |---:|---|---|---|
 | 10 | research.ubc.ca/ai | The University of British Columbia | verbatim |
 | 10 | cs.ubc.ca/research-groups | The University of British Columbia | verbatim |
-| 8 | sfu.ca/fas/computing/research/labs.html | Simon Fraser University | verbatim |
+| 8 | sfu.ca/fas/computing/research/labs.html | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 | verbatim |
 | 7 | newswire.ca/news-releases/telus-and-government-of-canada-advance-work-to-scale-c | (none) | no-quote |
-| 7 | sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html | © Simon Fraser University | verbatim |
+| 7 | sfu.ca/big-data/using-data/artificial-intelligence-at-sfu.html | 8888 University Drive Burnaby, B.C. Canada V5A 1S6 | verbatim |
 | 7 | uvic.ca/ecs/computerscience/research/index.php | © University of Victoria | verbatim |
-| 5 | sfu.ca/siat/research/research-labs.html | Simon Fraser University | verbatim |
+| 5 | sfu.ca/siat/research/research-labs.html | 250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3 | verbatim |
 | 3 | betakit.com/bell-to-build-six-ai-data-centres-in-canada-as-telcos-compete-on-inf | (none) | no-quote |
 | 3 | med.ubc.ca/news/harnessing-ai-to-improve-ovarian-cancer-outcomes/ | (none) | no-quote |
 | 3 | sfu.ca/computing/research.html | Burnaby, B.C. | verbatim |

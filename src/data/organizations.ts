@@ -459,9 +459,11 @@ const QUOTE: Record<string, string> = {
   [S_UBC_AI]: 'The University of British Columbia',
   [S_UBC_GROUPS]: 'The University of British Columbia',
   [S_UBC_CENTRES]: 'The University of British Columbia',
-  [S_SFU_AI]: '© Simon Fraser University',
-  [S_SFU_LABS]: 'Simon Fraser University',
-  [S_SIAT]: 'Simon Fraser University',
+  // Replaced 2026-11-09 (quote audit, SFU pass): the old strings named the university but
+  // no place. Each new string is the contact address printed in that page's footer.
+  [S_SFU_AI]: '8888 University Drive Burnaby, B.C. Canada V5A 1S6',
+  [S_SFU_LABS]: '8888 University Drive Burnaby, B.C. Canada V5A 1S6',
+  [S_SIAT]: '250-13450 102nd Avenue Surrey, B.C. Canada V3T 0A3',
   [S_SFU_RESEARCH]: 'Burnaby, B.C.',
   [S_UVIC_CS]: '© University of Victoria',
   // Replaced 2026-11-08 (pilot-ten): the old quote only said "UVic", an abbreviation
@@ -1367,6 +1369,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_AI,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1394,6 +1398,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_AI,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1407,6 +1413,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_AI,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1420,6 +1428,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_AI,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     // CORRECTED 2026-08-19 during the reconcile pass. Three things were wrong here:
@@ -1459,6 +1469,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_AI,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.vancouver,
@@ -1472,6 +1484,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_AI,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1486,6 +1500,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_AI,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1499,6 +1515,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_LABS,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1512,6 +1530,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_LABS,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1525,6 +1545,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_LABS,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1538,6 +1560,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_LABS,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1551,6 +1575,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_LABS,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1564,6 +1590,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_LABS,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1577,6 +1605,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_LABS,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1603,6 +1633,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SFU_LABS,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1691,6 +1723,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SIAT,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.surrey,
@@ -1705,6 +1739,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SIAT,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.surrey,
@@ -1719,6 +1755,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SIAT,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.surrey,
@@ -1732,6 +1770,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SIAT,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.surrey,
@@ -1746,6 +1786,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_SIAT,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.victoria,
