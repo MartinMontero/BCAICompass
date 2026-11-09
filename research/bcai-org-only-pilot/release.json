@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "bc-ai-org-handoff-release-v1",
+  "preparedDate": "2026-11-07",
+  "counts": {
+    "organizations": 900
+  },
+  "organizationArrayFingerprint": "bf2554aff22de41db333e10d7187c135c0ea0247e05dcfcaca6e716cc9b453c8",
+  "upstreamReleaseSha256": "1cb132fcc4e018230398657936959665440150a1f6bb0907d359c59a8e828042",
+  "files": [
+    {
+      "path": "data/organizations.json",
+      "bytes": 943176,
+      "sha256": "3bd5f8e6904ef3429b659ca7d5585506a6a132749cd684a4e442a0d5e6e21477"
+    },
+    {
+      "path": "data/organizations.csv",
+      "bytes": 683828,
+      "sha256": "a6e1cde9272d775460d97d8f1f468f963b776f6b20b08cdfa3d84dce7c92b8c6"
+    },
+    {
+      "path": "organization-crosswalk.csv",
+      "bytes": 11220,
+      "sha256": "86c188c91fb9dfcf364fb72fac9dcf7fe3ce459ab73226190d46092a7babd135"
+    },
+    {
+      "path": "pilot-review-candidates.csv",
+      "bytes": 1758,
+      "sha256": "134e5a397ba22e4b8a7222189d69be1057f8fd8a0d6b439d6e5035e694d660a3"
+    }
+  ],
+  "sourceOrganizationsCsv": "https://kk-portal.vercel.app/directory/organizations.csv"
+}
