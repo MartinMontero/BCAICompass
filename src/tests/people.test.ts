@@ -65,9 +65,9 @@ describe('sourced People directory', () => {
     expect(review.reviewedCount).toBe(136);
     expect(review.coverageComplete).toBe(true);
     expect(review.expandedPeopleCount).toBe(PEOPLE.length);
-    expect(PEOPLE.length).toBe(127);
-    expect(review.organizationsWithPublishedPeople).toBe(134);
-    expect(review.organizationsWithoutPublishedPeople).toBe(2);
+    expect(PEOPLE.length).toBe(126);
+    expect(review.organizationsWithPublishedPeople).toBe(133);
+    expect(review.organizationsWithoutPublishedPeople).toBe(3);
     const firstPassIds = ['kris-krug', 'kevin-friel', 'fiann-ohagan', 'david-gloyn-cox', 'darren-coleman', 'matthew-schwartzman', 'lourdes-gant', 'steve-jones', 'colin-fitzgerald', 'mel-dipietro', 'anthonia-ogundele', 'nessa-palmer', 'jesi-carson', 'peter-van-garderen', 'sara-taherzadeh', 'simon-haworth', 'mauricio-penteado', 'martin-lopatka', 'sarah-downey', 'loc-dao', 'jeff-ward'];
     for (const id of firstPassIds) expect(PEOPLE.some((person) => person.id === id)).toBe(true);
     const reviewIds = new Set(review.organizations.map((organization: { organizationId: string }) => organization.organizationId));

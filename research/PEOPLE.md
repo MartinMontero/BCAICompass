@@ -4,14 +4,15 @@ Read on **2026-11-04**. The People directory is a separate public-professional d
 
 ## Full-dataset expansion
 
-The directory now contains **127 unique public profiles across 134 of the 136 verified organizations**. The original 21 profiles are preserved. New profiles were researched organization by organization rather than inferred from the BC + AI community pages alone.
+The directory now contains **126 unique public profiles across 133 of the 136 verified organizations**. The original 21 profiles are preserved. New profiles were researched organization by organization rather than inferred from the BC + AI community pages alone.
 
 `research/people-source-review.json` is the authoritative coverage ledger. It contains one entry for every organization and records seed URLs, followed team/leadership/project links, HTTP results, readable-text results, published profile IDs, and the review outcome. **117 organizations had readable pages during the first crawl; 19 required alternate public-source searches or remained inaccessible.** No inaccessible page is silently treated as evidence that no person exists.
 
-The two organizations without a published profile are explicit:
+The three organizations without a published profile are explicit:
 
 - **City of Vancouver** — no confirmed AI-specific project lead was added; the general mayor is not presented as an AI project contact.
 - **AI Creativity + Design** — the public community page explicitly says no host names are confirmed publicly yet.
+- **Kootenay Association for Science & Technology (KAST)** — the profile first attached here (Raagulan Pathy) was removed on 2026-11-08. He is CEO of KAST at `kast.xyz`, a stablecoin company that shares only the acronym with this Nelson-based organization; the link was a name collision. No leader of the Kootenay organization is named in this dataset. That is a gap, not a finding that none is published: the organization's team page was not re-read after the correction. A profile can be added once its current leader is confirmed from a page this project can cite.
 
 Shared leaders are represented once and linked to every relevant verified organization. Current-role checks replace outdated appointment records where necessary—for example, TELUS, DIGITAL, Terramera, 4AG Robotics, QAI, and Innovate BC use their current public leadership rather than former leaders.
 

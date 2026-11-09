@@ -10,6 +10,7 @@ const { PEOPLE } = await import('data:text/javascript;base64,' + Buffer.from(res
 const SPECIAL_NOTES = {
   'city-of-vancouver': 'Public pages reviewed. No confirmed AI-specific project lead was added; a general mayor is not presented as an AI project contact.',
   'ai-creativity-and-design': 'The public community page explicitly says no host names are confirmed publicly yet. No person is inferred into that role.',
+  'kast': 'Public pages reviewed 2026-11-04 (kast.com home, Our Team, Board of Directors). The profile first attached here was removed 2026-11-08: its subject leads KAST at kast.xyz, a stablecoin company that shares only the acronym. No leader of this organization is named in the dataset. This is a gap, not a finding that none is published; the team page was not re-read after the correction.',
 };
 
 const organizations = review.organizations.map((organization) => {

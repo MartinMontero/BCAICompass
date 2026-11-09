@@ -327,8 +327,8 @@ for (const id of seenIds) {
   if (!reviewIds.has(id)) peopleProblems.push(`organization ${id} is missing from the public-source review`);
 }
 if (sourceReview.expandedPeopleCount !== PEOPLE.length) peopleProblems.push('expandedPeopleCount does not match the People dataset');
-if (sourceReview.organizationsWithPublishedPeople !== 134) peopleProblems.push('expected 134 organizations with published people');
-if (sourceReview.organizationsWithoutPublishedPeople !== 2) peopleProblems.push('expected two documented organizations without published people');
+if (sourceReview.organizationsWithPublishedPeople !== 133) peopleProblems.push('expected 133 organizations with published people');
+if (sourceReview.organizationsWithoutPublishedPeople !== 3) peopleProblems.push('expected three documented organizations without published people');
 for (const organization of sourceReview.organizations ?? []) {
   for (const personId of organization.peopleIds ?? []) {
     if (!peopleIds.has(personId)) peopleProblems.push(`${organization.organizationId}: unknown published person ${personId}`);

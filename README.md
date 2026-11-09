@@ -35,7 +35,7 @@ company. No listing is paid for or sponsored.
 - **Public AI field library** — 12 separately curated public-knowledge, preservation,
   open-infrastructure, legal, data, public-compute, and public-model resources with deterministic
   search, practical-use notes, principle filters, and related directory links.
-- **People directory** — 127 sourced public professional profiles across 134 of 136 verified
+- **People directory** — 126 sourced public professional profiles across 133 of 136 verified
   organizations, covering community leaders, researchers, founders, and project contributors.
   Search names, expertise, projects, communities, and places; filter by get-help, offer-help,
   or join-project intent; then follow public connection paths and exact role sources. The full
