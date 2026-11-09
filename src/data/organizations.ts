@@ -399,6 +399,11 @@ const READ_PILOT = '2026-11-08';
 // (YYYY-MM, the format the export gate requires). Set the same way; every other
 // record keeps STAMP.
 const STAMP_PILOT = '2026-11';
+// Date and month stamp for the eight records whose stored quote was corrected by the
+// 2026-11-09 quote audit (research/audit/quote-audit-2026-11-09.md). Set per record,
+// after the V spread; every other record keeps its existing dates.
+const READ_AUDIT = '2026-11-09';
+const STAMP_AUDIT = '2026-11';
 
 /**
  * Shared defaults, spread into every record.
@@ -467,8 +472,9 @@ const QUOTE: Record<string, string> = {
 
   // --- organisation pages, each read directly ---
   'https://caida.ubc.ca/contact-us': '289-2366 Main Mall Vancouver, BC V6T 1Z4',
-  'https://www.qai.ca/who-we-are':
-    'advancing the growth, adoption, and strategic development of quantum technologies in British Columbia',
+  // Replaced 2026-11-09 (quote audit): the earlier sentence is no longer on the page,
+  // in its raw or its rendered text. The page uses a curly apostrophe here.
+  'https://www.qai.ca/who-we-are': 'strengthen British Columbia’s quantum ecosystem',
   'https://firstnationstech.ca/about/': 'Suite 1707, 1370 Senakw Lane Vancouver BC, V6J 0J5',
   'https://digibc.org/about/': '#160-577 Great Northern Way Vancouver, BC, V5T 1E1',
   'https://wearebctech.com/members/member-directory/name/digibc-1/':
@@ -477,7 +483,9 @@ const QUOTE: Record<string, string> = {
     'Innovate BC is a Crown agency of the B.C. government',
   'https://digitalsupercluster.ca/canadas-digital-technology-supercluster-receives-funding/':
     '2127 – 1055 W. Georgia Street Vancouver, BC, V6E 3P3',
-  [S_BCAI]: "300+ paying members of the nonprofit building British Columbia's AI industry",
+  // Corrected 2026-11-09 (quote audit): the page says "300+ members", not "300+ paying
+  // members"; the word "paying" is not on the page.
+  [S_BCAI]: "300+ members of the nonprofit building British Columbia's AI industry",
   // Read 2026-08-21. The events calendar lists every upcoming gathering with its
   // venue and street address inline; this is the AI Happy Hour card's venue line.
   'https://bc-ai.ca/events': 'FriendsQuarters, 116 W Hastings St Unit 200, Vancouver, BC V6B 1G8',
@@ -520,23 +528,28 @@ const QUOTE: Record<string, string> = {
   'https://innovationcentral.ca/contact': '1299 3rd Avenue Prince George, BC V2L 3E6',
   'https://www.newswire.ca/news-releases/prophet-river-first-nation-and-abct-pacific-vcc-ltd-sign-loi-to-jointly-develop-major-data-centre-in-fort-st-john-area-819620927.html':
     'an independent Dene Tsaa Nation in Northeast British Columbia',
-  'https://www.animikii.com/about': '100-722 Cormorant St, Victoria, BC V8W 1P8',
+  // Corrected 2026-11-09 (quote audit): the page prints no comma after "St".
+  'https://www.animikii.com/about': '100-722 Cormorant St Victoria, BC V8W 1P8',
   'https://www.abcellera.com/contact': '150W 4th Ave Vancouver BC V5Y 1G6',
   'https://www.generalfusion.com/contact/': '6020 Russ Baker Way Richmond, BC V7B 1B4',
   'https://www.aspectbiosystems.com/contact': '2131 Manitoba Street Vancouver, BC, Canada V5Y 0N7',
   'https://www.niricson.com': '#1200 – 555 West Hastings Street, Vancouver, BC V6B 4N6',
-  'https://www.openoceanrobotics.com/contact': '200-45 Erie Street, Victoria, BC, CANADA V8V 1P8',
-  'https://variational.ai': '1825 Quebec Street, #201, Vancouver, BC V5T 2Z3',
-  'https://www.novarctech.com': '4505 Still Creek Ave., Burnaby, BC V5C 5W1, Canada',
-  'https://www.viatec.ca': '777 Fort Street, Victoria BC V8W 1G9',
+  // Corrected 2026-11-09 (quote audit): each string is now exactly the page's own text.
+  // The pages print these addresses without the commas the earlier strings had (and
+  // VIATEC's page puts a vertical bar after the street).
+  'https://www.openoceanrobotics.com/contact': '200-45 Erie Street Victoria, BC CANADA V8V 1P8',
+  'https://variational.ai': '1825 Quebec Street, #201 Vancouver, BC V5T 2Z3',
+  'https://www.novarctech.com': '4505 Still Creek Ave., Burnaby, BC V5C 5W1 Canada',
+  'https://www.viatec.ca': '777 Fort Street | Victoria BC V8W 1G9',
   // Corrected 2026-11-08 (pilot-ten): the earlier string had commas the page does not
   // have. This is the footer address exactly as the page prints it.
   'https://www.newventuresbc.com': 'Suite #810 1055 Dunsmuir Street Vancouver, BC V7X 1J1',
   'https://www.innovatebc.ca': 'Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Vancouver, BC',
   'https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives':
     'MISA BC Spirit of Innovation Award - Service & efficiency with AI chatbots.',
-  'https://bc-ai.ca/communities/fraser-valley-ai':
-    'Practical, responsible AI for the Fraser Valley, with a local room',
+  // Replaced 2026-11-09 (quote audit): the earlier sentence is no longer on the page, in
+  // its raw or rendered text or its description tags.
+  'https://bc-ai.ca/communities/fraser-valley-ai': 'A Fraser Valley home base for practical talks',
 
   // --- pilot-ten re-source pass: each page below was opened and each string
   // checked character-for-character against the page text on 2026-11-08 ---
@@ -1428,6 +1441,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.qai.ca/who-we-are',
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.burnaby,
@@ -1935,6 +1950,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.novarctech.com',
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.vancouver,
@@ -1963,6 +1980,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.openoceanrobotics.com/contact',
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.vancouver,
@@ -1977,6 +1996,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://variational.ai',
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
 
   // =========================================================================
@@ -2013,6 +2034,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.viatec.ca',
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.vancouver,
@@ -2112,6 +2135,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: S_BCAI,
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
   {
     ...CITY.vancouver,
@@ -2153,6 +2178,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://bc-ai.ca/communities/fraser-valley-ai',
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
     keyPeople: 'Darren Coleman, local lead',
   },
   {
@@ -2540,6 +2567,8 @@ const RECORDS: Organization[] = [
     size: null,
     sourceUrl: 'https://www.animikii.com/about',
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
     orgStatus: 'active',
     keyPeople: 'Jeff Ward (Founder and CEO)',
   },
