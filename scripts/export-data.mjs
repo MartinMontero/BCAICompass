@@ -170,6 +170,23 @@ if (problems.length > 0) {
 const site = 'https://bc-aicompass.ca';
 const generated = new Date().toISOString().slice(0, 10);
 
+// The three published files are tracked in git and carry a `generated` date. Stamping
+// today's date on every build made each of them look modified after any build on a
+// later day, so they went stale in the repository while the deployed site stayed
+// current. The date now moves only when something else in the file moved: if the
+// content is identical to what is already on disk, the existing date is kept and the
+// rebuilt file is byte-identical. The field still means "when this content last changed".
+function withStableDate(path, value) {
+  let previous;
+  try {
+    previous = JSON.parse(readFileSync(path, 'utf8'));
+  } catch {
+    return value;
+  }
+  const strip = (v) => JSON.stringify({ ...v, generated: null });
+  return previous?.generated && strip(previous) === strip(value) ? { ...value, generated: previous.generated } : value;
+}
+
 const organizations = ORGANIZATIONS.map((o) => ({
   id: o.id,
   name: o.name,
@@ -235,7 +252,7 @@ const dataset = {
   organizations,
 };
 
-writeFileSync('public/ecosystem.json', JSON.stringify(dataset, null, 2) + '\n');
+writeFileSync('public/ecosystem.json', JSON.stringify(withStableDate('public/ecosystem.json', dataset), null, 2) + '\n');
 
 const geojson = {
   type: 'FeatureCollection',
@@ -262,7 +279,7 @@ const geojson = {
     })),
 };
 
-writeFileSync('public/ecosystem.geojson', JSON.stringify(geojson, null, 2) + '\n');
+writeFileSync('public/ecosystem.geojson', JSON.stringify(withStableDate('public/ecosystem.geojson', geojson), null, 2) + '\n');
 
 // Public professional People directory. This is a separate dataset: adding a
 // person never changes organization verification. Contact details stay out even
@@ -366,7 +383,7 @@ const peopleDataset = {
   count: PEOPLE.length,
   people: PEOPLE,
 };
-writeFileSync('public/people.json', JSON.stringify(peopleDataset, null, 2) + '\n');
+writeFileSync('public/people.json', JSON.stringify(withStableDate('public/people.json', peopleDataset), null, 2) + '\n');
 
 console.log(
   `export-data: OK — ${organizations.length} verified organizations, ` +
