@@ -482,7 +482,7 @@
         "location": "Vancouver — UBC Vancouver campus",
         "sourceUrl": "https://dsi.ubc.ca/",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
       }
     },
@@ -505,7 +505,7 @@
         "location": "Vancouver — UBC Vancouver campus",
         "sourceUrl": "https://trustml.ubc.ca/",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
       }
     },
@@ -597,7 +597,7 @@
         "location": "Vancouver — UBC Vancouver campus",
         "sourceUrl": "https://www.cs.ubc.ca/cs-research/lci/research-groups/human-ai-interaction/",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
       }
     },
@@ -1471,7 +1471,7 @@
         "location": "Burnaby — SFU",
         "sourceUrl": "https://sfu-tai.github.io/",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://en.wikipedia.org/wiki/Burnaby"
       }
     },
@@ -1540,7 +1540,7 @@
         "location": "Surrey — SFU",
         "sourceUrl": "https://www.metacreation.net/contact",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
       }
     },
@@ -1563,7 +1563,7 @@
         "location": "Surrey — SFU SIAT",
         "sourceUrl": "https://ivizlab.github.io/",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/surrey-bc-canada-22762.html"
       }
     },
@@ -1701,7 +1701,7 @@
         "location": "Victoria — UVic campus",
         "sourceUrl": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
       }
     },
@@ -2138,7 +2138,7 @@
         "location": "Vancouver — 810-1055 Dunsmuir Street",
         "sourceUrl": "https://www.newventuresbc.com",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
       }
     },
@@ -2184,7 +2184,7 @@
         "location": "Victoria — UVic campus",
         "sourceUrl": "https://www.uvic.ca/campus/artificial-intelligence/index.php",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/victoria-bc-canada-4300.html"
       }
     },
@@ -2575,7 +2575,7 @@
         "location": "Nelson — 91-D Baker Street",
         "sourceUrl": "https://kast.com/",
         "sourceDate": "2026-11-08",
-        "verified": "2026-08",
+        "verified": "2026-11",
         "geoSourceUrl": "https://www.latlong.net/place/nelson-bc-canada-9343.html"
       }
     },

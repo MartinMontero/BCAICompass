@@ -395,6 +395,10 @@ const STAMP = '2026-08';
 // (the ten pilot-ten records plus uvic, which cites the same page as ai-at-uvic).
 // Set per record, after the V spread; every other record keeps READ.
 const READ_PILOT = '2026-11-08';
+// Month stamp the site prints as "Source checked ..." for those same eleven records
+// (YYYY-MM, the format the export gate requires). Set the same way; every other
+// record keeps STAMP.
+const STAMP_PILOT = '2026-11';
 
 /**
  * Shared defaults, spread into every record.
@@ -979,6 +983,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://dsi.ubc.ca/',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
   {
     ...CITY.vancouver,
@@ -994,6 +999,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://trustml.ubc.ca/',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
   {
     ...CITY.vancouver,
@@ -1051,6 +1057,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://www.cs.ubc.ca/cs-research/lci/research-groups/human-ai-interaction/',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
   {
     ...CITY.kelowna,
@@ -1592,6 +1599,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://sfu-tai.github.io/',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
   {
     ...CITY.burnaby,
@@ -1634,6 +1642,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://www.metacreation.net/contact',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
   {
     ...CITY.surrey,
@@ -1649,6 +1658,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://ivizlab.github.io/',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
   {
     ...CITY.surrey,
@@ -1733,6 +1743,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://www.uvic.ca/campus/artificial-intelligence/index.php',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
   {
     ...CITY.victoria,
@@ -1874,6 +1885,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://www.bc.net/about',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
 
   // =========================================================================
@@ -2034,6 +2046,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://www.newventuresbc.com',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
 
   // =========================================================================
@@ -2073,6 +2086,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://www.uvic.ca/campus/artificial-intelligence/index.php',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
   },
 
   // =========================================================================
@@ -2455,6 +2469,7 @@ const RECORDS: Organization[] = [
     sourceUrl: 'https://kast.com/',
     ...V,
     sourceDate: READ_PILOT,
+    verified: STAMP_PILOT,
     orgStatus: 'active',
   },
   {
