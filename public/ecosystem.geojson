@@ -1,7 +1,7 @@
 {
   "type": "FeatureCollection",
   "name": "bc-aicompass.ca — verified BC AI organizations with sourced coordinates",
-  "generated": "2026-08-20",
+  "generated": "2026-11-09",
   "features": [
     {
       "type": "Feature",
@@ -2270,7 +2270,7 @@
         "id": "bc-ai-film-club",
         "name": "BC + AI Film Club",
         "category": "Community & Convening",
-        "orgType": "community-group",
+        "orgType": "recurring-event",
         "region": "Metro Vancouver",
         "url": "https://bc-ai.ca/communities/film-club",
         "location": "Vancouver",
@@ -2293,7 +2293,7 @@
         "id": "mind-ai-and-consciousness",
         "name": "Mind, AI and Consciousness (MAC)",
         "category": "Community & Convening",
-        "orgType": "community-group",
+        "orgType": "recurring-event",
         "region": "Metro Vancouver",
         "url": "https://bc-ai.ca/communities/mac",
         "location": "Vancouver",
@@ -2316,10 +2316,10 @@
         "id": "ai-ethical-futures-lab",
         "name": "AI Ethical Futures Lab",
         "category": "Community & Convening",
-        "orgType": "community-group",
+        "orgType": "recurring-event",
         "region": "Metro Vancouver",
         "url": "https://bc-ai.ca/communities/futures-lab",
-        "location": "Vancouver — Parker Street Studios",
+        "location": "Vancouver — Parker Street Studios, 1000 Parker St",
         "sourceUrl": "https://bc-ai.ca/communities/futures-lab",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
@@ -2339,11 +2339,57 @@
         "id": "life-sciences-and-ai",
         "name": "Life Sciences & AI",
         "category": "Community & Convening",
-        "orgType": "community-group",
+        "orgType": "recurring-event",
         "region": "Metro Vancouver",
         "url": "https://bc-ai.ca/communities/life-sciences-ai",
         "location": "Vancouver — 6151 Collingwood Pl",
         "sourceUrl": "https://bc-ai.ca/communities/life-sciences-ai",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "ai-happy-hour",
+        "name": "AI Happy Hour",
+        "category": "Community & Convening",
+        "orgType": "recurring-event",
+        "region": "Metro Vancouver",
+        "url": "https://bc-ai.ca/events",
+        "location": "Vancouver — FriendsQuarters, 116 W Hastings St Unit 200",
+        "sourceUrl": "https://bc-ai.ca/events",
+        "sourceDate": "2026-08-19",
+        "verified": "2026-08",
+        "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11934,
+          49.24966
+        ]
+      },
+      "properties": {
+        "id": "gluxkind",
+        "name": "Glüxkind Technologies",
+        "category": "Companies & Applied AI",
+        "orgType": "company",
+        "region": "Metro Vancouver",
+        "url": "https://gluxkind.com",
+        "location": "Vancouver",
+        "sourceUrl": "https://gluxkind.com/rosa-smart-stroller",
         "sourceDate": "2026-08-19",
         "verified": "2026-08",
         "geoSourceUrl": "https://www.latlong.net/place/vancouver-bc-canada-2279.html"
