@@ -451,8 +451,11 @@ const QUOTE: Record<string, string> = {
   [S_SIAT]: 'Simon Fraser University',
   [S_SFU_RESEARCH]: 'Burnaby, B.C.',
   [S_UVIC_CS]: '© University of Victoria',
+  // Replaced 2026-11-08 (pilot-ten): the old quote only said "UVic", an abbreviation
+  // rather than a place. This is the page footer's campus address, copied verbatim.
+  // Two records cite this page (ai-at-uvic and uvic), so both now carry this quote.
   'https://www.uvic.ca/campus/artificial-intelligence/index.php':
-    'using artificial intelligence (AI) tools at UVic',
+    'University of Victoria 3800 Finnerty Road Victoria BC V8P 5C2 Canada',
 
   // --- organisation pages, each read directly ---
   'https://caida.ubc.ca/contact-us': '289-2366 Main Mall Vancouver, BC V6T 1Z4',
@@ -518,12 +521,28 @@ const QUOTE: Record<string, string> = {
   'https://variational.ai': '1825 Quebec Street, #201, Vancouver, BC V5T 2Z3',
   'https://www.novarctech.com': '4505 Still Creek Ave., Burnaby, BC V5C 5W1, Canada',
   'https://www.viatec.ca': '777 Fort Street, Victoria BC V8W 1G9',
-  'https://www.newventuresbc.com': 'Suite #810, 1055 Dunsmuir Street, Vancouver, BC V7X 1J1',
+  // Corrected 2026-11-08 (pilot-ten): the earlier string had commas the page does not
+  // have. This is the footer address exactly as the page prints it.
+  'https://www.newventuresbc.com': 'Suite #810 1055 Dunsmuir Street Vancouver, BC V7X 1J1',
   'https://www.innovatebc.ca': 'Four Bentall Centre, 1055 Dunsmuir Street, Suite #810, Vancouver, BC',
   'https://www.kelowna.ca/our-community/about-kelowna/smart-and-intelligent-city-initiatives':
     'MISA BC Spirit of Innovation Award - Service & efficiency with AI chatbots.',
   'https://bc-ai.ca/communities/fraser-valley-ai':
     'Practical, responsible AI for the Fraser Valley, with a local room',
+
+  // --- pilot-ten re-source pass: each page below was opened and each string
+  // checked character-for-character against the page text on 2026-11-08 ---
+  // The next two are page-footer addresses of the Faculty of Science and of the
+  // Department of Computer Science, which house these groups; neither page gives
+  // the group its own suite number.
+  'https://dsi.ubc.ca/': 'Earth Sciences Building 2178–2207 Main Mall Vancouver, BC Canada V6T 1Z4',
+  'https://www.cs.ubc.ca/cs-research/lci/research-groups/human-ai-interaction/':
+    'Department of Computer Science 201-2366 Main Mall Vancouver, BC Canada V6T 1Z4',
+  'https://trustml.ubc.ca/': 'Research Excellence Clusters at UBC Vancouver',
+  'https://sfu-tai.github.io/': 'Our lab is located in the beautiful Burnaby campus of Simon Fraser University',
+  'https://ivizlab.github.io/': 'Surrey, BC, Canada V3T 0A3',
+  'https://www.metacreation.net/contact': 'Surrey, BC V3T 0A3',
+  'https://www.bc.net/about': "dedicated to the needs of B.C.'s higher education and research institutions",
 };
 
 /**
@@ -951,9 +970,9 @@ const RECORDS: Organization[] = [
     url: 'https://dsi.ubc.ca/',
     location: 'Vancouver — UBC Vancouver campus',
     description:
-      'Faculty-wide institute that incubates research, innovation and training in data-intensive science and supplies approaches, tools and expertise for working with large data.',
+      'Faculty of Science initiative that incubates and accelerates research, innovation and training in data-intensive science and supplies approaches, tools and expertise for working with large data.',
     size: null,
-    sourceUrl: S_UBC_AI,
+    sourceUrl: 'https://dsi.ubc.ca/',
     ...V,
   },
   {
@@ -962,12 +981,12 @@ const RECORDS: Organization[] = [
     name: 'TrustML',
     category: 'Research & Academia',
     orgType: 'university-or-lab',
-    url: 'https://research.ubc.ca/ai',
+    url: 'https://trustml.ubc.ca/',
     location: 'Vancouver — UBC Vancouver campus',
     description:
       'Cluster working on trustworthy machine-learning systems that are reliable, secure, explainable and ethical.',
     size: null,
-    sourceUrl: S_UBC_AI,
+    sourceUrl: 'https://trustml.ubc.ca/',
     ...V,
   },
   {
@@ -1018,12 +1037,12 @@ const RECORDS: Organization[] = [
     name: 'Human-AI Interaction @ UBC (HAI)',
     category: 'Research & Academia',
     orgType: 'university-or-lab',
-    url: 'https://www.cs.ubc.ca/research-groups',
+    url: 'https://www.cs.ubc.ca/cs-research/lci/research-groups/human-ai-interaction/',
     location: 'Vancouver — UBC Vancouver campus',
     description:
-      'Works at the intersection of AI, human-computer interaction and cognitive science on ethical AI systems people can trust, with an emphasis on visualization and decision-support interfaces.',
+      'Research group in UBC Computer Science creating AI-driven, human-centred interactive systems that personalize to their users, with work on user-adaptive visualization and interfaces for decision support; its long-term vision is ethical AI systems that humans can trust and collaborate with.',
     size: null,
-    sourceUrl: S_UBC_GROUPS,
+    sourceUrl: 'https://www.cs.ubc.ca/cs-research/lci/research-groups/human-ai-interaction/',
     ...V,
   },
   {
@@ -1559,11 +1578,11 @@ const RECORDS: Organization[] = [
     name: 'Trustworthy Artificial Intelligence (TAI) Lab',
     category: 'Research & Academia',
     orgType: 'university-or-lab',
-    url: 'https://www.sfu.ca/fas/computing/research/labs.html',
+    url: 'https://sfu-tai.github.io/',
     location: 'Burnaby — SFU',
     description: null,
     size: null,
-    sourceUrl: S_SFU_LABS,
+    sourceUrl: 'https://sfu-tai.github.io/',
     ...V,
   },
   {
@@ -1604,7 +1623,7 @@ const RECORDS: Organization[] = [
     description:
       'Develops generative systems and algorithms for creative tasks, from human-driven co-creation tools to autonomous creative agents.',
     size: null,
-    sourceUrl: 'https://www.metacreation.net',
+    sourceUrl: 'https://www.metacreation.net/contact',
     ...V,
   },
   {
@@ -1613,12 +1632,12 @@ const RECORDS: Organization[] = [
     name: 'iViz Lab',
     category: 'Research & Academia',
     orgType: 'university-or-lab',
-    url: 'https://www.sfu.ca/siat/research/research-labs.html',
+    url: 'https://ivizlab.github.io/',
     location: 'Surrey — SFU SIAT',
     description:
       'Focused on AI-based computational models of human characteristics such as expression, emotion, behaviour, empathy and creativity.',
     size: null,
-    sourceUrl: S_SIAT,
+    sourceUrl: 'https://ivizlab.github.io/',
     ...V,
   },
   {
@@ -1839,9 +1858,9 @@ const RECORDS: Organization[] = [
     url: 'https://bc.net',
     location: 'British Columbia — province-wide',
     description:
-      'Not-for-profit shared-services organization for British Columbia’s higher-education and research institutions. Reported as the network through which the Thompson Rivers University AI facility provides training and inference compute to students and faculty.',
+      'Not-for-profit shared-services organization for British Columbia’s higher-education and research institutions. BetaKit reported on May 28, 2025 that Bell said students and faculty would reach compute at its Thompson Rivers University data centre through BCNET.',
     size: null,
-    sourceUrl: S_BELL,
+    sourceUrl: 'https://www.bc.net/about',
     ...V,
   },
 
@@ -1998,7 +2017,7 @@ const RECORDS: Organization[] = [
     url: 'https://www.newventuresbc.com',
     location: 'Vancouver — 810-1055 Dunsmuir Street',
     description:
-      'Supports BC technology startups with mentorship, funding and an annual competition, and runs the Discovery Foundation AI Business Accelerator, which helps BC companies move beyond experimentation with workshops, mentorship and an AI implementation plan.',
+      'Supports BC technology startups with mentorship, funding and an annual competition, and runs the Discovery Foundation AI Business Accelerator, a two-stream AI training program for early-stage and growth-stage BC companies built around workshops, mentorship and an AI implementation plan.',
     size: null,
     sourceUrl: 'https://www.newventuresbc.com',
     ...V,
@@ -2417,7 +2436,7 @@ const RECORDS: Organization[] = [
     url: 'https://kast.com/',
     location: 'Nelson — 91-D Baker Street',
     description:
-      'Describes itself as the only non-profit tech association serving the entire Kootenay region, running technology and innovation programmes since 1998 — including startup support, venture acceleration, youth education, the MIDAS lab and the Nelson Innovation Centre, and TechEdge, an initiative to advance digital adoption by Kootenay businesses.',
+      'Describes itself as the only non-profit tech association serving the entire Kootenay region, and says it has led regional economic development through technology and innovation since 1998. Programmes include startup support, venture acceleration, youth education and the Nelson Innovation Centre, plus TechEdge, a developing initiative to advance digital adoption by Kootenay businesses. KAST handed project management of the MIDAS Lab to Selkirk College on April 1, 2020.',
     size: null,
     sourceUrl: 'https://kast.com/',
     ...V,
