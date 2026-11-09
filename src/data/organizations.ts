@@ -522,7 +522,9 @@ const QUOTE: Record<string, string> = {
   'https://www.dapperlabs.com/careers': 'Vancouver-based, with hubs in L.A., New York, and Charlotte.',
   'https://www.ufv.ca/computing/': '33844 King Road, Abbotsford, BC',
   'https://selkirk.ca/programs/digital-technology': '301 Frank Beinder Way Castlegar BC V1N 4L3 Canada',
-  'https://cnc.bc.ca/programs-courses/program/computer-network-electronics-technician':
+  // Moved 2026-11-09 (quote audit): the old program-page link is a 404. The same campus
+  // address is word for word in the footer of the page the description is about.
+  'https://cnc.bc.ca/services/centre-for-teaching-and-learning/learning-technology/generative-ai':
     '3330-22nd Ave. Prince George, BC, V2N 1P8',
   'https://kast.com/': '91-D Baker Street Nelson, BC V1L 4G8',
   'https://innovationcentral.ca/contact': '1299 3rd Avenue Prince George, BC V2L 3E6',
@@ -533,7 +535,8 @@ const QUOTE: Record<string, string> = {
   'https://www.abcellera.com/contact': '150W 4th Ave Vancouver BC V5Y 1G6',
   'https://www.generalfusion.com/contact/': '6020 Russ Baker Way Richmond, BC V7B 1B4',
   'https://www.aspectbiosystems.com/contact': '2131 Manitoba Street Vancouver, BC, Canada V5Y 0N7',
-  'https://www.niricson.com': '#1200 – 555 West Hastings Street, Vancouver, BC V6B 4N6',
+  // Removed 2026-11-09 (quote audit): niricson.com no longer prints an address or any BC
+  // place name, so the old quote is not on its page. The record is quote-pending again.
   // Corrected 2026-11-09 (quote audit): each string is now exactly the page's own text.
   // The pages print these addresses without the commas the earlier strings had (and
   // VIATEC's page puts a vertical bar after the street).
@@ -2131,7 +2134,7 @@ const RECORDS: Organization[] = [
     // this organization and is not affiliated with or endorsed by it." That was false.
     // BC + AI commissioned this project. Corrected 2026-08-19.
     description:
-      'Non-profit association describing itself as 300+ paying members building British Columbia’s AI industry, running regional chapters, certifications, the AI Builders Fellowship and the Futureproof Festival. No founding year is published here: the association’s own About page and press kit give different years, and picking one would be choosing rather than sourcing. BC AI Compass is a BC + AI Ecosystem Association project, so this is the one record in the directory published by its own commissioning organization.',
+      'Non-profit association describing itself as 300+ members building British Columbia’s AI industry, running regional chapters, certifications, the AI Builders Fellowship and the Futureproof Festival. No founding year is published here: the association’s own About page and press kit give different years, and picking one would be choosing rather than sourcing. BC AI Compass is a BC + AI Ecosystem Association project, so this is the one record in the directory published by its own commissioning organization.',
     size: null,
     sourceUrl: S_BCAI,
     ...V,
@@ -2742,8 +2745,10 @@ const RECORDS: Organization[] = [
     description:
       'Northern British Columbia college whose Centre for Teaching and Learning publishes generative AI guidance for its learning-technology program.',
     size: null,
-    sourceUrl: 'https://cnc.bc.ca/programs-courses/program/computer-network-electronics-technician',
+    sourceUrl: 'https://cnc.bc.ca/services/centre-for-teaching-and-learning/learning-technology/generative-ai',
     ...V,
+    sourceDate: READ_AUDIT,
+    verified: STAMP_AUDIT,
   },
 
   {
