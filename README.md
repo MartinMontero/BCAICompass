@@ -7,10 +7,10 @@ was checked.** That is the entire premise. A directory that tells you *when* it 
 checked but not *against what* cannot be audited or corrected — it can only be
 believed, and this one does not ask to be believed.
 
-**BC AI Compass is built with [data](https://app.notion.com/p/kriskrug/BC-AI-Community-Atlas-1f0c6f799a3380699decf86aa4d48c7e). from the [BC + AI Ecosystem Association](https://bc-ai.ca) project,
-this tool was built by Martin Montero** as his contribution to it. 
+**BC AI Compass is built with [ open source data](https://app.notion.com/p/kriskrug/BC-AI-Community-Atlas-1f0c6f799a3380699decf86aa4d48c7e). from the [BC + AI Ecosystem Association](https://bc-ai.ca) project,
+this tool was built by Martin Montero** as a gift to the BC tech, creative and civic communities. 
 
-**No other organization listed here is a partner, funder or endorser of this
+**No organization listed here is a partner, funder or endorser of this
 project** — not the universities, not the telecoms, not the Crown agencies, not any
 company. No listing is paid for or sponsored.
 
@@ -258,5 +258,5 @@ Map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributo
 
 Built on the unceded territories of the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations.
 
-A [BC + AI Ecosystem Association](https://bc-ai.ca) project, built by
+built by
 [Martin Montero](https://www.linkedin.com/in/martinmontero).
