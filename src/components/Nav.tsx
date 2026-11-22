@@ -64,7 +64,7 @@ export default function Nav({ savedCount }: { savedCount: number }) {
         <div className={`mx-auto flex items-center justify-between px-5 md:px-8 py-4 transition-all duration-300 ${scrolled || open ? 'nav-scrolled' : ''}`}>
           <a href="#top" className="flex items-center gap-3 group shrink-0" onClick={() => setOpen(false)}>
             <span className="block w-2.5 h-2.5 bg-[var(--brand)] group-hover:rotate-45 transition-transform duration-200" />
-            <span className="font-display text-lg md:text-xl tracking-wide uppercase">BC AI Compass</span>
+            <span className="font-display text-base md:text-xl tracking-wide uppercase">BC AI Ecosystem Compass</span>
           </a>
 
           <nav className="hidden lg:flex items-center gap-4" aria-label="Primary">

@@ -83,7 +83,7 @@ describe('shortlist exports', () => {
     const markdown = shortlistToMarkdown(organizations);
 
     // Assert
-    expect(markdown).toContain('# BC AI Compass shortlist');
+    expect(markdown).toContain('# BC AI Ecosystem Compass shortlist');
     expect(markdown).toContain(`## ${organizations[0].name}`);
     expect(markdown).toContain(`Source checked ${organizations[0].verified}`);
     expect(markdown).toContain(organizations[0].url);

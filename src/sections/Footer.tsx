@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
               <span className="block w-2.5 h-2.5 bg-[var(--brand)]" />
-              <span className="font-display uppercase text-lg tracking-wide">BC AI Compass</span>
+              <span className="font-display uppercase text-lg tracking-wide">BC AI Ecosystem Compass</span>
             </div>
             <p className="mt-4 text-[13px] leading-relaxed text-[var(--ink-soft)] max-w-sm">
               British Columbia's AI ecosystem, mapped and sourced. Every record links to the page
@@ -52,11 +52,10 @@ export default function Footer() {
 
           <div className="md:col-span-4">
             <div className="font-mono2 text-[9.5px] tracking-[0.2em] uppercase text-[var(--ink-faint)] mb-3">
-              Who makes this
+              About this resource
             </div>
             <p className="text-[12.5px] leading-relaxed text-[var(--ink-soft)]">
-              A <strong className="text-[var(--ink)]">BC + AI Ecosystem Association</strong> project,
-              built by{' '}
+              A shared reference for the whole of British Columbia's AI ecosystem, maintained by{' '}
               <a
                 href="https://www.linkedin.com/in/martinmontero/"
                 target="_blank"
@@ -64,7 +63,7 @@ export default function Footer() {
                 className="hover:text-[var(--accent)]"
               >
                 Martin Montero
-              </a>.
+              </a>. It began as a contribution to the BC + AI Ecosystem Association, which is listed here like any other organization.
             </p>
             <p className="mt-4 text-[12.5px] leading-relaxed text-[var(--ink-faint)]">
               Map tiles ©{' '}

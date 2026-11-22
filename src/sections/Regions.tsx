@@ -71,7 +71,7 @@ export default function Regions({
             <h2 className="font-display uppercase text-4xl md:text-6xl leading-[0.95]">See where the ecosystem sits.</h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-[var(--ink-soft)]">
-            Compare verified coverage and category mix. Selecting a region updates your plan, map, and directory together.
+            Compare verified coverage and category mix by region. Counts show what has been verified so far, not how active a region is. Selecting a region updates your plan, map, and directory together.
           </p>
         </div>
 

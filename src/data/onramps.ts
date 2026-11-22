@@ -58,7 +58,7 @@ export const ONRAMPS: Onramp[] = [
     label: 'Find your people',
     question: 'I just want a room to walk into.',
     categories: ['Community & Convening'],
-    blurb: 'Chapters and gatherings across the province. Start anywhere.',
+    blurb: 'Local groups and gatherings across the province. Start anywhere.',
   },
   {
     id: 'learn',

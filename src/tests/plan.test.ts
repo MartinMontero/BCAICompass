@@ -80,7 +80,7 @@ describe('planToMarkdown', () => {
     const markdown = planToMarkdown(plan);
 
     // Assert
-    expect(markdown).toContain(`# BC AI Compass action plan — ${plan.goal.label}`);
+    expect(markdown).toContain(`# BC AI Ecosystem Compass action plan — ${plan.goal.label}`);
     expect(markdown).toContain('## Checklist');
     expect(markdown).toContain('Source checked');
     expect(markdown).toContain('general planning guidance');

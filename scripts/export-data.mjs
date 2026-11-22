@@ -223,7 +223,7 @@ for (const r of REGIONS) byRegion[r] = organizations.filter((o) => o.region === 
 const quotePending = organizations.filter((o) => o.evidenceQuote === null).length;
 
 const dataset = {
-  name: 'BC AI Compass — verified directory of British Columbia’s AI ecosystem',
+  name: 'BC AI Ecosystem Compass — verified directory of British Columbia’s AI ecosystem',
   url: site,
   generated,
   license: 'CC BY 4.0 — credit bc-aicompass.ca',
@@ -242,7 +242,7 @@ const dataset = {
   // predecessor repository for that purpose. BC + AI is listed in this directory.
   // The old line came from an instruction written before that was known.
   affiliation:
-    'BC AI Compass is a BC + AI Ecosystem Association project, built by Martin Montero as his contribution to it. The BC + AI Ecosystem Association is listed in this directory. No other organization listed here is a partner, funder or endorser of this project, and no listing is paid for or sponsored.',
+    'BC AI Ecosystem Compass is maintained by Martin Montero and began as a contribution to the BC + AI Ecosystem Association, which is listed in this directory like any other organization. No organization listed here is a partner, funder or endorser of this project, and no listing is paid for or sponsored.',
   count: organizations.length,
   categories: CATEGORIES,
   categoryColors: CATEGORY_COLORS,
@@ -363,7 +363,7 @@ for (const organization of sourceReview.organizations ?? []) {
 if (peopleProblems.length > 0) fail(`${peopleProblems.length} People dataset problem(s):\n\n    - ` + peopleProblems.join('\n    - '));
 
 const peopleDataset = {
-  name: 'BC AI Compass — sourced people in British Columbia’s AI ecosystem',
+  name: 'BC AI Ecosystem Compass — sourced people in British Columbia’s AI ecosystem',
   url: `${site}/#people`,
   generated,
   license: 'CC BY 4.0 — credit bc-aicompass.ca',

@@ -48,7 +48,7 @@ export function shortlistToCsv(organizations: Organization[]): string {
 }
 
 export function shortlistToMarkdown(organizations: Organization[]): string {
-  const lines = ['# BC AI Compass shortlist', '', 'Saved from the verified directory at https://bc-aicompass.ca', ''];
+  const lines = ['# BC AI Ecosystem Compass shortlist', '', 'Saved from the verified directory at https://bc-aicompass.ca', ''];
   for (const organization of organizations) {
     lines.push(`## ${organization.name}`, '');
     lines.push(`- **Category:** ${organization.category}`);

@@ -76,7 +76,7 @@ test('search, regional planning, pathway tracing, shortlist exports, and persist
   await planner.locator('article').first().getByRole('button', { name: '+ Shortlist' }).click();
 
   const planMarkdown = await downloadContents(page, () => planner.getByRole('button', { name: 'Download .md' }).click());
-  expect(planMarkdown).toContain('BC AI Compass action plan — Build an AI product');
+  expect(planMarkdown).toContain('BC AI Ecosystem Compass action plan — Build an AI product');
   expect(planMarkdown).toContain('Region: Metro Vancouver');
   expect(planMarkdown).toContain('Source checked');
   await planner.getByRole('button', { name: 'Copy action plan' }).click();
@@ -98,7 +98,7 @@ test('search, regional planning, pathway tracing, shortlist exports, and persist
   expect(csv).toContain('Name,Category,Type,Location,Region,Website,Source,Verified');
   expect(csv.trim().split('\r\n')).toHaveLength(3);
   const markdown = await downloadContents(page, () => shortlist.getByRole('button', { name: 'Download .md' }).click());
-  expect(markdown).toContain('# BC AI Compass shortlist');
+  expect(markdown).toContain('# BC AI Ecosystem Compass shortlist');
   expect(markdown).toContain('Source checked');
   await shortlist.getByRole('button', { name: 'Copy Markdown' }).click();
   await expect(shortlist.getByText('Shortlist copied.')).toBeVisible();
