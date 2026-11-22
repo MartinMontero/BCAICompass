@@ -7,7 +7,7 @@ was checked.** That is the entire premise. A directory that tells you *when* it 
 checked but not *against what* cannot be audited or corrected — it can only be
 believed, and this one does not ask to be believed.
 
-**BC AI Ecosystem Compass is maintained by [Martin Montero](https://www.linkedin.com/in/martinmontero) as a public resource for the whole of British Columbia's AI ecosystem.** It began as a contribution to the [BC + AI Ecosystem Association](https://bc-ai.ca), which is listed in the directory like any other organization. Its first list of candidate names came from that community's public database, and every published value was then sourced afresh.
+**BC AI Ecosystem Compass is maintained by [Martin Montero](https://www.linkedin.com/in/martinmontero) as a public resource for the whole of British Columbia's AI ecosystem.** Its first list of candidate names came from a public community database, and every published value was then sourced afresh.
 
 **No organization listed here, including BC + AI, is a partner, funder or endorser of this
 project** — not the universities, not the telecoms, not the Crown agencies, not any
@@ -257,5 +257,4 @@ Map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributo
 
 Built on the unceded territories of the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations.
 
-Maintained by [Martin Montero](https://www.linkedin.com/in/martinmontero). It began as a contribution to the
-[BC + AI Ecosystem Association](https://bc-ai.ca), which is listed here like any other organization.
+Maintained by [Martin Montero](https://www.linkedin.com/in/martinmontero).

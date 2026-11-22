@@ -63,7 +63,7 @@ export default function Footer() {
                 className="hover:text-[var(--accent)]"
               >
                 Martin Montero
-              </a>. It began as a contribution to the BC + AI Ecosystem Association, which is listed here like any other organization.
+              </a>.
             </p>
             <p className="mt-4 text-[12.5px] leading-relaxed text-[var(--ink-faint)]">
               Map tiles ©{' '}
