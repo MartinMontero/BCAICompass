@@ -17,12 +17,12 @@ export default function Hero() {
 
       <div className="relative px-5 md:px-10 max-w-[1400px] mx-auto grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-7">
-          <div className="eyebrow mb-5 reveal">BC + AI ECOSYSTEM · VERIFIED OPEN DATA</div>
+          <div className="eyebrow mb-5 reveal">BRITISH COLUMBIA AI ECOSYSTEM · VERIFIED OPEN DATA</div>
           <h1 className="font-display uppercase leading-[0.92] text-[12vw] sm:text-7xl md:text-8xl lg:text-[6.4vw] max-w-[12ch] reveal">
             Find your next move in B.C. AI.
           </h1>
           <p className="mt-7 max-w-xl text-base md:text-lg leading-relaxed text-[var(--ink-soft)] reveal">
-            Find verified organizations, build a regional action plan, compare candidates, and leave with a working checklist—not just another directory.
+            A public reference for British Columbia's AI ecosystem: universities, companies, funders, public bodies, community groups and infrastructure in every region. Search it, plan a route through it, and check every record against its source.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3 reveal">
             <a href="#ask" className="btn-primary">Find organizations</a>

@@ -67,11 +67,13 @@ export default function Mission() {
               <div className="mt-3 space-y-3 text-[12px] leading-relaxed text-[var(--ink-soft)]">
                 <p>Candidate names began in a community ecosystem database. Every published value was then sourced fresh; the full audit remains in the repository.</p>
                 <p>Oldest stamps are rechecked first. Companies and community groups are reviewed quarterly; infrastructure, research, and public bodies annually.</p>
+                <p>A region or category showing zero has not been surveyed to a conclusion. That is a gap in this resource, not a finding that nothing exists there.</p>
+                <p>Terms. This site uses “AI” as the sector’s standard term. In its own voice it reads AI as Augmented Intelligence: technology that supports human judgement.</p>
               </div>
             </details>
             <div className="rounded-[var(--radius-md)] border border-[var(--line)] p-5">
-              <div className="eyebrow">Who makes this</div>
-              <p className="mt-3 text-[12px] leading-relaxed text-[var(--ink-soft)]">A <strong className="text-[var(--ink)]">BC + AI Ecosystem Association</strong> project, built by <a href="https://www.linkedin.com/in/martinmontero/" target="_blank" rel="noreferrer" className="text-[var(--accent)] underline underline-offset-4">Martin Montero</a>. BC + AI is listed here. No listing is paid for, and no other listed organization is presented as a partner or funder.</p>
+              <div className="eyebrow">About this resource</div>
+              <p className="mt-3 text-[12px] leading-relaxed text-[var(--ink-soft)]">BC AI Ecosystem Compass is a shared reference for the whole of British Columbia's AI ecosystem: universities, companies, funders, public bodies, community groups, infrastructure and the people connecting them, in every region. It is maintained by <a href="https://www.linkedin.com/in/martinmontero/" target="_blank" rel="noreferrer" className="text-[var(--accent)] underline underline-offset-4">Martin Montero</a> and began as a contribution to the BC + AI Ecosystem Association, which is listed here like any other organization. No listing is paid for, and no listed organization, including BC + AI, is presented as a partner, funder or endorser.</p>
             </div>
           </div>
         </div>

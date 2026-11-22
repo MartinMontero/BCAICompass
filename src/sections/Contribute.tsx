@@ -121,7 +121,7 @@ export default function Contribute() {
           <div className="md:col-span-7 reveal">
             <div className="eyebrow mb-3">CONTRIBUTE · GUIDED REVIEW</div>
             <h2 className="font-display uppercase text-4xl md:text-6xl leading-[0.95]">Send a source.</h2>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--ink-soft)]">Tell us what belongs, check your answers, then send. The server creates a pull request for maintainers to review; nothing is merged automatically.</p>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--ink-soft)]">Add an organization, correct a record, or suggest a public resource. Anyone can send a source, including the organizations listed here. Check your answers, then send. Every submission is reviewed against its sources before anything is published; nothing is added automatically.</p>
 
             {step === 'success' && pullRequest ? (
               <div className="mt-8 rounded-[var(--radius-lg)] border border-[var(--brand)] bg-[var(--bg)] p-6" aria-live="polite">

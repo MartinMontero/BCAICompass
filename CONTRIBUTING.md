@@ -1,4 +1,4 @@
-# Contributing to BC AI Compass
+# Contributing to BC AI Ecosystem Compass
 
 **Send a source, not a name.**
 

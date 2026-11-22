@@ -1,4 +1,4 @@
-# BC AI Compass — bc-aicompass.ca
+# BC AI Ecosystem Compass — bc-aicompass.ca
 
 A verified, province-wide map and directory of British Columbia's AI ecosystem.
 
@@ -7,10 +7,9 @@ was checked.** That is the entire premise. A directory that tells you *when* it 
 checked but not *against what* cannot be audited or corrected — it can only be
 believed, and this one does not ask to be believed.
 
-**BC AI Compass is built with [data](https://app.notion.com/p/kriskrug/BC-AI-Community-Atlas-1f0c6f799a3380699decf86aa4d48c7e). from the [BC + AI Ecosystem Association](https://bc-ai.ca) project,
-this tool was built by Martin Montero** as his contribution to it. 
+**BC AI Ecosystem Compass is maintained by [Martin Montero](https://www.linkedin.com/in/martinmontero) as a public resource for the whole of British Columbia's AI ecosystem.** It began as a contribution to the [BC + AI Ecosystem Association](https://bc-ai.ca), which is listed in the directory like any other organization. Its first list of candidate names came from that community's public database, and every published value was then sourced afresh.
 
-**No other organization listed here is a partner, funder or endorser of this
+**No organization listed here, including BC + AI, is a partner, funder or endorser of this
 project** — not the universities, not the telecoms, not the Crown agencies, not any
 company. No listing is paid for or sponsored.
 
@@ -39,7 +38,7 @@ company. No listing is paid for or sponsored.
   organizations, covering community leaders, researchers, founders, and project contributors.
   Search names, expertise, projects, communities, and places; filter by get-help, offer-help,
   or join-project intent; then follow public connection paths and exact role sources. The full
-  organization review ledger and the two organizations without confirmed profiles are public.
+  organization review ledger and the three organizations without confirmed profiles are public.
 - **Mobile task workflow** — persistent phone shortcuts, collapsible directory
   filters, and comparison cards that retain the complete desktop table's actions.
 - **Guided contributions** — a public-source form with validation, review, consent,
@@ -133,7 +132,7 @@ any BC AI dataset, including this one.
 | [`research/PEOPLE.md`](research/PEOPLE.md) | People inclusion, public-source coverage, leadership gaps, privacy, and connection-path rules |
 | [`research/seed-summary.md`](research/seed-summary.md) | The source data normalized into leads, with attrition per filter stage |
 | [`research/union.json`](research/union.json) | 2,467 distinct names from **every** JSON and CSV in the source repository, not just the one backup dump |
-| [`research/unverified.json`](research/unverified.json) | 1,475 candidates that did **not** reach verified, with a reason each. Never built into the site. |
+| [`research/unverified.json`](research/unverified.json) | 1,474 candidates that did **not** reach verified, with a reason each. Never built into the site. |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to add or correct an organization, and what evidence a submission needs |
 
 ## Stack
@@ -258,5 +257,5 @@ Map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributo
 
 Built on the unceded territories of the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations.
 
-A [BC + AI Ecosystem Association](https://bc-ai.ca) project, built by
-[Martin Montero](https://www.linkedin.com/in/martinmontero).
+Maintained by [Martin Montero](https://www.linkedin.com/in/martinmontero). It began as a contribution to the
+[BC + AI Ecosystem Association](https://bc-ai.ca), which is listed here like any other organization.

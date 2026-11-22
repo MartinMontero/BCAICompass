@@ -79,7 +79,7 @@ const DRAFT_PATHWAYS: Pathway[] = [
   },
   {
     id: 'chapter-circuit',
-    name: 'The Chapter Circuit',
+    name: 'The Local Group Circuit',
     blurb:
       'The rooms, in walking-in order — Vancouver, the Fraser Valley, the Comox Valley. Start at the one nearest you.',
     // Vancouver outward. Surrey was dropped from the blurb on 2026-08-19 once

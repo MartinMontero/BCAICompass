@@ -106,12 +106,12 @@ export const GOALS: Goal[] = [
     id: 'connect',
     label: 'Join a community',
     title: 'Find a room and make the first visit useful.',
-    summary: 'For anyone looking for chapters, recurring gatherings, and peer learning in B.C.',
+    summary: 'For anyone looking for local groups, recurring gatherings, and peer learning in B.C.',
     categories: ['Community & Convening'],
     priorityIds: ['bc-ai-ecosystem-association', 'vancouver-ai', 'fv-ai-fraser-valley-ai', 'cv-ai-comox-valley-ai', 'ai-ethical-futures-lab', 'ed-ai-education-meetup'],
     pathwayIds: ['chapter-circuit'],
     steps: [
-      { title: 'Pick by place or practice', detail: 'Choose a nearby chapter or a domain group whose recurring conversation matches what you want to learn or contribute.' },
+      { title: 'Pick by place or practice', detail: 'Choose a nearby local group or a topic group whose recurring conversation matches what you want to learn or contribute.' },
       { title: 'Confirm the next session', detail: 'Open the community’s current page for the date, venue, registration, accessibility, and whether the session is a talk, lab, or social.' },
       { title: 'Bring a two-sentence introduction', detail: 'Say what you are working on and what you hope to learn or offer. A specific introduction makes the room easier to navigate.' },
       { title: 'Close the loop', detail: 'Write down one person, one resource, and one next session. Offer a correction, demo, or useful source when you can.' },
@@ -175,7 +175,7 @@ export function buildActionPlan(goalId: GoalId, region: PlanRegion = 'All region
 
 export function planToMarkdown(plan: ActionPlan): string {
   const lines = [
-    `# BC AI Compass action plan — ${plan.goal.label}`,
+    `# BC AI Ecosystem Compass action plan — ${plan.goal.label}`,
     '',
     plan.goal.title,
     '',
@@ -190,7 +190,7 @@ export function planToMarkdown(plan: ActionPlan): string {
   for (const organization of plan.organizations) {
     lines.push(`- [${organization.name}](${organization.url}) — ${organization.location}; ${organization.region}. [Source checked ${organization.verified}](${organization.sourceUrl})`);
   }
-  if (plan.organizations.length === 0) lines.push('- No verified record matches this goal and region yet. Use the contribution route on BC AI Compass to suggest one.');
+  if (plan.organizations.length === 0) lines.push('- No verified record matches this goal and region yet. Use the contribution route on BC AI Ecosystem Compass to suggest one.');
   lines.push('', '## Note', '', 'Checklist items are general planning guidance. Organization facts come from the linked, dated sources; confirm current program details before acting.', '');
   return lines.join('\n');
 }
