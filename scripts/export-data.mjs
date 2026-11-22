@@ -242,7 +242,7 @@ const dataset = {
   // predecessor repository for that purpose. BC + AI is listed in this directory.
   // The old line came from an instruction written before that was known.
   affiliation:
-    'BC AI Ecosystem Compass is maintained by Martin Montero and began as a contribution to the BC + AI Ecosystem Association, which is listed in this directory like any other organization. No organization listed here is a partner, funder or endorser of this project, and no listing is paid for or sponsored.',
+    'BC AI Ecosystem Compass is maintained by Martin Montero. No organization listed here is a partner, funder or endorser of this project, and no listing is paid for or sponsored.',
   count: organizations.length,
   categories: CATEGORIES,
   categoryColors: CATEGORY_COLORS,

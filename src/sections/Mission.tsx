@@ -73,7 +73,7 @@ export default function Mission() {
             </details>
             <div className="rounded-[var(--radius-md)] border border-[var(--line)] p-5">
               <div className="eyebrow">About this resource</div>
-              <p className="mt-3 text-[12px] leading-relaxed text-[var(--ink-soft)]">BC AI Ecosystem Compass is a shared reference for the whole of British Columbia's AI ecosystem: universities, companies, funders, public bodies, community groups, infrastructure and the people connecting them, in every region. It is maintained by <a href="https://www.linkedin.com/in/martinmontero/" target="_blank" rel="noreferrer" className="text-[var(--accent)] underline underline-offset-4">Martin Montero</a> and began as a contribution to the BC + AI Ecosystem Association, which is listed here like any other organization. No listing is paid for, and no listed organization, including BC + AI, is presented as a partner, funder or endorser.</p>
+              <p className="mt-3 text-[12px] leading-relaxed text-[var(--ink-soft)]">BC AI Ecosystem Compass is a shared reference for the whole of British Columbia's AI ecosystem: universities, companies, funders, public bodies, community groups, infrastructure and the people connecting them, in every region. It is maintained by <a href="https://www.linkedin.com/in/martinmontero/" target="_blank" rel="noreferrer" className="text-[var(--accent)] underline underline-offset-4">Martin Montero</a>. No listing is paid for, and no listed organization, including BC + AI, is presented as a partner, funder or endorser.</p>
             </div>
           </div>
         </div>
