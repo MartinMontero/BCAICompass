@@ -7,7 +7,7 @@ was checked.** That is the entire premise. A directory that tells you *when* it 
 checked but not *against what* cannot be audited or corrected — it can only be
 believed, and this one does not ask to be believed.
 
-**BC AI Ecosystem Compass is maintained by [Martin Montero](https://www.linkedin.com/in/martinmontero) as a public resource for the whole of British Columbia's AI ecosystem.** Its first list of candidate names came from a public community database, and every published value was then sourced afresh.
+**BC AI Ecosystem Compass was designed, built by and is maintained by [Martin Montero](https://www.linkedin.com/in/martinmontero) as a public resource for the whole of British Columbia's AI ecosystem.** Its first list of candidate names came from a public community database, and every published value was then sourced afresh.
 
 **No organization listed here, including BC + AI, is a partner, funder or endorser of this
 project** — not the universities, not the telecoms, not the Crown agencies, not any
